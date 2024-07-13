@@ -2,26 +2,115 @@
 
 import React from "react";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 type Props = {};
+
+const links = [
+    {
+        name: "Powland",
+        href: "#top",
+    },
+    {
+        name: "Powjects",
+        href: "#powjects",
+    },
+    {
+        name: "Powfessional Journey",
+        href: "#powfessional-journey",
+    },
+    {
+        name: "About Pow",
+        href: "#about-pow",
+    },
+    {
+        name: "Pownderful Insights",
+        href: "#pownderful-insights",
+    },
+];
 
 const Navbar = (props: Props) => {
     const [open, setOpen] = React.useState(false);
     const brand = React.useRef<HTMLAnchorElement>(null);
 
     React.useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 0) {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
                 brand.current?.classList.add("opacity-0");
             } else {
                 brand.current?.classList.remove("opacity-0");
             }
-        });
+        };
+
+        const handleMouseEnter = (element: Element, animationClass: string) => {
+            if (element.classList.contains("animate__animated")) return;
+            element.classList.add("animate__animated", animationClass);
+        };
+
+        const handleAnimationEnd = (
+            element: Element,
+            animationClass: string
+        ) => {
+            element.classList.remove("animate__animated", animationClass);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        const menuButton = document.querySelector("#menu-button");
+        if (menuButton) {
+            menuButton.addEventListener("mouseenter", () =>
+                handleMouseEnter(menuButton, "animate__swing")
+            );
+            menuButton.addEventListener("animationend", () =>
+                handleAnimationEnd(menuButton, "animate__swing")
+            );
+        }
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+
+            if (menuButton) {
+                menuButton.removeEventListener("mouseenter", () =>
+                    handleMouseEnter(menuButton, "animate__swing")
+                );
+                menuButton.removeEventListener("animationend", () =>
+                    handleAnimationEnd(menuButton, "animate__swing")
+                );
+            }
+        };
     }, []);
+
+    const handleToggleMenu = () => {
+        setOpen((prev) => !prev);
+    };
 
     return (
         <>
-            <header className="fixed top-0 inset-x-0 z-20 m-2">
+            <motion.header
+                className="fixed top-0 inset-x-0 z-20 m-2"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: {
+                        opacity: 0,
+                        y: -100,
+                    },
+                    visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                            opacity: {
+                                duration: 0.75,
+                            },
+                            y: {
+                                type: "spring",
+                                stiffness: 100,
+                                duration: 1.5,
+                            },
+                        },
+                    },
+                }}
+            >
                 <div className="container py-2 flex justify-between items-center relative z-10">
                     <a
                         href="#"
@@ -32,7 +121,8 @@ const Navbar = (props: Props) => {
                     </a>
                     <button
                         className="bg-white h-12 w-12 flex items-center rounded-full relative z-10 overflow-hidden"
-                        onClick={() => setOpen(!open)}
+                        onClick={handleToggleMenu}
+                        id="menu-button"
                     >
                         <div
                             className={`absolute flex gap-10 min-w-[200%] left-1/2 transition-all duration-500 ${
@@ -44,6 +134,7 @@ const Navbar = (props: Props) => {
                             <Icon icon="tabler:paw" className="text-2xl" />
                             <Icon icon="tabler:x" className="text-2xl" />
                         </div>
+                        <span className="sr-only">Open Navigation Bar</span>
                     </button>
                     <div
                         className={`fixed inset-y-0 right-0 max-w-[400px] w-full bg-stone-100 flex flex-col px-12 gap-12 justify-between py-40 pb-12 transition-all duration-500 ${
@@ -55,66 +146,19 @@ const Navbar = (props: Props) => {
                                 Navigation
                             </span>
                             <nav className="grid gap-4">
-                                <a
-                                    className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
-                                    href="#"
-                                >
-                                    <Icon
-                                        icon="tabler:paw"
-                                        className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
-                                    />
-                                    Powland
-                                </a>
-                                <a
-                                    className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
-                                    href="#"
-                                >
-                                    <Icon
-                                        icon="tabler:paw"
-                                        className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
-                                    />
-                                    Powjects
-                                </a>
-                                <a
-                                    className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
-                                    href="#"
-                                >
-                                    <Icon
-                                        icon="tabler:paw"
-                                        className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
-                                    />
-                                    Powfessional Journey
-                                </a>
-                                <a
-                                    className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
-                                    href="#"
-                                >
-                                    <Icon
-                                        icon="tabler:paw"
-                                        className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
-                                    />
-                                    About Pow
-                                </a>
-                                <a
-                                    className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
-                                    href="#"
-                                >
-                                    <Icon
-                                        icon="tabler:paw"
-                                        className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
-                                    />
-                                    Pownderful Insights
-                                </a>
-                                <a
-                                    className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
-                                    href="#"
-                                >
-                                    <Icon
-                                        icon="tabler:paw"
-                                        className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
-                                    />
-                                    Stay Pownected
-                                </a>
+                                {links.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
+                                        href={link.href}
+                                    >
+                                        <Icon
+                                            icon="tabler:paw"
+                                            className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
+                                        />
+                                        {link.name}
+                                    </a>
+                                ))}
                             </nav>
                         </div>
                         <svg
@@ -160,9 +204,9 @@ const Navbar = (props: Props) => {
                     className={`bg-stone-600/60 fixed inset-0 transition-all duration-500 ${
                         open ? "opacity-100" : "opacity-0 pointer-events-none"
                     }`}
-                    onClick={() => setOpen(false)}
+                    onClick={handleToggleMenu}
                 ></div>
-            </header>
+            </motion.header>
         </>
     );
 };
