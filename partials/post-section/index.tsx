@@ -12,7 +12,7 @@ const PostSection = (props: Props) => {
                         title="Pownderful Insights"
                         subtitle="Thoughts & Tutorials"
                     />
-                    <div className="grid gap-20 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="relative grid gap-20 md:grid-cols-2 lg:grid-cols-3">
                         <div className="timeline-view animate-[down-up] space-y-4 border-b border-stone-300 pb-6">
                             <div className="relative flex items-center justify-center">
                                 <div className="absolute h-0.5 w-full rounded-full bg-stone-800"></div>
@@ -72,6 +72,11 @@ const PostSection = (props: Props) => {
                                 mollitia laborum fugiat enim molestiae error.
                                 Nisi, architecto sint! Voluptas.
                             </p>
+                        </div>
+                        <div className="absolute -inset-10 grid place-items-center rounded-xl bg-white/40 backdrop-blur">
+                            <span className="text-2xl text-stone-800">
+                                Under Construction :D
+                            </span>
                         </div>
                     </div>
                 </div>

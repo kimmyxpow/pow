@@ -17,7 +17,10 @@ const ProjectSection = async (props: Props) => {
                 />
                 <div className="space-y-10">
                     {result.map((project) => (
-                        <div className="timeline-view grid animate-[down-up] items-center gap-10 xl:grid-cols-2">
+                        <div
+                            className="timeline-view grid animate-[down-up] items-center gap-10 xl:grid-cols-2"
+                            key={project.id}
+                        >
                             <div className="aspect-video w-full overflow-hidden rounded-3xl">
                                 <img
                                     src={`${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${project.collectionId}/${project.id}/${project.image}?thumb=100x300`}
@@ -95,6 +98,32 @@ const ProjectSection = async (props: Props) => {
                             </div>
                         </div>
                     ))}
+                    <div className="flex justify-center">
+                        <a
+                            href="https://github.com/kimmyxpow"
+                            className="group relative mx-auto transition-all hover:-rotate-6 hover:scale-110"
+                        >
+                            <span className="relative z-10 block rounded-full bg-stone-800 px-12 py-6 text-white transition-all group-hover:bg-stone-700">
+                                See More on GitGub
+                            </span>
+                            <Icon
+                                icon="tabler:brand-github"
+                                className="absolute -right-6 top-0 -translate-x-10 translate-y-6 rotate-12 text-xl transition-all group-hover:translate-x-0 group-hover:translate-y-0"
+                            />
+                            <Icon
+                                icon="tabler:brand-github"
+                                className="absolute -right-8 top-6 -translate-x-12 rotate-[24deg] text-xl transition-all group-hover:translate-x-0"
+                            />
+                            <Icon
+                                icon="tabler:brand-github"
+                                className="absolute -left-6 bottom-0 -translate-y-6 translate-x-10 -rotate-[45deg] text-xl transition-all group-hover:translate-x-0 group-hover:translate-y-0"
+                            />
+                            <Icon
+                                icon="tabler:brand-github"
+                                className="absolute -left-8 bottom-6 translate-x-12 -rotate-12 text-xl transition-all group-hover:translate-x-0"
+                            />
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
