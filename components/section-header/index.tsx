@@ -1,7 +1,3 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { animaFromTop } from "@/utils/anima";
-
 type Props = {
     title: string;
     subtitle: string;
