@@ -2,7 +2,6 @@
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
 
 type Props = {};
@@ -33,7 +32,6 @@ const links = [
 const Navbar = (props: Props) => {
     const [open, setOpen] = useState(false);
     const brand = useRef<HTMLAnchorElement>(null);
-    const lenis = new Lenis();
 
     useEffect(() => {
         const handleScroll = () => {
