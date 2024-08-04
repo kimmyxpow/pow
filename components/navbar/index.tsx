@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import Lenis from "lenis";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {};
 
@@ -30,10 +31,11 @@ const links = [
 ];
 
 const Navbar = (props: Props) => {
-    const [open, setOpen] = React.useState(false);
-    const brand = React.useRef<HTMLAnchorElement>(null);
+    const [open, setOpen] = useState(false);
+    const brand = useRef<HTMLAnchorElement>(null);
+    const lenis = new Lenis();
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
                 brand.current?.classList.add("opacity-0");

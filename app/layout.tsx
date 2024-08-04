@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import Navbar from "@/components/navbar";
 import "./globals.css";
 import "animate.css";
-import Navbar from "@/components/navbar";
 
 const chivo = Quicksand({
     subsets: ["latin"],
@@ -20,7 +20,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             <body className={chivo.className}>
                 <div className="bg-stone-200">
                     <Navbar />

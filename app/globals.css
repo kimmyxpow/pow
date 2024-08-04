@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Lenis Recomended CSS */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
 @layer base {
     h1,
     h2,
@@ -16,5 +38,77 @@
     span,
     li {
         @apply text-stone-500 leading-relaxed;
+    }
+}
+
+@layer utilities {
+    @supports (animation-timeline: view()) {
+        @media (prefers-reduced-motion: no-preference) {
+            .timeline-view {
+                animation-timeline: view();
+                animation-range: entry 0 cover 50%;
+            }
+
+            @keyframes up-down {
+                from {
+                    opacity: 0;
+                    scale: 0.8;
+                    translate: 0 -4rem;
+                }
+                to {
+                    opacity: 1;
+                    scale: 1;
+                    translate: 0 0;
+                }
+            }
+
+            @keyframes down-up {
+                from {
+                    opacity: 0;
+                    scale: 0.8;
+                    translate: 0 4rem;
+                }
+                to {
+                    opacity: 1;
+                    scale: 1;
+                    translate: 0 0;
+                }
+            }
+
+            @keyframes left-right {
+                from {
+                    opacity: 0;
+                    scale: 0.8;
+                    translate: -4rem 0;
+                }
+                to {
+                    opacity: 1;
+                    scale: 1;
+                    translate: 0 0;
+                }
+            }
+
+            @keyframes right-left {
+                from {
+                    opacity: 0;
+                    scale: 0.8;
+                    translate: 4rem 0;
+                }
+                to {
+                    opacity: 1;
+                    scale: 1;
+                    translate: 0 0;
+                }
+            }
+
+            @keyframes up-only {
+                from {
+                    translate: 0 12rem;
+                }
+                to {
+                    translate: 0 0;
+                }
+            }
+        }
     }
 }
