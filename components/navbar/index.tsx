@@ -151,6 +151,7 @@ const Navbar = (props: Props) => {
                                         key={link.name}
                                         className="group relative flex items-center text-2xl text-stone-500 hover:text-stone-800"
                                         href={link.href}
+                                        onClick={() => setOpen(false)}
                                     >
                                         <Icon
                                             icon="tabler:paw"
