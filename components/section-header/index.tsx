@@ -9,11 +9,11 @@ type Props = {
 
 const SectionHeader = ({ title, subtitle }: Props) => {
     return (
-        <div className="space-y-2 text-center flex flex-col">
-            <span className="uppercase tracking-widest text-gray-500 text-sm timeline-view animate-[up-down]">
+        <div className="flex flex-col space-y-2 text-center">
+            <span className="timeline-view animate-[up-down] text-sm uppercase tracking-widest text-gray-500">
                 {subtitle}
             </span>
-            <h2 className="text-3xl font-thin timeline-view animate-[up-down]">
+            <h2 className="timeline-view animate-[up-down] text-3xl font-thin">
                 {title}
             </h2>
         </div>

@@ -9,10 +9,10 @@ type Props = {};
 const MainSection = (props: Props) => {
     return (
         <main className="bg-stone-100">
-            <div className="rounded-b-[6rem] bg-stone-200 size-full flex items-center min-h-screen">
-                <div className="container text-center flex flex-col gap-10">
+            <div className="flex size-full min-h-screen items-center rounded-b-[6rem] bg-stone-200">
+                <div className="container flex flex-col gap-10 text-center">
                     <motion.svg
-                        className="max-w-96 w-full stroke-stone-800 mx-auto"
+                        className="mx-auto w-full max-w-96 stroke-stone-800"
                         viewBox="0 0 969 438"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ const MainSection = (props: Props) => {
                             }}
                         />
                     </motion.svg>
-                    <div className="space-y-2 flex flex-col">
+                    <div className="flex flex-col space-y-2">
                         <motion.span
                             className="uppercase tracking-widest text-gray-500"
                             initial="hidden"
@@ -77,7 +77,7 @@ const MainSection = (props: Props) => {
                             Discover the Magic of Code
                         </motion.span>
                         <motion.h1
-                            className="sm:text-8xl text-6xl font-black max-w-[40rem] w-full mx-auto"
+                            className="mx-auto w-full max-w-[40rem] text-6xl font-black sm:text-8xl"
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -106,7 +106,7 @@ const MainSection = (props: Props) => {
                     </div>
                     <motion.a
                         href="#powjects"
-                        className="mx-auto relative group"
+                        className="group relative mx-auto"
                         whileHover={{ scale: 1.1, rotate: -8 }}
                         initial="hidden"
                         animate="visible"
@@ -133,24 +133,24 @@ const MainSection = (props: Props) => {
                             },
                         }}
                     >
-                        <span className="bg-white group-hover:bg-stone-50 transition-all py-6 px-12 rounded-full text-stone-800 block relative z-10">
+                        <span className="relative z-10 block rounded-full bg-white px-12 py-6 text-stone-800 transition-all group-hover:bg-stone-50">
                             Explore the Powland
                         </span>
                         <Icon
                             icon="tabler:paw"
-                            className="rotate-12 absolute top-0 -right-6 text-xl -translate-x-10 translate-y-6 transition-all group-hover:translate-x-0 group-hover:translate-y-0"
+                            className="absolute -right-6 top-0 -translate-x-10 translate-y-6 rotate-12 text-xl transition-all group-hover:translate-x-0 group-hover:translate-y-0"
                         />
                         <Icon
                             icon="tabler:paw"
-                            className="rotate-[24deg] absolute top-6 -right-8 text-xl -translate-x-12 transition-all group-hover:translate-x-0"
+                            className="absolute -right-8 top-6 -translate-x-12 rotate-[24deg] text-xl transition-all group-hover:translate-x-0"
                         />
                         <Icon
                             icon="tabler:paw"
-                            className="-rotate-[45deg] absolute bottom-0 -left-6 text-xl translate-x-10 transition-all -translate-y-6 group-hover:translate-x-0 group-hover:translate-y-0"
+                            className="absolute -left-6 bottom-0 -translate-y-6 translate-x-10 -rotate-[45deg] text-xl transition-all group-hover:translate-x-0 group-hover:translate-y-0"
                         />
                         <Icon
                             icon="tabler:paw"
-                            className="-rotate-12 absolute bottom-6 -left-8 text-xl translate-x-12 transition-all group-hover:translate-x-0"
+                            className="absolute -left-8 bottom-6 translate-x-12 -rotate-12 text-xl transition-all group-hover:translate-x-0"
                         />
                     </motion.a>
                 </div>

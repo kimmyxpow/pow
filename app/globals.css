@@ -37,7 +37,7 @@ html.lenis body {
     p,
     span,
     li {
-        @apply text-stone-500 leading-relaxed;
+        @apply leading-relaxed text-stone-500;
     }
 }
 

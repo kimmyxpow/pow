@@ -9,7 +9,7 @@ const ProjectSection = async (props: Props) => {
     const result = await pb.collection("projects").getFullList();
 
     return (
-        <section className="py-36 rounded-b-[6rem] bg-stone-100" id="powjects">
+        <section className="rounded-b-[6rem] bg-stone-100 py-36" id="powjects">
             <div className="container space-y-16">
                 <SectionHeader
                     title="Powjects"
@@ -17,8 +17,8 @@ const ProjectSection = async (props: Props) => {
                 />
                 <div className="space-y-10">
                     {result.map((project) => (
-                        <div className="grid xl:grid-cols-2 gap-10 items-center timeline-view animate-[down-up]">
-                            <div className="aspect-video w-full rounded-3xl overflow-hidden">
+                        <div className="timeline-view grid animate-[down-up] items-center gap-10 xl:grid-cols-2">
+                            <div className="aspect-video w-full overflow-hidden rounded-3xl">
                                 <img
                                     src={`${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${project.collectionId}/${project.id}/${project.image}?thumb=100x300`}
                                     alt={project.name}
@@ -42,7 +42,7 @@ const ProjectSection = async (props: Props) => {
                                                     (i <
                                                     project.roles.length - 1
                                                         ? ", "
-                                                        : "")
+                                                        : ""),
                                             )}
                                         </span>
                                     </div>
@@ -57,7 +57,7 @@ const ProjectSection = async (props: Props) => {
                                                     (i <
                                                     project.stack.length - 1
                                                         ? ", "
-                                                        : "")
+                                                        : ""),
                                             )}
                                         </span>
                                     </div>
@@ -68,7 +68,7 @@ const ProjectSection = async (props: Props) => {
                                             href={project.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 border border-stone-400 py-3 px-6 rounded-full text-stone-600 hover:bg-stone-300 transition-all"
+                                            className="flex items-center gap-2 rounded-full border border-stone-400 px-6 py-3 text-stone-600 transition-all hover:bg-stone-300"
                                         >
                                             Visit site
                                             <Icon
@@ -82,7 +82,7 @@ const ProjectSection = async (props: Props) => {
                                             href={project.sc}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 bg-stone-800 py-3 px-6 rounded-full text-stone-200 hover:bg-stone-700 transition-all"
+                                            className="flex items-center gap-2 rounded-full bg-stone-800 px-6 py-3 text-stone-200 transition-all hover:bg-stone-700"
                                         >
                                             Source Code
                                             <Icon

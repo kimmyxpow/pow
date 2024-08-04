@@ -12,11 +12,11 @@ const PostSection = (props: Props) => {
                         title="Pownderful Insights"
                         subtitle="Thoughts & Tutorials"
                     />
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-20">
-                        <div className="space-y-4 border-b border-stone-300 pb-6 timeline-view animate-[down-up]">
+                    <div className="grid gap-20 md:grid-cols-2 lg:grid-cols-3">
+                        <div className="timeline-view animate-[down-up] space-y-4 border-b border-stone-300 pb-6">
                             <div className="relative flex items-center justify-center">
-                                <div className="h-0.5 w-full rounded-full bg-stone-800 absolute"></div>
-                                <span className="text-sm py-1 px-4 rounded-full bg-stone-800 text-stone-200 inline-block relative">
+                                <div className="absolute h-0.5 w-full rounded-full bg-stone-800"></div>
+                                <span className="relative inline-block rounded-full bg-stone-800 px-4 py-1 text-sm text-stone-200">
                                     Thought
                                 </span>
                             </div>
@@ -33,10 +33,10 @@ const PostSection = (props: Props) => {
                                 Nisi, architecto sint! Voluptas.
                             </p>
                         </div>
-                        <div className="space-y-4 border-b border-stone-300 pb-6 timeline-view animate-[down-up]">
+                        <div className="timeline-view animate-[down-up] space-y-4 border-b border-stone-300 pb-6">
                             <div className="relative flex items-center justify-center">
-                                <div className="h-0.5 w-full rounded-full bg-stone-800 absolute"></div>
-                                <span className="text-sm py-1 px-4 rounded-full bg-stone-800 text-stone-200 inline-block relative">
+                                <div className="absolute h-0.5 w-full rounded-full bg-stone-800"></div>
+                                <span className="relative inline-block rounded-full bg-stone-800 px-4 py-1 text-sm text-stone-200">
                                     Thought
                                 </span>
                             </div>
@@ -53,10 +53,10 @@ const PostSection = (props: Props) => {
                                 Nisi, architecto sint! Voluptas.
                             </p>
                         </div>
-                        <div className="space-y-4 border-b border-stone-300 pb-6 timeline-view animate-[down-up]">
+                        <div className="timeline-view animate-[down-up] space-y-4 border-b border-stone-300 pb-6">
                             <div className="relative flex items-center justify-center">
-                                <div className="h-0.5 w-full rounded-full bg-stone-800 absolute"></div>
-                                <span className="text-sm py-1 px-4 rounded-full bg-stone-800 text-stone-200 inline-block relative">
+                                <div className="absolute h-0.5 w-full rounded-full bg-stone-800"></div>
+                                <span className="relative inline-block rounded-full bg-stone-800 px-4 py-1 text-sm text-stone-200">
                                     Thought
                                 </span>
                             </div>

@@ -18,25 +18,25 @@ const ExperienceSection = async (props: Props) => {
                     title="Powfessional Journey"
                     subtitle="My Career Path"
                 />
-                <div className="space-y-10 relative flex flex-col items-center">
-                    <div className="w-2 h-full bg-stone-800 absolute z-0 rounded-full lg:block hidden"></div>
+                <div className="relative flex flex-col items-center space-y-10">
+                    <div className="absolute z-0 hidden h-full w-2 rounded-full bg-stone-800 lg:block"></div>
                     {result.map((experience, i) => (
                         <>
                             <div
-                                className={`flex justify-center sm:gap-10 gap-6 w-full relative timeline-view animate-[up-only] ${
+                                className={`timeline-view relative flex w-full animate-[up-only] justify-center gap-6 sm:gap-10 ${
                                     i % 2 === 0
-                                        ? "sm:flex-row flex-col-reverse"
-                                        : "sm:flex-row-reverse flex-col-reverse"
+                                        ? "flex-col-reverse sm:flex-row"
+                                        : "flex-col-reverse sm:flex-row-reverse"
                                 }`}
                             >
-                                <div className="max-w-lg w-full bg-stone-100 rounded-lg relative">
-                                    <div className="bg-stone-800 px-8 py-6 rounded-t-lg">
-                                        <span className="text-white text-2xl text-center block">
+                                <div className="relative w-full max-w-lg rounded-lg bg-stone-100">
+                                    <div className="rounded-t-lg bg-stone-800 px-8 py-6">
+                                        <span className="block text-center text-2xl text-white">
                                             {experience.institution}
                                         </span>
                                     </div>
-                                    <div className="p-8 flex flex-col">
-                                        <div className="flex justify-between items-center">
+                                    <div className="flex flex-col p-8">
+                                        <div className="flex items-center justify-between">
                                             <span className="text-gray-500">
                                                 {experience.type}
                                             </span>
@@ -48,7 +48,7 @@ const ExperienceSection = async (props: Props) => {
                                             {experience.position}
                                         </h3>
                                         <div
-                                            className="prose max-w-none mt-4"
+                                            className="prose mt-4 max-w-none"
                                             dangerouslySetInnerHTML={{
                                                 __html: experience.description,
                                             }}
@@ -58,18 +58,18 @@ const ExperienceSection = async (props: Props) => {
                                         </p>
                                     </div>
                                     <div
-                                        className={`size-6 rounded rotate-45 bg-stone-800 absolute sm:top-5 top-1 sm:translate-y-0 -translate-y-1/2 ${
+                                        className={`absolute top-1 size-6 -translate-y-1/2 rotate-45 rounded bg-stone-800 sm:top-5 sm:translate-y-0 ${
                                             i % 2 === 0
-                                                ? "sm:right-1 sm:left-auto left-4 sm:translate-x-1/2"
-                                                : "sm:left-1 left-4 sm:-translate-x-1/2"
+                                                ? "left-4 sm:left-auto sm:right-1 sm:translate-x-1/2"
+                                                : "left-4 sm:left-1 sm:-translate-x-1/2"
                                         }`}
                                     ></div>
                                 </div>
-                                <div className="size-14 shrink-0 rounded-full grid place-items-center bg-stone-800 text-white text-2xl">
+                                <div className="grid size-14 shrink-0 place-items-center rounded-full bg-stone-800 text-2xl text-white">
                                     {ExpIcon(experience.type)}
                                 </div>
                                 <div
-                                    className={`max-w-lg w-full mt-4 lg:block hidden ${
+                                    className={`mt-4 hidden w-full max-w-lg lg:block ${
                                         i % 2 === 0 ? "" : "text-right"
                                     }`}
                                 >

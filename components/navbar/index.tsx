@@ -51,7 +51,7 @@ const Navbar = (props: Props) => {
 
         const handleAnimationEnd = (
             element: Element,
-            animationClass: string
+            animationClass: string,
         ) => {
             element.classList.remove("animate__animated", animationClass);
         };
@@ -61,10 +61,10 @@ const Navbar = (props: Props) => {
         const menuButton = document.querySelector("#menu-button");
         if (menuButton) {
             menuButton.addEventListener("mouseenter", () =>
-                handleMouseEnter(menuButton, "animate__swing")
+                handleMouseEnter(menuButton, "animate__swing"),
             );
             menuButton.addEventListener("animationend", () =>
-                handleAnimationEnd(menuButton, "animate__swing")
+                handleAnimationEnd(menuButton, "animate__swing"),
             );
         }
 
@@ -73,10 +73,10 @@ const Navbar = (props: Props) => {
 
             if (menuButton) {
                 menuButton.removeEventListener("mouseenter", () =>
-                    handleMouseEnter(menuButton, "animate__swing")
+                    handleMouseEnter(menuButton, "animate__swing"),
                 );
                 menuButton.removeEventListener("animationend", () =>
-                    handleAnimationEnd(menuButton, "animate__swing")
+                    handleAnimationEnd(menuButton, "animate__swing"),
                 );
             }
         };
@@ -89,7 +89,7 @@ const Navbar = (props: Props) => {
     return (
         <>
             <motion.header
-                className="fixed top-0 inset-x-0 z-20 m-2"
+                className="fixed inset-x-0 top-0 z-20 m-2"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -113,7 +113,7 @@ const Navbar = (props: Props) => {
                     },
                 }}
             >
-                <div className="container py-2 flex justify-between items-center relative z-10">
+                <div className="container relative z-10 flex items-center justify-between py-2">
                     <a
                         href="#"
                         className="font-medium transition-all"
@@ -122,12 +122,12 @@ const Navbar = (props: Props) => {
                         POW
                     </a>
                     <button
-                        className="bg-white h-12 w-12 flex items-center rounded-full relative z-10 overflow-hidden"
+                        className="relative z-10 flex h-12 w-12 items-center overflow-hidden rounded-full bg-white"
                         onClick={handleToggleMenu}
                         id="menu-button"
                     >
                         <div
-                            className={`absolute flex gap-10 min-w-[200%] left-1/2 transition-all duration-500 ${
+                            className={`absolute left-1/2 flex min-w-[200%] gap-10 transition-all duration-500 ${
                                 open
                                     ? "-translate-x-[4.75rem]"
                                     : "-translate-x-3"
@@ -139,7 +139,7 @@ const Navbar = (props: Props) => {
                         <span className="sr-only">Open Navigation Bar</span>
                     </button>
                     <div
-                        className={`fixed inset-y-0 right-0 max-w-[400px] w-full bg-stone-100 flex flex-col px-12 gap-12 justify-between py-40 pb-12 transition-all duration-500 ${
+                        className={`fixed inset-y-0 right-0 flex w-full max-w-[400px] flex-col justify-between gap-12 bg-stone-100 px-12 py-40 pb-12 transition-all duration-500 ${
                             open ? "translate-x-0" : "translate-x-full"
                         }`}
                     >
@@ -151,12 +151,12 @@ const Navbar = (props: Props) => {
                                 {links.map((link) => (
                                     <a
                                         key={link.name}
-                                        className="text-2xl text-stone-500 group hover:text-stone-800 relative flex items-center"
+                                        className="group relative flex items-center text-2xl text-stone-500 hover:text-stone-800"
                                         href={link.href}
                                     >
                                         <Icon
                                             icon="tabler:paw"
-                                            className="absolute -translate-x-full -left-2 scale-0 group-hover:scale-100 transition-all -rotate-12"
+                                            className="absolute -left-2 -translate-x-full -rotate-12 scale-0 transition-all group-hover:scale-100"
                                         />
                                         {link.name}
                                     </a>
@@ -203,8 +203,8 @@ const Navbar = (props: Props) => {
                     </div>
                 </div>
                 <div
-                    className={`bg-stone-600/60 fixed inset-0 transition-all duration-500 ${
-                        open ? "opacity-100" : "opacity-0 pointer-events-none"
+                    className={`fixed inset-0 bg-stone-600/60 transition-all duration-500 ${
+                        open ? "opacity-100" : "pointer-events-none opacity-0"
                     }`}
                     onClick={handleToggleMenu}
                 ></div>

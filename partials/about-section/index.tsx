@@ -16,7 +16,7 @@ const AboutSection = (props: Props) => {
                         subtitle="Get to Know Me"
                     />
                     <motion.svg
-                        className="stroke-stone-800 h-40 mx-auto timeline-view animate-[down-up]"
+                        className="timeline-view mx-auto h-40 animate-[down-up] stroke-stone-800"
                         viewBox="0 0 828 448"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -214,9 +214,9 @@ const AboutSection = (props: Props) => {
                             }}
                         />
                     </motion.svg>
-                    <div className="max-w-3xl w-full mx-auto space-y-8">
-                        <div className="flex md:flex-row flex-col gap-8">
-                            <p className="w-full timeline-view animate-[left-right]">
+                    <div className="mx-auto w-full max-w-3xl space-y-8">
+                        <div className="flex flex-col gap-8 md:flex-row">
+                            <p className="timeline-view w-full animate-[left-right]">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Numquam eligendi quidem
                                 dolorum molestias? Repellat sit, ad odio quis
@@ -224,10 +224,10 @@ const AboutSection = (props: Props) => {
                                 voluptatum labore illum, sequi nostrum porro!
                                 Perspiciatis.
                             </p>
-                            <div className="md:w-[1px] md:h-auto h-[1px] bg-stone-300"></div>
-                            <div className="w-full space-y-2 timeline-view animate-[right-left] range">
+                            <div className="h-[1px] bg-stone-300 md:h-auto md:w-[1px]"></div>
+                            <div className="timeline-view range w-full animate-[right-left] space-y-2">
                                 <p>Some power that i use:</p>
-                                <ul className="list-disc list-inside">
+                                <ul className="list-inside list-disc">
                                     <li>HTML/CSS/Tailwind CSS</li>
                                     <li>JavaScript/React/Next.js/Svelte</li>
                                     <li>PHP/Laravel</li>
@@ -235,42 +235,42 @@ const AboutSection = (props: Props) => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="text-center space-y-4 timeline-view animate-[down-up] range">
+                        <div className="timeline-view range animate-[down-up] space-y-4 text-center">
                             <h3 className="text-xl">Stay Pownected</h3>
-                            <div className="flex gap-x-8 gap-y-4 justify-center flex-wrap">
+                            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
                                 <a
                                     href="#"
-                                    className="text-stone-500 hover:underline hover:text-stone-800"
+                                    className="text-stone-500 hover:text-stone-800 hover:underline"
                                 >
                                     chat@pow.kim
                                 </a>
                                 <a
                                     href="#"
-                                    className="text-stone-500 hover:underline hover:text-stone-800"
+                                    className="text-stone-500 hover:text-stone-800 hover:underline"
                                 >
                                     Instagram
                                 </a>
                                 <a
                                     href="#"
-                                    className="text-stone-500 hover:underline hover:text-stone-800"
+                                    className="text-stone-500 hover:text-stone-800 hover:underline"
                                 >
                                     X (formerly Twitter)
                                 </a>
                                 <a
                                     href="#"
-                                    className="text-stone-500 hover:underline hover:text-stone-800"
+                                    className="text-stone-500 hover:text-stone-800 hover:underline"
                                 >
                                     Threads
                                 </a>
                                 <a
                                     href="#"
-                                    className="text-stone-500 hover:underline hover:text-stone-800"
+                                    className="text-stone-500 hover:text-stone-800 hover:underline"
                                 >
                                     Discord (Me)
                                 </a>
                                 <a
                                     href="#"
-                                    className="text-stone-500 hover:underline hover:text-stone-800"
+                                    className="text-stone-500 hover:text-stone-800 hover:underline"
                                 >
                                     Discord (Community)
                                 </a>
