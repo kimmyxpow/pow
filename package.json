@@ -10,6 +10,7 @@
     "format": "prettier --write . --plugin=prettier-plugin-tailwindcss"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.3.1",
     "framer-motion": "^11.3.2",
     "lenis": "^1.1.6",
     "next": "14.2.4",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import Navbar from "@/components/navbar";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const chivo = Quicksand({
@@ -26,6 +27,7 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                 </div>
+                <Analytics />
             </body>
         </html>
     );
