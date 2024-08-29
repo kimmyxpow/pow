@@ -77,7 +77,7 @@ const MainSection = (props: Props) => {
                             Discover the Magic of Code
                         </motion.span>
                         <motion.h1
-                            className="mx-auto w-full max-w-[40rem] text-6xl font-bold sm:text-8xl"
+                            className="mx-auto w-full max-w-[40rem] text-6xl font-medium sm:text-8xl"
                             initial="hidden"
                             animate="visible"
                             variants={{
