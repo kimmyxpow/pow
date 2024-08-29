@@ -1,12 +1,11 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import SectionHeader from '@/components/section-header';
-import { initPocketBase } from '@/utils/init-pocketbase';
+import { pb } from '@/utils/pocketbase';
 
 type Props = {};
 
 const ExperienceSection = async (props: Props) => {
-    const pb = await initPocketBase();
     const result = await pb.collection('experiences').getFullList({
         sort: '-num'
     });
