@@ -13,7 +13,7 @@ const AboutSection = async (props: Props) => {
                 <div className="container space-y-16">
                     <SectionHeader title="About Pow" subtitle="Get to Know Me" />
                     <svg
-                        className="timeline-view mx-auto h-40 animate-[down-up] stroke-stone-800"
+                        className="timeline-view mx-auto h-40 max-w-full animate-[down-up] stroke-stone-800"
                         viewBox="0 0 828 448"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"

@@ -5,7 +5,7 @@ type Props = {};
 
 const PostSection = (props: Props) => {
     return (
-        <section className="bg-stone-100" id="pownderful-insights">
+        <section className="overflow-hidden bg-stone-100" id="pownderful-insights">
             <div className="rounded-t-[6rem] bg-stone-200 py-36">
                 <div className="container space-y-16">
                     <SectionHeader title="Pownderful Insights" subtitle="Thoughts & Tutorials" />
