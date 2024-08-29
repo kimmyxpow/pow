@@ -7,7 +7,8 @@ import './globals.css';
 import Texture from '@/components/texture';
 
 const sans = Nunito({
-    subsets: ['latin']
+    subsets: ['latin'],
+    weight: ['400', '500', '700']
 });
 
 export const metadata: Metadata = {
