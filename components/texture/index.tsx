@@ -16,7 +16,7 @@ const Texture = (props: Props) => {
 
     return (
         <div
-            className='pointer-events-none fixed -inset-24 z-0 bg-[url("/img/texture.png")] opacity-[0.08]'
+            className='pointer-events-none fixed -inset-24 z-50 bg-[url("/img/texture.png")] opacity-[0.08]'
             ref={ref}
         ></div>
     );
