@@ -9,7 +9,7 @@ type Props = {};
 const MainSection = (props: Props) => {
     return (
         <main className="bg-stone-100">
-            <div className="flex size-full min-h-dvh items-center rounded-b-[6rem] bg-stone-200">
+            <div className="flex size-full min-h-dvh items-center rounded-b-[6rem] bg-stone-200 py-32">
                 <div className="container flex flex-col gap-10 text-center">
                     <motion.svg
                         className="mx-auto w-full max-w-96 stroke-stone-800"
@@ -77,7 +77,7 @@ const MainSection = (props: Props) => {
                             Discover the Magic of Code
                         </motion.span>
                         <motion.h1
-                            className="mx-auto w-full max-w-[40rem] text-6xl sm:text-8xl"
+                            className="mx-auto w-full max-w-[40rem] text-5xl sm:text-8xl"
                             initial="hidden"
                             animate="visible"
                             variants={{
