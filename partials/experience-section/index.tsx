@@ -1,4 +1,3 @@
-import React from 'react';
 import { Icon } from '@iconify/react';
 import SectionHeader from '@/components/section-header';
 import { pb } from '@/utils/pocketbase';
