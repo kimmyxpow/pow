@@ -52,6 +52,7 @@ const Navbar = (props: Props) => {
         };
 
         window.addEventListener('scroll', handleScroll);
+        handleScroll();
 
         const menuButton = document.querySelector('#menu-button');
         if (menuButton) {
