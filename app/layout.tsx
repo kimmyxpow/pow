@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 import Navbar from '@/components/navbar';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import Texture from '@/components/texture';
 
@@ -29,6 +30,7 @@ export default function RootLayout({
                     {children}
                 </div>
                 <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
