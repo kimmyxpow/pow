@@ -9,7 +9,7 @@ type Props = {};
 const MainSection = (props: Props) => {
     return (
         <main className="bg-stone-100">
-            <div className="flex size-full min-h-screen items-center rounded-b-[6rem] bg-stone-200">
+            <div className="flex size-full min-h-dvh items-center rounded-b-[6rem] bg-stone-200">
                 <div className="container flex flex-col gap-10 text-center">
                     <motion.svg
                         className="mx-auto w-full max-w-96 stroke-stone-800"
