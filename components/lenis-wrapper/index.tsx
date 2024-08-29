@@ -1,9 +1,10 @@
 'use client';
 
 import ReactLenis from 'lenis/react';
+import { ReactNode } from 'react';
 
 type Props = {
-    children: React.ReactNode;
+    children: ReactNode;
 };
 
 const LenisWrapper = ({ children }: Props) => {

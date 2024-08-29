@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import Texture from '@/components/texture';
+import { ReactNode } from 'react';
 
 const sans = Nunito({
     subsets: ['latin'],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children
 }: Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
 }>) {
     return (
         <html lang="en" className="scroll-smooth">
