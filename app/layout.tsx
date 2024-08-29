@@ -1,12 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Nunito } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 import Texture from '@/components/texture';
 import { ReactNode } from 'react';
 import Navbar from '@/components/navbar';
 import Script from 'next/script';
 
-const sans = Nunito({
+const sans = Raleway({
     subsets: ['latin'],
     weight: ['400', '500', '700'],
     style: ['normal'],
