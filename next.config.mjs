@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export'
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'pow.pockethost.io',
+                port: '',
+                pathname: '/api/files/**'
+            }
+        ]
+    }
 };
 
 export default nextConfig;
