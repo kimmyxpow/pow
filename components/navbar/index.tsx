@@ -125,7 +125,7 @@ const Navbar = (props: Props) => {
                         }`}
                     >
                         <div className="space-y-10">
-                            <span className="text-lg uppercase tracking-widest text-gray-500">Navigation</span>
+                            <span className="text-lg uppercase tracking-widest text-gray-600">Navigation</span>
                             <nav className="grid gap-4">
                                 {links.map((link) => (
                                     <a

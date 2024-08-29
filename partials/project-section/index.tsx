@@ -30,7 +30,7 @@ const ProjectSection = async (props: Props) => {
                                 <p>{project.description}</p>
                                 <div className="space-y-2">
                                     <div className="flex">
-                                        <span className="w-20 text-gray-500">Role</span>
+                                        <span className="w-20 font-bold text-stone-800">Role</span>
                                         <span>
                                             {project.roles.map(
                                                 (r: string, i: number) => r + (i < project.roles.length - 1 ? ', ' : '')
@@ -38,7 +38,7 @@ const ProjectSection = async (props: Props) => {
                                         </span>
                                     </div>
                                     <div className="flex">
-                                        <span className="w-20 text-gray-500">Stack</span>
+                                        <span className="w-20 font-bold text-stone-800">Stack</span>
                                         <span>
                                             {project.stack.map(
                                                 (r: string, i: number) => r + (i < project.stack.length - 1 ? ', ' : '')

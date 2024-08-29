@@ -92,7 +92,7 @@ const AboutSection = async (props: Props) => {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-stone-500 hover:text-stone-800 hover:underline"
+                                        className="text-stone-600 hover:text-stone-800 hover:underline"
                                     >
                                         {social.name}
                                     </a>

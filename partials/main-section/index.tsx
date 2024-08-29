@@ -48,7 +48,7 @@ const MainSection = (props: Props) => {
                     </motion.svg>
                     <div className="flex flex-col space-y-2">
                         <motion.span
-                            className="uppercase tracking-widest text-gray-500"
+                            className="uppercase tracking-widest"
                             initial="hidden"
                             animate="visible"
                             variants={{
