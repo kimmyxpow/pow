@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
-import Navbar from '@/components/navbar';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import Texture from '@/components/texture';
 import { ReactNode } from 'react';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('@/components/navbar'));
 
 const sans = Nunito({
     subsets: ['latin'],
