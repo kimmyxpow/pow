@@ -1,13 +1,10 @@
+import './globals.css';
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import './globals.css';
 import Texture from '@/components/texture';
 import { ReactNode } from 'react';
-import dynamic from 'next/dynamic';
-
-const Navbar = dynamic(() => import('@/components/navbar'));
+import Navbar from '@/components/navbar';
+import Script from 'next/script';
 
 const sans = Nunito({
     subsets: ['latin'],
@@ -35,9 +32,12 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                 </div>
-                <Analytics />
-                <SpeedInsights />
             </body>
+            <Script
+                defer
+                src="https://static.cloudflareinsights.com/beacon.min.js"
+                data-cf-beacon='{"token": "4b2e0bdbf11b436cb88555bbb3f66fe6"}'
+            />
         </html>
     );
 }
