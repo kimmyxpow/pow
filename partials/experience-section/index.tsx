@@ -32,7 +32,7 @@ const ExperienceSection = async (props: Props) => {
                                 </div>
                                 <div className="flex flex-col space-y-2 rounded-xl bg-stone-100 p-8">
                                     <div className="flex items-center justify-between">
-                                        <span className="font-medium text-gray-800">{experience.type}</span>
+                                        <span className="font-medium text-stone-800">{experience.type}</span>
                                         <span>{experience.location}</span>
                                     </div>
                                     <h3 className="text-2xl">{experience.position}</h3>
