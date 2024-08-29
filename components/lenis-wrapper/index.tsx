@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import ReactLenis from "lenis/react";
+import ReactLenis from 'lenis/react';
 
 type Props = {
     children: React.ReactNode;

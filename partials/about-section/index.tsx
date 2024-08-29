@@ -1,20 +1,17 @@
-import SectionHeader from "@/components/section-header";
-import { initPocketBase } from "@/utils/init-pocketbase";
+import SectionHeader from '@/components/section-header';
+import { initPocketBase } from '@/utils/init-pocketbase';
 
 type Props = {};
 
 const AboutSection = async (props: Props) => {
     const pb = await initPocketBase();
-    const result = await pb.collection("socials").getFullList();
+    const result = await pb.collection('socials').getFullList();
 
     return (
         <section className="bg-stone-200" id="about-pow">
             <div className="rounded-t-[6rem] bg-stone-100 py-36">
                 <div className="container space-y-16">
-                    <SectionHeader
-                        title="About Pow"
-                        subtitle="Get to Know Me"
-                    />
+                    <SectionHeader title="About Pow" subtitle="Get to Know Me" />
                     <svg
                         className="timeline-view mx-auto h-40 animate-[down-up] stroke-stone-800"
                         viewBox="0 0 828 448"
@@ -69,12 +66,10 @@ const AboutSection = async (props: Props) => {
                     <div className="mx-auto w-full max-w-3xl space-y-8">
                         <div className="flex flex-col gap-8 md:flex-row">
                             <p className="timeline-view w-full animate-[left-right]">
-                                A software engineer skilled in both backend and
-                                frontend development. i also have a good
-                                foundation in design, which helps me create
-                                functional and visually appealing applications.
-                                in my free time, i enjoy playing with cats and
-                                exploring the latest technologies :))
+                                A software engineer skilled in both backend and frontend development. i also have a good
+                                foundation in design, which helps me create functional and visually appealing
+                                applications. in my free time, i enjoy playing with cats and exploring the latest
+                                technologies :))
                             </p>
                             <div className="h-[1px] bg-stone-300 md:h-auto md:w-[1px]"></div>
                             <div className="timeline-view range w-full animate-[right-left] space-y-2">

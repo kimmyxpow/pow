@@ -9,9 +9,7 @@ const SectionHeader = ({ title, subtitle }: Props) => {
             <span className="timeline-view animate-[up-down] text-sm uppercase tracking-widest text-gray-500">
                 {subtitle}
             </span>
-            <h2 className="timeline-view animate-[up-down] text-3xl font-thin">
-                {title}
-            </h2>
+            <h2 className="timeline-view animate-[up-down] text-3xl font-thin">{title}</h2>
         </div>
     );
 };

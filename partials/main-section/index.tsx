@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Icon } from '@iconify/react';
+import { motion } from 'framer-motion';
 
 type Props = {};
 
@@ -27,22 +27,22 @@ const MainSection = (props: Props) => {
                             variants={{
                                 hidden: {
                                     pathLength: 0,
-                                    opacity: 0,
+                                    opacity: 0
                                 },
                                 visible: {
                                     pathLength: 1,
                                     opacity: 1,
                                     transition: {
                                         pathLength: {
-                                            type: "spring",
+                                            type: 'spring',
                                             duration: 5,
-                                            bounce: 0,
+                                            bounce: 0
                                         },
                                         opacity: {
-                                            duration: 1,
-                                        },
-                                    },
-                                },
+                                            duration: 1
+                                        }
+                                    }
+                                }
                             }}
                         />
                     </motion.svg>
@@ -54,7 +54,7 @@ const MainSection = (props: Props) => {
                             variants={{
                                 hidden: {
                                     opacity: 0,
-                                    y: -100,
+                                    y: -100
                                 },
                                 visible: {
                                     opacity: 1,
@@ -62,16 +62,16 @@ const MainSection = (props: Props) => {
                                     transition: {
                                         opacity: {
                                             delay: 0.2,
-                                            duration: 1.5,
+                                            duration: 1.5
                                         },
                                         y: {
-                                            type: "spring",
+                                            type: 'spring',
                                             delay: 0.2,
                                             stiffness: 100,
-                                            duration: 3,
-                                        },
-                                    },
-                                },
+                                            duration: 3
+                                        }
+                                    }
+                                }
                             }}
                         >
                             Discover the Magic of Code
@@ -83,22 +83,22 @@ const MainSection = (props: Props) => {
                             variants={{
                                 hidden: {
                                     opacity: 0,
-                                    y: 100,
+                                    y: 100
                                 },
                                 visible: {
                                     opacity: 1,
                                     y: 0,
                                     transition: {
                                         opacity: {
-                                            duration: 1.5,
+                                            duration: 1.5
                                         },
                                         y: {
-                                            type: "spring",
+                                            type: 'spring',
                                             stiffness: 100,
-                                            duration: 3,
-                                        },
-                                    },
-                                },
+                                            duration: 3
+                                        }
+                                    }
+                                }
                             }}
                         >
                             Welcome to Powland
@@ -113,7 +113,7 @@ const MainSection = (props: Props) => {
                         variants={{
                             hidden: {
                                 opacity: 0,
-                                y: 100,
+                                y: 100
                             },
                             visible: {
                                 opacity: 1,
@@ -121,16 +121,16 @@ const MainSection = (props: Props) => {
                                 transition: {
                                     opacity: {
                                         delay: 0.2,
-                                        duration: 0.75,
+                                        duration: 0.75
                                     },
                                     y: {
-                                        type: "spring",
+                                        type: 'spring',
                                         delay: 0.2,
                                         stiffness: 100,
-                                        duration: 1.5,
-                                    },
-                                },
-                            },
+                                        duration: 1.5
+                                    }
+                                }
+                            }
                         }}
                     >
                         <span className="relative z-10 block rounded-full bg-white px-12 py-6 text-stone-800 transition-all group-hover:bg-stone-50">

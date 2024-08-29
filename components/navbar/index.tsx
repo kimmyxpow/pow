@@ -1,32 +1,32 @@
-"use client";
+'use client';
 
-import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { Icon } from '@iconify/react';
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {};
 
 const links = [
     {
-        name: "Powland",
-        href: "#top",
+        name: 'Powland',
+        href: '#top'
     },
     {
-        name: "Powjects",
-        href: "#powjects",
+        name: 'Powjects',
+        href: '#powjects'
     },
     {
-        name: "Powfessional Journey",
-        href: "#powfessional-journey",
+        name: 'Powfessional Journey',
+        href: '#powfessional-journey'
     },
     {
-        name: "About Pow",
-        href: "#about-pow",
+        name: 'About Pow',
+        href: '#about-pow'
     },
     {
-        name: "Pownderful Insights",
-        href: "#pownderful-insights",
-    },
+        name: 'Pownderful Insights',
+        href: '#pownderful-insights'
+    }
 ];
 
 const Navbar = (props: Props) => {
@@ -36,46 +36,35 @@ const Navbar = (props: Props) => {
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
-                brand.current?.classList.add("opacity-0");
+                brand.current?.classList.add('opacity-0');
             } else {
-                brand.current?.classList.remove("opacity-0");
+                brand.current?.classList.remove('opacity-0');
             }
         };
 
         const handleMouseEnter = (element: Element, animationClass: string) => {
-            if (element.classList.contains("animate__animated")) return;
-            element.classList.add("animate__animated", animationClass);
+            if (element.classList.contains('animate__animated')) return;
+            element.classList.add('animate__animated', animationClass);
         };
 
-        const handleAnimationEnd = (
-            element: Element,
-            animationClass: string,
-        ) => {
-            element.classList.remove("animate__animated", animationClass);
+        const handleAnimationEnd = (element: Element, animationClass: string) => {
+            element.classList.remove('animate__animated', animationClass);
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
-        const menuButton = document.querySelector("#menu-button");
+        const menuButton = document.querySelector('#menu-button');
         if (menuButton) {
-            menuButton.addEventListener("mouseenter", () =>
-                handleMouseEnter(menuButton, "animate__swing"),
-            );
-            menuButton.addEventListener("animationend", () =>
-                handleAnimationEnd(menuButton, "animate__swing"),
-            );
+            menuButton.addEventListener('mouseenter', () => handleMouseEnter(menuButton, 'animate__swing'));
+            menuButton.addEventListener('animationend', () => handleAnimationEnd(menuButton, 'animate__swing'));
         }
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener('scroll', handleScroll);
 
             if (menuButton) {
-                menuButton.removeEventListener("mouseenter", () =>
-                    handleMouseEnter(menuButton, "animate__swing"),
-                );
-                menuButton.removeEventListener("animationend", () =>
-                    handleAnimationEnd(menuButton, "animate__swing"),
-                );
+                menuButton.removeEventListener('mouseenter', () => handleMouseEnter(menuButton, 'animate__swing'));
+                menuButton.removeEventListener('animationend', () => handleAnimationEnd(menuButton, 'animate__swing'));
             }
         };
     }, []);
@@ -93,30 +82,26 @@ const Navbar = (props: Props) => {
                 variants={{
                     hidden: {
                         opacity: 0,
-                        y: -100,
+                        y: -100
                     },
                     visible: {
                         opacity: 1,
                         y: 0,
                         transition: {
                             opacity: {
-                                duration: 0.75,
+                                duration: 0.75
                             },
                             y: {
-                                type: "spring",
+                                type: 'spring',
                                 stiffness: 100,
-                                duration: 1.5,
-                            },
-                        },
-                    },
+                                duration: 1.5
+                            }
+                        }
+                    }
                 }}
             >
                 <div className="container relative z-10 flex items-center justify-between py-2">
-                    <a
-                        href="#"
-                        className="font-medium transition-all"
-                        ref={brand}
-                    >
+                    <a href="#" className="font-medium transition-all" ref={brand}>
                         POW
                     </a>
                     <button
@@ -126,9 +111,7 @@ const Navbar = (props: Props) => {
                     >
                         <div
                             className={`absolute left-1/2 flex min-w-[200%] gap-10 transition-all duration-500 ${
-                                open
-                                    ? "-translate-x-[4.75rem]"
-                                    : "-translate-x-3"
+                                open ? '-translate-x-[4.75rem]' : '-translate-x-3'
                             }`}
                         >
                             <Icon icon="tabler:paw" className="text-2xl" />
@@ -138,13 +121,11 @@ const Navbar = (props: Props) => {
                     </button>
                     <div
                         className={`fixed inset-y-0 right-0 flex w-full max-w-[400px] flex-col justify-between gap-12 bg-stone-100 px-12 py-40 pb-12 transition-all duration-500 ${
-                            open ? "translate-x-0" : "translate-x-full"
+                            open ? 'translate-x-0' : 'translate-x-full'
                         }`}
                     >
                         <div className="space-y-10">
-                            <span className="text-lg uppercase tracking-widest text-gray-500">
-                                Navigation
-                            </span>
+                            <span className="text-lg uppercase tracking-widest text-gray-500">Navigation</span>
                             <nav className="grid gap-4">
                                 {links.map((link) => (
                                     <a
@@ -203,7 +184,7 @@ const Navbar = (props: Props) => {
                 </div>
                 <div
                     className={`fixed inset-0 bg-stone-600/60 transition-all duration-500 ${
-                        open ? "opacity-100" : "pointer-events-none opacity-0"
+                        open ? 'opacity-100' : 'pointer-events-none opacity-0'
                     }`}
                     onClick={handleToggleMenu}
                 ></div>

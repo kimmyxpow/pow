@@ -1,14 +1,11 @@
-import { Icon } from "@iconify/react";
-import Link from "next/link";
+import { Icon } from '@iconify/react';
+import Link from 'next/link';
 
 export default function NotFound() {
     return (
         <div className="flex min-h-screen flex-col items-center justify-center gap-8">
             <h2 className="text-4xl">looks like you&apos;re lost :((</h2>
-            <Link
-                href="/"
-                className="group relative mx-auto transition-all hover:-rotate-6 hover:scale-110"
-            >
+            <Link href="/" className="group relative mx-auto transition-all hover:-rotate-6 hover:scale-110">
                 <span className="relative z-10 block rounded-full bg-white px-12 py-6 text-stone-800 transition-all group-hover:bg-stone-50">
                     Return to The Powland
                 </span>
