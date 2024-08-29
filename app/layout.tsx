@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={sans.className}>
+            <body className={`${sans.className} antialiased`}>
                 <Texture />
                 <div className="bg-stone-200">
                     <Navbar />
