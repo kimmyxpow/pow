@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import SectionHeader from '@/components/section-header';
 import { pb } from '@/utils/pocketbase';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -18,10 +19,11 @@ const ProjectSection = async (props: Props) => {
                             key={project.id}
                         >
                             <div className="aspect-video w-full overflow-hidden rounded-3xl">
-                                <img
+                                <Image
                                     src={`${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${project.collectionId}/${project.id}/${project.image}?thumb=100x300`}
                                     alt={project.name}
                                     className="size-full"
+                                    fill
                                 />
                             </div>
                             <div className="space-y-8">
