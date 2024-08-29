@@ -24,15 +24,15 @@ const ExperienceSection = async (props: Props) => {
                                 i % 2 === 0 ? 'flex-col-reverse sm:flex-row' : 'flex-col-reverse sm:flex-row-reverse'
                             }`}
                         >
-                            <div className="relative w-full max-w-lg rounded-lg bg-stone-100">
-                                <div className="rounded-t-lg bg-stone-800 px-8 py-6">
-                                    <span className="block text-center text-2xl text-white">
+                            <div className="relative w-full max-w-lg">
+                                <div className="mb-2 rounded-xl bg-stone-800 px-8 py-6">
+                                    <span className="block text-center text-xl text-white">
                                         {experience.institution}
                                     </span>
                                 </div>
-                                <div className="flex flex-col p-8">
+                                <div className="flex flex-col space-y-2 rounded-xl bg-stone-200 p-8">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-500">{experience.type}</span>
+                                        <span className="font-medium text-gray-800">{experience.type}</span>
                                         <span className="text-gray-500">{experience.location}</span>
                                     </div>
                                     <h3 className="text-2xl">{experience.position}</h3>
@@ -45,7 +45,7 @@ const ExperienceSection = async (props: Props) => {
                                     <p className="text-right lg:hidden">{experience.month}</p>
                                 </div>
                                 <div
-                                    className={`absolute top-1 size-6 -translate-y-1/2 rotate-45 rounded bg-stone-800 sm:top-5 sm:translate-y-0 ${
+                                    className={`absolute top-1 size-6 rotate-45 rounded bg-stone-800 sm:top-5 sm:translate-y-0 ${
                                         i % 2 === 0
                                             ? 'left-4 sm:left-auto sm:right-1 sm:translate-x-1/2'
                                             : 'left-4 sm:left-1 sm:-translate-x-1/2'
@@ -56,7 +56,7 @@ const ExperienceSection = async (props: Props) => {
                                 {ExpIcon(experience.type)}
                             </div>
                             <div className={`mt-4 hidden w-full max-w-lg lg:block ${i % 2 === 0 ? '' : 'text-right'}`}>
-                                <p>{experience.month}</p>
+                                <p className="text-stone-800">{experience.month}</p>
                             </div>
                         </div>
                     ))}
