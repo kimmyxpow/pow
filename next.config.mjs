@@ -14,7 +14,6 @@ const nextConfig = {
         optimizePackageImports: ['@iconify/react', 'lenis'],
         serverComponentsExternalPackages: ['pocketbase']
     }
-    // serverExternalPackages: ['pocketbase']
 };
 
 export default nextConfig;

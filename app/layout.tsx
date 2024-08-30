@@ -4,13 +4,11 @@ import { Raleway } from 'next/font/google';
 import Texture from '@/components/texture';
 import { ReactNode } from 'react';
 import Navbar from '@/components/navbar';
-import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const sans = Raleway({
-    subsets: ['latin'],
-    weight: ['400', '500', '700'],
-    style: ['normal'],
-    display: 'swap'
+    subsets: ['latin']
 });
 
 export const metadata: Metadata = {
@@ -32,11 +30,8 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                 </div>
-                <Script
-                    defer
-                    src="https://static.cloudflareinsights.com/beacon.min.js"
-                    data-cf-beacon='{"token": "4b2e0bdbf11b436cb88555bbb3f66fe6"}'
-                />
+                <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
