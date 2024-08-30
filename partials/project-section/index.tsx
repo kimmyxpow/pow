@@ -23,7 +23,8 @@ const ProjectSection = async (props: Props) => {
                                     src={`${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${project.collectionId}/${project.id}/${project.image}?thumb=100x300`}
                                     alt={project.name}
                                     className="size-full"
-                                    fill
+                                    width={100}
+                                    height={300}
                                 />
                             </div>
                             <div className="space-y-8">
