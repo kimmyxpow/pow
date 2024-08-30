@@ -1,14 +1,16 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Raleway } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 import Texture from '@/components/texture';
 import { ReactNode } from 'react';
 import Navbar from '@/components/navbar';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const sans = Raleway({
-    subsets: ['latin']
+const sans = Nunito({
+    subsets: ['latin'],
+    weight: ['400', '500', '700'],
+    display: 'swap'
 });
 
 export const metadata: Metadata = {

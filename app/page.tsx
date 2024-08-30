@@ -7,14 +7,12 @@ import LenisWrapper from '@/components/lenis-wrapper';
 
 export default function Home() {
     return (
-        <>
-            <LenisWrapper>
-                <MainSection />
-                <ProjectSection />
-                <ExperienceSection />
-                <AboutSection />
-                <PostSection />
-            </LenisWrapper>
-        </>
+        <LenisWrapper>
+            <MainSection />
+            <ProjectSection />
+            <ExperienceSection />
+            <AboutSection />
+            <PostSection />
+        </LenisWrapper>
     );
 }

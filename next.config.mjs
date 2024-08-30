@@ -11,7 +11,7 @@ const nextConfig = {
         ]
     },
     experimental: {
-        optimizePackageImports: ['@iconify/react', 'lenis'],
+        optimizePackageImports: ['@iconify/react', 'lenis', 'framer-motion'],
         serverComponentsExternalPackages: ['pocketbase']
     }
 };
