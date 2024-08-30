@@ -4,6 +4,7 @@ import { Raleway } from 'next/font/google';
 import Texture from '@/components/texture';
 import { ReactNode } from 'react';
 import Navbar from '@/components/navbar';
+import Script from 'next/script';
 
 const sans = Raleway({
     subsets: ['latin'],
@@ -31,7 +32,7 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                 </div>
-                <script
+                <Script
                     defer
                     src="https://static.cloudflareinsights.com/beacon.min.js"
                     data-cf-beacon='{"token": "4b2e0bdbf11b436cb88555bbb3f66fe6"}'
