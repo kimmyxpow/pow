@@ -77,7 +77,7 @@ const Navbar = (props: Props) => {
     return (
         <>
             <motion.header
-                className="fixed inset-x-0 top-0 z-20 m-2"
+                className="fixed inset-x-0 top-0 z-20"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -101,6 +101,13 @@ const Navbar = (props: Props) => {
                     }
                 }}
             >
+                <a
+                    href="https://r.pow.kim"
+                    target="_blank"
+                    className="block bg-emerald-600 p-4 text-center text-white transition-all hover:bg-emerald-700"
+                >
+                    I'm currently open to new opportunities, click to see my cv.
+                </a>
                 <div className="container relative z-10 flex items-center justify-between py-2">
                     <a href="#" className="font-medium transition-all" ref={brand}>
                         POW
