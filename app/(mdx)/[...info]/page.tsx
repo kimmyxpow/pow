@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Divider from '~/components/divider';
 import { format, formatDistance } from 'date-fns';
 
-export default async function Page({ params }: { params: Promise<{ info: string[] }> }) {
+const Page = async ({ params }: { params: Promise<{ info: string[] }> }) => {
     const [type, lang, slug] = (await params).info;
 
     const { default: Post, frontmatter } = await import(`~/contents/${type}/${lang}/${slug}.mdx`);
@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: Promise<{ info: string[
             <Post />
         </article>
     );
-}
+};
 
 export async function generateStaticParams() {
     const types = getAllTypes();
@@ -69,3 +69,5 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 export const dynamic = 'force-static';
+
+export default Page;

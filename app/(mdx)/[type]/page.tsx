@@ -75,4 +75,4 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 export const dynamic = 'force-static';
 
-export default page;
+export default Page;

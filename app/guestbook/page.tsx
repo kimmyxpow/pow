@@ -15,7 +15,7 @@ type GuestbookResponse = {
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
 
-const MessageForm = ({ onSubmit }: { onSubmit: (e: React.FormEvent<HTMLFormElement>) => void }) => {
+const MessageForm = ({ onSubmit }: { onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void> }) => {
     const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,20 +45,6 @@ const MessageForm = ({ onSubmit }: { onSubmit: (e: React.FormEvent<HTMLFormEleme
     );
 };
 
-const MessageItem = ({ item }: { item: SelectGuestbookWithUser }) => (
-    <div className="flex items-start gap-4" key={item.guestbook.id}>
-        <Image src={item.user.image as string} alt={item.user.name} width={40} height={40} />
-        <div className="bg-primary-100 p-4">
-            <div className="flex items-center justify-between gap-10">
-                <h2>{item.user.name}</h2>
-                <p className="text-xs text-gray-400">{new Date(item.guestbook.createdAt).toLocaleString()}</p>
-            </div>
-
-            <p className="text-sm">{item.guestbook.message}</p>
-        </div>
-    </div>
-);
-
 const MessagesList = ({
     isLoading,
     error,
@@ -81,7 +67,19 @@ const MessagesList = ({
     return (
         <div className="space-y-4">
             {data.result.map((item) => (
-                <MessageItem key={item.guestbook.id} item={item} />
+                <div className="flex items-start gap-4" key={item.guestbook.id}>
+                    <Image src={item.user.image as string} alt={item.user.name} width={40} height={40} />
+                    <div className="bg-primary-100 p-4">
+                        <div className="flex items-center justify-between gap-10">
+                            <h2>{item.user.name}</h2>
+                            <p className="text-xs text-gray-400">
+                                {new Date(item.guestbook.createdAt).toLocaleString()}
+                            </p>
+                        </div>
+
+                        <p className="text-sm">{item.guestbook.message}</p>
+                    </div>
+                </div>
             ))}
         </div>
     );
