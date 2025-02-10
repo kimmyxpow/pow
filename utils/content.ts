@@ -1,6 +1,7 @@
-import { Glob } from 'bun';
 import fs from 'fs';
+import fg from 'fast-glob';
 import { parse } from 'yaml';
+import path from 'path';
 
 type ContentItem = {
     title: string;
@@ -24,10 +25,10 @@ type ContentList = {
 };
 
 export function getContentList(type: 'stories' | 'articles'): ContentList {
-    const files = Array.from(new Glob('**/*.mdx').scanSync(`./contents/${type}`));
+    const files = fg.sync(`contents/${type}/**/*.mdx`);
 
     const langMap = files.reduce((map, file) => {
-        const [lang, filename] = file.split('/');
+        const [filename, lang] = file.split('/').reverse();
         map.set(lang, [...(map.get(lang) || []), filename]);
         return map;
     }, new Map<string, string[]>());
@@ -36,7 +37,7 @@ export function getContentList(type: 'stories' | 'articles'): ContentList {
         lang,
         contents: filenames.map((filename) => {
             const slug = filename.replace('.mdx', '');
-            const content = fs.readFileSync(`./contents/${type}/${lang}/${filename}`, 'utf-8');
+            const content = fs.readFileSync(path.join('contents', type, lang, filename), 'utf-8');
 
             const metadata = parse(content.match(/---\n([\s\S]*?)\n---/)?.[1] || '');
             const title = content.match(/# (.*)/)?.[1] || slug;
