@@ -14,7 +14,7 @@ const Navbar = () => {
             <Link href="/" className="font-medium">
                 pow.
             </Link>
-            <button className="text-3xl md:hidden" onClick={() => setIsOpen((s) => !s)}>
+            <button className="text-3xl md:hidden" onClick={() => setIsOpen((s) => !s)} aria-label="Toggle Menu">
                 <Icon icon="material-symbols-light:grid-view-outline" />
             </button>
             <nav

@@ -71,7 +71,7 @@ export const projects = [
     },
 ];
 
-export const techList = [
+export const skills = [
     {
         name: 'Tailwind CSS',
         link: 'https://tailwindcss.com',

@@ -2,7 +2,7 @@
 
 import { CSSProperties, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import GlowingText from './glowing-text';
+import GlowingText from '~/components/glowing-text';
 
 interface Sparkle {
     id: string;
@@ -14,7 +14,7 @@ interface Sparkle {
     lifespan: number;
 }
 
-export const MainText: React.FC = () => {
+const MainText: React.FC = () => {
     const [sparkles, setSparkles] = useState<Sparkle[]>([]);
     const colors = { first: '#9E7AFF', second: '#FE8BBB' };
     const sparklesCount = 5;
@@ -99,3 +99,5 @@ const Sparkle: React.FC<Sparkle> = ({ id, x, y, color, delay, scale }) => {
         </motion.svg>
     );
 };
+
+export default MainText;

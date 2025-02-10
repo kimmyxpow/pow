@@ -6,7 +6,7 @@ const page = () => {
         <section className="space-y-8 py-8">
             <h1 className="text-4xl">creations & experiments</h1>
             <p>
-                a showcase of things I’ve built, broken, and rebuilt—mostly with code, sometimes with sheer willpower.
+                a showcase of things i’ve built, broken, and rebuilt—mostly with code, sometimes with sheer willpower.
                 from web apps to random side projects, this is where my ideas take shape (and occasionally crash).
             </p>
             <div className="-space-y-px">

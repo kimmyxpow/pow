@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
-
 @import 'tailwindcss';
 
 @utility container {
@@ -12,8 +10,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --font-sans: 'Geist Mono', 'serif';
-    --font-mono: 'Geist Mono', 'serif';
+    --font-mono: var(--font-geist-mono), 'monospace';
 
     --color-primary-100: var(--color-zinc-100);
     --color-primary-200: var(--color-zinc-200);
@@ -25,6 +22,29 @@
     --color-primary-800: var(--color-zinc-800);
     --color-primary-900: var(--color-zinc-900);
     --color-primary-950: var(--color-zinc-950);
+
+    --animate-glitch: glitch 0.2s infinite steps(1);
+
+    @keyframes glitch {
+        0% {
+            transform: translateX(0%) translateY(0%);
+        }
+        20% {
+            transform: translateX(2%) translateY(1%);
+        }
+        40% {
+            transform: translateX(-1%) translateY(3%);
+        }
+        60% {
+            transform: translateX(4%) translateY(2%);
+        }
+        80% {
+            transform: translateX(1%) translateY(4%);
+        }
+        100% {
+            transform: translateX(3%) translateY(1%);
+        }
+    }
 }
 
 @layer base {

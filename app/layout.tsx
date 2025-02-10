@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Wrapper from '~/components/wrapper';
+import { GeistMono } from 'geist/font/mono';
+import PowWrapper from '~/components/pow-wrapper';
 
 export const metadata: Metadata = {
     title: 'pow',
@@ -13,9 +14,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className="bg-primary-200 antialiased">
-                <Wrapper>{children}</Wrapper>
+        <html lang="en" className={GeistMono.variable}>
+            <body className="bg-primary-200 font-mono antialiased">
+                <PowWrapper>{children}</PowWrapper>
             </body>
         </html>
     );

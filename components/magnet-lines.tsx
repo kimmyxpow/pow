@@ -6,7 +6,6 @@ export default function MagnetLines() {
     const columns = 10;
     const lineWidth = '.2vmin';
     const lineHeight = '4vmin';
-    const baseAngle = -10;
 
     useEffect(() => {
         const container = containerRef.current;
@@ -14,7 +13,7 @@ export default function MagnetLines() {
 
         const items = container.querySelectorAll<HTMLSpanElement>('span');
 
-        const onPointerMove = (pointer: { x: number; y: number }) => {
+        const handlePointerMove = (pointer: { x: number; y: number }) => {
             items.forEach((item: HTMLSpanElement) => {
                 const rect = item.getBoundingClientRect();
                 const centerX = rect.x + rect.width / 2;
@@ -29,16 +28,16 @@ export default function MagnetLines() {
             });
         };
 
-        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointermove', handlePointerMove);
 
         if (items.length) {
             const middleIndex = Math.floor(items.length / 2);
             const rect = items[middleIndex].getBoundingClientRect();
-            onPointerMove({ x: rect.x, y: rect.y });
+            handlePointerMove({ x: rect.x, y: rect.y });
         }
 
         return () => {
-            window.removeEventListener('pointermove', onPointerMove);
+            window.removeEventListener('pointermove', handlePointerMove);
         };
     }, []);
 
@@ -51,7 +50,7 @@ export default function MagnetLines() {
                 {
                     width: lineWidth,
                     height: lineHeight,
-                    '--rotate': `${baseAngle}deg`,
+                    '--rotate': `-10deg`,
                 } as CSSProperties
             }
         />
