@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { experiences } from '~/utils/constants';
+import { experiences } from '~/lib/constants';
 
 const Experiences = () => {
     return (

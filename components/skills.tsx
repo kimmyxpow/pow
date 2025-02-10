@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
-import { skills } from '~/utils/constants';
+import { skills } from '~/lib/constants';
 
 const Skills = () => {
     return (

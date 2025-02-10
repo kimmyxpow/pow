@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { cn } from '~/utils/cn';
-import { navLinks } from '~/utils/constants';
+import { navLinks } from '~/lib/constants';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);

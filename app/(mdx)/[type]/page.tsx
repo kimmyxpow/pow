@@ -15,7 +15,7 @@ const meta: Record<string, { title: string; desc: string }> = {
     },
 };
 
-const page = async ({ params }: { params: Promise<{ type: string }> }) => {
+const Page = async ({ params }: { params: Promise<{ type: string }> }) => {
     const type = (await params).type;
 
     const list = getContentList(type);

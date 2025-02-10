@@ -15,9 +15,15 @@ const nextConfig: NextConfig = {
                 pathname: '/m/**',
                 search: '',
             },
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                port: '',
+                pathname: '/u/**',
+                search: '',
+            },
         ],
     },
-    output: 'export',
 };
 
 const withMDX = createMDX({

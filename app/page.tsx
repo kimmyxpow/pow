@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 const MainText = dynamic(() => import('~/components/main-text'));
 const Cat = dynamic(() => import('~/components/cat'));
 
-export default function Home() {
+const Page = () => {
     return (
         <>
             <section className="relative space-y-8 py-8">
@@ -46,4 +46,6 @@ export default function Home() {
             <MagnetLines />
         </>
     );
-}
+};
+
+export default Page;

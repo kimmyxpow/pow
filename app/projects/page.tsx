@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
-import { projects } from '~/utils/constants';
+import { projects } from '~/lib/constants';
 
-const page = () => {
+const Page = () => {
     return (
         <section className="space-y-8 py-8">
             <h1 className="text-4xl">creations & experiments</h1>
@@ -45,6 +45,6 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
 
 export const dynamic = 'force-static';

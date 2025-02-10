@@ -15,6 +15,10 @@ export const navLinks = [
         title: 'stories',
         url: '/stories',
     },
+    {
+        title: 'guestbook',
+        url: '/guestbook',
+    },
 ];
 
 export const projects = [
