@@ -2,28 +2,38 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 
+interface Point {
+    x: number;
+    y: number;
+    dx: number;
+    dy: number;
+}
+
+const PARAMS = {
+    POINTS_NUMBER: 40,
+    WIDTH_FACTOR: 0.3,
+    MOUSE_THRESHOLD: 0.6,
+    SPRING: 0.4,
+    FRICTION: 0.5,
+} as const;
+
+const OFFSET = {
+    X: 10,
+    Y: 25,
+} as const;
+
 const MouseTrail = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameRef = useRef<number>(null);
     const [mouseMoved, setMouseMoved] = useState(false);
-    const offsetY = 25;
-    const offsetX = 10;
 
     const pointerRef = useRef({
         x: 0.5,
         y: 0.5,
     });
 
-    const params = {
-        pointsNumber: 40,
-        widthFactor: 0.3,
-        mouseThreshold: 0.6,
-        spring: 0.4,
-        friction: 0.5,
-    };
-
-    const trailRef = useRef(
-        new Array(params.pointsNumber).fill(null).map(() => ({
+    const trailRef = useRef<Point[]>(
+        new Array(PARAMS.POINTS_NUMBER).fill(null).map(() => ({
             x: pointerRef.current.x,
             y: pointerRef.current.y,
             dx: 0,
@@ -31,20 +41,16 @@ const MouseTrail = () => {
         })),
     );
 
-    const updateMousePosition = useCallback(
-        (clientX: number, clientY: number) => {
-            pointerRef.current.x = clientX + offsetX;
-            pointerRef.current.y = clientY + offsetY;
-        },
-        [offsetY, offsetX],
-    );
+    const updateMousePosition = useCallback((clientX: number, clientY: number) => {
+        pointerRef.current.x = clientX + OFFSET.X;
+        pointerRef.current.y = clientY + OFFSET.Y;
+    }, []);
 
     const setupCanvas = useCallback(() => {
         const canvas = canvasRef.current;
-        if (canvas) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+        if (!canvas) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }, []);
 
     const update = useCallback(
@@ -57,20 +63,20 @@ const MouseTrail = () => {
 
             if (!mouseMoved) {
                 pointerRef.current.x =
-                    (0.5 + 0.3 * Math.cos(0.002 * t) * Math.sin(0.005 * t)) * window.innerWidth + offsetX;
+                    (0.5 + 0.3 * Math.cos(0.002 * t) * Math.sin(0.005 * t)) * window.innerWidth + OFFSET.X;
                 pointerRef.current.y =
-                    (0.5 + 0.2 * Math.cos(0.005 * t) + 0.1 * Math.cos(0.01 * t)) * window.innerHeight + offsetY;
+                    (0.5 + 0.2 * Math.cos(0.005 * t) + 0.1 * Math.cos(0.01 * t)) * window.innerHeight + OFFSET.Y;
             }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             trailRef.current.forEach((p, pIdx) => {
                 const prev = pIdx === 0 ? pointerRef.current : trailRef.current[pIdx - 1];
-                const spring = pIdx === 0 ? 0.4 * params.spring : params.spring;
+                const spring = pIdx === 0 ? 0.4 * PARAMS.SPRING : PARAMS.SPRING;
                 p.dx += (prev.x - p.x) * spring;
                 p.dy += (prev.y - p.y) * spring;
-                p.dx *= params.friction;
-                p.dy *= params.friction;
+                p.dx *= PARAMS.FRICTION;
+                p.dy *= PARAMS.FRICTION;
                 p.x += p.dx;
                 p.y += p.dy;
             });
@@ -83,19 +89,20 @@ const MouseTrail = () => {
                 const xc = 0.5 * (trailRef.current[i].x + trailRef.current[i + 1].x);
                 const yc = 0.5 * (trailRef.current[i].y + trailRef.current[i + 1].y);
                 ctx.quadraticCurveTo(trailRef.current[i].x, trailRef.current[i].y, xc, yc);
-                ctx.lineWidth = params.widthFactor * (params.pointsNumber - i);
+                ctx.lineWidth = PARAMS.WIDTH_FACTOR * (PARAMS.POINTS_NUMBER - i);
                 ctx.strokeStyle = '#ffffff';
                 ctx.stroke();
             }
+
             ctx.lineTo(
                 trailRef.current[trailRef.current.length - 1].x,
                 trailRef.current[trailRef.current.length - 1].y,
             );
             ctx.stroke();
 
-            animationFrameRef.current = window.requestAnimationFrame(update);
+            animationFrameRef.current = requestAnimationFrame(update);
         },
-        [mouseMoved, params.friction, params.pointsNumber, params.spring, params.widthFactor],
+        [mouseMoved],
     );
 
     useEffect(() => {
@@ -120,7 +127,7 @@ const MouseTrail = () => {
         };
 
         setupCanvas();
-        animationFrameRef.current = window.requestAnimationFrame(update);
+        animationFrameRef.current = requestAnimationFrame(update);
 
         window.addEventListener('click', handleClick);
         window.addEventListener('mousemove', handleMouseMove);
@@ -129,7 +136,7 @@ const MouseTrail = () => {
 
         return () => {
             if (animationFrameRef.current) {
-                window.cancelAnimationFrame(animationFrameRef.current);
+                cancelAnimationFrame(animationFrameRef.current);
             }
             window.removeEventListener('click', handleClick);
             window.removeEventListener('mousemove', handleMouseMove);
