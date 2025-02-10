@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <>
             <section className="relative space-y-8 py-8">
-                <main className="grid items-center sm:grid-cols-2">
+                <main className="grid items-center py-30 sm:grid-cols-2 sm:py-0">
                     <div className="space-y-8">
                         <MainText />
                         <p>welcome to my world of code, stories, and the occasional cat nap.</p>
