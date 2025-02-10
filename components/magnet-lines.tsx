@@ -1,4 +1,5 @@
 import { useRef, useEffect, type CSSProperties } from 'react';
+import { useReducedMotion } from 'motion/react';
 
 const ROWS = 5;
 const COLUMNS = 10;
@@ -6,11 +7,14 @@ const LINE_WIDTH = '.2vmin';
 const LINE_HEIGHT = '4vmin';
 
 const MagnetLines = () => {
+    const prefersReducedMotion = useReducedMotion();
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
+
+        if (prefersReducedMotion) return;
 
         const items = container.querySelectorAll<HTMLSpanElement>('span');
 
@@ -31,7 +35,7 @@ const MagnetLines = () => {
 
         window.addEventListener('pointermove', handlePointerMove);
         return () => window.removeEventListener('pointermove', handlePointerMove);
-    }, []);
+    }, [prefersReducedMotion]);
 
     return (
         <div

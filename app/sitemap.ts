@@ -88,3 +88,5 @@ export default async function sitemap(): Promise<SitemapEntry[]> {
         url: entry.url.replace(/\/$/, ''),
     }));
 }
+
+export const dynamic = 'force-static';

@@ -1,7 +1,7 @@
 'use client';
 
 import { type CSSProperties, useEffect, useState, useCallback } from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import GlowingText from '~/components/glowing-text';
 
 interface Sparkle {
@@ -24,6 +24,8 @@ const UPDATE_INTERVAL = 100;
 const LIFESPAN_DECREASE = 0.1;
 
 const MainText = () => {
+    const prefersReducedMotion = useReducedMotion();
+
     const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
     const generateStar = useCallback((): Sparkle => {
@@ -39,6 +41,7 @@ const MainText = () => {
     }, []);
 
     useEffect(() => {
+        if (prefersReducedMotion) return;
         const initializeStars = () => {
             setSparkles(Array.from({ length: SPARKLES_COUNT }, generateStar));
         };
@@ -55,7 +58,7 @@ const MainText = () => {
         const interval = setInterval(updateStars, UPDATE_INTERVAL);
 
         return () => clearInterval(interval);
-    }, [generateStar]);
+    }, [generateStar, prefersReducedMotion]);
 
     return (
         <div

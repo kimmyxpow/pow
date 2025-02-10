@@ -1,12 +1,39 @@
 ---
+title: P Playing Tugeder
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel porttitor purus, sed sollicitudin tellus. Fusce et suscipit massa, ac porta erat. Suspendisse ac ullamcorper mi, at vulputate enim. Vestibulum id odio rutrum, faucibus odio sit amet, vulputate sem.
 date: 2025-01-01
 genre: Psychological Drama
 ---
 
-# P Playing Tugeder
+Lorem ipsum dolor sit `amet`, consectetur adipiscing elit. Integer vel porttitor purus, sed sollicitudin tellus. Fusce et suscipit massa, ac porta erat. Suspendisse ac ullamcorper mi, at vulputate enim. Vestibulum id odio rutrum, faucibus odio sit amet, vulputate sem. Pellentesque et nulla mollis dui imperdiet ultricies. Etiam aliquet ante interdum odio placerat elementum. Aliquam erat volutpat. Integer arcu eros, imperdiet vel felis ut, viverra eleifend orci. Etiam rutrum semper odio, ut ullamcorper libero posuere eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id commodo urna. Etiam laoreet sodales dolor, ac lobortis est commodo in. Quisque ac blandit augue. Etiam nulla lorem, viverra placerat eros ut, finibus laoreet est. Donec aliquam, ante et sollicitudin dictum, tellus lacus rutrum quam, sed feugiat felis risus ut velit. Sed eleifend nisl ipsum, id pharetra orci cursus ut.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel porttitor purus, sed sollicitudin tellus. Fusce et suscipit massa, ac porta erat. Suspendisse ac ullamcorper mi, at vulputate enim. Vestibulum id odio rutrum, faucibus odio sit amet, vulputate sem. Pellentesque et nulla mollis dui imperdiet ultricies. Etiam aliquet ante interdum odio placerat elementum. Aliquam erat volutpat. Integer arcu eros, imperdiet vel felis ut, viverra eleifend orci. Etiam rutrum semper odio, ut ullamcorper libero posuere eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id commodo urna. Etiam laoreet sodales dolor, ac lobortis est commodo in. Quisque ac blandit augue. Etiam nulla lorem, viverra placerat eros ut, finibus laoreet est. Donec aliquam, ante et sollicitudin dictum, tellus lacus rutrum quam, sed feugiat felis risus ut velit. Sed eleifend nisl ipsum, id pharetra orci cursus ut.
+```tsx
+import { Icon } from '@iconify/react';
+import Link from 'next/link';
+import { skills } from '~/utils/constants';
+
+const Skills = () => {
+    return (
+        <div className="flex flex-wrap justify-center gap-8">
+            {skills.map((skill) => (
+                <Link
+                    href={skill.link}
+                    key={skill.name}
+                    target="_blank"
+                    className="group relative transition-all hover:-translate-y-2"
+                >
+                    <Icon className="size-8 text-zinc-400 transition-all group-hover:text-zinc-800" icon={skill.icon} />
+                    <p className="pointer-events-none absolute left-1/2 mt-1 -translate-x-1/2 translate-y-4 text-center text-sm whitespace-nowrap opacity-0 transition-all group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+                        {skill.name}
+                    </p>
+                </Link>
+            ))}
+        </div>
+    );
+};
+
+export default Skills;
+```
 
 Vestibulum tempus condimentum aliquet. Nunc eu sem eget tellus lobortis sollicitudin nec non nibh. Morbi faucibus, lacus eget eleifend volutpat, est eros commodo lacus, tristique congue elit lorem a ante. Donec tincidunt libero eget diam vehicula auctor. Integer id nunc nec lorem hendrerit tincidunt. Sed lobortis vitae tellus quis varius. Proin lobortis nulla vel massa tristique, eget varius dui volutpat. Praesent suscipit, nisi quis sollicitudin euismod, quam ante efficitur ante, sed convallis nunc enim a nisi. Donec efficitur eget neque vel lacinia. Duis eu dolor varius risus faucibus imperdiet. Aliquam erat volutpat. Phasellus iaculis, nisi in hendrerit dapibus, felis risus condimentum leo, vel fermentum nisl ipsum non eros. Pellentesque sollicitudin tellus a neque dapibus rutrum. Etiam cursus eleifend consectetur. Donec lorem augue, posuere eu porta sit amet, egestas eget lacus.
 

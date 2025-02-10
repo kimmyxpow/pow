@@ -2,6 +2,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import { Fragment } from 'react';
 import { getAllTypes, getContentList } from '~/utils/content';
 import { formatDistance, format } from 'date-fns';
+import Link from 'next/link';
 
 const meta: Record<string, { title: string; desc: string }> = {
     stories: {
@@ -42,8 +43,8 @@ const page = async ({ params }: { params: Promise<{ type: string }> }) => {
                         <TabPanel key={content.lang}>
                             {content.contents.map((item) => (
                                 <div className="border-primary-300 space-y-4 border-y py-8" key={item.title}>
-                                    <h2 className="text-xl hover:underline">
-                                        <a href={`/${type}/${content.lang}/${item.slug}`}>{item.title}</a>
+                                    <h2 className="hocus:underline text-xl">
+                                        <Link href={`/${type}/${content.lang}/${item.slug}`}>{item.title}</Link>
                                     </h2>
                                     <p>{item.metadata.excerpt}</p>
                                     <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
@@ -72,5 +73,6 @@ export async function generateStaticParams() {
 }
 
 export const dynamicParams = false;
+export const dynamic = 'force-static';
 
 export default page;
