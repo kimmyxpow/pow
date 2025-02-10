@@ -70,4 +70,10 @@ const page = async ({ params }: { params: Promise<{ type: 'stories' | 'articles'
     );
 };
 
+export async function generateStaticParams() {
+    return [{ type: 'stories' }, { type: 'articles' }];
+}
+
+export const dynamicParams = false;
+
 export default page;
