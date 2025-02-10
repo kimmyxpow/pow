@@ -1,12 +1,14 @@
 'use client';
 
-import Cat from '~/components/cat';
 import Divider from '~/components/divider';
 import Experiences from '~/components/experiences';
 import GlowingText from '~/components/glowing-text';
 import Skills from '~/components/skills';
 import MagnetLines from '~/components/magnet-lines';
-import MainText from '~/components/main-text';
+import dynamic from 'next/dynamic';
+
+const MainText = dynamic(() => import('~/components/main-text'));
+const Cat = dynamic(() => import('~/components/cat'));
 
 export default function Home() {
     return (
