@@ -37,7 +37,7 @@ export function getContentList(type: 'stories' | 'articles'): ContentList {
         lang,
         contents: filenames.map((filename) => {
             const slug = filename.replace('.mdx', '');
-            const content = fs.readFileSync(path.join('contents', type, lang, filename), 'utf-8');
+            const content = fs.readFileSync(path.join(process.cwd(), 'contents', type, lang, filename), 'utf-8');
 
             const metadata = parse(content.match(/---\n([\s\S]*?)\n---/)?.[1] || '');
             const title = content.match(/# (.*)/)?.[1] || slug;
