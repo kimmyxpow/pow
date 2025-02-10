@@ -1,158 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 
-/* Lenis Recomended CSS */
-html.lenis,
-html.lenis body {
-    height: auto;
+@import 'tailwindcss';
+
+@utility container {
+    @apply mx-auto px-8;
 }
 
-.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
+@variant hocus (&:hover, &:focus);
+@variant dark (&:where(.dark, .dark *));
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-sans: 'Geist Mono', 'serif';
+    --font-mono: 'Geist Mono', 'serif';
+
+    --color-primary-100: var(--color-zinc-100);
+    --color-primary-200: var(--color-zinc-200);
+    --color-primary-300: var(--color-zinc-300);
+    --color-primary-400: var(--color-zinc-400);
+    --color-primary-500: var(--color-zinc-500);
+    --color-primary-600: var(--color-zinc-600);
+    --color-primary-700: var(--color-zinc-700);
+    --color-primary-800: var(--color-zinc-800);
+    --color-primary-900: var(--color-zinc-900);
+    --color-primary-950: var(--color-zinc-950);
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-    overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-    pointer-events: none;
-}
-
-/* animate.css */
-:root {
-    --animate-duration: 1s;
-    --animate-delay: 1s;
-    --animate-repeat: 1;
-}
-
-.animate__animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-duration: var(--animate-duration);
-    animation-duration: var(--animate-duration);
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-
-@keyframes swing {
-    20% {
-        transform: rotate3d(0, 0, 1, 15deg);
-    }
-
-    40% {
-        transform: rotate3d(0, 0, 1, -10deg);
-    }
-
-    60% {
-        transform: rotate3d(0, 0, 1, 5deg);
-    }
-
-    80% {
-        transform: rotate3d(0, 0, 1, -5deg);
-    }
-
-    to {
-        transform: rotate3d(0, 0, 1, 0deg);
-    }
-}
-
-.animate__swing {
-    transform-origin: top center;
-    animation-name: swing;
-}
-
-/* Tailwind */
 @layer base {
+    button {
+        @apply cursor-pointer;
+    }
+
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        @apply text-stone-800;
+        @apply text-primary-800 font-bold;
     }
 
     p,
-    span,
-    li {
-        @apply leading-relaxed text-stone-600;
+    ul,
+    ol {
+        @apply text-primary-700 leading-relaxed;
     }
-}
 
-@layer utilities {
-    @supports (animation-timeline: view()) {
-        @media (prefers-reduced-motion: no-preference) {
-            .timeline-view {
-                animation-timeline: view();
-                animation-range: entry 0 cover 50%;
-            }
-
-            @keyframes up-down {
-                from {
-                    opacity: 0;
-                    scale: 0.8;
-                    translate: 0 -4rem;
-                }
-                to {
-                    opacity: 1;
-                    scale: 1;
-                    translate: 0 0;
-                }
-            }
-
-            @keyframes down-up {
-                from {
-                    opacity: 0;
-                    scale: 0.8;
-                    translate: 0 4rem;
-                }
-                to {
-                    opacity: 1;
-                    scale: 1;
-                    translate: 0 0;
-                }
-            }
-
-            @keyframes left-right {
-                from {
-                    opacity: 0;
-                    scale: 0.8;
-                    translate: -4rem 0;
-                }
-                to {
-                    opacity: 1;
-                    scale: 1;
-                    translate: 0 0;
-                }
-            }
-
-            @keyframes right-left {
-                from {
-                    opacity: 0;
-                    scale: 0.8;
-                    translate: 4rem 0;
-                }
-                to {
-                    opacity: 1;
-                    scale: 1;
-                    translate: 0 0;
-                }
-            }
-
-            @keyframes up-only {
-                from {
-                    translate: 0 12rem;
-                }
-                to {
-                    translate: 0 0;
-                }
-            }
-        }
+    section {
+        @apply relative;
     }
 }

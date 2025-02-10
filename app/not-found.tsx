@@ -1,31 +1,65 @@
-import { Icon } from '@iconify/react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-export default function NotFound() {
+const NotFound = () => {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center gap-8">
-            <h2 className="text-4xl">looks like you&apos;re lost :((</h2>
-            <Link href="/" className="group relative mx-auto transition-all hover:-rotate-6 hover:scale-110">
-                <span className="relative z-10 block rounded-full bg-white px-12 py-6 text-stone-800 transition-all group-hover:bg-stone-50">
-                    Return to The Powland
-                </span>
-                <Icon
-                    icon="tabler:paw"
-                    className="absolute -right-6 top-0 -translate-x-10 translate-y-6 rotate-12 text-xl transition-all group-hover:translate-x-0 group-hover:translate-y-0"
+        <div className="space-y-8 py-8">
+            <p className="bg-primary-300 mx-auto max-w-max rounded-full px-4 py-1 text-center text-sm font-medium">
+                oops! looks like you’re lost
+            </p>
+            <h1 className="text-center text-6xl font-black">404</h1>
+            <p>
+                in the vast expanse of the digital universe, it seems our paths have diverged. the page you seek has
+                drifted away, like a ship lost at sea, or a love letter never sent. perhaps it was a fleeting dream, or
+                maybe it’s hiding, waiting for the right moment to reappear.
+            </p>
+            <p>but do not despair, dear wanderer. here are a few paths you can take:</p>
+            <ul>
+                <li>
+                    1️⃣ <strong>retrace your steps:</strong> check the url, for it might hold the key to our reunion.
+                </li>
+                <li>
+                    2️⃣ <strong>return whence you came:</strong> the back button may lead you to familiar grounds.
+                </li>
+                <li>
+                    3️⃣ <strong>find solace in the beginning:</strong> visit my{' '}
+                    <Link href="/" className="font-bold underline">
+                        homepage
+                    </Link>{' '}
+                    and start anew.
+                </li>
+            </ul>
+            <p>while you ponder your next move, gaze upon this symbol of hope:</p>
+            <div className="flex justify-center gap-2">
+                <Image
+                    width={160}
+                    height={160}
+                    className="h-40"
+                    src="https://media1.tenor.com/m/q468PomLqx8AAAAd/cat-fall.gif"
+                    alt=""
                 />
-                <Icon
-                    icon="tabler:paw"
-                    className="absolute -right-8 top-6 -translate-x-12 rotate-[24deg] text-xl transition-all group-hover:translate-x-0"
+                <Image
+                    width={160}
+                    height={160}
+                    className="h-40"
+                    src="https://media1.tenor.com/m/LJiVS6FmHQ8AAAAd/nerd-plink.gif"
+                    alt=""
                 />
-                <Icon
-                    icon="tabler:paw"
-                    className="absolute -left-6 bottom-0 -translate-y-6 translate-x-10 -rotate-[45deg] text-xl transition-all group-hover:translate-x-0 group-hover:translate-y-0"
+                <Image
+                    width={200}
+                    height={200}
+                    className="h-40"
+                    src="https://media1.tenor.com/m/QbgMgpETdRIAAAAd/cat-no-no.gif"
+                    alt=""
                 />
-                <Icon
-                    icon="tabler:paw"
-                    className="absolute -left-8 bottom-6 translate-x-12 -rotate-12 text-xl transition-all group-hover:translate-x-0"
-                />
-            </Link>
+            </div>
+            <p>
+                if you believe this separation is a mistake of fate, please send me a message, and i shall try to mend
+                our broken link.
+            </p>
+            <p>until we meet again, pow.</p>
         </div>
     );
-}
+};
+
+export default NotFound;
