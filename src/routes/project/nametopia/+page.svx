@@ -1,0 +1,15 @@
+<script>
+    import image from '$lib/img/thumbnails/nametopia.png?enhanced'
+    import ProjectLink from '$components/ProjectLink.svelte'
+    import Wrapper from '$components/Wrapper.svelte';
+</script>
+
+<Wrapper>
+
+# Nametopia
+
+<ProjectLink img={image} alt="Nametopia Website" github="https://github.com/powdotkim/nametopia" web="https://nametopia.pow.kim/" />
+
+Nametopia is a website that allows users to generate random names with just one click. Additionally, Nametopia provides the option to use a gender filter, enabling users to determine names based on a specific gender. The website also offers a variety of country options for generating names. If you need inspiration for names, Nametopia has the answer.
+
+</Wrapper>

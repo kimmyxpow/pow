@@ -1,0 +1,17 @@
+<script>
+    import image from '$lib/img/thumbnails/hollux.png?enhanced'
+    import ProjectLink from '$components/ProjectLink.svelte'
+    import Wrapper from '$components/Wrapper.svelte';
+</script>
+
+<Wrapper>
+
+# Hollux
+
+<ProjectLink img={image} alt="Hollux Website" github="https://github.com/powdotkim/hollux" />
+
+Hollux is a website designed for efficient hotel management, encompassing room management, facilities management, and providing a platform for users to make hotel reservations.
+
+With Hollux, hotel owners can easily manage room availability, pricing, and other facility details. Additionally, the online reservation feature enables users to quickly and conveniently book rooms through the platform.
+
+</Wrapper>

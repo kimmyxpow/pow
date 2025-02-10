@@ -1,0 +1,17 @@
+<script>
+    import image from '$lib/img/thumbnails/palettepix.png?enhanced'
+    import ProjectLink from '$components/ProjectLink.svelte'
+    import Wrapper from '$components/Wrapper.svelte';
+</script>
+
+<Wrapper>
+
+# PalettePix
+
+<ProjectLink img={image} alt="PalettePix Website" github="https://github.com/powdotkim/palettepix" web="https://palettepix.pow.kim/" />
+
+PalettePix is a simple website project designed to extract colors from uploaded photos. With a focus on practicality, this website can identify the dominant color of an image and present a color palette consisting of 10 main colors extracted from the uploaded photo.
+
+With a user-friendly interface, users can easily upload their photos and obtain color results in no time. PalettePix provides a convenient solution for users who seek color inspiration from images without involving complicated processes.
+
+</Wrapper>

@@ -1,0 +1,15 @@
+<script>
+    import image from '$lib/img/thumbnails/bagiskrip.png?enhanced'
+    import ProjectLink from '$components/ProjectLink.svelte'
+    import Wrapper from '$components/Wrapper.svelte';
+</script>
+
+<Wrapper>
+
+# BagiSkrip
+
+<ProjectLink img={image} alt="BagiSkrip Website" github="https://github.com/powdotkim/bagiskrip" web="https://bagiskrip.pow.kim/" />
+
+BagiSkrip is a simple and user-friendly codesnippet service. With various programming language options, BagiSkrip enables users to create and share code snippets quickly and efficiently. Security is also emphasized, with the ability to use passwords to protect shared scripts. Additionally, users can specify the visibility of their scripts, whether they want to share them publicly or keep them private.
+
+</Wrapper>

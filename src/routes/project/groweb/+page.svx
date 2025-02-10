@@ -1,0 +1,17 @@
+<script>
+    import image from '$lib/img/thumbnails/groweb.png?enhanced'
+    import ProjectLink from '$components/ProjectLink.svelte'
+    import Wrapper from '$components/Wrapper.svelte';
+</script>
+
+<Wrapper>
+
+# Groweb
+
+<ProjectLink img={image} alt="Groweb Website" web="https://www.linkedin.com/company/groweb.id/" />
+
+Groweb is an initiative formed by a group of vocational school students with the goal of supporting the digitalization of small to medium-sized enterprises (SMEs). Groweb offers affordable services for website development and logo design. Noval, initially serving as the Vice President of Production, later assumed the role of President in January 2024.
+
+With a focus on accessibility and cost-effectiveness, Groweb aims to assist small to medium-sized businesses in establishing a strong digital presence through professional website creation and logo design. Under Noval's leadership, Groweb remains committed to providing effective and affordable digital solutions for small-scale businesses.
+
+</Wrapper>

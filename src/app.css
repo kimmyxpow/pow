@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		color-scheme: dark;
+	}
+}
+
+@layer utilities {
+	.hide-scroll::-webkit-scrollbar {
+		display: none;
+	}
+
+	.hide-scroll {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}

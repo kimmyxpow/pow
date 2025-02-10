@@ -1,0 +1,16 @@
+<script>
+    import Wrapper from '$components/Wrapper.svelte';
+    import Overview from '$components/Overview.svelte';
+</script>
+
+<Wrapper>
+
+# About
+
+Meet Noval, affectionately known as Pow – a seasoned software engineer who's been on quite the programming adventure. He's the mastermind behind crafting cool solutions that leave a positive impact. Noval's journey is marked by a commitment to keeping the flames of learning alive and striving for excellence at every turn.
+
+A naturally curious soul, Noval is always in tune with the latest tech trends. The software world becomes his playground, where he effortlessly adapts and shines across a spectrum of projects. Yet, it's not just about the code for him. Noval is on a mission, ensuring the solutions he delivers consistently exceed expectations.
+
+<Overview />
+
+</Wrapper>

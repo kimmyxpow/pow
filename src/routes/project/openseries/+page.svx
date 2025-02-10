@@ -1,0 +1,15 @@
+<script>
+    import image from '$lib/img/thumbnails/openseries.png?enhanced'
+    import ProjectLink from '$components/ProjectLink.svelte'
+    import Wrapper from '$components/Wrapper.svelte';
+</script>
+
+<Wrapper>
+
+# OpenSeries
+
+<ProjectLink img={image} alt="OpenSeris Website" github="https://github.com/bellshade/OpenSeriesWeb" web="https://www.openseries.blue/" />
+
+OpenSeries is a project developed by Bellshade aimed at assisting students in solving various types of equations and formulas commonly encountered in high school (SMA/SMK/equivalent). As the web development lead on this project, Noval oversees the development of the platform. OpenSeries is a Python library that provides functions for solving mathematical problems. The OpenSeries website includes comprehensive documentation and a playground for utilizing the OpenSeries library.
+
+</Wrapper>
