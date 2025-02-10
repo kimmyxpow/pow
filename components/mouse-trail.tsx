@@ -6,6 +6,8 @@ const MouseTrail = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameRef = useRef<number>(null);
     const [mouseMoved, setMouseMoved] = useState(false);
+    const offsetY = 25;
+    const offsetX = 10;
 
     const pointerRef = useRef({
         x: 0.5,
@@ -29,10 +31,13 @@ const MouseTrail = () => {
         })),
     );
 
-    const updateMousePosition = useCallback((clientX: number, clientY: number) => {
-        pointerRef.current.x = clientX;
-        pointerRef.current.y = clientY;
-    }, []);
+    const updateMousePosition = useCallback(
+        (clientX: number, clientY: number) => {
+            pointerRef.current.x = clientX + offsetX;
+            pointerRef.current.y = clientY + offsetY;
+        },
+        [offsetY, offsetX],
+    );
 
     const setupCanvas = useCallback(() => {
         const canvas = canvasRef.current;
@@ -51,9 +56,10 @@ const MouseTrail = () => {
             if (!ctx) return;
 
             if (!mouseMoved) {
-                pointerRef.current.x = (0.5 + 0.3 * Math.cos(0.002 * t) * Math.sin(0.005 * t)) * window.innerWidth;
+                pointerRef.current.x =
+                    (0.5 + 0.3 * Math.cos(0.002 * t) * Math.sin(0.005 * t)) * window.innerWidth + offsetX;
                 pointerRef.current.y =
-                    (0.5 + 0.2 * Math.cos(0.005 * t) + 0.1 * Math.cos(0.01 * t)) * window.innerHeight;
+                    (0.5 + 0.2 * Math.cos(0.005 * t) + 0.1 * Math.cos(0.01 * t)) * window.innerHeight + offsetY;
             }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
