@@ -3,13 +3,15 @@
 import { PropsWithChildren } from 'react';
 import Divider from '~/components/divider';
 import Footer from '~/components/footer';
-import MouseTrail from '~/components/mouse-trail';
 import Navbar from '~/components/navbar';
 import { ReactLenis } from 'lenis/react';
 import type { LenisRef } from 'lenis/react';
 import { cancelFrame, frame } from 'motion';
 import { useEffect, useRef } from 'react';
-import CatFollow from './cat-follow';
+import dynamic from 'next/dynamic';
+
+const CatFollow = dynamic(() => import('~/components/cat-follow'));
+const MouseTrail = dynamic(() => import('~/components/mouse-trail'));
 
 const PowWrapper = ({ children }: PropsWithChildren) => {
     const lenisRef = useRef<LenisRef>(null);
