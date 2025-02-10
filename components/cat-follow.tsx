@@ -77,10 +77,6 @@ const SPRITE_SETS: SpriteSets = {
     ],
 };
 
-interface CatFollowProps {
-    catImage?: string;
-}
-
 interface CatState {
     nekoPosX: number;
     nekoPosY: number;
@@ -92,7 +88,7 @@ interface CatState {
     idleAnimationFrame: number;
 }
 
-const CatFollow: React.FC<CatFollowProps> = ({ catImage = './neko.gif' }) => {
+const CatFollow = () => {
     const catElementRef = useRef<HTMLDivElement>(null);
     const frameRef = useRef<number>(0);
     const lastFrameTimestampRef = useRef<number | null>(null);
@@ -253,16 +249,14 @@ const CatFollow: React.FC<CatFollowProps> = ({ catImage = './neko.gif' }) => {
 
     return (
         <div
-            className="pointer-events-none fixed z-626349"
+            className="pointer-events-none fixed z-626349 bg-[url('/neko.gif')] [image-rendering:pixelated]"
             ref={catElementRef}
             aria-hidden="true"
             style={{
                 width: `${SPRITE_SIZE}px`,
                 height: `${SPRITE_SIZE}px`,
-                imageRendering: 'pixelated',
                 left: `${stateRef.current.nekoPosX - MIN_BOUNDARY}px`,
                 top: `${stateRef.current.nekoPosY - MIN_BOUNDARY}px`,
-                backgroundImage: `url(${catImage})`,
             }}
         />
     );

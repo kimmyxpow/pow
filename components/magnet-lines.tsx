@@ -1,10 +1,5 @@
-import { useRef, useEffect, type CSSProperties } from 'react';
+import { useRef, useEffect, CSSProperties } from 'react';
 import { useReducedMotion } from 'motion/react';
-
-const ROWS = 5;
-const COLUMNS = 10;
-const LINE_WIDTH = '.2vmin';
-const LINE_HEIGHT = '4vmin';
 
 const MagnetLines = () => {
     const prefersReducedMotion = useReducedMotion();
@@ -38,25 +33,12 @@ const MagnetLines = () => {
     }, [prefersReducedMotion]);
 
     return (
-        <div
-            ref={containerRef}
-            className="grid place-items-center py-8"
-            style={{
-                gridTemplateColumns: `repeat(${COLUMNS}, 1fr)`,
-                gridTemplateRows: `repeat(${ROWS}, 1fr)`,
-            }}
-        >
-            {Array.from({ length: ROWS * COLUMNS }, (_, i) => (
+        <div ref={containerRef} className="grid grid-cols-10 grid-rows-5 place-items-center py-8">
+            {Array.from({ length: 10 * 5 }, (_, i) => (
                 <span
                     key={i}
-                    className="bg-primary-600 block origin-center rotate-[var(--rotate)] will-change-transform"
-                    style={
-                        {
-                            width: LINE_WIDTH,
-                            height: LINE_HEIGHT,
-                            '--rotate': '-10deg',
-                        } as CSSProperties
-                    }
+                    className="bg-primary-600 block h-8 w-1 origin-center rotate-[var(--rotate)] will-change-transform"
+                    style={{ '--rotate': '45deg' } as CSSProperties}
                 />
             ))}
         </div>
