@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    output: 'export',
 };
 
 const withMDX = createMDX({
