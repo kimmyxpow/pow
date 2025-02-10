@@ -1,10 +1,9 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import { Fragment } from 'react';
-import { getContentList } from '~/utils/content';
+import { getAllTypes, getContentList } from '~/utils/content';
 import { formatDistance, format } from 'date-fns';
-import { notFound } from 'next/navigation';
 
-const meta = {
+const meta: Record<string, { title: string; desc: string }> = {
     stories: {
         title: 'tales from my mind',
         desc: 'a collection of stories born from my wandering imagination. some are whimsical, some are dark, and some might make you question reality—but all of them are little pieces of the worlds I’ve created. read at your own risk; you might get lost in them like I do :))',
@@ -15,10 +14,8 @@ const meta = {
     },
 };
 
-const page = async ({ params }: { params: Promise<{ type: 'stories' | 'articles' }> }) => {
+const page = async ({ params }: { params: Promise<{ type: string }> }) => {
     const type = (await params).type;
-
-    if (!['stories', 'articles'].includes(type)) return notFound();
 
     const list = getContentList(type);
 
@@ -71,7 +68,7 @@ const page = async ({ params }: { params: Promise<{ type: 'stories' | 'articles'
 };
 
 export async function generateStaticParams() {
-    return [{ type: 'stories' }, { type: 'articles' }];
+    return getAllTypes().flatMap((type) => ({ type }));
 }
 
 export const dynamicParams = false;

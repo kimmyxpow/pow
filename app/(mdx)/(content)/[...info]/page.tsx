@@ -1,22 +1,16 @@
-import { notFound } from 'next/navigation';
 import { readdirSync } from 'fs';
 import { join } from 'path';
+import { getAllTypes } from '~/utils/content';
 
 const page = async ({ params }: { params: Promise<{ info: string[] }> }) => {
-    const [type, lang, slug, ...rest] = (await params).info;
+    const [type, lang, slug] = (await params).info;
 
-    if (rest.length > 0) notFound();
-
-    try {
-        const { default: Post } = await import(`~/contents/${type}/${lang}/${slug}.mdx`);
-        return <Post />;
-    } catch {
-        notFound();
-    }
+    const { default: Post } = await import(`~/contents/${type}/${lang}/${slug}.mdx`);
+    return <Post />;
 };
 
 export async function generateStaticParams() {
-    const types = ['stories', 'articles'];
+    const types = getAllTypes();
     const contentRoot = join(process.cwd(), 'contents');
 
     return types.flatMap((type) => {
@@ -30,9 +24,7 @@ export async function generateStaticParams() {
             readdirSync(join(typePath, lang))
                 .filter((file) => file.endsWith('.mdx'))
                 .map((file) => ({
-                    slug: file.replace('.mdx', ''),
-                    type,
-                    lang,
+                    info: [type, lang, file.replace('.mdx', '')],
                 })),
         );
     });

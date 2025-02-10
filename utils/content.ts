@@ -48,7 +48,7 @@ function parseFrontmatter(content: string): Omit<Metadata, 'date'> & { date: str
     return result;
 }
 
-export function getContentList(type: 'stories' | 'articles'): ContentList {
+export function getContentList(type: string): ContentList {
     const baseDir = join(process.cwd(), 'contents', type);
     const langFolders = readdirSync(baseDir, { withFileTypes: true })
         .filter((dirent) => dirent.isDirectory())
@@ -87,4 +87,12 @@ export function getContentList(type: 'stories' | 'articles'): ContentList {
         lang: langFolders,
         contents,
     };
+}
+
+export function getAllTypes() {
+    const contentRoot = join(process.cwd(), 'contents');
+
+    return readdirSync(contentRoot, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name);
 }
