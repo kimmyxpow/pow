@@ -235,10 +235,6 @@ const CatFollow: React.FC<CatFollowProps> = ({ catImage = './neko.gif' }) => {
     );
 
     useEffect(() => {
-        const isReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
-
-        if (isReducedMotion) return;
-
         const handleMouseMove = (event: MouseEvent) => {
             stateRef.current.mousePosX = event.clientX;
             stateRef.current.mousePosY = event.clientY;
@@ -257,7 +253,7 @@ const CatFollow: React.FC<CatFollowProps> = ({ catImage = './neko.gif' }) => {
 
     return (
         <div
-            className="pointer-events-none fixed z-626349 motion-reduce:hidden"
+            className="pointer-events-none fixed z-626349"
             ref={catElementRef}
             aria-hidden="true"
             style={{

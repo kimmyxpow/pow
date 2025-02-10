@@ -9,12 +9,14 @@ import type { LenisRef } from 'lenis/react';
 import { cancelFrame, frame } from 'motion';
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
+import { useReducedMotion } from 'motion/react';
 
 const CatFollow = dynamic(() => import('~/components/cat-follow'), { ssr: false });
 const MouseTrail = dynamic(() => import('~/components/mouse-trail'), { ssr: false });
 
 const PowWrapper = ({ children }: PropsWithChildren) => {
     const lenisRef = useRef<LenisRef>(null);
+    const prefersReducedMotion = useReducedMotion();
 
     useEffect(() => {
         function update(data: { timestamp: number }) {
@@ -37,8 +39,12 @@ const PowWrapper = ({ children }: PropsWithChildren) => {
                 <Footer />
             </div>
             <div className='not-motion-reduce:animate-glitch pointer-events-none fixed -inset-24 z-50 bg-[url("/texture.png")] opacity-[0.08]'></div>
-            <MouseTrail />
-            <CatFollow />
+            {!prefersReducedMotion && (
+                <>
+                    <MouseTrail />
+                    <CatFollow />
+                </>
+            )}
         </ReactLenis>
     );
 };

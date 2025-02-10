@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { useReducedMotion } from 'motion/react';
 
 interface Point {
     x: number;
@@ -24,7 +23,6 @@ const OFFSET = {
 } as const;
 
 const MouseTrail = () => {
-    const prefersReducedMotion = useReducedMotion();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameRef = useRef<number>(null);
     const [mouseMoved, setMouseMoved] = useState(false);
@@ -108,7 +106,6 @@ const MouseTrail = () => {
     );
 
     useEffect(() => {
-        if (prefersReducedMotion) return;
         pointerRef.current = {
             x: 0.5 * window.innerWidth,
             y: 0.5 * window.innerHeight,
@@ -146,7 +143,7 @@ const MouseTrail = () => {
             window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('resize', setupCanvas);
         };
-    }, [setupCanvas, update, updateMousePosition, prefersReducedMotion]);
+    }, [setupCanvas, update, updateMousePosition]);
 
     return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 mix-blend-difference" />;
 };
