@@ -1,17 +1,17 @@
-import fs from 'fs';
-import fg from 'fast-glob';
-import { parse } from 'yaml';
-import path from 'path';
+import { readdirSync, readFileSync } from 'fs';
+import { join } from 'path';
+
+type Metadata = {
+    date: Date;
+    excerpt: string;
+    genre: string;
+    image?: string;
+};
 
 type ContentItem = {
     title: string;
     slug: string;
-    metadata: {
-        date: Date;
-        excerpt: string;
-        genre: string;
-        image?: string;
-    };
+    metadata: Metadata;
 };
 
 type ContentByLang = {
@@ -24,37 +24,67 @@ type ContentList = {
     contents: ContentByLang[];
 };
 
+function parseFrontmatter(content: string): Omit<Metadata, 'date'> & { date: string } {
+    const match = content.match(/---\n([\s\S]*?)\n---/);
+
+    const result = {
+        excerpt: '',
+        genre: '',
+        date: new Date().toISOString(),
+    } as Omit<Metadata, 'date'> & { date: string };
+
+    const lines = match?.[1].split('\n') || [];
+
+    for (const line of lines) {
+        const [key, ...valueParts] = line.split(':');
+        if (!key?.trim() || !valueParts.length) continue;
+
+        const cleanKey = key.trim() as keyof Metadata;
+        const value = valueParts.join(':').trim();
+
+        result[cleanKey] = value;
+    }
+
+    return result;
+}
+
 export function getContentList(type: 'stories' | 'articles'): ContentList {
-    const files = fg.sync(`contents/${type}/**/*.mdx`);
+    const baseDir = join(process.cwd(), 'contents', type);
+    const langFolders = readdirSync(baseDir, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name);
 
-    const langMap = files.reduce((map, file) => {
-        const [filename, lang] = file.split('/').reverse();
-        map.set(lang, [...(map.get(lang) || []), filename]);
-        return map;
-    }, new Map<string, string[]>());
+    const contents = langFolders.map((lang) => {
+        const langPath = join(baseDir, lang);
+        const files = readdirSync(langPath).filter((file) => file.endsWith('.mdx'));
 
-    const contents = Array.from(langMap, ([lang, filenames]) => ({
-        lang,
-        contents: filenames.map((filename) => {
+        const contentList = files.map((filename) => {
+            const content = readFileSync(join(langPath, filename), 'utf-8');
             const slug = filename.replace('.mdx', '');
-            const content = fs.readFileSync(path.join(process.cwd(), 'contents', type, lang, filename), 'utf-8');
 
-            const metadata = parse(content.match(/---\n([\s\S]*?)\n---/)?.[1] || '');
-            const title = content.match(/# (.*)/)?.[1] || slug;
+            const titleMatch = /# (.*)/.exec(content);
+
+            const metadata = parseFrontmatter(content);
+            const title = titleMatch?.[1] || slug;
 
             return {
                 title,
                 slug,
                 metadata: {
                     ...metadata,
-                    date: new Date(metadata.date),
+                    date: metadata.date ? new Date(metadata.date) : new Date(),
                 },
             };
-        }),
-    }));
+        });
+
+        return {
+            lang,
+            contents: contentList,
+        };
+    });
 
     return {
-        lang: Array.from(langMap.keys()),
+        lang: langFolders,
         contents,
     };
 }
