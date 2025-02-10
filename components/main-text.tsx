@@ -14,7 +14,7 @@ interface Sparkle {
     lifespan: number;
 }
 
-const MainText: React.FC = () => {
+const MainText = () => {
     const [sparkles, setSparkles] = useState<Sparkle[]>([]);
     const colors = { first: '#9E7AFF', second: '#FE8BBB' };
     const sparklesCount = 5;
@@ -76,7 +76,7 @@ const MainText: React.FC = () => {
     );
 };
 
-const Sparkle: React.FC<Sparkle> = ({ id, x, y, color, delay, scale }) => {
+const Sparkle = ({ id, x, y, color, delay, scale }: Sparkle) => {
     return (
         <motion.svg
             key={id}

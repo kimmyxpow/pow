@@ -1,6 +1,6 @@
 import { useRef, useEffect, CSSProperties } from 'react';
 
-export default function MagnetLines() {
+const MagnetLines = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const rows = 5;
     const columns = 10;
@@ -68,4 +68,6 @@ export default function MagnetLines() {
             {spans}
         </div>
     );
-}
+};
+
+export default MagnetLines;
