@@ -10,8 +10,8 @@ import { cancelFrame, frame } from 'motion';
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
-const CatFollow = dynamic(() => import('~/components/cat-follow'));
-const MouseTrail = dynamic(() => import('~/components/mouse-trail'));
+const CatFollow = dynamic(() => import('~/components/cat-follow'), { ssr: false });
+const MouseTrail = dynamic(() => import('~/components/mouse-trail'), { ssr: false });
 
 const PowWrapper = ({ children }: PropsWithChildren) => {
     const lenisRef = useRef<LenisRef>(null);
