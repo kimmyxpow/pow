@@ -7,14 +7,10 @@ export const navLinks = [
         title: 'projects',
         url: '/projects',
     },
-    {
-        title: 'articles',
-        url: '/articles',
-    },
-    {
-        title: 'stories',
-        url: '/stories',
-    },
+    // {
+    //     title: 'articles',
+    //     url: '/articles',
+    // },
     {
         title: 'guestbook',
         url: '/guestbook',

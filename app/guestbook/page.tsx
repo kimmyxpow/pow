@@ -3,7 +3,7 @@
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
 import Divider from '~/components/divider';
-import { signIn, useSession } from '~/lib/auth-client';
+import { signIn, useSession } from '~/utils/auth-client';
 import useSWR from 'swr';
 import { SelectGuestbookWithUser } from '~/lib/db/schema';
 import { useRef } from 'react';

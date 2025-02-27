@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { projects } from '~/lib/constants';
+import { projects } from '~/utils/constants';
 
 const Page = () => {
     return (
