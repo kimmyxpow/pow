@@ -24,10 +24,10 @@ const Page = () => {
                 <Divider />
                 <h2 className="text-lg">a little about me</h2>
                 <p>
-                    hi, i’m <GlowingText>noval</GlowingText>, but you can call me <GlowingText>pow</GlowingText>—a
-                    quirky nickname that somehow stuck. anw, i’m a <GlowingText>software engineer</GlowingText> focused
-                    on <GlowingText>web development</GlowingText>, but my curiosity doesn’t stop there. i enjoy
-                    exploring different areas of programming and constantly challenging myself to learn more.
+                    hi, you can call me <GlowingText>pow</GlowingText>—a quirky nickname that somehow stuck. anw, i’m a{' '}
+                    <GlowingText>software engineer</GlowingText> focused on <GlowingText>web development</GlowingText>,
+                    but my curiosity doesn’t stop there. i enjoy exploring different areas of programming and constantly
+                    challenging myself to learn more.
                 </p>
                 <Divider />
                 <Skills />

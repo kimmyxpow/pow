@@ -11,5 +11,4 @@ export const signIn = async () => {
     });
 };
 
-export const signOut = async () => await authClient.signOut();
 export const useSession = () => authClient.useSession();

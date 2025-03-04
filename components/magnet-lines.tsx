@@ -37,7 +37,7 @@ const MagnetLines = () => {
             {Array.from({ length: 10 * 5 }, (_, i) => (
                 <span
                     key={i}
-                    className="bg-primary-600 block h-8 w-1 origin-center rotate-[var(--rotate)] will-change-transform"
+                    className="bg-primary-600 dark:bg-primary-400 block h-8 w-1 origin-center rotate-[var(--rotate)] will-change-transform"
                     style={{ '--rotate': '45deg' } as CSSProperties}
                 />
             ))}

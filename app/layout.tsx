@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     return (
         <html lang="en" className={GeistMono.variable}>
-            <body className="bg-primary-200 font-mono antialiased">
+            <body className="bg-primary-200 dark:bg-primary-900 font-mono antialiased">
                 <PowWrapper>{children}</PowWrapper>
             </body>
         </html>

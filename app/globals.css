@@ -58,13 +58,13 @@
     h4,
     h5,
     h6 {
-        @apply text-primary-800 font-bold;
+        @apply text-primary-800 dark:text-primary-300 font-bold;
     }
 
     p,
     ul,
     ol {
-        @apply text-primary-700 leading-relaxed;
+        @apply text-primary-700 dark:text-primary-400 leading-relaxed;
     }
 
     section {

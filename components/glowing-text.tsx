@@ -9,7 +9,7 @@ const GlowingText = ({ children, className }: PropsWithChildren<Props>) => {
     return (
         <span
             className={cn(
-                'bg-gradient-to-r from-pink-600 via-fuchsia-600 to-violet-600 bg-clip-text text-transparent',
+                'bg-gradient-to-r from-pink-600 via-fuchsia-600 to-violet-600 bg-clip-text text-transparent dark:from-pink-400 dark:via-fuchsia-400 dark:to-violet-400',
                 className,
             )}
         >

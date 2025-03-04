@@ -11,7 +11,7 @@ const Page = () => {
             </p>
             <div className="-space-y-px">
                 {projects.map((project) => (
-                    <div className="border-primary-300 space-y-4 border-y py-8" key={project.name}>
+                    <div className="border-primary-300 space-y-4 border-y py-8 dark:border-zinc-800" key={project.name}>
                         <h2 className="text-xl">{project.name}</h2>
                         <p>{project.description}</p>
                         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">

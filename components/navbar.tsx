@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div className="relative z-999 flex items-center justify-between py-8">
-            <Link href="/" className="font-medium">
+            <Link href="/" className="font-medium dark:text-white">
                 pow.
             </Link>
             <button className="text-3xl md:hidden" onClick={() => setIsOpen((s) => !s)} aria-label="Toggle Menu">
@@ -28,7 +28,7 @@ const Navbar = () => {
                         onClick={() => setIsOpen(false)}
                         key={link.title}
                         href={link.url}
-                        className="text-primary-600 hocus:underline text-3xl font-bold md:text-base md:font-normal"
+                        className="text-primary-600 dark:text-primary-300 hocus:underline text-3xl font-bold md:text-base md:font-normal"
                     >
                         {link.title}
                     </Link>
