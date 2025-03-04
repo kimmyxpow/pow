@@ -7,7 +7,7 @@ import { PropsWithChildren } from 'react';
 export const metadata: Metadata = {
     title: 'Pow’s Digital Playground | Code, Stories, and Cats',
     description:
-        'The personal space of Abi Noval Fauzi, a software engineer and fiction writer. A place where code meets creativity, and cats rule the world. Explore projects, stories, and thoughts—crafted with passion (and probably some cat hair).',
+        'The personal space of Pow, a software engineer and fiction writer. A place where code meets creativity, and cats rule the world. Explore projects, stories, and thoughts—crafted with passion (and probably some cat hair).',
     keywords: [
         'software engineer',
         'web developer',
@@ -21,7 +21,6 @@ export const metadata: Metadata = {
         'personal projects',
         'cat lover',
         'Pow',
-        'Abi Noval Fauzi',
     ],
 };
 
