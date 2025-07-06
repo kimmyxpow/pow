@@ -23,7 +23,7 @@ export const projects = [
         description:
             'OpenSeries is a project that aims to help students in calculating all kinds of equations and formulas that are commonly encountered in high school.',
         github: 'https://github.com/bellshade/OpenSeries',
-        website: 'https://www.openseries.blue',
+        website: 'https://openseries.pages.dev',
         tags: ['Python', 'Next.js', 'Tailwind CSS'],
     },
     {
@@ -131,7 +131,8 @@ export const skills = [
 
 export const experiences = {
     'professional hustles': [
-        { company: 'Zi.Care', role: 'Fullstack Engineer', year: 'Aug 2023 – Present', img: 'zicare.png' },
+        { company: 'Peepl', role: 'Fullstack Engineer', year: 'May 2025 – Present', img: 'peepl.png' },
+        { company: 'Zi.Care', role: 'Fullstack Engineer', year: 'Aug 2023 – Apr 2025', img: 'zicare.png' },
         { company: 'PT LSKK', role: 'Fullstack Developer', year: 'Jul 2022 – Dec 2022', img: 'lskk.png' },
     ],
     heartwork: [

@@ -15,7 +15,7 @@ const Experiences = () => {
                             >
                                 <div className="flex items-center gap-4">
                                     <Image
-                                        className="rounded-xl"
+                                        className="aspect-square rounded-xl object-contain"
                                         src={`/brand/${item.img}`}
                                         alt={item.company}
                                         width={50}
