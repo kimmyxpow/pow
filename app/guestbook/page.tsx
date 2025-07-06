@@ -13,7 +13,7 @@ type GuestbookResponse = {
     result?: SelectGuestbookWithUser[];
 };
 
-const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+const fetcher = <T,>(url: string): Promise<T> => fetch(url).then((res) => res.json());
 
 const MessageForm = ({ onSubmit }: { onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void> }) => {
     const formRef = useRef<HTMLFormElement>(null);
@@ -102,8 +102,8 @@ const Page = () => {
                 throw new Error(`Server error: ${response.status} - ${text}`);
             }
 
-            const json = await response.json();
-            mutate({ ...json.result, ...data });
+            const json: GuestbookResponse = await response.json();
+            mutate({ ...json, ...data });
         } catch (error) {
             console.error('Error submitting form:', error);
         }
