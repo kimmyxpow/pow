@@ -15,6 +15,9 @@ jobs:
               with:
                   bun-version: latest
 
+            - name: Copy .env
+              run: cp .env.example .env
+
             - name: Install deps
               run: bun i
 
