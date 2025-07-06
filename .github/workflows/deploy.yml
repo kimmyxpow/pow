@@ -15,9 +15,11 @@ jobs:
               with:
                   bun-version: latest
 
-            - name: Build & Deploy Worker
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  wranglerVersion: '4.23.0'
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+            - name: Install deps
+              run: bun i
+
+            - name: Deploy
+              run: bun run deploy
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
