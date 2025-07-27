@@ -1,4 +1,6 @@
-import { env } from '$env/dynamic/private';
-import { drizzle } from 'drizzle-orm/postgres-js';
+import { DATABASE_URL } from '$env/static/private';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 
-export const db = drizzle(env.DATABASE_URL);
+const client = neon(DATABASE_URL);
+export const db = drizzle({ client });
