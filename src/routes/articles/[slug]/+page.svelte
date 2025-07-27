@@ -1,0 +1,89 @@
+<script lang="ts">
+	import type { ArticleModule } from '$contents/articles/utils';
+	import { formatDate } from 'date-fns';
+
+	let { data } = $props();
+
+	const modules = import.meta.glob<ArticleModule>('/src/contents/articles/*/*.svx');
+	const key = `/src/contents/articles/${data.article.lang}/${data.article.slug}.svx`;
+	const modPromise = modules[key]?.();
+</script>
+
+<section class="pt-86 pb-26">
+	<div class="absolute inset-x-0 top-0 aspect-[4/3] overflow-hidden">
+		<img
+			class="size-full object-cover"
+			src={data.article.thumbnail}
+			alt="{data.article.title} thumbnail"
+			loading="lazy"
+		/>
+		<div
+			class="absolute bottom-0 size-full bg-gradient-to-b from-transparent to-zinc-950 to-35%"
+		></div>
+	</div>
+	<div class="inner relative">
+		<div class="mb-12 space-y-32">
+			<div class="flex flex-col items-center gap-6">
+				<h1 class="text-center text-6xl">{data.article.title}</h1>
+				<p class="text-center text-xl text-balance text-zinc-400">{data.article.excerpt}</p>
+				<div class="flex items-center">
+					<img
+						class="size-12 rounded-full object-cover"
+						src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+						alt=""
+					/>
+					<div class="ml-2">
+						<p class="leading-5 font-medium text-zinc-200">
+							<span class="text-zinc-400">By</span> Noval
+						</p>
+						<p class="text-sm leading-4">Software Engineer</p>
+					</div>
+				</div>
+				<div class="flex flex-col items-center gap-2">
+					<div class="flex gap-4">
+						<div class="flex items-center gap-1 text-sm text-zinc-500">
+							Published at
+							{formatDate(data.article.created, 'dd MMM yyyy')}
+						</div>
+						<span class="text-zinc-500">|</span>
+						<div class="flex items-center gap-1 text-sm text-zinc-500">
+							Last updated at
+							{formatDate(data.article.updated, 'dd MMM yyyy')}
+						</div>
+						<span class="text-zinc-500">|</span>
+						<div class="flex items-center gap-1 text-sm text-zinc-500">
+							{data.article.readingTime} min read
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<a
+							href="/articles?categories={data.article.category}"
+							class="flex items-center gap-1 text-sm text-zinc-500 hover:text-zinc-200"
+						>
+							{data.article.category}
+						</a>
+						<span class="text-zinc-500">|</span>
+						{#each data.article.tags as tag}
+							<a
+								href="/articles?tags={tag}"
+								class="flex items-center text-sm text-zinc-500 hover:text-zinc-200"
+							>
+								#{tag}
+							</a>
+						{/each}
+					</div>
+				</div>
+			</div>
+			<div
+				class="mx-auto prose prose-lg prose-zinc prose-invert prose-headings:font-normal prose-headings:text-zinc-200 prose-strong:font-normal prose-strong:text-zinc-200"
+			>
+				{#await modPromise}
+					<p>Loading Article</p>
+				{:then mod}
+					{@const Content = mod?.default}
+					<Content />
+				{/await}
+			</div>
+		</div>
+	</div>
+</section>
