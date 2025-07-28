@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { getArticleBySlug, type ArticleModule } from '$contents/articles/utils';
+	import { my } from '$lib/url';
 	import { error } from '@sveltejs/kit';
 	import { formatDate } from 'date-fns';
 
@@ -11,7 +12,54 @@
 	const modules = import.meta.glob<ArticleModule>('/src/contents/articles/*/*.svx');
 	const key = `/src/contents/articles/${article.lang}/${article.slug}.svx`;
 	const modPromise = modules[key]?.();
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: article.title,
+		description: article.excerpt,
+		image: my(article.thumbnail),
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi'
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'bynoval',
+			logo: {
+				'@type': 'ImageObject',
+				url: my('logo.png')
+			}
+		},
+		datePublished: article.created,
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': my(`articles/${article.slug}`)
+		}
+	};
 </script>
+
+<svelte:head>
+	<title>{article.title} | bynoval.com</title>
+	<meta name="description" content={article.excerpt} />
+	<meta name="keywords" content={article.keywords} />
+
+	<link rel="canonical" href={my(`/articles/${article.slug}`)} />
+
+	{@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
+	<meta property="og:title" content={article.title} />
+	<meta property="og:description" content={article.excerpt} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content={my(`/articles/${article.slug}`)} />
+	<meta property="og:image" content={my(article.thumbnail)} />
+	<meta property="og:site_name" content="Your Blog Name" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={article.title} />
+	<meta name="twitter:description" content={article.excerpt} />
+	<meta name="twitter:image" content={my(article.thumbnail)} />
+	<meta name="twitter:site" content="@kimmyxpow" />
+</svelte:head>
 
 <section class="pt-86 pb-26">
 	<div class="absolute inset-x-0 top-0 aspect-[4/3] overflow-hidden">
