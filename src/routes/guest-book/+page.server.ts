@@ -16,9 +16,7 @@ const schema = z.object({
 		.max(255, 'Message must be at most 255 characters long')
 });
 
-export const load: PageServerLoad = async ({ parent }) => {
-	await parent();
-
+export const load: PageServerLoad = async () => {
 	const form = await superValidate(zod4(schema));
 	const messages = await db
 		.select()

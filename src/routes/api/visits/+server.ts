@@ -1,15 +1,16 @@
+import { json } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 import { db } from '$lib/db/conn';
 import { visits } from '$lib/db/schema';
-import type { LayoutServerLoad } from './$types';
 import { UAParser } from 'ua-parser-js';
 
-export const load: LayoutServerLoad = async ({ request, url }) => {
+export const POST: RequestHandler = async ({ request }) => {
 	const ua = new UAParser(request.headers.get('user-agent') || '');
 	const ipAddress = request.headers.get('x-forwarded-for') || 'unknown';
 	const browser = ua.getBrowser();
 	const os = ua.getOS();
 	const userAgent = ua.getResult();
-	const route = url.pathname;
+	const route = (await request.json<{ pathname: string }>()).pathname;
 
 	await db.insert(visits).values({
 		browser: browser.name || 'unknown',
@@ -18,4 +19,6 @@ export const load: LayoutServerLoad = async ({ request, url }) => {
 		route,
 		ipAddress
 	});
+
+	return json({ message: 'Thanks fot visiting!' });
 };

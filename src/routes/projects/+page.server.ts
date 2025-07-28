@@ -1,9 +1,7 @@
 import { getCategories, getTags, getProjects } from '$contents/projects';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ url, parent }) => {
-	await parent();
-
+export const load: PageServerLoad = async ({ url }) => {
 	const searchParams = url.searchParams;
 	const filters = {
 		search: searchParams.get('search') || '',
