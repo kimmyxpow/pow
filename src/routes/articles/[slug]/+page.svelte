@@ -52,7 +52,7 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={my(`/articles/${article.slug}`)} />
 	<meta property="og:image" content={my(article.thumbnail)} />
-	<meta property="og:site_name" content="Your Blog Name" />
+	<meta property="og:site_name" content="bynoval" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={article.title} />
