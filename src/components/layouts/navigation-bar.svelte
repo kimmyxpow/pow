@@ -9,21 +9,21 @@
 			icon: 'solar:notes-linear',
 			bg: 'bg-amber-600',
 			title: 'Article',
-			desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius ea perspiciatis voluptate minus.'
+			desc: 'Stuff I’ve written about tech, life, and whatever else I felt like putting into words.'
 		},
 		{
 			href: '/snippets',
 			icon: 'solar:paperclip-rounded-linear',
 			bg: 'bg-fuchsia-600',
 			title: 'Snippets',
-			desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius ea perspiciatis voluptate minus.'
+			desc: 'Small pieces of code I’ve reused, reshaped, or just wanted to remember.'
 		},
 		{
 			href: '/guest-book',
 			icon: 'solar:paw-linear',
 			bg: 'bg-emerald-600',
 			title: 'Guest Book',
-			desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius ea perspiciatis voluptate minus.'
+			desc: 'Say hi, leave a trace, or just let me know you were here.'
 		}
 	];
 
@@ -87,7 +87,7 @@
 										<div
 											class={`mt-1 grid size-10 shrink-0 place-items-center rounded-lg text-zinc-200 ${link.bg}`}
 										>
-											<Icon class="size-6" icon="solar:notes-linear" />
+											<Icon class="size-6" icon={link.icon} />
 										</div>
 										<div>
 											<span class="text-zinc-200">{link.title}</span>
