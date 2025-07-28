@@ -4,15 +4,16 @@ import { getDb } from './db/conn';
 import * as schema from './db/schema';
 import { env } from '$env/dynamic/private';
 
-export const auth = betterAuth({
-	database: drizzleAdapter(getDb(), {
-		provider: 'pg',
-		schema: { ...schema }
-	}),
-	socialProviders: {
-		github: {
-			clientId: env.GITHUB_CLIENT_ID,
-			clientSecret: env.GITHUB_CLIENT_SECRET
+export const auth = () =>
+	betterAuth({
+		database: drizzleAdapter(getDb(), {
+			provider: 'pg',
+			schema: { ...schema }
+		}),
+		socialProviders: {
+			github: {
+				clientId: env.GITHUB_CLIENT_ID,
+				clientSecret: env.GITHUB_CLIENT_SECRET
+			}
 		}
-	}
-});
+	});

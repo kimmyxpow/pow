@@ -3,5 +3,6 @@ import { building } from '$app/environment';
 import { auth } from '$lib/auth';
 
 export async function handle({ event, resolve }) {
-	return svelteKitHandler({ event, resolve, auth, building });
+	const u = auth();
+	return svelteKitHandler({ event, resolve, auth: u, building });
 }

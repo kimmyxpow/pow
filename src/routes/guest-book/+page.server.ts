@@ -38,8 +38,9 @@ export const actions = {
 		if (!form.valid) return fail(400, { form });
 
 		const db = getDb();
+		const u = auth();
 
-		const session = await auth.api.getSession({
+		const session = await u.api.getSession({
 			headers: request.headers
 		});
 
