@@ -33,7 +33,7 @@ const contentModules = import.meta.glob<ArticleModule>('/src/contents/articles/*
 	eager: true
 });
 
-export function getArticles(filter: ArticleFilter): ArticleData[] {
+export function getArticles(filter?: ArticleFilter): ArticleData[] {
 	const map = new Map<string, { lang: 'en' | 'id'; slug: string; metadata: ArticleFrontmatter }>();
 
 	for (const path in contentModules) {
@@ -46,10 +46,10 @@ export function getArticles(filter: ArticleFilter): ArticleData[] {
 	}
 
 	const result: ArticleData[] = Array.from(map.values())
-		.filter((article) => article.lang === filter.lang)
+		.filter((article) => article.lang === filter?.lang)
 		.map((article) => {
 			let metadata = { ...article.metadata };
-			const refSlug = filter.lang === 'id' ? metadata.en : metadata.id;
+			const refSlug = filter?.lang === 'id' ? metadata.en : metadata.id;
 
 			if (refSlug) {
 				const fallback = map.get(`en:${refSlug}`);
@@ -63,16 +63,16 @@ export function getArticles(filter: ArticleFilter): ArticleData[] {
 				...metadata
 			};
 		})
-		.filter((a) => !filter.search || a.title.toLowerCase().includes(filter.search.toLowerCase()))
+		.filter((a) => !filter?.search || a.title.toLowerCase().includes(filter?.search.toLowerCase()))
 		.filter(
 			(a) =>
-				!filter.categories?.length ||
-				filter.categories.some((category) => a.category === category.toLowerCase())
+				!filter?.categories?.length ||
+				filter?.categories.some((category) => a.category === category.toLowerCase())
 		)
 		.filter(
 			(a) =>
-				!filter.tags?.length ||
-				filter.tags.some((tag) => a.tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase()))
+				!filter?.tags?.length ||
+				filter?.tags.some((tag) => a.tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase()))
 		)
 		.sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime());
 

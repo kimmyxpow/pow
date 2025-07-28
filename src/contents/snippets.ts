@@ -11,10 +11,10 @@ interface Filter {
 	search?: string;
 }
 
-export function getSnippets(filter: Filter) {
+export function getSnippets(filter?: Filter) {
 	let result = projects;
 
-	if (filter.search) {
+	if (filter?.search) {
 		const searchLower = filter.search.toLowerCase();
 		result = result.filter(
 			(p) =>

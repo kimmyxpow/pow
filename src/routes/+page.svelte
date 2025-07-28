@@ -1,15 +1,16 @@
 <script lang="ts">
-	import PaperTorn from '$components/svg/paper-torn.svelte';
+	import Articles from '$components/features/articles.svelte';
+	import Projects from '$components/features/projects.svelte';
+	import Snippets from '$components/features/snippets.svelte';
+	import { getArticles } from '$contents/articles/utils';
+	import { getProjects } from '$contents/projects';
+	import { getSnippets } from '$contents/snippets';
 	import Icon from '@iconify/svelte';
-	import { HighlightAuto } from 'svelte-highlight';
-	import githubDark from 'svelte-highlight/styles/github-dark';
 
-	const code = 'const add = (a: number, b: number) => a + b;';
+	const snippets = getSnippets().slice(0, 4);
+	const projects = getProjects().slice(0, 3);
+	const articles = getArticles({ lang: 'en' }).slice(0, 3);
 </script>
-
-<svelte:head>
-	{@html githubDark}
-</svelte:head>
 
 <main class="relative flex min-h-screen items-center">
 	<div class="inner">
@@ -76,129 +77,7 @@
 			</p>
 		</div>
 		<div class="grid gap-4">
-			<div class="flex items-center gap-12 rounded-lg bg-zinc-900/70 p-6">
-				<div class="space-y-2">
-					<div class="flex items-center justify-between">
-						<span class="font-handwriting text-2xl text-zinc-400 italic">Personal</span>
-						<span class="flex gap-2">
-							<a href="/" class="text-sm text-zinc-500 transition-all hover:text-zinc-200"
-								>#React.js</a
-							>
-							<a href="/" class="text-sm text-zinc-500 transition-all hover:text-zinc-200"
-								>#Tailwind CSS</a
-							>
-						</span>
-					</div>
-					<h3 class="mt-2 text-2xl">How I Learned to Stop Worrying and Love React</h3>
-					<p class="line-clamp-2">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum numquam cupiditate
-						nostrum nesciunt fugiat consectetur ad et dignissimos modi dolorem officiis natus,
-						deserunt animi optio dolor illo odit pariatur corrupti.
-					</p>
-					<div class="flex items-start justify-between">
-						<div class="flex items-center gap-2">
-							<span class="text-sm text-zinc-500">1 min read</span>
-							<span class="size-0.5 rounded-full bg-cyan-500"></span>
-							<span class="text-sm text-zinc-500">28 Sep 2023</span>
-						</div>
-						<a
-							href="/articles/this-is-a-title"
-							class="flex items-center gap-1 text-cyan-500 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-						>
-							Read more <Icon icon="solar:arrow-right-linear" />
-						</a>
-					</div>
-				</div>
-				<div class="aspect-[4/3] max-w-70 overflow-hidden rounded-md">
-					<img
-						class="size-full"
-						src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-				</div>
-			</div>
-			<div class="flex items-center gap-12 rounded-lg bg-zinc-900/70 p-6">
-				<div class="space-y-2">
-					<div class="flex items-center justify-between">
-						<span class="font-handwriting text-2xl text-zinc-400 italic">Personal</span>
-						<span class="flex gap-2">
-							<a href="/" class="text-sm text-zinc-500 transition-all hover:text-zinc-200"
-								>#React.js</a
-							>
-							<a href="/" class="text-sm text-zinc-500 transition-all hover:text-zinc-200"
-								>#Tailwind CSS</a
-							>
-						</span>
-					</div>
-					<h3 class="mt-2 text-2xl">How I Learned to Stop Worrying and Love React</h3>
-					<p class="line-clamp-2">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum numquam cupiditate
-						nostrum nesciunt fugiat consectetur ad et dignissimos modi dolorem officiis natus,
-						deserunt animi optio dolor illo odit pariatur corrupti.
-					</p>
-					<div class="flex items-start justify-between">
-						<div class="flex items-center gap-2">
-							<span class="text-sm text-zinc-500">1 min read</span>
-							<span class="size-0.5 rounded-full bg-cyan-500"></span>
-							<span class="text-sm text-zinc-500">28 Sep 2023</span>
-						</div>
-						<a
-							href="/articles/this-is-a-title"
-							class="flex items-center gap-1 text-cyan-500 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-						>
-							Read more <Icon icon="solar:arrow-right-linear" />
-						</a>
-					</div>
-				</div>
-				<div class="aspect-[4/3] max-w-70 overflow-hidden rounded-md">
-					<img
-						class="size-full"
-						src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-				</div>
-			</div>
-			<div class="flex items-center gap-12 rounded-lg bg-zinc-900/70 p-6">
-				<div class="space-y-2">
-					<div class="flex items-center justify-between">
-						<span class="font-handwriting text-2xl text-zinc-400 italic">Personal</span>
-						<span class="flex gap-2">
-							<a href="/" class="text-sm text-zinc-500 transition-all hover:text-zinc-200"
-								>#React.js</a
-							>
-							<a href="/" class="text-sm text-zinc-500 transition-all hover:text-zinc-200"
-								>#Tailwind CSS</a
-							>
-						</span>
-					</div>
-					<h3 class="mt-2 text-2xl">How I Learned to Stop Worrying and Love React</h3>
-					<p class="line-clamp-2">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum numquam cupiditate
-						nostrum nesciunt fugiat consectetur ad et dignissimos modi dolorem officiis natus,
-						deserunt animi optio dolor illo odit pariatur corrupti.
-					</p>
-					<div class="flex items-start justify-between">
-						<div class="flex items-center gap-2">
-							<span class="text-sm text-zinc-500">1 min read</span>
-							<span class="size-0.5 rounded-full bg-cyan-500"></span>
-							<span class="text-sm text-zinc-500">28 Sep 2023</span>
-						</div>
-						<a
-							href="/articles/this-is-a-title"
-							class="flex items-center gap-1 text-cyan-500 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-						>
-							Read more <Icon icon="solar:arrow-right-linear" />
-						</a>
-					</div>
-				</div>
-				<div class="aspect-[4/3] max-w-70 overflow-hidden rounded-md">
-					<img
-						class="size-full"
-						src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-				</div>
-			</div>
+			<Articles {articles} />
 		</div>
 		<a
 			href="/articles"
@@ -229,156 +108,7 @@
 			</p>
 		</div>
 		<div class="grid grid-cols-3 gap-8">
-			<div class="group overflow-hidden rounded-lg bg-zinc-900/70">
-				<div class="aspect-video overflow-hidden">
-					<img
-						class="size-full transition-all group-hover:scale-110 group-hover:rotate-4"
-						src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-				</div>
-				<div class="space-y-2 p-6">
-					<span class="font-handwriting text-xl text-zinc-400 italic">Web Project</span>
-					<h3 class="mt-2 text-2xl">Palletepix</h3>
-					<div class="flex items-center gap-2 text-sm text-zinc-500">
-						<span class="flex gap-2">
-							<a href="/" class="transition-all hover:text-zinc-200">#React.js</a>
-							<a href="/" class="transition-all hover:text-zinc-200">#Tailwind CSS</a>
-						</span>
-					</div>
-					<p class="line-clamp-3">
-						Palletepix is a color palette generator that lets you generate color palettes from an
-						image.
-					</p>
-					<hr class="my-4 block border-zinc-700" />
-					<div class="flex items-center justify-between">
-						<div class="flex gap-2">
-							<a
-								href="/"
-								target="_blank"
-								class="text-zinc-400 hover:text-zinc-200"
-								aria-label="GitHub"
-							>
-								<Icon icon="hugeicons:github" class="size-5" />
-							</a>
-							<a
-								href="/"
-								target="_blank"
-								class="text-zinc-400 hover:text-zinc-200"
-								aria-label="Website"
-							>
-								<Icon icon="solar:link-linear" class="size-5" />
-							</a>
-						</div>
-						<a
-							href="/articles/this-is-a-title"
-							class="flex items-center gap-1 text-cyan-500 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-						>
-							Read Details <Icon icon="solar:arrow-right-linear" />
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="group overflow-hidden rounded-lg bg-zinc-900/70">
-				<div class="aspect-video overflow-hidden">
-					<img
-						class="size-full transition-all group-hover:scale-110 group-hover:rotate-4"
-						src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-				</div>
-				<div class="space-y-2 p-6">
-					<span class="font-handwriting text-xl text-zinc-400 italic">Web Project</span>
-					<h3 class="mt-2 text-2xl">Palletepix</h3>
-					<div class="flex items-center gap-2 text-sm text-zinc-500">
-						<span class="flex gap-2">
-							<a href="/" class="transition-all hover:text-zinc-200">#React.js</a>
-							<a href="/" class="transition-all hover:text-zinc-200">#Tailwind CSS</a>
-						</span>
-					</div>
-					<p class="line-clamp-3">
-						Palletepix is a color palette generator that lets you generate color palettes from an
-						image.
-					</p>
-					<hr class="my-4 block border-zinc-700" />
-					<div class="flex items-center justify-between">
-						<div class="flex gap-2">
-							<a
-								href="/"
-								target="_blank"
-								class="text-zinc-400 hover:text-zinc-200"
-								aria-label="GitHub"
-							>
-								<Icon icon="hugeicons:github" class="size-5" />
-							</a>
-							<a
-								href="/"
-								target="_blank"
-								class="text-zinc-400 hover:text-zinc-200"
-								aria-label="Website"
-							>
-								<Icon icon="solar:link-linear" class="size-5" />
-							</a>
-						</div>
-						<a
-							href="/articles/this-is-a-title"
-							class="flex items-center gap-1 text-cyan-500 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-						>
-							Read Details <Icon icon="solar:arrow-right-linear" />
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="group overflow-hidden rounded-lg bg-zinc-900/70">
-				<div class="aspect-video overflow-hidden">
-					<img
-						class="size-full transition-all group-hover:scale-110 group-hover:rotate-4"
-						src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-				</div>
-				<div class="space-y-2 p-6">
-					<span class="font-handwriting text-xl text-zinc-400 italic">Web Project</span>
-					<h3 class="mt-2 text-2xl">Palletepix</h3>
-					<div class="flex items-center gap-2 text-sm text-zinc-500">
-						<span class="flex gap-2">
-							<a href="/" class="transition-all hover:text-zinc-200">#React.js</a>
-							<a href="/" class="transition-all hover:text-zinc-200">#Tailwind CSS</a>
-						</span>
-					</div>
-					<p class="line-clamp-3">
-						Palletepix is a color palette generator that lets you generate color palettes from an
-						image.
-					</p>
-					<hr class="my-4 block border-zinc-700" />
-					<div class="flex items-center justify-between">
-						<div class="flex gap-2">
-							<a
-								href="/"
-								target="_blank"
-								class="text-zinc-400 hover:text-zinc-200"
-								aria-label="GitHub"
-							>
-								<Icon icon="hugeicons:github" class="size-5" />
-							</a>
-							<a
-								href="/"
-								target="_blank"
-								class="text-zinc-400 hover:text-zinc-200"
-								aria-label="Website"
-							>
-								<Icon icon="solar:link-linear" class="size-5" />
-							</a>
-						</div>
-						<a
-							href="/articles/this-is-a-title"
-							class="flex items-center gap-1 text-cyan-500 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-						>
-							Read Details <Icon icon="solar:arrow-right-linear" />
-						</a>
-					</div>
-				</div>
-			</div>
+			<Projects {projects} />
 		</div>
 		<a
 			href="/projects"
@@ -409,41 +139,10 @@
 			</p>
 		</div>
 		<div class="grid grid-cols-2 gap-8">
-			<div class="group relative rounded-lg bg-zinc-900 transition-all hover:-rotate-2">
-				<PaperTorn class="absolute top-0 left-0 w-full -translate-y-1/2 fill-zinc-400" />
-				<PaperTorn class="absolute top-2 left-0 w-full -translate-y-1/2 fill-zinc-900" />
-				<PaperTorn class="absolute bottom-0 left-0 w-full translate-y-1/2 fill-zinc-400" />
-				<PaperTorn class="absolute bottom-2 left-0 w-full translate-y-1/2 fill-zinc-900" />
-				<div class="relative z-10 bg-zinc-900">
-					<div class="flex flex-col space-y-4 p-6">
-						<span class="font-handwriting text-4xl text-zinc-400">Web Project</span>
-						<p class="">
-							Palletepix is a color palette generator that lets you generate color palettes from an
-							image.
-						</p>
-						<HighlightAuto class="text-sm" {code} />
-					</div>
-				</div>
-			</div>
-			<div class="group relative rounded-lg bg-zinc-900 transition-all hover:-rotate-2">
-				<PaperTorn class="absolute top-0 left-0 w-full -translate-y-1/2 fill-zinc-400" />
-				<PaperTorn class="absolute top-2 left-0 w-full -translate-y-1/2 fill-zinc-900" />
-				<PaperTorn class="absolute bottom-0 left-0 w-full translate-y-1/2 fill-zinc-400" />
-				<PaperTorn class="absolute bottom-2 left-0 w-full translate-y-1/2 fill-zinc-900" />
-				<div class="relative z-10 bg-zinc-900">
-					<div class="flex flex-col space-y-4 p-6">
-						<span class="font-handwriting text-4xl text-zinc-400">Web Project</span>
-						<p class="">
-							Palletepix is a color palette generator that lets you generate color palettes from an
-							image.
-						</p>
-						<HighlightAuto class="text-sm" {code} />
-					</div>
-				</div>
-			</div>
+			<Snippets {snippets} />
 		</div>
 		<a
-			href="/projects"
+			href="/snippets"
 			class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-700 px-4 text-white transition-all hover:bg-zinc-900 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 		>
 			See More Snippets

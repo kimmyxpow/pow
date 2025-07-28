@@ -26,10 +26,10 @@ interface Filter {
 	tags?: string[];
 }
 
-export function getProjects(filter: Filter) {
+export function getProjects(filter?: Filter) {
 	let result = projects;
 
-	if (filter.search) {
+	if (filter?.search) {
 		const searchLower = filter.search.toLowerCase();
 		result = result.filter(
 			(p) =>
@@ -38,12 +38,12 @@ export function getProjects(filter: Filter) {
 		);
 	}
 
-	if (filter.categories && filter.categories.length > 0) {
+	if (filter?.categories && filter.categories.length > 0) {
 		const categoriesLower = filter.categories.map((c) => c.toLowerCase());
 		result = result.filter((p) => categoriesLower.includes(p.category.toLowerCase()));
 	}
 
-	if (filter.tags && filter.tags.length > 0) {
+	if (filter?.tags && filter.tags.length > 0) {
 		const tagsLower = filter.tags.map((t) => t.toLowerCase());
 		result = result.filter((p) =>
 			tagsLower.every((tag) => p.tags.map((t) => t.toLowerCase()).includes(tag))

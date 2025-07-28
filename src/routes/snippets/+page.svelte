@@ -1,9 +1,8 @@
 <script lang="ts">
-	import PaperTorn from '$components/svg/paper-torn.svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { getSnippets } from '$contents/snippets';
-	import Highlight from '$components/highlight.svelte';
+	import Snippets from '$components/features/snippets.svelte';
 
 	let selectedFilters = $derived({
 		search: page.url.searchParams.get('search') || ''
@@ -70,25 +69,7 @@
 				</div>
 			</div>
 			<div class="columns columns-2 gap-x-8">
-				{#each snippets as snippet}
-					<div
-						class="group relative mb-28 break-inside-avoid-column rounded-lg bg-zinc-900 transition-all hover:-rotate-2"
-					>
-						<PaperTorn class="absolute top-0 left-0 w-full -translate-y-1/2 fill-zinc-400" />
-						<PaperTorn class="absolute top-2 left-0 w-full -translate-y-1/2 fill-zinc-900" />
-						<PaperTorn class="absolute bottom-0 left-0 w-full translate-y-1/2 fill-zinc-400" />
-						<PaperTorn class="absolute bottom-2 left-0 w-full translate-y-1/2 fill-zinc-900" />
-						<div class="relative z-10 bg-zinc-900">
-							<div class="flex flex-col space-y-4 p-6">
-								<span class="font-handwriting text-4xl text-zinc-400">{snippet.name}</span>
-								<p>
-									{snippet.description}
-								</p>
-								<Highlight lang="ts" code={snippet.code} />
-							</div>
-						</div>
-					</div>
-				{/each}
+				<Snippets {snippets} />
 			</div>
 		</div>
 	</div>
