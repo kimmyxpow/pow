@@ -1,11 +1,9 @@
 <script lang="ts">
 	import PaperTorn from '$components/svg/paper-torn.svelte';
-	import { Highlight } from 'svelte-highlight';
-	import githubDark from 'svelte-highlight/styles/github-dark';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import typescript from 'svelte-highlight/languages/typescript';
 	import { getSnippets } from '$contents/snippets';
+	import Highlight from '$components/highlight.svelte';
 
 	let selectedFilters = $derived({
 		search: page.url.searchParams.get('search') || ''
@@ -36,15 +34,7 @@
 
 		updateQuery();
 	};
-
-	const languages = {
-		typescript
-	};
 </script>
-
-<svelte:head>
-	{@html githubDark}
-</svelte:head>
 
 <main class="pt-32">
 	<div class="inner">
@@ -81,7 +71,9 @@
 			</div>
 			<div class="columns columns-2 gap-x-8">
 				{#each snippets as snippet}
-					<div class="group relative mb-28 rounded-lg bg-zinc-900 transition-all hover:-rotate-2">
+					<div
+						class="group relative mb-28 break-inside-avoid-column rounded-lg bg-zinc-900 transition-all hover:-rotate-2"
+					>
 						<PaperTorn class="absolute top-0 left-0 w-full -translate-y-1/2 fill-zinc-400" />
 						<PaperTorn class="absolute top-2 left-0 w-full -translate-y-1/2 fill-zinc-900" />
 						<PaperTorn class="absolute bottom-0 left-0 w-full translate-y-1/2 fill-zinc-400" />
@@ -92,11 +84,7 @@
 								<p>
 									{snippet.description}
 								</p>
-								<Highlight
-									language={languages[snippet.language as keyof typeof languages]}
-									class="text-sm"
-									code={snippet.code}
-								/>
+								<Highlight lang="ts" code={snippet.code} />
 							</div>
 						</div>
 					</div>
