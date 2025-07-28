@@ -16,7 +16,7 @@ const schema = z.object({
 		.max(255, 'Message must be at most 255 characters long')
 });
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ request }) => {
 	const form = await superValidate(zod4(schema));
 	const db = getDb();
 	const messages = await db
@@ -25,9 +25,15 @@ export const load: PageServerLoad = async () => {
 		.innerJoin(user, eq(user.id, guestbook.userId))
 		.orderBy(desc(guestbook.createdAt));
 
+	const u = auth();
+	const session = await u.api.getSession({
+		headers: request.headers
+	});
+
 	return {
 		messages,
-		form
+		form,
+		session
 	};
 };
 

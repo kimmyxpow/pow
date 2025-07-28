@@ -50,11 +50,6 @@
 		});
 
 		goto(`?${searchParams.toString()}`, { replaceState: true, keepFocus: true, noScroll: true });
-
-		articles = getArticles({
-			lang: 'en',
-			...selectedFilters
-		});
 	};
 
 	const onFilterChange = (event: Event, type: keyof typeof selectedFilters) => {

@@ -36,7 +36,7 @@
 
 	const extraLinks = [
 		// { href: '/mentoring', icon: 'solar:call-chat-rounded-linear', label: 'Mentoring' },
-		{ href: '/attribution', icon: 'solar:accessibility-linear', label: 'Attribution' },
+		{ href: '/attributions', icon: 'solar:accessibility-linear', label: 'Attribution' },
 		{ href: '/community', icon: 'radix-icons:discord-logo', label: 'Community' }
 	];
 

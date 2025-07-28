@@ -1,28 +1,31 @@
 <script lang="ts">
-	import { useDebounce } from 'runed';
 	import PaperTorn from '$components/svg/paper-torn.svelte';
 	import { Highlight } from 'svelte-highlight';
 	import githubDark from 'svelte-highlight/styles/github-dark';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import typescript from 'svelte-highlight/languages/typescript';
-
-	let { data } = $props();
+	import { getSnippets } from '$contents/snippets';
 
 	let selectedFilters = $derived({
 		search: page.url.searchParams.get('search') || ''
 	});
 
-	const updateQuery = useDebounce(
-		() => {
-			goto(`/snippets?search=${encodeURIComponent(selectedFilters.search)}`, {
-				keepFocus: true,
-				noScroll: true,
-				replaceState: true
-			});
-		},
-		() => 300
-	);
+	const snippets = $derived(getSnippets(selectedFilters));
+
+	const updateQuery = () => {
+		const searchParams = new URLSearchParams();
+
+		if (selectedFilters.search) {
+			searchParams.set('search', selectedFilters.search);
+		}
+
+		goto(`?${searchParams.toString()}`, {
+			keepFocus: true,
+			noScroll: true,
+			replaceState: true
+		});
+	};
 
 	const onFilterChange = (event: Event) => {
 		const target = event.target as HTMLInputElement;
@@ -35,7 +38,7 @@
 	};
 
 	const languages = {
-		typescript: typescript
+		typescript
 	};
 </script>
 
@@ -77,7 +80,7 @@
 				</div>
 			</div>
 			<div class="columns columns-2 gap-x-8">
-				{#each data.snippets as snippet}
+				{#each snippets as snippet}
 					<div class="group relative mb-28 rounded-lg bg-zinc-900 transition-all hover:-rotate-2">
 						<PaperTorn class="absolute top-0 left-0 w-full -translate-y-1/2 fill-zinc-400" />
 						<PaperTorn class="absolute top-2 left-0 w-full -translate-y-1/2 fill-zinc-900" />

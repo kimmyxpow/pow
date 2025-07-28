@@ -1,60 +1,54 @@
 <script lang="ts">
-	import { beforeNavigate, goto } from '$app/navigation';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { projects } from '$contents/projects';
+	import { getCategories, getProjects, getTags } from '$contents/projects';
 	import { appendParam } from '$lib/url';
 	import Icon from '@iconify/svelte';
-	import type { BeforeNavigate } from '@sveltejs/kit';
-	import { useDebounce } from 'runed';
 
-	const { data } = $props();
+	let selectedFilters = $derived({
+		search: page.url.searchParams.get('search') || '',
+		categories: page.url.searchParams.getAll('categories') || [],
+		tags: page.url.searchParams.getAll('tags') || []
+	});
 
-	let selectedFilters = $derived(data.filters);
+	const projects = $derived(getProjects(selectedFilters));
+	const categories = getCategories();
+	const tags = getTags();
 
 	const filtersList = [
 		{
 			title: 'Just show me...',
 			type: 'categories' as const,
-			options: data.categories
+			options: categories
 		},
 		{
 			title: 'Tags included...',
 			type: 'tags' as const,
-			options: data.tags
+			options: tags
 		}
 	];
 
-	const updateQuery = useDebounce(
-		() => {
-			const searchParams = new URLSearchParams();
+	const updateQuery = () => {
+		const searchParams = new URLSearchParams();
 
-			if (selectedFilters.search) {
-				searchParams.set('search', selectedFilters.search);
-			}
-
-			selectedFilters.categories.forEach((cat) => {
-				searchParams.append('categories', cat);
-			});
-
-			selectedFilters.tags.forEach((tag) => {
-				searchParams.append('tags', tag);
-			});
-
-			goto(`/projects?${searchParams.toString()}`, {
-				keepFocus: true,
-				noScroll: true,
-				replaceState: true
-			});
-		},
-		() => 300
-	);
-
-	beforeNavigate((event: BeforeNavigate) => {
-		if (updateQuery.pending) {
-			updateQuery.cancel();
-			event.cancel();
+		if (selectedFilters.search) {
+			searchParams.set('search', selectedFilters.search);
 		}
-	});
+
+		selectedFilters.categories.forEach((cat) => {
+			searchParams.append('categories', cat);
+		});
+
+		selectedFilters.tags.forEach((tag) => {
+			searchParams.append('tags', tag);
+		});
+
+		goto(`?${searchParams.toString()}`, {
+			keepFocus: true,
+			noScroll: true,
+			replaceState: true
+		});
+	};
 
 	const onFilterChange = (event: Event, type: keyof typeof selectedFilters) => {
 		const target = event.target as HTMLInputElement;
@@ -111,7 +105,7 @@
 					</div>
 				</div>
 				<div class="grid grid-cols-2 gap-8">
-					{#each data.projects as project}
+					{#each projects as project}
 						<div class="group overflow-hidden rounded-lg bg-zinc-900/70">
 							<div class="aspect-video overflow-hidden">
 								<img

@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { signIn, useSession } from '$lib/auth-client';
 	import Icon from '@iconify/svelte';
 	import { ScrollArea } from 'bits-ui';
 	import { formatDate } from 'date-fns';
 	import toast from 'svelte-french-toast';
 	import { superForm } from 'sveltekit-superforms';
+	import { createAuthClient } from 'better-auth/svelte';
 
 	let { data } = $props();
 
-	const session = useSession();
+	const authClient = createAuthClient();
+	const session = $derived(data.session);
 	const { form, errors, constraints, enhance, submitting } = superForm(data.form, {
 		onResult(event) {
 			if (event.result.type === 'success') {
@@ -85,7 +86,7 @@
 					</ScrollArea.Scrollbar>
 					<ScrollArea.Corner />
 				</ScrollArea.Root>
-				{#if $session.data}
+				{#if session}
 					<form use:enhance method="POST" class="flex items-center gap-2 px-4 pb-2">
 						<input
 							class="h-14 w-full rounded-xl border border-zinc-600 px-4 ring-4 ring-transparent transition-all outline-none focus:border-zinc-200 focus:ring-zinc-800 disabled:cursor-not-allowed disabled:bg-zinc-800"
@@ -107,7 +108,11 @@
 					<div class="flex items-center gap-2 px-4 pb-2">
 						<p>Please sign in first to leave a message.</p>
 						<button
-							onclick={() => signIn()}
+							onclick={() =>
+								authClient.signIn.social({
+									provider: 'github',
+									callbackURL: '/guest-book'
+								})}
 							class="ml-auto inline-flex h-14 shrink-0 items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-cyan-500 px-4 text-zinc-900 transition-all hover:bg-cyan-600 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 						>
 							Sign In With

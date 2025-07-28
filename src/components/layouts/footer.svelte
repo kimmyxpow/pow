@@ -68,7 +68,7 @@
 			<div class="flex flex-col gap-4">
 				<span class="text-zinc-300">Meta</span>
 				<nav class="flex flex-col gap-1">
-					<a class="text-zinc-400 hover:text-zinc-300" href="/attribution">Attribution</a>
+					<a class="text-zinc-400 hover:text-zinc-300" href="/attributions">Attribution</a>
 					<a class="text-zinc-400 hover:text-zinc-300" href="/sitemap.xml">Sitemap</a>
 					<a class="text-zinc-400 hover:text-zinc-300" href="/visits">Visits</a>
 				</nav>
