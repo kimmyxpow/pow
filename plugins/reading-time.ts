@@ -8,11 +8,14 @@ export function svxReadingTime(): Plugin {
 
 			const readingTime = calculateReadingTime(normalizeContent(code));
 
-			return code.replace(/export const metadata = (\{[\s\S]*?\});/, (_, metadataStr) => {
-				const metadata = JSON.parse(metadataStr);
-				metadata.readingTime = readingTime;
-				return `export const metadata = ${JSON.stringify(metadata, null, 2)};`;
-			});
+			return {
+				code: code.replace(/export const metadata = (\{[\s\S]*?\});/, (_, metadataStr) => {
+					const metadata = JSON.parse(metadataStr);
+					metadata.readingTime = readingTime;
+					return `export const metadata = ${JSON.stringify(metadata, null, 2)};`;
+				}),
+				map: null
+			};
 		}
 	};
 }
