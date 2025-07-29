@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import { cn } from '$lib/cn';
 	import Icon from '@iconify/svelte';
 	import { Popover } from 'bits-ui';
+	import { onMount } from 'svelte';
 
 	const notebookLinks = [
 		{
@@ -40,11 +41,11 @@
 		{ href: '/community', icon: 'radix-icons:discord-logo', label: 'Community' }
 	];
 
-	const currentPath = $derived(page.url.pathname);
+	let isOpen = $state(false);
 </script>
 
 <header
-	class="fixed left-1/2 z-50 mt-4 max-w-max -translate-x-1/2 rounded-2xl bg-gradient-to-r from-black via-cyan-500 to-black p-[0.5px]"
+	class="fixed left-1/2 z-50 mt-4 hidden max-w-max -translate-x-1/2 rounded-2xl bg-gradient-to-r from-black via-cyan-500 to-black p-[0.5px] md:block"
 >
 	<nav class="flex h-12 items-center rounded-xl border-cyan-500 bg-zinc-800 px-1">
 		<a class="grid size-10 place-items-center rounded-lg text-zinc-200 hover:bg-zinc-900" href="/">
@@ -190,4 +191,90 @@
 			<Icon icon="solar:sun-linear" />
 		</button>
 	</nav>
+</header>
+
+<header class="fixed inset-x-0 bottom-0 z-50 md:hidden">
+	<div class="inner">
+		<div
+			class="relative z-10 mb-6 ml-auto max-w-max rounded-2xl bg-gradient-to-r from-zinc-950 via-cyan-500 to-zinc-950 p-px shadow-2xl shadow-black/50"
+		>
+			<button
+				onclick={() => (isOpen = !isOpen)}
+				class="grid size-14 place-items-center rounded-2xl bg-zinc-900 text-3xl text-zinc-200 hover:bg-zinc-800"
+			>
+				<Icon icon={!isOpen ? 'solar:menu-dots-bold' : 'tabler:x'} />
+			</button>
+		</div>
+		<nav
+			class={cn(
+				'fixed inset-x-0 bottom-0 flex translate-y-full scale-50 flex-col border-t border-zinc-700 bg-zinc-900 pb-26 transition-all duration-300',
+				isOpen && 'translate-y-0 scale-100'
+			)}
+		>
+			<div class="border-b border-zinc-700 p-8">
+				<a
+					onclick={() => (isOpen = false)}
+					class="flex items-center justify-between text-4xl text-zinc-200 sm:text-6xl"
+					href="/"
+				>
+					Home
+					<Icon icon="guidance:left-arrow" />
+				</a>
+			</div>
+			<div class="border-b border-zinc-700 p-8">
+				<a
+					onclick={() => (isOpen = false)}
+					class="flex items-center justify-between text-4xl text-zinc-200 sm:text-6xl"
+					href="/projects"
+				>
+					Projects <Icon icon="guidance:left-arrow" />
+				</a>
+			</div>
+			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
+				<span class="p-8 text-4xl text-zinc-500 sm:text-6xl">Notebook</span>
+				<div class="flex flex-col border-l border-zinc-700">
+					{#each notebookLinks as link}
+						<a
+							onclick={() => (isOpen = false)}
+							class="flex items-center justify-between border-b border-zinc-700 p-8 text-2xl text-zinc-200 sm:text-4xl"
+							href={link.href}
+						>
+							{link.title}
+							<Icon icon="guidance:left-arrow" />
+						</a>
+					{/each}
+				</div>
+			</div>
+			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
+				<span class="p-8 text-4xl text-zinc-500 sm:text-6xl">Personal</span>
+				<div class="flex flex-col border-l border-zinc-700">
+					{#each personalLinks as link}
+						<a
+							onclick={() => (isOpen = false)}
+							class="flex items-center justify-between border-b border-zinc-700 p-8 text-2xl text-zinc-200 sm:text-4xl"
+							href={link.href}
+						>
+							{link.label}
+							<Icon icon="guidance:left-arrow" />
+						</a>
+					{/each}
+				</div>
+			</div>
+			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
+				<span class="p-8 text-4xl text-zinc-500 sm:text-6xl">Extras</span>
+				<div class="flex flex-col border-l border-zinc-700">
+					{#each extraLinks as link}
+						<a
+							onclick={() => (isOpen = false)}
+							class="flex items-center justify-between border-b border-zinc-700 p-8 text-2xl text-zinc-200 sm:text-4xl"
+							href={link.href}
+						>
+							{link.label}
+							<Icon icon="guidance:left-arrow" />
+						</a>
+					{/each}
+				</div>
+			</div>
+		</nav>
+	</div>
 </header>
