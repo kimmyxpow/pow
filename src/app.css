@@ -36,6 +36,10 @@
 }
 
 @layer base {
+	* {
+		@apply scheme-dark;
+	}
+
 	html {
 		@apply scroll-smooth;
 	}
