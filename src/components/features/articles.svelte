@@ -6,16 +6,16 @@
 </script>
 
 {#each articles as article}
-	<div class="flex items-center gap-12 rounded-lg bg-zinc-900/70 p-6">
+	<div class="flex flex-col-reverse items-center gap-12 rounded-lg bg-zinc-900/70 p-6 lg:flex-row">
 		<div class="space-y-2">
-			<div class="flex items-center justify-between">
+			<div class="flex flex-wrap items-center justify-between gap-2">
 				<a
 					href={appendParam('categories', article.category)}
 					class="font-handwriting text-2xl text-zinc-400 italic hover:text-zinc-200"
 				>
 					{article.category}
 				</a>
-				<span class="flex gap-2">
+				<span class="flex flex-wrap gap-2">
 					{#each article.tags as tag}
 						<a
 							href={appendParam('tags', tag)}
@@ -26,11 +26,11 @@
 					{/each}
 				</span>
 			</div>
-			<h3 class="mt-2 text-2xl">{article.title}</h3>
+			<h3 class="mt-2 text-xl md:text-2xl">{article.title}</h3>
 			<p class="line-clamp-2">
 				{article.excerpt}
 			</p>
-			<div class="flex items-start justify-between">
+			<div class="flex flex-wrap items-start justify-between gap-2">
 				<div class="flex items-center gap-2">
 					<span class="text-sm text-zinc-500">
 						{article.readingTime} min read
@@ -46,7 +46,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="aspect-[4/3] max-w-70 shrink-0 overflow-hidden rounded-md">
+		<div class="aspect-[4/3] shrink-0 overflow-hidden rounded-md lg:max-w-70">
 			<img
 				class="size-full object-cover"
 				src={article.thumbnail}

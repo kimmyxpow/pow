@@ -45,7 +45,7 @@
 </script>
 
 <header
-	class="fixed left-1/2 z-50 mt-4 hidden max-w-max -translate-x-1/2 rounded-2xl bg-gradient-to-r from-black via-cyan-500 to-black p-[0.5px] md:block"
+	class="fixed left-1/2 z-50 mt-4 hidden max-w-max -translate-x-1/2 rounded-2xl bg-gradient-to-r from-black via-cyan-500 to-black p-[0.5px] lg:block"
 >
 	<nav class="flex h-12 items-center rounded-xl border-cyan-500 bg-zinc-800 px-1">
 		<a class="grid size-10 place-items-center rounded-lg text-zinc-200 hover:bg-zinc-900" href="/">
@@ -193,7 +193,7 @@
 	</nav>
 </header>
 
-<header class="fixed inset-x-0 bottom-0 z-50 md:hidden">
+<header class="fixed inset-x-0 bottom-0 z-50 lg:hidden">
 	<div class="inner">
 		<div
 			class="relative z-10 mb-6 ml-auto max-w-max rounded-2xl bg-gradient-to-r from-zinc-950 via-cyan-500 to-zinc-950 p-px shadow-2xl shadow-black/50"
@@ -207,36 +207,36 @@
 		</div>
 		<nav
 			class={cn(
-				'fixed inset-x-0 bottom-0 flex translate-y-full scale-50 flex-col border-t border-zinc-700 bg-zinc-900 pb-26 transition-all duration-300',
+				'fixed inset-x-0 bottom-0 flex origin-bottom-right translate-y-full scale-50 flex-col border-t border-zinc-700 bg-zinc-900 pb-26 transition-all duration-300',
 				isOpen && 'translate-y-0 scale-100'
 			)}
 		>
-			<div class="border-b border-zinc-700 p-8">
+			<div class="border-b border-zinc-700 p-4 lg:p-8">
 				<a
 					onclick={() => (isOpen = false)}
-					class="flex items-center justify-between text-4xl text-zinc-200 sm:text-6xl"
+					class="flex items-center justify-between text-4xl text-zinc-200 sm:text-5xl"
 					href="/"
 				>
 					Home
 					<Icon icon="guidance:left-arrow" />
 				</a>
 			</div>
-			<div class="border-b border-zinc-700 p-8">
+			<div class="border-b border-zinc-700 p-4 lg:p-8">
 				<a
 					onclick={() => (isOpen = false)}
-					class="flex items-center justify-between text-4xl text-zinc-200 sm:text-6xl"
+					class="flex items-center justify-between text-4xl text-zinc-200 sm:text-5xl"
 					href="/projects"
 				>
 					Projects <Icon icon="guidance:left-arrow" />
 				</a>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-8 text-4xl text-zinc-500 sm:text-6xl">Notebook</span>
+				<span class="p-4 text-4xl text-zinc-500 sm:text-5xl lg:p-8">Notebook</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each notebookLinks as link}
 						<a
 							onclick={() => (isOpen = false)}
-							class="flex items-center justify-between border-b border-zinc-700 p-8 text-2xl text-zinc-200 sm:text-4xl"
+							class="flex items-center justify-between border-b border-zinc-700 p-4 text-xl text-zinc-200 sm:text-3xl lg:p-8"
 							href={link.href}
 						>
 							{link.title}
@@ -246,12 +246,12 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-8 text-4xl text-zinc-500 sm:text-6xl">Personal</span>
+				<span class="p-4 text-4xl text-zinc-500 sm:text-5xl lg:p-8">Personal</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each personalLinks as link}
 						<a
 							onclick={() => (isOpen = false)}
-							class="flex items-center justify-between border-b border-zinc-700 p-8 text-2xl text-zinc-200 sm:text-4xl"
+							class="flex items-center justify-between border-b border-zinc-700 p-4 text-xl text-zinc-200 sm:text-3xl lg:p-8"
 							href={link.href}
 						>
 							{link.label}
@@ -261,12 +261,12 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-8 text-4xl text-zinc-500 sm:text-6xl">Extras</span>
+				<span class="p-4 text-4xl text-zinc-500 sm:text-5xl lg:p-8">Extras</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each extraLinks as link}
 						<a
 							onclick={() => (isOpen = false)}
-							class="flex items-center justify-between border-b border-zinc-700 p-8 text-2xl text-zinc-200 sm:text-4xl"
+							class="flex items-center justify-between border-b border-zinc-700 p-4 text-xl text-zinc-200 sm:text-3xl lg:p-8"
 							href={link.href}
 						>
 							{link.label}

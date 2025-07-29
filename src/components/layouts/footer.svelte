@@ -3,9 +3,9 @@
 </script>
 
 <footer>
-	<div class="inner rounded-t-2xl bg-zinc-900 p-12">
-		<div class="grid grid-cols-6 gap-8">
-			<div class="col-span-3 flex flex-col gap-4">
+	<div class="inner rounded-t-2xl bg-zinc-900 p-8 sm:p-12">
+		<div class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6">
+			<div class="col-span-2 flex flex-col gap-4 sm:col-span-3">
 				<span class="text-xl text-zinc-200">Abi Noval Fauzi</span>
 				<p>Thanks for scrolling this far. You’re rare.</p>
 				<div class="flex gap-2">
@@ -74,7 +74,7 @@
 				</nav>
 			</div>
 		</div>
-		<p class="mx-auto mt-12 max-w-max rounded-full bg-zinc-950 px-6 py-2 text-sm">
+		<p class="mx-auto mt-12 max-w-max rounded-full bg-zinc-950 px-6 py-2 text-center text-sm">
 			© 2025 Abi Noval Fauzi. All rights reserved.
 		</p>
 	</div>
