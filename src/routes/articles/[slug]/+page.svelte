@@ -61,83 +61,78 @@
 	<meta name="twitter:site" content="@kimmyxpow" />
 </svelte:head>
 
-<section class="pt-28 pb-26 sm:pt-35 md:pt-60 lg:pt-86">
-	<div class="absolute inset-x-0 top-0 aspect-[4/3] overflow-hidden">
-		<img
-			class="size-full object-cover"
-			src={article.thumbnail}
-			alt="{article.title} thumbnail"
-			loading="lazy"
-		/>
-		<div
-			class="absolute bottom-0 size-full bg-gradient-to-b from-transparent to-zinc-950 to-35%"
-		></div>
-	</div>
-	<div class="inner relative">
-		<div class="mb-12 space-y-16 lg:space-y-32">
-			<div class="flex flex-col items-center gap-6">
-				<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{article.title}</h1>
-				<p class="text-center text-balance text-zinc-400 sm:text-lg md:text-xl">
-					{article.excerpt}
-				</p>
-				<div class="flex items-center">
-					<img
-						class="size-12 rounded-full object-cover"
-						src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt=""
-					/>
-					<div class="ml-2">
-						<p class="leading-5 font-medium text-zinc-200">
-							<span class="text-zinc-400">By</span> Noval
-						</p>
-						<p class="text-sm leading-4">Software Engineer</p>
-					</div>
-				</div>
-				<div class="flex flex-col items-center gap-2">
-					<div class="flex flex-wrap justify-center gap-4">
-						<div class="flex items-center gap-1 text-sm text-zinc-500">
-							Published at
-							{formatDate(article.created, 'dd MMM yyyy')}
-						</div>
-						<span class="text-zinc-500">|</span>
-						<div class="flex items-center gap-1 text-sm text-zinc-500">
-							Last updated at
-							{formatDate(article.updated, 'dd MMM yyyy')}
-						</div>
-						<span class="text-zinc-500">|</span>
-						<div class="flex items-center gap-1 text-sm text-zinc-500">
-							{article.readingTime} min read
-						</div>
-					</div>
-					<div class="flex flex-wrap justify-center gap-4">
-						<a
-							href="/articles?categories={article.category}"
-							class="flex items-center gap-1 text-sm text-zinc-500 hover:text-zinc-200"
-						>
-							{article.category}
-						</a>
-						<span class="text-zinc-500">|</span>
-						{#each article.tags as tag}
-							<a
-								href="/articles?tags={tag}"
-								class="flex items-center text-sm text-zinc-500 hover:text-zinc-200"
-							>
-								#{tag}
-							</a>
-						{/each}
-					</div>
-				</div>
+<div class="h-80">
+	<img
+		class="size-full object-cover"
+		src={article.thumbnail}
+		alt="{article.title} thumbnail"
+		loading="lazy"
+	/>
+</div>
+
+<article class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300">
+		<div class="flex w-full divide-x divide-zinc-300 border-b border-zinc-300">
+			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
+				Published at
+				{formatDate(article.created, 'dd MMM yyyy')}
 			</div>
-			<div
-				class="sm:prose-md mx-auto prose prose-sm prose-zinc prose-invert md:prose-lg prose-headings:font-normal prose-headings:text-zinc-200 prose-strong:font-normal prose-strong:text-zinc-200"
+			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
+				Last updated at
+				{formatDate(article.updated, 'dd MMM yyyy')}
+			</div>
+			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
+				{article.readingTime} min read
+			</div>
+			<a
+				href="/articles?categories={article.category}"
+				class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500 hover:text-zinc-800"
 			>
-				{#await modPromise}
-					<p>Loading Article</p>
-				{:then mod}
-					{@const Content = mod?.default}
-					<Content />
-				{/await}
+				{article.category}
+			</a>
+		</div>
+		<div class="flex w-full flex-wrap justify-center gap-4 border-b border-zinc-300 p-4">
+			{#each article.tags as tag}
+				<a
+					href="/articles?tags={tag}"
+					class="flex items-center text-sm text-zinc-500 hover:text-zinc-800"
+				>
+					#{tag}
+				</a>
+			{/each}
+		</div>
+		<div class="space-y-8 p-8">
+			<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{article.title}</h1>
+			<p class="text-center text-balance sm:text-lg md:text-xl">
+				{article.excerpt}
+			</p>
+			<div class="flex items-center justify-center">
+				<img
+					class="size-12 rounded-full object-cover"
+					src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+					alt=""
+				/>
+				<div class="ml-2">
+					<p class="leading-6 font-medium text-primary">
+						<span class="text-zinc-500">By</span> Noval
+					</p>
+					<p class="text-sm leading-5">Software Engineer</p>
+				</div>
 			</div>
 		</div>
+		<div
+			class="sm:prose-md mx-auto prose prose-sm pb-16 prose-zinc md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+		>
+			{#await modPromise}
+				<p>Loading Article</p>
+			{:then mod}
+				{@const Content = mod?.default}
+				<Content />
+			{/await}
+		</div>
 	</div>
-</section>
+</article>
+
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
+</div>

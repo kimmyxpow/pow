@@ -23,12 +23,12 @@
 
 	const filtersList = [
 		{
-			title: 'Just show me...',
+			title: 'Filter by categories',
 			type: 'categories' as const,
 			options: categories
 		},
 		{
-			title: 'Tags included...',
+			title: 'Filter by tags:',
 			type: 'tags' as const,
 			options: tags
 		}
@@ -71,80 +71,82 @@
 	};
 </script>
 
-<main class="pt-16 lg:pt-32">
-	<div class="inner">
+<main class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28">
 		<div class="mx-auto lg:max-w-2xl">
 			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
-				<span class="font-handwriting text-2xl text-zinc-400">Things I needed to write down</span>
-				<h1 class="text-4xl md:text-5xl">Notes, rambles, and things I didn’t want to forget</h1>
-				<p class="sm:text-lg">
-					Some posts are half-formed thoughts. Some are just me thinking out loud. I write mostly to
-					understand things better — if it helps someone else, that’s a bonus.
+				<span class="font-handwriting text-2xl text-zinc-500">Things I needed to write down</span>
+				<h1 class="text-4xl text-balance md:text-5xl">
+					Notes, rambles, and things I didn’t want to forget
+				</h1>
+				<p class="text-balance sm:text-lg">
+					I write mostly to understand things better — if it helps someone else, that’s a bonus.
 				</p>
 			</div>
 		</div>
 	</div>
 </main>
-<section class="py-8 lg:py-26">
-	<div class="inner">
-		<div class="flex flex-col-reverse gap-6 lg:flex-row">
-			<div class="flex-1 space-y-6">
-				<div class="flex items-end gap-2">
-					<div class="grid flex-1 gap-2">
-						<label for="search" class="font-semibold text-zinc-300">
-							What are you curious about?
-						</label>
-						<input
-							class="h-14 w-full rounded-xl border border-zinc-600 px-4 ring-4 ring-transparent transition-all outline-none focus:border-zinc-200 focus:ring-zinc-800"
-							placeholder="Search articles title... or anything anyway"
-							type="text"
-							value={selectedFilters.search}
-							oninput={(e) => onFilterChange(e, 'search')}
-							name="search"
-							id="search"
-						/>
-					</div>
-				</div>
-				<div class="grid gap-4">
-					<Articles {articles} />
-				</div>
-			</div>
-			<div class="w-full max-w-80">
-				<div class="grid flex-1 gap-6">
-					{#each filtersList as filter}
-						<span class="font-semibold text-zinc-300">{filter.title}</span>
-						<div class="flex grid-cols-2 flex-wrap gap-4 lg:grid">
-							{#each filter.options as option}
-								{@const isChecked = selectedFilters[filter.type].includes(option)}
-								<div class="flex items-center gap-2">
-									<input
-										type="checkbox"
-										onchange={(e) => onFilterChange(e, filter.type)}
-										value={option}
-										checked={isChecked}
-										id="{filter.type}-{option}"
-										class="peer hidden"
-									/>
-									<label
-										for="{filter.type}-{option}"
-										class="inline-flex size-6 items-center justify-center rounded-md border border-zinc-600 transition-all duration-150 ease-in-out peer-checked:border-zinc-400 peer-checked:bg-zinc-200 active:scale-[0.98]"
-									>
-										{#if isChecked}
-											<Icon icon="lineicons:minus" class="text-background size-4" />
-										{/if}
-									</label>
-									<label
-										for="checkbox-{option}"
-										class="text-sm font-medium text-zinc-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-									>
-										{option}
-									</label>
-								</div>
-							{/each}
+
+<section class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300">
+		<div class="flex flex-col gap-4 p-8">
+			{#each filtersList as filter}
+				<span class="text-zinc-600">{filter.title}</span>
+				<div class="flex flex-wrap gap-4">
+					{#each filter.options as option}
+						{@const isChecked = selectedFilters[filter.type].includes(option)}
+						<div class="flex items-center gap-2">
+							<input
+								type="checkbox"
+								onchange={(e) => onFilterChange(e, filter.type)}
+								value={option}
+								checked={isChecked}
+								id="{filter.type}-{option}"
+								class="peer hidden"
+							/>
+							<label
+								for="{filter.type}-{option}"
+								class="inline-flex size-6 items-center justify-center rounded-md border border-zinc-400 transition-all duration-150 ease-in-out peer-checked:border-zinc-800 peer-checked:bg-primary active:scale-[0.98]"
+							>
+								{#if isChecked}
+									<Icon icon="lineicons:minus" class="text-background size-4" />
+								{/if}
+							</label>
+							<label
+								for="{filter.type}-{option}"
+								class="text-zinc-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+							>
+								{option}
+							</label>
 						</div>
 					{/each}
 				</div>
-			</div>
+			{/each}
+		</div>
+		<div
+			class="group flex h-20 flex-1 items-center border-y border-zinc-300 px-8 focus-within:border-primary"
+		>
+			<Icon
+				class="text-xl text-zinc-400 group-focus-within:text-primary"
+				icon="solar:magnifer-linear"
+			/>
+			<input
+				class="w-full px-4 transition-all outline-none"
+				placeholder="Search articles title... or anything anyway"
+				type="text"
+				autocomplete="off"
+				value={selectedFilters.search}
+				oninput={(e) => onFilterChange(e, 'search')}
+				name="search"
+				id="search"
+			/>
+		</div>
+		<div class="grid">
+			<Articles {articles} />
 		</div>
 	</div>
 </section>
+
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
+</div>

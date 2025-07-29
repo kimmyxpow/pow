@@ -21,25 +21,28 @@
 	});
 </script>
 
-<main class="py-8 lg:pt-32 lg:pb-26">
-	<div class="inner">
-		<div class="grid items-start gap-10 lg:grid-cols-2">
-			<div class="flex flex-col gap-6">
-				<span class="font-handwriting text-2xl text-zinc-400">Just say hi, if you feel like it</span
-				>
-				<h1 class="text-4xl md:text-5xl">Leave a little note before you go</h1>
-				<p class="sm:text-lg">
-					Just a space for kind strangers, old friends, or curious wanderers to say hello. Drop a
-					message, a thought, or your favorite emoji 🪴
-				</p>
-				<div class="hidden rounded-xl border border-zinc-800 p-8 lg:block">
-					<div class="rounded-xl border border-zinc-800 p-8">
-						<div class="rounded-xl border border-zinc-800 p-8">
-							<div class="rounded-xl border border-zinc-800 p-8">
-								<div class="rounded-xl border border-zinc-800 p-8">
-									<div class="rounded-xl border border-zinc-800 p-6">
-										<span class="text-center text-sm text-zinc-600">
-											White (or black) space — I still don't know what belongs here
+<main class="mt-38 border-y border-zinc-300">
+	<div class="inner border-x border-zinc-300">
+		<div class="grid divide-x divide-zinc-300 lg:grid-cols-2">
+			<div class="space-y-6">
+				<div class="flex flex-col gap-6 p-8">
+					<span class="font-handwriting text-2xl text-zinc-500">
+						Just say hi, if you feel like it
+					</span>
+					<h1 class="text-4xl text-balance md:text-5xl">Leave a little note before you go</h1>
+					<p class="text-balance sm:text-lg">
+						Just a space for kind strangers, old friends, or curious wanderers to say hello. Drop a
+						message, a thought, or your favorite emoji 🪴
+					</p>
+				</div>
+				<div class="-mx-[0.5px] hidden border border-zinc-300 p-8 lg:block">
+					<div class="border border-zinc-300 p-8">
+						<div class="border border-zinc-300 p-8">
+							<div class="border border-zinc-300 p-8">
+								<div class="border border-zinc-300 p-8">
+									<div class="border border-zinc-300 p-6">
+										<span class="text-center text-sm text-zinc-300">
+											White space, i still don't know what belongs here
 										</span>
 									</div>
 								</div>
@@ -48,9 +51,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="rounded-xl bg-zinc-900/60 p-2">
-				<ScrollArea.Root class="p-4">
-					<ScrollArea.Viewport class="max-h-[calc(100vh-20rem)] overflow-y-auto">
+			<div>
+				<ScrollArea.Root>
+					<ScrollArea.Viewport class="max-h-[calc(100vh-20rem)] overflow-y-auto p-8">
 						<div class="space-y-4">
 							{#each data.messages as message}
 								<div class="flex gap-4">
@@ -62,12 +65,12 @@
 											loading="lazy"
 										/>
 									</div>
-									<div class="mr-auto flex flex-col rounded-xl bg-zinc-900 p-4">
+									<div class="mr-auto flex flex-col rounded-xl bg-white/30 p-4">
 										<div class="flex items-center gap-2">
 											<span class="text-sm text-zinc-500">
 												{formatDate(message.guestbook.createdAt, 'dd MMM yyyy')}
 											</span>
-											<span class="size-0.5 rounded-full bg-cyan-500"></span>
+											<span class="size-0.5 rounded-full bg-primary"></span>
 											<span class="text-sm text-zinc-500">{message.user.name}</span>
 										</div>
 										<p>
@@ -80,14 +83,14 @@
 					</ScrollArea.Viewport>
 					<ScrollArea.Scrollbar
 						orientation="vertical"
-						class="data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:fade-in-0 flex w-2.5 touch-none rounded-full border-l border-l-transparent bg-zinc-900 p-px transition-all duration-200 select-none hover:w-3 hover:bg-zinc-800"
+						class="data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:fade-in-0 flex w-2.5 touch-none rounded-full border-l border-l-transparent bg-white p-px transition-all duration-200 select-none hover:w-3"
 					>
-						<ScrollArea.Thumb class="flex-1 rounded-full bg-zinc-600" />
+						<ScrollArea.Thumb class="flex-1 bg-primary" />
 					</ScrollArea.Scrollbar>
 					<ScrollArea.Corner />
 				</ScrollArea.Root>
 				{#if session}
-					<form use:enhance method="POST" class="flex items-center gap-2 px-4 pb-2">
+					<form use:enhance method="POST" class="flex items-center gap-2 px-8 pb-2">
 						<input
 							class="h-14 w-full rounded-xl border border-zinc-600 px-4 ring-4 ring-transparent transition-all outline-none focus:border-zinc-200 focus:ring-zinc-800 disabled:cursor-not-allowed disabled:bg-zinc-800"
 							placeholder="Say hi, share a link, or leave a riddle."
@@ -124,3 +127,7 @@
 		</div>
 	</div>
 </main>
+
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
+</div>

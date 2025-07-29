@@ -5,13 +5,13 @@
 </script>
 
 {#each snippets as snippet}
-	<div
-		class="flex break-inside-avoid-column flex-col space-y-4 rounded-xl bg-zinc-900 p-6 transition-all hover:-rotate-2"
-	>
-		<span class="font-handwriting text-4xl text-zinc-400">{snippet.name}</span>
-		<p>
-			{snippet.description}
-		</p>
+	<div class="space-y-4 border-y border-zinc-300 first:border-t-0 last:border-b-0">
+		<div class="space-y-2 p-8">
+			<h3 class="text-4xl">{snippet.name}</h3>
+			<p class="text-lg">
+				{snippet.description}
+			</p>
+		</div>
 		<Highlight lang="ts" code={snippet.code} />
 	</div>
 {/each}
