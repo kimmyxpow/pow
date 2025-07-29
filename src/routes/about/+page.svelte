@@ -5,23 +5,23 @@
 	let { data } = $props();
 </script>
 
-<main class="pt-32">
+<main class="pt-16 lg:pt-32">
 	<div class="inner">
-		<div class="mx-auto max-w-2xl">
-			<div class="flex flex-col items-center justify-center gap-6 text-center">
+		<div class="mx-auto lg:max-w-2xl">
+			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
 				<span class="font-handwriting text-2xl text-zinc-400"
 					>A little context, if you’re curious
 				</span>
-				<h1 class="text-5xl">Who I am, and why this site exists</h1>
+				<h1 class="text-4xl md:text-5xl">Who I am, and why this site exists</h1>
 			</div>
 		</div>
 	</div>
 </main>
 
-<section class="py-26">
+<section class="py-8 lg:py-26">
 	<div class="inner">
-		<div class="grid grid-cols-2 gap-10">
-			<div class="prose prose-lg max-w-none prose-zinc prose-invert">
+		<div class="grid gap-10 md:grid-cols-2">
+			<div class="prose prose-lg max-w-none prose-zinc prose-invert prose-headings:font-normal">
 				<h2>Short Bio</h2>
 				<p>
 					I’m a fullstack developer, though most of my work leans toward the frontend — partly
@@ -52,7 +52,7 @@
 	<div class="inner">
 		<div class="flex flex-col gap-12">
 			<h2 class="text-center text-3xl">Things I’ve Been Part Of</h2>
-			<div class="grid grid-cols-2 gap-px bg-radial from-cyan-500 to-transparent to-90% p-px">
+			<div class="grid gap-px bg-radial from-cyan-500 to-transparent to-90% p-px sm:grid-cols-2">
 				<div class="flex flex-col items-start bg-black px-8 py-8">
 					<img class="h-10" src="https://www.peepl.tech/images/logo-peepl.png" alt="Peepl Logo" />
 					<h3 class="mt-4 mb-2 text-xl">Full-Stack Developer</h3>
@@ -150,14 +150,18 @@
 							<div
 								class="absolute top-1 left-0 size-6 rounded-full bg-gradient-to-b from-cyan-500 to-zinc-800"
 							></div>
-							<div class="mb-1 flex items-center justify-between">
-								<span class="text-sm font-bold text-zinc-400">sha: {commit.sha}</span>
-								<span class="text-sm text-zinc-200"
-									>Changed by: <span class="font-bold">{commit.commit.committer.name}</span></span
+							<div
+								class="mb-4 flex flex-col-reverse justify-between sm:mb-1 sm:flex-row sm:items-center"
+							>
+								<span class="text-xs font-bold break-all text-zinc-400 sm:text-sm"
+									>sha: {commit.sha}</span
 								>
+								<span class="text-xs text-zinc-200 sm:text-sm">
+									Changed by: <span class="font-bold">{commit.commit.committer.name}</span>
+								</span>
 							</div>
-							<div class="flex items-center justify-between">
-								<span class="text-xl">
+							<div class="flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
+								<span class="text-lg sm:text-xl">
 									<span class="mr-1">{commit.commit.message.slice(0, 2)}</span>
 									<span
 										class="bg-gradient-to-tr from-cyan-500 to-zinc-200 bg-clip-text text-transparent"
@@ -175,7 +179,7 @@
 									<Icon icon="solar:arrow-right-up-linear" class="size-4" />
 								</a>
 							</div>
-							<span class="text-sm text-zinc-500">
+							<span class="mt-4 block text-sm text-zinc-500 sm:m-0">
 								{formatDistance(commit.commit.author.date, new Date(), {
 									addSuffix: true
 								})}

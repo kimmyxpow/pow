@@ -6,21 +6,21 @@
 	const progress = getProgress();
 </script>
 
-<main class="pt-32">
+<main class="pt-16 lg:pt-32">
 	<div class="inner">
-		<div class="mx-auto max-w-2xl">
-			<div class="flex flex-col items-center justify-center gap-6 text-center">
+		<div class="mx-auto lg:max-w-2xl">
+			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
 				<span class="font-handwriting text-2xl text-zinc-400">
 					An evolving list of “maybe someday.”
 				</span>
-				<h1 class="text-5xl">
+				<h1 class="text-4xl md:text-5xl">
 					A lifelong collection of things I’d love to learn, build, feel, and become
 				</h1>
 			</div>
 		</div>
 	</div>
 </main>
-<section class="py-26">
+<section class="py-8 lg:py-26">
 	<div class="inner">
 		<div class="mx-auto flex max-w-xl flex-col items-center gap-2">
 			<div class="flex w-full items-center justify-between">
@@ -37,7 +37,7 @@
 			<span class="text-zinc-400">{progress.percentage}% complete</span>
 		</div>
 		<div class="mt-8">
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid gap-4 md:grid-cols-2">
 				{#each goals as goal}
 					<div
 						class={cn(

@@ -61,7 +61,7 @@
 	<meta name="twitter:site" content="@kimmyxpow" />
 </svelte:head>
 
-<section class="pt-86 pb-26">
+<section class="pt-28 pb-26 sm:pt-35 md:pt-60 lg:pt-86">
 	<div class="absolute inset-x-0 top-0 aspect-[4/3] overflow-hidden">
 		<img
 			class="size-full object-cover"
@@ -74,10 +74,12 @@
 		></div>
 	</div>
 	<div class="inner relative">
-		<div class="mb-12 space-y-32">
+		<div class="mb-12 space-y-16 lg:space-y-32">
 			<div class="flex flex-col items-center gap-6">
-				<h1 class="text-center text-6xl">{article.title}</h1>
-				<p class="text-center text-xl text-balance text-zinc-400">{article.excerpt}</p>
+				<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{article.title}</h1>
+				<p class="text-center text-balance text-zinc-400 sm:text-lg md:text-xl">
+					{article.excerpt}
+				</p>
 				<div class="flex items-center">
 					<img
 						class="size-12 rounded-full object-cover"
@@ -92,7 +94,7 @@
 					</div>
 				</div>
 				<div class="flex flex-col items-center gap-2">
-					<div class="flex gap-4">
+					<div class="flex flex-wrap justify-center gap-4">
 						<div class="flex items-center gap-1 text-sm text-zinc-500">
 							Published at
 							{formatDate(article.created, 'dd MMM yyyy')}
@@ -107,7 +109,7 @@
 							{article.readingTime} min read
 						</div>
 					</div>
-					<div class="flex gap-4">
+					<div class="flex flex-wrap justify-center gap-4">
 						<a
 							href="/articles?categories={article.category}"
 							class="flex items-center gap-1 text-sm text-zinc-500 hover:text-zinc-200"
@@ -127,7 +129,7 @@
 				</div>
 			</div>
 			<div
-				class="mx-auto prose prose-lg prose-zinc prose-invert prose-headings:font-normal prose-headings:text-zinc-200 prose-strong:font-normal prose-strong:text-zinc-200"
+				class="sm:prose-md mx-auto prose prose-sm prose-zinc prose-invert md:prose-lg prose-headings:font-normal prose-headings:text-zinc-200 prose-strong:font-normal prose-strong:text-zinc-200"
 			>
 				{#await modPromise}
 					<p>Loading Article</p>

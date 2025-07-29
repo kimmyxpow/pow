@@ -71,13 +71,13 @@
 	};
 </script>
 
-<main class="pt-32">
+<main class="pt-16 lg:pt-32">
 	<div class="inner">
-		<div class="mx-auto max-w-2xl">
-			<div class="flex flex-col items-center justify-center gap-6 text-center">
+		<div class="mx-auto lg:max-w-2xl">
+			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
 				<span class="font-handwriting text-2xl text-zinc-400">Things I needed to write down</span>
-				<h1 class="text-5xl">Notes, rambles, and things I didn’t want to forget</h1>
-				<p class="text-lg">
+				<h1 class="text-4xl md:text-5xl">Notes, rambles, and things I didn’t want to forget</h1>
+				<p class="sm:text-lg">
 					Some posts are half-formed thoughts. Some are just me thinking out loud. I write mostly to
 					understand things better — if it helps someone else, that’s a bonus.
 				</p>
@@ -85,9 +85,9 @@
 		</div>
 	</div>
 </main>
-<section class="py-26">
+<section class="py-8 lg:py-26">
 	<div class="inner">
-		<div class="flex gap-6">
+		<div class="flex flex-col-reverse gap-6 lg:flex-row">
 			<div class="flex-1 space-y-6">
 				<div class="flex items-end gap-2">
 					<div class="grid flex-1 gap-2">
@@ -113,7 +113,7 @@
 				<div class="grid flex-1 gap-6">
 					{#each filtersList as filter}
 						<span class="font-semibold text-zinc-300">{filter.title}</span>
-						<div class="grid grid-cols-2 gap-4">
+						<div class="flex grid-cols-2 flex-wrap gap-4 lg:grid">
 							{#each filter.options as option}
 								{@const isChecked = selectedFilters[filter.type].includes(option)}
 								<div class="flex items-center gap-2">

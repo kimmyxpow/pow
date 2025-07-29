@@ -35,13 +35,13 @@
 	};
 </script>
 
-<main class="pt-32">
+<main class="pt-16 lg:pt-32">
 	<div class="inner">
-		<div class="mx-auto max-w-2xl">
-			<div class="flex flex-col items-center justify-center gap-6 text-center">
+		<div class="mx-auto lg:max-w-2xl">
+			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
 				<span class="font-handwriting text-2xl text-zinc-400">Reusable little things</span>
-				<h1 class="text-5xl">Code snippets I keep coming back to</h1>
-				<p class="text-lg">
+				<h1 class="text-4xl md:text-5xl">Code snippets I keep coming back to</h1>
+				<p class="sm:text-lg">
 					Small bits of code I’ve used, reused, and forgotten more times than I’d like to admit.
 					Some are practical, some are oddly specific, and all of them are here so I don’t lose them
 					(again).
@@ -50,9 +50,9 @@
 		</div>
 	</div>
 </main>
-<section class="py-26">
+<section class="py-8 lg:py-26">
 	<div class="inner">
-		<div class="flex-1 space-y-20">
+		<div class="flex-1 space-y-6">
 			<div class="flex items-end gap-2">
 				<div class="grid flex-1 gap-2">
 					<label for="search" class="font-semibold text-zinc-300">What are you curious about?</label
@@ -68,7 +68,7 @@
 					/>
 				</div>
 			</div>
-			<div class="columns columns-2 gap-x-8">
+			<div class="columns gap-x-8 sm:columns-2">
 				<Snippets {snippets} />
 			</div>
 		</div>

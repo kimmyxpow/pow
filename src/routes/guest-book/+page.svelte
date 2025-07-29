@@ -21,18 +21,18 @@
 	});
 </script>
 
-<main class="pt-32 pb-26">
+<main class="py-8 lg:pt-32 lg:pb-26">
 	<div class="inner">
-		<div class="grid grid-cols-2 items-start gap-10">
+		<div class="grid items-start gap-10 lg:grid-cols-2">
 			<div class="flex flex-col gap-6">
 				<span class="font-handwriting text-2xl text-zinc-400">Just say hi, if you feel like it</span
 				>
-				<h1 class="text-5xl">Leave a little note before you go</h1>
-				<p class="text-lg">
+				<h1 class="text-4xl md:text-5xl">Leave a little note before you go</h1>
+				<p class="sm:text-lg">
 					Just a space for kind strangers, old friends, or curious wanderers to say hello. Drop a
 					message, a thought, or your favorite emoji 🪴
 				</p>
-				<div class="rounded-xl border border-zinc-800 p-8">
+				<div class="hidden rounded-xl border border-zinc-800 p-8 lg:block">
 					<div class="rounded-xl border border-zinc-800 p-8">
 						<div class="rounded-xl border border-zinc-800 p-8">
 							<div class="rounded-xl border border-zinc-800 p-8">
