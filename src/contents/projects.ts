@@ -10,13 +10,62 @@ export type Project = {
 
 export const projects: Project[] = [
 	{
-		name: 'PalettePix',
-		description: 'A web app for generating and sharing color palettes.',
-		image: '/images/articles/neom-YeLs9lJDx9M-unsplash.jpg',
-		url: 'https://palettepix.com',
-		github: 'https://github.com/abinovalfauzi/palettepix',
+		name: 'Open Series',
+		description:
+			'A comprehensive Math & Physics cheatsheet website. I contributed by developing the website.',
+		image: '/images/projects/openseries.png',
+		url: 'https://openseries.pages.dev/',
+		github: 'https://github.com/bellshade/OpenSeriesWeb',
+		category: 'Web App',
+		tags: ['next.js', 'tailwindcss', 'python']
+	},
+	{
+		name: 'HTML-CSS by Bellshade',
+		description:
+			'An open-source repository for learning HTML and CSS in Indonesian, specifically for beginners. I contribute as a maintainer.',
+		image: '/images/projects/htmlcss.png',
+		url: 'https://github.com/bellshade/HTML-CSS',
+		github: 'https://github.com/bellshade/HTML-CSS',
+		category: 'Other',
+		tags: ['html-css']
+	},
+	{
+		name: 'Nametopia',
+		description: 'A simple and fast name generator for various countries and genders.',
+		image: '/images/projects/nametopia.png',
+		url: 'https://nametopia.pow.kim/',
+		github: 'https://github.com/kimmyxpow/nametopia',
 		category: 'Web App',
 		tags: ['react.js', 'tailwindcss']
+	},
+	{
+		name: 'PalettePix',
+		description: 'A website that extracts color palettes from uploaded photos.',
+		image: '/images/projects/palettepix.png',
+		url: 'https://palettepix.pow.kim/',
+		github: 'https://github.com/kimmyxpow/palettepix',
+		category: 'Web App',
+		tags: ['react.js', 'tailwindcss']
+	},
+	{
+		name: 'BagiSkrip',
+		description:
+			'A code snippet sharing service with URL sharing, password protection, and visibility settings.',
+		image: 'https://placehold.co/600x400/png',
+		url: 'https://github.com/kimmyxpow/bagiskrip',
+		github: 'https://github.com/kimmyxpow/bagiskrip',
+		category: 'Web App',
+		tags: ['laravel', 'tailwindcss']
+	},
+	{
+		name: 'Hollux',
+		description:
+			'A hotel management web app with landing page, admin dashboard, content management, and reservation features.',
+		image: '/images/projects/hollux.png',
+		url: 'https://github.com/kimmyxpow/hollux',
+		github: 'https://github.com/kimmyxpow/hollux',
+		category: 'Web App',
+		tags: ['laravel', 'livewire', 'tailwindcss', 'alpine.js']
 	}
 ];
 

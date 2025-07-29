@@ -9,15 +9,20 @@
 	<div class="group overflow-hidden rounded-lg bg-zinc-900/70">
 		<div class="aspect-video overflow-hidden">
 			<img
-				class="size-full transition-all group-hover:scale-110 group-hover:rotate-4"
+				class="size-full object-cover transition-all group-hover:scale-110 group-hover:rotate-4"
 				src={project.image}
 				alt="{project.name} thumbnail"
 				loading="lazy"
 			/>
 		</div>
 		<div class="space-y-2 p-6">
-			<span class="font-handwriting text-xl text-zinc-400 italic">{project.category}</span>
-			<h3 class="mt-2 text-2xl">Palletepix</h3>
+			<a
+				href={appendParam('categories', project.category)}
+				class="font-handwriting text-xl text-zinc-400 italic hover:text-zinc-200"
+			>
+				{project.category}
+			</a>
+			<h3 class="mt-2 text-2xl">{project.name}</h3>
 			<div class="flex items-center gap-2 text-sm text-zinc-500">
 				<span class="flex gap-2">
 					{#each project.tags as tag}
