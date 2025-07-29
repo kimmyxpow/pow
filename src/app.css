@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @plugin '@tailwindcss/typography';
 
 @font-face {
@@ -50,14 +51,10 @@
 
 	--color-dark: #4b352a;
 	--color-beige: #f8f6e3;
-	--color-primary: #3d74b6;
+	--color-primary: #03a6a1;
 }
 
 @layer base {
-	* {
-		@apply scheme-dark;
-	}
-
 	html {
 		@apply scroll-smooth;
 	}

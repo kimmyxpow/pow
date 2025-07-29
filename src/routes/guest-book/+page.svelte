@@ -21,8 +21,8 @@
 	});
 </script>
 
-<main class="mt-38 border-y border-zinc-300">
-	<div class="inner border-x border-zinc-300">
+<main class="mt-38 border-y border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3]">
 		<div class="grid divide-x divide-zinc-300 lg:grid-cols-2">
 			<div class="space-y-6">
 				<div class="flex flex-col gap-6 p-8">
@@ -35,17 +35,13 @@
 						message, a thought, or your favorite emoji 🪴
 					</p>
 				</div>
-				<div class="-mx-[0.5px] hidden border border-zinc-300 p-8 lg:block">
-					<div class="border border-zinc-300 p-8">
-						<div class="border border-zinc-300 p-8">
-							<div class="border border-zinc-300 p-8">
-								<div class="border border-zinc-300 p-8">
-									<div class="border border-zinc-300 p-6">
-										<span class="text-center text-sm text-zinc-300">
-											White space, i still don't know what belongs here
-										</span>
-									</div>
-								</div>
+				<div class="-mx-px hidden border border-[#F0E4D3] p-8 lg:block">
+					<div class="border border-[#F0E4D3] p-8">
+						<div class="border border-[#F0E4D3] p-8">
+							<div class="border border-[#F0E4D3] p-6">
+								<span class="block text-center text-sm text-zinc-300">
+									White space, i still don't know what belongs here
+								</span>
 							</div>
 						</div>
 					</div>
@@ -83,17 +79,17 @@
 					</ScrollArea.Viewport>
 					<ScrollArea.Scrollbar
 						orientation="vertical"
-						class="data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:fade-in-0 flex w-2.5 touch-none rounded-full border-l border-l-transparent bg-white p-px transition-all duration-200 select-none hover:w-3"
+						class="data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:fade-in-0 flex w-2.5 touch-none rounded-full border-l border-l-transparent bg-white/60 select-none hover:w-3"
 					>
-						<ScrollArea.Thumb class="flex-1 bg-primary" />
+						<ScrollArea.Thumb class="flex-1 rounded-full bg-dark" />
 					</ScrollArea.Scrollbar>
 					<ScrollArea.Corner />
 				</ScrollArea.Root>
 				{#if session}
-					<form use:enhance method="POST" class="flex items-center gap-2 px-8 pb-2">
+					<form use:enhance method="POST" class="flex items-center border-t border-[#F0E4D3]">
 						<input
-							class="h-14 w-full rounded-xl border border-zinc-600 px-4 ring-4 ring-transparent transition-all outline-none focus:border-zinc-200 focus:ring-zinc-800 disabled:cursor-not-allowed disabled:bg-zinc-800"
-							placeholder="Say hi, share a link, or leave a riddle."
+							class="h-14 w-full px-8 transition-all outline-none disabled:cursor-not-allowed disabled:bg-white"
+							placeholder="Say hi, share a link, or leave a riddle. Type here..."
 							type="text"
 							name="message"
 							disabled={$submitting}
@@ -102,21 +98,21 @@
 							{...$constraints.message}
 						/>
 						<button
-							class="inline-flex size-14 shrink-0 items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-cyan-500 px-4 text-zinc-900 transition-all hover:bg-cyan-600 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
+							class="inline-flex size-14 shrink-0 items-center justify-center bg-primary transition-all hover:bg-primary/90 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 						>
 							<Icon icon="solar:plain-linear" class="size-6" />
 						</button>
 					</form>
 				{:else}
-					<div class="flex items-center gap-2 px-4 pb-2">
-						<p>Please sign in first to leave a message.</p>
+					<div class="flex items-center border-t border-[#F0E4D3]">
+						<p class="px-8">Please sign in first to leave a message.</p>
 						<button
 							onclick={() =>
 								authClient.signIn.social({
 									provider: 'github',
 									callbackURL: '/guest-book'
 								})}
-							class="ml-auto inline-flex h-14 shrink-0 items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-cyan-500 px-4 text-zinc-900 transition-all hover:bg-cyan-600 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
+							class="ml-auto inline-flex h-14 shrink-0 items-center justify-center gap-2 bg-primary px-4 text-white transition-all hover:bg-primary/90 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 						>
 							Sign In With
 							<Icon icon="tabler:brand-github" class="size-6" />
@@ -128,6 +124,6 @@
 	</div>
 </main>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3] py-28"></div>
 </div>

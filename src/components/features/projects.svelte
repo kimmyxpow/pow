@@ -5,7 +5,7 @@
 </script>
 
 {#each projects as project}
-	<div class="group -mx-[0.5px] -mb-px flex flex-col space-y-4 border border-zinc-300 bg-beige">
+	<div class="group -mx-[0.5px] -mb-px flex flex-col space-y-4 border border-[#F0E4D3] bg-beige">
 		<div class="aspect-video overflow-hidden">
 			<img
 				class="size-full object-cover transition-all group-hover:scale-115 group-hover:rotate-4"
@@ -15,11 +15,8 @@
 			/>
 		</div>
 		<div class="flex grow flex-col">
-			<div class="space-y-4 p-8">
-				<a
-					href={appendParam('categories', project.category)}
-					class="text-zinc-400 hover:text-zinc-800"
-				>
+			<div class="space-y-4 p-6">
+				<a href={appendParam('categories', project.category)} class="text-zinc-500 hover:text-dark">
 					{project.category}
 				</a>
 				<h3 class="mt-2 text-3xl">{project.name}</h3>
@@ -28,7 +25,7 @@
 						{#each project.tags as tag}
 							<a
 								href={appendParam('tags', tag)}
-								class="font-handwriting text-lg transition-all hover:text-zinc-800"
+								class="font-handwriting text-lg transition-all hover:text-dark"
 							>
 								#{tag}
 							</a>
@@ -39,16 +36,19 @@
 					{project.description}
 				</p>
 			</div>
-			<div class="mt-auto grid grid-cols-2 divide-x divide-zinc-300 border-t border-zinc-300">
+			<div class="mt-auto grid grid-cols-2 divide-x divide-zinc-300 border-t border-[#F0E4D3]">
 				{#if project.github}
 					<a
 						href={project.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="px-8 py-4 text-center text-zinc-400 hover:text-zinc-800"
+						class="group/link relative px-8 py-4 text-center text-zinc-500 transition-all duration-300 hover:text-white"
 						aria-label="GitHub"
 					>
-						GitHub
+						<div
+							class="absolute inset-0 w-0 bg-primary transition-all group-hover/link:w-full"
+						></div>
+						<span class="relative">GitHub</span>
 					</a>
 				{/if}
 				{#if project.url}
@@ -56,10 +56,13 @@
 						href={project.url}
 						rel="noopener noreferrer"
 						target="_blank"
-						class="px-8 py-4 text-center text-zinc-400 hover:text-zinc-800"
+						class="group/link relative px-8 py-4 text-center text-zinc-500 transition-all duration-300 hover:text-white"
 						aria-label="Website"
 					>
-						Demo
+						<div
+							class="absolute inset-0 w-0 bg-primary transition-all group-hover/link:w-full"
+						></div>
+						<span class="relative">Demo</span>
 					</a>
 				{/if}
 			</div>

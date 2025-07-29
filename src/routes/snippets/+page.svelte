@@ -36,25 +36,23 @@
 	};
 </script>
 
-<main class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28">
-		<div class="mx-auto lg:max-w-2xl">
-			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
-				<span class="font-handwriting text-2xl text-zinc-500">Reusable little things</span>
-				<h1 class="text-4xl text-balance md:text-5xl">Code snippets I keep coming back to</h1>
-				<p class="text-balance sm:text-lg">
-					Small bits of code I’ve used, reused, and forgotten more times than I’d like to admit.
-				</p>
-			</div>
+<main class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3] px-8 py-8 lg:py-28">
+		<div
+			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
+		>
+			<span class="font-handwriting text-2xl text-zinc-500">Reusable little things</span>
+			<h1 class="text-4xl text-balance md:text-5xl">Code snippets I keep coming back to</h1>
+			<p class="text-balance sm:text-lg">
+				Small bits of code I’ve used, reused, and forgotten more times than I’d like to admit.
+			</p>
 		</div>
 	</div>
 </main>
 
-<section class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
-		<div
-			class="group flex h-20 flex-1 items-center border-y border-zinc-300 px-8 focus-within:border-primary"
-		>
+<section class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3]">
+		<div class="group -my-px flex h-20 flex-1 items-center border-y border-[#F0E4D3] bg-beige px-8">
 			<Icon
 				class="text-xl text-zinc-400 group-focus-within:text-primary"
 				icon="solar:magnifer-linear"
@@ -70,12 +68,10 @@
 				id="search"
 			/>
 		</div>
-		<div class="grid">
-			<Snippets {snippets} />
-		</div>
+		<Snippets {snippets} />
 	</div>
 </section>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3] py-28"></div>
 </div>

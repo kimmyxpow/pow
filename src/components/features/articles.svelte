@@ -7,21 +7,18 @@
 
 {#each articles as article}
 	<div
-		class="-my-[0.5px] flex flex-col-reverse items-center gap-12 overflow-hidden border-y border-zinc-300 bg-beige lg:flex-row"
+		class="-my-[0.5px] flex flex-col-reverse items-center overflow-hidden border-y border-r border-[#F0E4D3] bg-beige lg:flex-row"
 	>
 		<div class="space-y-4 p-6">
 			<div class="flex flex-wrap items-center justify-between gap-2">
-				<a
-					href={appendParam('categories', article.category)}
-					class="text-zinc-500 hover:text-zinc-800"
-				>
+				<a href={appendParam('categories', article.category)} class="text-zinc-500 hover:text-dark">
 					{article.category}
 				</a>
 				<span class="flex flex-wrap gap-2">
 					{#each article.tags as tag}
 						<a
 							href={appendParam('tags', tag)}
-							class="font-handwriting text-zinc-500 transition-all hover:text-zinc-800"
+							class="font-handwriting text-zinc-500 transition-all hover:text-dark"
 						>
 							#{tag}
 						</a>

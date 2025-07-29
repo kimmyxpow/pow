@@ -17,7 +17,7 @@
 
 	const filtersList = [
 		{
-			title: 'Filter by categories',
+			title: 'Filter by categories:',
 			type: 'categories' as const,
 			options: categories
 		},
@@ -69,23 +69,22 @@
 	};
 </script>
 
-<main class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28">
-		<div class="mx-auto lg:max-w-2xl">
-			<div class="flex flex-col justify-center gap-6 lg:items-center lg:text-center">
-				<span class="font-handwriting text-2xl text-zinc-500">Things I’ve built — or tried to.</span
-				>
-				<h1 class="text-4xl text-balance md:text-5xl">Projects, experiments & digital leftovers</h1>
-				<p class="text-balance sm:text-lg">
-					Not every idea becomes a masterpiece — but some are worth building anyway. Here’s a mix of
-					things I’ve shipped, tweaked, or just needed to get out of my head.
-				</p>
-			</div>
+<main class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3] px-8 py-8 lg:py-28">
+		<div
+			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
+		>
+			<span class="font-handwriting text-2xl text-zinc-500">Things I’ve built — or tried to.</span>
+			<h1 class="text-4xl text-balance md:text-5xl">Projects, experiments & digital leftovers</h1>
+			<p class="text-balance sm:text-lg">
+				Not every idea becomes a masterpiece — but some are worth building anyway. Here’s a mix of
+				things I’ve shipped, tweaked, or just needed to get out of my head.
+			</p>
 		</div>
 	</div>
 </main>
-<section class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
+<section class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3]">
 		<div class="flex flex-col gap-4 p-8">
 			{#each filtersList as filter}
 				<span class="text-zinc-600">{filter.title}</span>
@@ -106,7 +105,7 @@
 								class="inline-flex size-6 items-center justify-center rounded-md border border-zinc-400 transition-all duration-150 ease-in-out peer-checked:border-zinc-800 peer-checked:bg-primary active:scale-[0.98]"
 							>
 								{#if isChecked}
-									<Icon icon="lineicons:minus" class="text-background size-4" />
+									<Icon icon="lineicons:minus" class="size-4 text-white" />
 								{/if}
 							</label>
 							<label
@@ -120,9 +119,7 @@
 				</div>
 			{/each}
 		</div>
-		<div
-			class="group flex h-20 flex-1 items-center border-y border-zinc-300 px-8 focus-within:border-primary"
-		>
+		<div class="group -mb-px flex h-20 flex-1 items-center border-y border-[#F0E4D3] bg-beige px-8">
 			<Icon
 				class="text-xl text-zinc-400 group-focus-within:text-primary"
 				icon="solar:magnifer-linear"
@@ -144,6 +141,6 @@
 	</div>
 </section>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3] py-28"></div>
 </div>

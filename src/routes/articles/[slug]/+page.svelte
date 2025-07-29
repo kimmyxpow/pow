@@ -70,9 +70,9 @@
 	/>
 </div>
 
-<article class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
-		<div class="flex w-full divide-x divide-zinc-300 border-b border-zinc-300">
+<article class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3]">
+		<div class="flex w-full divide-x divide-zinc-300 border-b border-[#F0E4D3]">
 			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
 				Published at
 				{formatDate(article.created, 'dd MMM yyyy')}
@@ -86,16 +86,16 @@
 			</div>
 			<a
 				href="/articles?categories={article.category}"
-				class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500 hover:text-zinc-800"
+				class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500 hover:text-dark"
 			>
 				{article.category}
 			</a>
 		</div>
-		<div class="flex w-full flex-wrap justify-center gap-4 border-b border-zinc-300 p-4">
+		<div class="flex w-full flex-wrap justify-center gap-4 border-b border-[#F0E4D3] p-4">
 			{#each article.tags as tag}
 				<a
 					href="/articles?tags={tag}"
-					class="flex items-center text-sm text-zinc-500 hover:text-zinc-800"
+					class="flex items-center text-sm text-zinc-500 hover:text-dark"
 				>
 					#{tag}
 				</a>
@@ -133,6 +133,6 @@
 	</div>
 </article>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-[#F0E4D3]">
+	<div class="inner border-x border-[#F0E4D3] py-28"></div>
 </div>

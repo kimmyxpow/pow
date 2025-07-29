@@ -29,8 +29,8 @@
 	];
 
 	const personalLinks = [
-		{ href: '/about', img: 'about.webp', label: 'About' },
-		{ href: '/goals', img: 'goals.webp', label: 'Goals' }
+		{ href: '/about', emoji: '👋', label: 'About' },
+		{ href: '/goals', emoji: '🎯', label: 'Goals' }
 		// { href: '/interest', img: 'interest.webp', label: 'Interest' },
 		// { href: '/gallery', img: 'gallery.webp', label: 'Gallery' }
 	];
@@ -44,16 +44,16 @@
 	let isOpen = $state(false);
 </script>
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-zinc-300 bg-beige">
+<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-[#F0E4D3] bg-beige lg:block">
 	<nav class="inner flex justify-center py-6">
 		<a
-			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-zinc-800"
+			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-dark"
 			href="/"
 		>
 			<span class="mb-0.5 text-xs text-zinc-400">00</span>Home
 		</a>
 		<a
-			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-zinc-800"
+			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-dark"
 			href="/projects"
 		>
 			<span class="mb-0.5 text-xs text-zinc-400">01</span>Projects
@@ -63,7 +63,7 @@
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-zinc-800 [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
 						<span class="mb-0.5 text-xs text-zinc-400">02</span>
 						Notebook
@@ -73,7 +73,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-30 mt-2 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10"
+					class="z-30 mt-2 w-full max-w-90 border border-[#F0E4D3] bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid">
@@ -83,7 +83,7 @@
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-start gap-4 border-b border-zinc-300 p-4 font-medium transition-all select-none last:border-b-0 hover:bg-white/30 focus-visible:outline-none"
+										class="flex items-start gap-4 border-b border-[#F0E4D3] p-4 font-medium transition-all select-none last:border-b-0 hover:bg-white/30 focus-visible:outline-none"
 									>
 										<div
 											class={`mt-1 grid size-10 shrink-0 place-items-center rounded-lg text-zinc-200 ${link.bg}`}
@@ -91,7 +91,7 @@
 											<Icon class="size-6" icon={link.icon} />
 										</div>
 										<div>
-											<span class="text-zinc-800">{link.title}</span>
+											<span class="text-dark">{link.title}</span>
 											<p class="text-sm">
 												{link.desc}
 											</p>
@@ -109,7 +109,7 @@
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-zinc-800 [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
 						<span class="mb-0.5 text-xs text-zinc-400">03</span>Personal
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
@@ -118,7 +118,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-30 mt-2 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10"
+					class="z-30 mt-4 w-full max-w-90 border border-[#F0E4D3] bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid grid-cols-2 divide-x divide-zinc-300">
@@ -128,8 +128,9 @@
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-center gap-2 p-6 font-medium text-zinc-500 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
+										class="flex items-center gap-2 px-6 py-3 font-medium text-zinc-500 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
 									>
+										{link.emoji}
 										{link.label}
 									</a>
 								{/snippet}
@@ -144,7 +145,7 @@
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-zinc-800 [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
 						<span class="mb-0.5 text-xs text-zinc-400">04</span>
 						Extras
@@ -154,7 +155,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-30 mt-4 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10"
+					class="z-30 mt-4 w-full max-w-90 border border-[#F0E4D3] bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid divide-y divide-zinc-300">
@@ -181,20 +182,23 @@
 
 <header class="fixed inset-x-0 bottom-0 z-50 lg:hidden">
 	<div class="inner">
-		<div
-			class="relative z-10 mb-6 ml-auto max-w-max rounded-2xl bg-gradient-to-r from-zinc-950 via-cyan-500 to-zinc-950 p-px shadow-2xl shadow-black/50"
+		<button
+			onclick={() => (isOpen = !isOpen)}
+			class="relative z-10 mb-6 ml-auto grid size-14 place-items-center rounded-2xl border border-zinc-800 bg-primary text-3xl text-white"
 		>
-			<button
-				onclick={() => (isOpen = !isOpen)}
-				class="grid size-14 place-items-center rounded-2xl bg-zinc-900 text-3xl text-zinc-200 hover:bg-zinc-800"
-			>
-				<Icon icon={!isOpen ? 'solar:menu-dots-bold' : 'tabler:x'} />
-			</button>
-		</div>
+			<Icon
+				class={cn('absolute transition-all duration-300', !isOpen && 'rotate-90 opacity-0')}
+				icon={'tabler:x'}
+			/>
+			<Icon
+				class={cn('absolute transition-all duration-300', isOpen && '-rotate-90 opacity-0')}
+				icon={'solar:menu-dots-bold'}
+			/>
+		</button>
 		<nav
 			class={cn(
-				'fixed inset-x-0 bottom-0 flex origin-bottom-right translate-y-full scale-50 flex-col border-t border-zinc-700 bg-zinc-900 pb-26 transition-all duration-300',
-				isOpen && 'translate-y-0 scale-100'
+				'fixed inset-x-0 bottom-0 flex origin-bottom scale-y-0 flex-col border-t border-zinc-700 bg-zinc-900 pb-26 transition-all duration-300',
+				isOpen && 'scale-y-100'
 			)}
 		>
 			<div class="border-b border-zinc-700 p-4 lg:p-8">
