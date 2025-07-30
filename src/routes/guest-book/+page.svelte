@@ -7,6 +7,7 @@
 	import { createAuthClient } from 'better-auth/svelte';
 	import Seo from '$components/seo.svelte';
 	import { my } from '$lib/url';
+	import { cn } from '$lib/cn';
 
 	let { data } = $props();
 
@@ -82,9 +83,10 @@
 			<div>
 				<ScrollArea.Root>
 					<ScrollArea.Viewport class="max-h-[calc(100vh-20rem)] overflow-y-auto p-8">
-						<div class="space-y-4">
+						<div class="space-y-6">
 							{#each data.messages as message}
-								<div class="flex gap-4">
+								{@const isMe = ['pow'].includes(message.user.name)}
+								<div class={cn('flex gap-2', isMe && 'flex-row-reverse')}>
 									<div class="size-12 shrink-0">
 										<img
 											class="size-full rounded-xl object-cover"
@@ -94,17 +96,17 @@
 											loading="lazy"
 										/>
 									</div>
-									<div class="mr-auto flex flex-col rounded-xl bg-white/30 p-4">
-										<div class="flex items-center gap-2">
+									<div class="mr-auto flex flex-col space-y-2">
+										<p class="rounded-xl bg-white/60 p-4 text-justify">
+											{message.guestbook.message}
+										</p>
+										<div class={cn('flex items-center gap-2', isMe && 'justify-end')}>
 											<span class="text-sm text-zinc-500">
 												{formatDate(message.guestbook.createdAt, 'dd MMM yyyy')}
 											</span>
 											<span class="size-0.5 rounded-full bg-primary"></span>
 											<span class="text-sm text-zinc-500">{message.user.name}</span>
 										</div>
-										<p>
-											{message.guestbook.message}
-										</p>
 									</div>
 								</div>
 							{/each}
