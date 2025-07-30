@@ -163,7 +163,7 @@
 				id="search"
 			/>
 		</div>
-		<div class="grid sm:grid-cols-2">
+		<div class="grid-cols-2 sm:grid">
 			<Projects {projects} />
 		</div>
 	</div>
