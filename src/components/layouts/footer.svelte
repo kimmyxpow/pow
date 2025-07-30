@@ -54,6 +54,15 @@
 					>
 						<Icon class="size-6" icon="iconoir:linkedin" />
 					</a>
+					<a
+						class="text-zinc-500 transition-all hover:text-dark"
+						href="https://discord.com/users/1169538417365876806"
+						aria-label="Discord"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Icon class="size-6" icon="iconoir:discord" />
+					</a>
 				</div>
 			</div>
 			<div class="flex flex-col gap-4">
@@ -78,7 +87,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Discord
+						Discord Server
 					</a>
 				</nav>
 			</div>
