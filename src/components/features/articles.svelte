@@ -40,9 +40,9 @@
 				<a
 					href="/articles/{article.slug}"
 					class="flex items-center gap-1 text-primary [&_svg]:transition-all hover:[&_svg]:-rotate-35"
-					aria-label="Read more about {article.title}"
 				>
-					Read more <Icon icon="solar:arrow-right-linear" />
+					Read more <span class="sr-only">about "{article.title}"</span>
+					<Icon icon="solar:arrow-right-linear" />
 				</a>
 			</div>
 		</div>
