@@ -71,7 +71,7 @@
 				<nav class="flex flex-col gap-1">
 					<a class="text-zinc-500 hover:text-dark" href="/about">About</a>
 					<a class="text-zinc-500 hover:text-dark" href="/goals">Goals</a>
-					<a class="text-zinc-500 hover:text-dark" href="/contact">Contact Me</a>
+					<!-- <a class="text-zinc-500 hover:text-dark" href="/contact">Contact Me</a> -->
 					<a
 						class="text-zinc-500 hover:text-dark"
 						href="https://discord.gg/ExCvJtVTu6"
