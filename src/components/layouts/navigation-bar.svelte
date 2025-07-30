@@ -2,7 +2,6 @@
 	import { cn } from '$lib/cn';
 	import Icon from '@iconify/svelte';
 	import { Popover } from 'bits-ui';
-	import { onMount } from 'svelte';
 
 	const notebookLinks = [
 		{
@@ -38,7 +37,7 @@
 	const extraLinks = [
 		// { href: '/mentoring', icon: 'solar:call-chat-rounded-linear', label: 'Mentoring' },
 		{ href: '/attributions', icon: 'solar:accessibility-linear', label: 'Attribution' },
-		{ href: '/community', icon: 'radix-icons:discord-logo', label: 'Community' }
+		{ href: 'https://discord.gg/ExCvJtVTu6', icon: 'radix-icons:discord-logo', label: 'Community' }
 	];
 
 	let isOpen = $state(false);
@@ -166,6 +165,10 @@
 									<a
 										{...props}
 										href={link.href}
+										{...link.label === 'Community' && {
+											target: '_blank',
+											rel: 'noopener noreferrer'
+										}}
 										class="flex h-12 items-center gap-2 px-3 font-medium text-zinc-500 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
 									>
 										<Icon icon={link.icon} class="size-6" />
@@ -259,6 +262,10 @@
 							onclick={() => (isOpen = false)}
 							class="flex items-center justify-between border-b border-zinc-700 p-4 text-xl text-zinc-200 sm:text-3xl lg:p-8"
 							href={link.href}
+							{...link.label === 'Community' && {
+								target: '_blank',
+								rel: 'noopener noreferrer'
+							}}
 						>
 							{link.label}
 							<Icon icon="guidance:left-arrow" />

@@ -9,19 +9,49 @@
 				<span class="font-serif text-xl text-dark">Pow</span>
 				<p>Thanks for scrolling this far. You’re rare.</p>
 				<div class="flex gap-2">
-					<a class="text-zinc-500 transition-all hover:text-dark" href="asd" aria-label="E-Mail">
+					<a
+						class="text-zinc-500 transition-all hover:text-dark"
+						href="mailto:abinovalf@gmail.com"
+						aria-label="E-Mail"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						<Icon class="size-6" icon="iconoir:at-sign" />
 					</a>
-					<a class="text-zinc-500 transition-all hover:text-dark" href="asd" aria-label="Instagram">
+					<a
+						class="text-zinc-500 transition-all hover:text-dark"
+						href="https://www.instagram.com/kimmyxpow/"
+						aria-label="Instagram"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						<Icon class="size-6" icon="iconoir:instagram" />
 					</a>
-					<a class="text-zinc-500 transition-all hover:text-dark" href="asd" aria-label="Github">
+					<a
+						class="text-zinc-500 transition-all hover:text-dark"
+						href="https://github.com/kimmyxpow"
+						aria-label="Github"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						<Icon class="size-6" icon="iconoir:github" />
 					</a>
-					<a class="text-zinc-500 transition-all hover:text-dark" href="asd" aria-label="X/Twitter">
+					<a
+						class="text-zinc-500 transition-all hover:text-dark"
+						href="https://x.com/kimmyxpow"
+						aria-label="X/Twitter"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						<Icon class="size-6" icon="iconoir:x" />
 					</a>
-					<a class="text-zinc-500 transition-all hover:text-dark" href="asd" aria-label="LinkedIn">
+					<a
+						class="text-zinc-500 transition-all hover:text-dark"
+						href="https://www.linkedin.com/in/abinovalfauzi"
+						aria-label="LinkedIn"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						<Icon class="size-6" icon="iconoir:linkedin" />
 					</a>
 				</div>
@@ -42,7 +72,14 @@
 					<a class="text-zinc-500 hover:text-dark" href="/about">About</a>
 					<a class="text-zinc-500 hover:text-dark" href="/goals">Goals</a>
 					<a class="text-zinc-500 hover:text-dark" href="/contact">Contact Me</a>
-					<a class="text-zinc-500 hover:text-dark" href="/community">Community</a>
+					<a
+						class="text-zinc-500 hover:text-dark"
+						href="https://discord.gg/ExCvJtVTu6"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Community
+					</a>
 				</nav>
 			</div>
 			<div class="flex flex-col gap-4">
