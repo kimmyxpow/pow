@@ -5,6 +5,7 @@
 	import { my } from '$lib/url';
 	import { error } from '@sveltejs/kit';
 	import { formatDate } from 'date-fns';
+	import Giscus from '@giscus/svelte';
 
 	const article = getArticleBySlug(page.params.slug!);
 
@@ -128,6 +129,28 @@
 		</div>
 	</div>
 </article>
+
+<section class="border-b border-zinc-300">
+	<div class="inner space-y-6 border-x border-zinc-300 p-8">
+		<h2 class="text-center text-2xl">Share your thoughts below</h2>
+		<Giscus
+			id="comments"
+			repo="kimmyxpow/pow"
+			repoId="R_kgDOMVl7mw"
+			category="General"
+			categoryId="DIC_kwDOMVl7m84Ctkq-"
+			mapping="specific"
+			term={article.slug}
+			strict="0"
+			reactionsEnabled="1"
+			emitMetadata="0"
+			inputPosition="top"
+			theme="light"
+			lang="en"
+			loading="lazy"
+		/>
+	</div>
+</section>
 
 <div class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 py-28"></div>

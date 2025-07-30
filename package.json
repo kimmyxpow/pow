@@ -18,6 +18,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
+		"@giscus/svelte": "^3.1.0",
 		"@iconify/svelte": "^5.0.1",
 		"@neondatabase/serverless": "^1.0.1",
 		"@paralleldrive/cuid2": "^2.2.2",
