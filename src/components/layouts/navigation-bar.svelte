@@ -37,7 +37,7 @@
 	const extraLinks = [
 		// { href: '/mentoring', icon: 'solar:call-chat-rounded-linear', label: 'Mentoring' },
 		{ href: '/attributions', icon: 'solar:accessibility-linear', label: 'Attribution' },
-		{ href: 'https://discord.gg/ExCvJtVTu6', icon: 'radix-icons:discord-logo', label: 'Community' }
+		{ href: 'https://discord.gg/ExCvJtVTu6', icon: 'radix-icons:discord-logo', label: 'Dicsord' }
 	];
 
 	let isOpen = $state(false);
@@ -165,7 +165,7 @@
 									<a
 										{...props}
 										href={link.href}
-										{...link.label === 'Community' && {
+										{...link.label === 'Dicsord' && {
 											target: '_blank',
 											rel: 'noopener noreferrer'
 										}}
@@ -262,7 +262,7 @@
 							onclick={() => (isOpen = false)}
 							class="flex items-center justify-between border-b border-zinc-700 p-4 text-xl text-zinc-200 sm:text-3xl lg:p-8"
 							href={link.href}
-							{...link.label === 'Community' && {
+							{...link.label === 'Dicsord' && {
 								target: '_blank',
 								rel: 'noopener noreferrer'
 							}}

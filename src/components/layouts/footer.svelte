@@ -78,7 +78,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Community
+						Discord
 					</a>
 				</nav>
 			</div>

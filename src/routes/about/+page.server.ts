@@ -45,15 +45,12 @@ type GitHubCommit = {
 export const load: PageServerLoad = async ({ fetch, parent }) => {
 	await parent();
 
-	const response = await fetch(
-		'https://api.github.com/repos/kimmyxpow/bynoval/commits?per_page=10',
-		{
-			headers: {
-				Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-				'User-Agent': 'kimmyxpow'
-			}
+	const response = await fetch('https://api.github.com/repos/kimmyxpow/pow/commits?per_page=10', {
+		headers: {
+			Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+			'User-Agent': 'kimmyxpow'
 		}
-	);
+	});
 
 	const commits: GitHubCommit[] = response.ok ? await response.clone().json() : [];
 
