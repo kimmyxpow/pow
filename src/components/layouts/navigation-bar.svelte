@@ -188,6 +188,7 @@
 	<div class="inner">
 		<button
 			onclick={() => (isOpen = !isOpen)}
+			aria-label="Toggle navigation menu"
 			class="relative z-10 mb-6 ml-auto grid size-14 place-items-center rounded-2xl border border-zinc-800 bg-primary text-3xl text-white"
 		>
 			<Icon
