@@ -6,6 +6,9 @@
       "devDependencies": {
         "@eslint/compat": "^1.2.5",
         "@eslint/js": "^9.18.0",
+        "@fontsource-variable/baskervville": "^5.2.1",
+        "@fontsource-variable/manrope": "^5.2.6",
+        "@fontsource/handlee": "^5.2.6",
         "@giscus/svelte": "^3.1.0",
         "@iconify/svelte": "^5.0.1",
         "@neondatabase/serverless": "^1.0.1",
@@ -165,6 +168,12 @@
     "@floating-ui/dom": ["@floating-ui/dom@1.7.2", "", { "dependencies": { "@floating-ui/core": "^1.7.2", "@floating-ui/utils": "^0.2.10" } }, "sha512-7cfaOQuCS27HD7DX+6ib2OrnW+b4ZBwDNnCcT0uTyidcmyWb03FnQqJybDBoCnpdxwBSfA94UAYlRCt7mV+TbA=="],
 
     "@floating-ui/utils": ["@floating-ui/utils@0.2.10", "", {}, "sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ=="],
+
+    "@fontsource-variable/baskervville": ["@fontsource-variable/baskervville@5.2.1", "", {}, "sha512-UquNHves3r1PKdJq5U1QOR4OoMhKxz4XNRM4L/PSfK7nDLoauuHTLgb5o0Ad1/FpCngykWlcwTVClOpVb0IO0g=="],
+
+    "@fontsource-variable/manrope": ["@fontsource-variable/manrope@5.2.6", "", {}, "sha512-8a0INmmJfrcOO+MDThDefifCqreErfhNX1qy9l9VMc0FNCUTJtJi8Lclk8H5RqsDmR5PBYfTot1iUZFZ7qX57A=="],
+
+    "@fontsource/handlee": ["@fontsource/handlee@5.2.6", "", {}, "sha512-yd8BkPsnDwD6VU8rteU/wYgO88C+b6FGHRzV9qd96ye1vKLZRvoExebSkIUbMpCPhbdolqwan3viota7bLNzxQ=="],
 
     "@gcornut/valibot-json-schema": ["@gcornut/valibot-json-schema@0.42.0", "", { "dependencies": { "valibot": "~0.42.0" }, "optionalDependencies": { "@types/json-schema": ">= 7.0.14", "esbuild-runner": ">= 2.2.2" }, "bin": { "valibot-json-schema": "bin/index.js" } }, "sha512-4Et4AN6wmqeA0PfU5Clkv/IS27wiefsWf6TemAZrb75uzkClYEFavim7SboeKwbll9Nbsn2Iv0LT/HS5H7orZg=="],
 

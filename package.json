@@ -18,6 +18,9 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
+		"@fontsource-variable/baskervville": "^5.2.1",
+		"@fontsource-variable/manrope": "^5.2.6",
+		"@fontsource/handlee": "^5.2.6",
 		"@giscus/svelte": "^3.1.0",
 		"@iconify/svelte": "^5.0.1",
 		"@neondatabase/serverless": "^1.0.1",
