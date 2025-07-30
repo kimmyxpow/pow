@@ -7,13 +7,13 @@
 		'@context': 'https://schema.org',
 		'@type': 'WebPage',
 		name: 'Attributions & Credits | pow.kim',
-		url: my('/attributions'),
+		url: origin('/attributions'),
 		description:
 			'A list of tools, frameworks, libraries, services, and inspirations that helped bring this website to life.',
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		about: attributions.flatMap((a) =>
 			a.items.map((i) => ({

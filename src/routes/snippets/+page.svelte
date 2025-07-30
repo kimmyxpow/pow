@@ -5,7 +5,7 @@
 	import Snippets from '$components/features/snippets.svelte';
 	import Icon from '@iconify/svelte';
 	import Seo from '$components/seo.svelte';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 
 	let selectedFilters = {
 		search: page.url.searchParams.get('search') || ''
@@ -43,11 +43,11 @@
 		name: 'Code Snippets | pow.kim',
 		description:
 			'A collection of handy code snippets, utilities, and tiny helpers — ready to reuse.',
-		url: my('/snippets'),
+		url: origin('/snippets'),
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		hasPart: snippets.map((s) => ({ '@type': 'CreativeWork', name: s.name }))
 	};

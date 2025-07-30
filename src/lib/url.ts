@@ -12,7 +12,9 @@ export const appendParam = (key: string, value: string): string => {
 	return url.pathname + '?' + url.searchParams.toString();
 };
 
-export function my(path?: string | undefined): string {
+export function origin(path?: string): string {
 	const baseUrl = env.PUBLIC_SITE_URL || '';
-	return `${baseUrl.replace(/\/$/, '')}${path?.startsWith('/') ? path : '/' + path}`;
+	const cleanBase = baseUrl.replace(/\/$/, '');
+	const cleanPath = path ? (path.startsWith('/') ? path : '/' + path) : '';
+	return `${cleanBase}${cleanPath}`;
 }

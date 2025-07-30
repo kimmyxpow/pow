@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '$components/seo.svelte';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 	import Icon from '@iconify/svelte';
 	import { formatDistance } from 'date-fns';
 
@@ -10,8 +10,8 @@
 		'@context': 'https://schema.org',
 		'@type': 'Person',
 		name: 'Abi Noval Fauzi (Pow)',
-		url: my('/about'),
-		image: my('/images/icon.png'),
+		url: origin('/about'),
+		image: origin('/images/icon.png'),
 		sameAs: [
 			'https://github.com/kimmyxpow',
 			'https://twitter.com/kimmyxpow',

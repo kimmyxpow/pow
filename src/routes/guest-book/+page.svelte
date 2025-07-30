@@ -6,7 +6,7 @@
 	import { superForm } from 'sveltekit-superforms';
 	import { createAuthClient } from 'better-auth/svelte';
 	import Seo from '$components/seo.svelte';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 	import { cn } from '$lib/cn';
 
 	let { data } = $props();
@@ -28,11 +28,11 @@
 		'@type': 'WebPage',
 		name: 'Guest Book | pow.kim',
 		description: 'A small, welcoming space to leave a message, say hello, or simply pass through.',
-		url: my('/guest-book'),
+		url: origin('/guest-book'),
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		comment: data.messages.slice(0, 2).map((m) => ({
 			'@type': 'Comment',

@@ -2,7 +2,7 @@
 	import Seo from '$components/seo.svelte';
 	import { goals, getProgress } from '$contents/goals';
 	import { cn } from '$lib/cn';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
 	const progress = getProgress();
@@ -12,11 +12,11 @@
 		'@type': 'ItemList',
 		name: 'Life Goals | pow.kim',
 		description: 'A categorized list of life goals — from personal development to peaceful living.',
-		url: my('/goals'),
+		url: origin('/goals'),
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		itemListElement: goals.map((g, i) => ({
 			'@type': 'ListItem',

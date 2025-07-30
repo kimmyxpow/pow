@@ -4,7 +4,7 @@
 	import Articles from '$components/features/articles.svelte';
 	import Seo from '$components/seo.svelte';
 	import { getArticles, getCategories, getTags } from '$contents/articles/utils';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
 	let selectedFilters = $derived({
@@ -76,18 +76,18 @@
 		'@context': 'https://schema.org',
 		'@type': 'Blog',
 		name: 'Articles | pow.kim',
-		url: my('/articles'),
+		url: origin('/articles'),
 		description:
 			'Articles, notes, and reflections from Pow — mostly about development, learning, and personal insights.',
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		mainEntity: articles.map((a) => ({
 			'@type': 'BlogPosting',
 			headline: a.title,
-			url: my(`/articles/${a.slug}`),
+			url: origin(`/articles/${a.slug}`),
 			datePublished: a.created,
 			author: {
 				'@type': 'Person',

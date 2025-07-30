@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '$components/seo.svelte';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 
 	let { data } = $props();
 
@@ -13,9 +13,9 @@
 		creator: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
-		url: my('/visits'),
+		url: origin('/visits'),
 		license: 'https://creativecommons.org/publicdomain/zero/1.0/'
 	};
 </script>

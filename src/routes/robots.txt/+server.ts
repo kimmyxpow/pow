@@ -1,11 +1,11 @@
-import { my } from '$lib/url';
+import { origin } from '$lib/url';
 
 export async function GET() {
 	return new Response(
 		`User-agent: *
 Allow: /
 
-Sitemap: ${my('sitemap.xml')}`,
+Sitemap: ${origin('sitemap.xml')}`,
 		{
 			headers: {
 				'Content-Type': 'text/plain'

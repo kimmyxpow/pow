@@ -8,7 +8,7 @@
 	import { getSnippets } from '$contents/snippets';
 	import Icon from '@iconify/svelte';
 	import Seo from '$components/seo.svelte';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 
 	const snippets = getSnippets().slice(0, 4);
 	const projects = getProjects().slice(0, 4);
@@ -18,8 +18,8 @@
 		'@context': 'https://schema.org',
 		'@type': 'Person',
 		name: 'Abi Noval Fauzi (Pow)',
-		url: my(),
-		image: my('/images/icon.png'),
+		url: origin(),
+		image: origin('/images/icon.png'),
 		sameAs: [
 			'https://github.com/kimmyxpow',
 			'https://twitter.com/kimmyxpow',

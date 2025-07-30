@@ -4,7 +4,7 @@
 	import Projects from '$components/features/projects.svelte';
 	import Seo from '$components/seo.svelte';
 	import { getCategories, getProjects, getTags } from '$contents/projects';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
 	let selectedFilters = $derived({
@@ -74,13 +74,13 @@
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
 		name: 'Projects | pow.kim',
-		url: my('/projects'),
+		url: origin('/projects'),
 		description:
 			'A collection of personal and collaborative projects by Pow — web apps, experiments, tools, and ideas in progress.',
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		hasPart: projects.map((p) => ({
 			'@type': 'CreativeWork',

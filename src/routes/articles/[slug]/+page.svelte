@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import Seo from '$components/seo.svelte';
 	import { getArticleBySlug, type ArticleModule } from '$contents/articles/utils';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 	import { error } from '@sveltejs/kit';
 	import { formatDate } from 'date-fns';
 	import Giscus from '@giscus/svelte';
@@ -20,25 +20,25 @@
 		'@type': 'BlogPosting',
 		headline: article.title,
 		description: article.excerpt,
-		image: my(article.thumbnail),
+		image: origin(article.thumbnail),
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
-			url: my()
+			url: origin()
 		},
 		publisher: {
 			'@type': 'Organization',
 			name: 'pow.kim',
 			logo: {
 				'@type': 'ImageObject',
-				url: my('/images/icon.png')
+				url: origin('/images/icon.png')
 			}
 		},
 		datePublished: article.created,
 		dateModified: article.updated,
 		mainEntityOfPage: {
 			'@type': 'WebPage',
-			'@id': my(`articles/${article.slug}`)
+			'@id': origin(`articles/${article.slug}`)
 		}
 	};
 </script>
