@@ -16,11 +16,11 @@
 		</div>
 		<div class="flex grow flex-col">
 			<div class="space-y-4 p-6">
-				<a href={appendParam('categories', project.category)} class="text-zinc-500 hover:text-dark">
+				<a href={appendParam('categories', project.category)} class="text-zinc-600 hover:text-dark">
 					{project.category}
 				</a>
 				<h3 class="mt-2 text-3xl">{project.name}</h3>
-				<div class="flex items-center gap-2 text-sm text-zinc-500">
+				<div class="flex items-center gap-2 text-sm text-zinc-600">
 					<span class="flex gap-2">
 						{#each project.tags as tag}
 							<a
@@ -42,13 +42,13 @@
 						href={project.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="group/link relative px-8 py-4 text-center text-zinc-500 transition-all duration-300 hover:text-white"
+						class="group/link relative px-8 py-4 text-center text-zinc-600 transition-all duration-300 hover:text-white"
 						aria-label="GitHub link for {project.name} project"
 					>
 						<div
 							class="absolute inset-0 w-0 bg-primary transition-all group-hover/link:w-full"
 						></div>
-						<span class="relative">GitHub</span>
+						<span class="relative font-semibold">GitHub</span>
 					</a>
 				{/if}
 				{#if project.url}
@@ -56,13 +56,13 @@
 						href={project.url}
 						rel="noopener noreferrer"
 						target="_blank"
-						class="group/link relative px-8 py-4 text-center text-zinc-500 transition-all duration-300 hover:text-white"
+						class="group/link relative px-8 py-4 text-center text-zinc-600 transition-all duration-300 hover:text-white"
 						aria-label="Demo link for {project.name} project"
 					>
 						<div
 							class="absolute inset-0 w-0 bg-primary transition-all group-hover/link:w-full"
 						></div>
-						<span class="relative">Demo</span>
+						<span class="relative font-semibold">Demo</span>
 					</a>
 				{/if}
 			</div>

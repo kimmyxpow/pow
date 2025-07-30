@@ -54,25 +54,25 @@
 <header class="fixed inset-x-0 top-0 z-50 hidden border-b border-zinc-300 bg-beige lg:block">
 	<nav class="inner flex justify-center py-6">
 		<a
-			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-dark"
+			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-zinc-600 transition-all hover:text-primary"
 			href="/"
 		>
-			<span class="mb-0.5 text-xs text-zinc-400">00</span>Home
+			<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">00</span>Home
 		</a>
 		<a
-			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-dark"
+			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-zinc-600 transition-all hover:text-primary"
 			href="/projects"
 		>
-			<span class="mb-0.5 text-xs text-zinc-400">01</span>Projects
+			<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">01</span>Projects
 		</a>
 		<Popover.Root>
 			<Popover.Trigger>
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 font-medium text-zinc-600 transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
-						<span class="mb-0.5 text-xs text-zinc-400">02</span>
+						<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">02</span>
 						Notebook
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
 					</button>
@@ -117,9 +117,9 @@
 					<button
 						{...props}
 						aria-label="Toggle Menu"
-						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 font-medium text-zinc-600 transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
-						<span class="mb-0.5 text-xs text-zinc-400">03</span>Personal
+						<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">03</span>Personal
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
 					</button>
 				{/snippet}
@@ -136,7 +136,7 @@
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-center gap-2 px-6 py-3 font-medium text-zinc-500 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
+										class="flex items-center gap-2 px-6 py-3 font-medium text-zinc-600 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
 									>
 										{link.emoji}
 										{link.label}
@@ -153,9 +153,9 @@
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 font-medium text-zinc-600 transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
-						<span class="mb-0.5 text-xs text-zinc-400">04</span>
+						<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">04</span>
 						Extras
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
 					</button>
@@ -174,7 +174,7 @@
 										{...props}
 										href={link.href}
 										{...link.attr}
-										class="flex h-12 items-center gap-2 px-3 font-medium text-zinc-500 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
+										class="flex h-12 items-center gap-2 px-3 font-medium text-zinc-600 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
 									>
 										<Icon icon={link.icon} class="size-6" />
 										{link.label}
@@ -231,7 +231,7 @@
 				</a>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-4 text-4xl text-zinc-500 sm:text-5xl lg:p-8">Notebook</span>
+				<span class="p-4 text-4xl text-zinc-600 sm:text-5xl lg:p-8">Notebook</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each notebookLinks as link}
 						<a
@@ -246,7 +246,7 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-4 text-4xl text-zinc-500 sm:text-5xl lg:p-8">Personal</span>
+				<span class="p-4 text-4xl text-zinc-600 sm:text-5xl lg:p-8">Personal</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each personalLinks as link}
 						<a
@@ -261,7 +261,7 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-4 text-4xl text-zinc-500 sm:text-5xl lg:p-8">Extras</span>
+				<span class="p-4 text-4xl text-zinc-600 sm:text-5xl lg:p-8">Extras</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each extraLinks as link}
 						<a

@@ -33,7 +33,9 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500"> Tiny peek behind the curtain </span>
+			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">
+				Tiny peek behind the curtain
+			</span>
 			<h1 class="text-4xl text-balance md:text-5xl">Which pages got the most love?</h1>
 		</div>
 	</div>
@@ -44,19 +46,21 @@
 		<table class="w-full table-auto">
 			<thead>
 				<tr>
-					<th class="border-r border-b border-zinc-300 px-8 py-4 font-normal text-zinc-500">
+					<th class="border-r border-b border-zinc-300 px-8 py-4 font-semibold text-zinc-600">
 						Route
 					</th>
-					<th class="border-b border-zinc-300 px-8 py-4 font-normal text-zinc-500">Visits</th>
+					<th class="border-b border-zinc-300 px-8 py-4 font-semibold text-zinc-600">Visits</th>
 				</tr>
 			</thead>
 			<tbody>
 				{#each data.visits as visit}
 					<tr>
-						<td class="border-r border-b border-zinc-300 px-8 py-4 text-zinc-500">
+						<td class="border-r border-b border-zinc-300 px-8 py-4 text-zinc-600">
 							<a class="break-all hover:underline" href={visit.route}>{visit.route}</a>
 						</td>
-						<td class="border-b border-zinc-300 px-8 py-4 text-zinc-500">{visit.count}</td>
+						<td class="border-b border-zinc-300 px-8 py-4 text-center text-zinc-600">
+							{visit.count}
+						</td>
 					</tr>
 				{/each}
 			</tbody>

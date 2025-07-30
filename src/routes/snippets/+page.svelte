@@ -66,7 +66,7 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500">Reusable little things</span>
+			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">Reusable little things</span>
 			<h1 class="text-4xl text-balance md:text-5xl">Code snippets I keep coming back to</h1>
 			<p class="text-balance sm:text-lg">
 				Small bits of code I’ve used, reused, and forgotten more times than I’d like to admit.

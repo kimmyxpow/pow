@@ -59,7 +59,7 @@
 		<div class="grid divide-x divide-zinc-300 lg:grid-cols-2">
 			<div class="space-y-6">
 				<div class="flex flex-col gap-6 p-8">
-					<span class="font-handwriting text-2xl text-zinc-500">
+					<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">
 						Just say hi, if you feel like it
 					</span>
 					<h1 class="text-4xl text-balance md:text-5xl">Leave a little note before you go</h1>
@@ -68,7 +68,7 @@
 						message, a thought, or your favorite emoji 🪴
 					</p>
 				</div>
-				<div class="-mx-px hidden border border-zinc-300 p-8 lg:block">
+				<div class="-mx-px hidden border border-zinc-300 p-8 lg:block" aria-hidden="true">
 					<div class="border border-zinc-300 p-8">
 						<div class="border border-zinc-300 p-8">
 							<div class="border border-zinc-300 p-6">
@@ -101,11 +101,11 @@
 											{message.guestbook.message}
 										</p>
 										<div class={cn('flex items-center gap-2', isMe && 'justify-end')}>
-											<span class="text-sm text-zinc-500">
+											<span class="text-sm text-zinc-600">
 												{formatDate(message.guestbook.createdAt, 'dd MMM yyyy')}
 											</span>
 											<span class="size-0.5 rounded-full bg-primary"></span>
-											<span class="text-sm text-zinc-500">{message.user.name}</span>
+											<span class="text-sm text-zinc-600">{message.user.name}</span>
 										</div>
 									</div>
 								</div>
@@ -147,7 +147,7 @@
 									provider: 'github',
 									callbackURL: '/guest-book'
 								})}
-							class="ml-auto inline-flex h-14 shrink-0 items-center justify-center gap-2 bg-primary px-4 text-white transition-all hover:bg-primary/90 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
+							class="ml-auto inline-flex h-14 shrink-0 items-center justify-center gap-2 bg-primary px-4 font-semibold text-white transition-all hover:bg-primary/90 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 						>
 							Sign In With
 							<Icon icon="tabler:brand-github" class="size-6" />

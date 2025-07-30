@@ -102,7 +102,9 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500">Things I’ve built — or tried to.</span>
+			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl"
+				>Things I’ve built — or tried to.</span
+			>
 			<h1 class="text-4xl text-balance md:text-5xl">Projects, experiments & digital leftovers</h1>
 			<p class="text-balance sm:text-lg">
 				Not every idea becomes a masterpiece — but some are worth building anyway. Here’s a mix of

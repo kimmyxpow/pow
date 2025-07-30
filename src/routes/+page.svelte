@@ -119,7 +119,7 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-6 lg:max-w-2xl lg:items-center lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500 opacity-0" data-gsap-hero>
+			<span class="font-handwriting text-xl text-zinc-600 opacity-0 sm:text-2xl" data-gsap-hero>
 				Hello, you found me.
 			</span>
 			<h1 class="text-4xl opacity-0 sm:text-5xl lg:text-7xl" data-gsap-hero>
@@ -136,7 +136,7 @@
 			>
 				<a
 					href="/about"
-					class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-800 px-4 text-dark transition-all hover:bg-primary hover:text-white [&_svg]:transition-all hover:[&_svg]:-rotate-35"
+					class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-800 px-4 font-semibold text-dark transition-all hover:bg-primary hover:text-white [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 				>
 					Get to know me
 					<div
@@ -158,7 +158,7 @@
 <section class="border-b border-zinc-300">
 	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-400">
+			<span class="block text-center font-handwriting text-xl text-zinc-600">
 				Little Brain Dumps
 			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Things I’ve Written Down</h2>
@@ -168,7 +168,7 @@
 		</div>
 		<a
 			href="/articles"
-			class="group relative flex w-full items-center justify-between p-8 text-xl text-zinc-600 transition-all duration-300 hover:text-white"
+			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
 		>
 			<div
 				class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"
@@ -189,7 +189,7 @@
 <section class="border-b border-zinc-300">
 	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-400">
+			<span class="block text-center font-handwriting text-xl text-zinc-600">
 				Things I've Made (and Broke)
 			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Projects I’ve Been Building</h2>
@@ -199,7 +199,7 @@
 		</div>
 		<a
 			href="/projects"
-			class="group relative flex w-full items-center justify-between p-8 text-xl text-zinc-600 transition-all duration-300 hover:text-white"
+			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
 		>
 			<div
 				class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"
@@ -220,7 +220,7 @@
 <section class="border-b border-zinc-300">
 	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-400">Memory Hacks</span>
+			<span class="block text-center font-handwriting text-xl text-zinc-600">Memory Hacks</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Tiny Code Things</h2>
 		</div>
 		<div class="w-full">
@@ -228,7 +228,7 @@
 		</div>
 		<a
 			href="/snippets"
-			class="group relative flex w-full items-center justify-between p-8 text-xl text-zinc-600 transition-all duration-300 hover:text-white"
+			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
 		>
 			<div
 				class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"

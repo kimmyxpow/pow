@@ -51,7 +51,7 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-600">
+			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">
 				A little context, if you’re curious
 			</span>
 			<h1 class="text-4xl text-balance md:text-5xl">Who I am, and why this site exists</h1>
@@ -196,8 +196,8 @@
 {#if data.commits.length > 0}
 	<section class="border-b border-zinc-300">
 		<div class="inner border-x border-zinc-300">
-			<h2 class="p-8 text-center text-3xl">Recently Touched</h2>
-			<div class="relative grid border-y border-zinc-300 p-8">
+			<h2 class="p-6 text-center text-3xl">Recently Touched</h2>
+			<div class="relative grid border-y border-zinc-300 p-6">
 				{#each data.commits as commit (commit.sha)}
 					<div class="relative pl-10 not-last:pb-4">
 						<div class="absolute top-6 -bottom-2 left-2.5 w-1 bg-primary"></div>
@@ -239,7 +239,7 @@
 				href="https://github.com/kimmyxpow/bynoval/commits/main"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="group relative flex w-full items-center justify-between p-8 text-xl text-zinc-600 transition-all duration-300 hover:text-white"
+				class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
 			>
 				<div
 					class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"

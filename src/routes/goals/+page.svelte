@@ -39,7 +39,7 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500">
+			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">
 				An evolving list of “maybe someday.”
 			</span>
 			<h1 class="text-4xl text-balance md:text-5xl">
@@ -52,8 +52,8 @@
 <section class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300">
 		<div class="flex w-full items-center justify-between px-8 py-4">
-			<span class="text-zinc-500">Overall Progress</span>
-			<span class="text-zinc-500">
+			<span class="text-zinc-600">Overall Progress</span>
+			<span class="text-sm font-semibold text-zinc-600">
 				{progress.done}/{progress.total} ({progress.percentage}%)
 			</span>
 		</div>
@@ -76,7 +76,7 @@
 					>
 						<Icon icon={goal.achieved ? 'tabler:check' : 'tabler:x'} />
 					</div>
-					<span class="p-2 text-zinc-400">{goal.goal}</span>
+					<span class="p-2 text-zinc-600">{goal.goal}</span>
 				</div>
 			{/each}
 		</div>

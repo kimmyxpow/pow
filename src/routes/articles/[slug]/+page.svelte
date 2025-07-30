@@ -63,25 +63,25 @@
 	<div class="inner flex flex-col border-x border-zinc-300">
 		<div class="order-4 grid w-full sm:grid-cols-2 md:order-1 md:grid-cols-4 md:divide-y-0">
 			<div
-				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-600"
 			>
 				Published at
 				{formatDate(data.article.created, 'dd MMM yyyy')}
 			</div>
 			<div
-				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-600"
 			>
 				Updated at
 				{formatDate(data.article.updated, 'dd MMM yyyy')}
 			</div>
 			<div
-				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-600"
 			>
 				{data.article.readingTime} min read
 			</div>
 			<a
 				href="/articles?categories={data.article.category}"
-				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500 hover:text-dark"
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-600 hover:text-primary"
 			>
 				{data.article.category}
 			</a>
@@ -92,7 +92,7 @@
 			{#each data.article.tags as tag}
 				<a
 					href="/articles?tags={tag}"
-					class="flex items-center text-sm text-zinc-500 hover:text-dark"
+					class="flex items-center text-sm text-zinc-600 hover:text-primary"
 				>
 					#{tag}
 				</a>
@@ -111,7 +111,7 @@
 				/>
 				<div class="ml-2">
 					<p class="leading-6 font-medium text-primary">
-						<span class="text-zinc-500">By</span> Pow
+						<span class="text-zinc-600">By</span> Pow
 					</p>
 					<p class="text-sm leading-5">Software Engineer</p>
 				</div>
@@ -119,7 +119,7 @@
 		</div>
 		<a
 			href="/articles/{isEnglish ? data.article.id : data.article.en}"
-			class="group relative order-2 border-y border-zinc-300 text-sm transition-all hover:bg-white/60 sm:text-base md:order-4 lg:hover:bg-transparent"
+			class="group relative order-2 border-y border-zinc-300 text-sm font-semibold transition-all hover:bg-white/60 sm:text-base md:order-4 lg:hover:bg-transparent"
 		>
 			<div
 				class="absolute inset-0 hidden w-0 items-center justify-center overflow-hidden bg-primary whitespace-nowrap text-white transition-all duration-300 group-hover:w-full lg:flex"
