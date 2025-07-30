@@ -1,7 +1,7 @@
 <script>
 	import Seo from '$components/seo.svelte';
 	import { attributions } from '$contents/attributions';
-	import { my } from '$lib/url';
+	import { origin } from '$lib/url';
 
 	const schema = {
 		'@context': 'https://schema.org',
