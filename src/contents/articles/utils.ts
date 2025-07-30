@@ -3,7 +3,6 @@ import type { Component } from 'svelte';
 export interface ArticleFrontmatter {
 	title: string;
 	excerpt: string;
-	keywords?: string;
 	category: string;
 	tags: string[];
 	created: string;

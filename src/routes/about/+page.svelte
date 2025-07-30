@@ -51,7 +51,7 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500">
+			<span class="font-handwriting text-2xl text-zinc-600">
 				A little context, if you’re curious
 			</span>
 			<h1 class="text-4xl text-balance md:text-5xl">Who I am, and why this site exists</h1>
@@ -62,20 +62,23 @@
 <section class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300">
 		<div class="flex flex-col items-center sm:flex-row">
-			<div class="prose prose-lg max-w-none p-8 prose-zinc prose-headings:font-normal">
+			<div class="prose max-w-none p-8 prose-zinc sm:prose-lg prose-headings:font-normal">
 				<h2>Short Bio</h2>
 				<p>
-					I’m a fullstack developer, though most of my work leans toward the frontend — partly
-					because I enjoy shaping how things look and feel. Outside of building, I help run a
-					programming community where I spend time connecting people and ideas.
+					Hey, I’m Pow — short for Abi Noval Fauzi. I’m a self-taught software engineer who got into
+					tech not through a degree or bootcamp, but through a deep love for creating things. I
+					found my groove in frontend development, where design meets logic, and where I get to
+					bring ideas to life in a way that looks and feels good. There’s something special about
+					shaping what people see and interact with.
 				</p>
 				<p>
-					I often find myself chasing new project ideas — not all of them make it to the finish
-					line, but each one teaches me something. I write to process my thoughts, read to feed
-					them, and most days, I’m happiest in quiet spaces, working on something at my own pace.
+					Outside of code, I’m all about stories. I write, I read, and I dream a lot. I’ve even
+					published a book on mindfulness, which reflects my love for slowing down and being
+					present. But my heart also belongs to wild imaginations — sci-fi and fantasy worlds where
+					anything is possible. That’s where I go when I want to feel free. Thanks for stopping by!
 				</p>
 			</div>
-			<div class="aspect-[9/12] h-full">
+			<div class="self-stretch">
 				<img
 					class="size-full object-cover"
 					src="https://i.pinimg.com/1200x/a1/e1/35/a1e135b52f2720c25fbab6f1e1e93e7c.jpg"
@@ -94,14 +97,17 @@
 				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img class="h-10" src="https://www.peepl.tech/images/logo-peepl.png" alt="Peepl Logo" />
-				<h3 class="mt-4 mb-2 text-xl">Full-Stack Developer</h3>
-				<p class="text-zinc-500">
-					I design and build user-facing features, mostly focusing on clean UI and accessible
-					interactions. Still learning new things daily.
+				<h3 class="my-4 text-xl">Full-Stack Developer</h3>
+				<p>
+					At Peepl, I worked on building an executive education LMS platform for state-owned
+					enterprises. One of the key features I developed was an AI-powered assistant integrated
+					into the entire ecosystem—covering assessments, personalized reports, and a fully adaptive
+					learning experience. I also set up code quality standards across projects to enforce
+					consistent commits and maintain a clean codebase.
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">Peepl</span>
-					<span class="text-zinc-500">May 2025 - Present</span>
+					<span class="text-zinc-600">May 2025 - Present</span>
 				</div>
 			</div>
 			<div
@@ -112,14 +118,16 @@
 					src="https://zicare.id/upload/website/logo_header.svg"
 					alt="Zi.Care Logo"
 				/>
-				<h3 class="mt-4 mb-2 text-xl">Full-Stack Developer</h3>
-				<p class="text-zinc-500">
-					Designed and built internal systems for hospitals — from back-office tools to full info
-					systems — using PHP, Phalcon, SvelteKit, and PostgreSQL.
+				<h3 class="my-4 text-xl">Full-Stack Developer</h3>
+				<p>
+					During my time at Zicare, I helped develop a backoffice system tailored for hospitals. I
+					contributed to a full migration of their database infrastructure from MySQL to PostgreSQL
+					and worked on creating an integrated system to support public health centers (puskesmas)
+					in streamlining their operations.
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">Zi.Care</span>
-					<span class="text-zinc-500">Aug 2023 - April 2025</span>
+					<span class="text-zinc-600">Aug 2023 - April 2025</span>
 				</div>
 			</div>
 			<div
@@ -130,45 +138,50 @@
 					src="https://www.lskk.co.id/wp-content/uploads/2024/06/Artboard-5@300x-e1718107755849.png"
 					alt="Zi.Care Logo"
 				/>
-				<h3 class="mt-4 mb-2 text-xl">Full-Stack Developer Intern</h3>
-				<p class="text-zinc-500">
-					Built school-specific web apps — including RFID-based attendance, meeting management, and
-					a custom site — using Next.js, Tailwind, Express, and MongoDB. Also taught sessions on
-					Flutter and IoT as a guest instructor.
+				<h3 class="my-4 text-xl">Full-Stack Developer Intern</h3>
+				<p>
+					At LSKK, I built a customizable school website where users could tweak the visual style
+					easily. I also developed an RFID-based attendance system and a QR-powered event management
+					platform for tracking participant entry and exit. Besides coding, I had the chance to
+					assist during company-led industry classes in schools, sharing knowledge and supporting
+					students directly.
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">PT LSKK</span>
-					<span class="text-zinc-500">Jul 2022 - Dec 2022</span>
+					<span class="text-zinc-600">Jul 2022 - Dec 2022</span>
 				</div>
 			</div>
 			<div
 				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/bellshade.png" alt="Bellshade Logo" />
-				<h3 class="mt-4 mb-2 text-xl">Open-Source Maintainer</h3>
-				<p class="text-zinc-500">
-					Created learning materials and website templates for HTML & CSS. Built Bellshade CSS
-					framework with SCSS and helped review community submissions. Also contributed to the
-					OpenSeries platform.
+				<h3 class="my-4 text-xl">Open-Source Maintainer</h3>
+				<p>
+					At Bellshade, I created learning resources and website templates to help beginners get
+					comfortable with HTML and CSS. I also built the Bellshade CSS framework using SCSS, aiming
+					to provide a clean and reusable foundation for frontend projects. On top of that, I
+					actively reviewed community contributions and contributed to the OpenSeries platform,
+					supporting open-source learning along the way.
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">Bellshade</span>
-					<span class="text-zinc-500">Oct 2021 - Present</span>
+					<span class="text-zinc-600">Oct 2021 - Present</span>
 				</div>
 			</div>
 			<div
 				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/wpu.png" alt="WPU Logo" />
-				<h3 class="mt-4 mb-2 text-xl">Community Manager</h3>
-				<p class="text-zinc-500">
-					Helped manage a 50K+ member dev community — answering programming questions, maintaining a
-					supportive vibe, and hosting occasional webinars to share what I know (and learn in
-					return).
+				<h3 class="my-4 text-xl">Community Manager</h3>
+				<p>
+					As part of the WPU community, I helped moderate and support over 50,000 developers by
+					answering questions, keeping the space positive, and occasionally hosting webinars to
+					share insights. It was a great way to give back, grow alongside others, and stay connected
+					with the wider dev world.
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">WPU Community</span>
-					<span class="text-zinc-500">Oct 2021 - Present</span>
+					<span class="text-zinc-600">Oct 2021 - Present</span>
 				</div>
 			</div>
 			<div
@@ -190,11 +203,11 @@
 						<div class="absolute top-6 -bottom-2 left-2.5 w-1 bg-primary"></div>
 						<div class="absolute top-1 left-0 size-6 rounded-full bg-primary"></div>
 						<div
-							class="mb-4 flex flex-col-reverse justify-between sm:mb-1 sm:flex-row sm:items-center"
+							class="mt-1.5 mb-4 flex flex-col-reverse justify-between sm:mb-1 sm:flex-row sm:items-center"
 						>
-							<span class="text-xs break-all text-zinc-500 sm:text-sm">sha: {commit.sha}</span>
-							<span class="text-xs text-zinc-400 sm:text-sm">
-								Changed by: <span class="text-zinc-500">{commit.commit.committer.name}</span>
+							<span class="text-xs break-all text-zinc-600 sm:text-sm">sha: {commit.sha}</span>
+							<span class="text-xs text-zinc-600 sm:text-sm">
+								Changed by: <span class="text-primary">{commit.commit.committer.name}</span>
 							</span>
 						</div>
 						<div class="flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
@@ -208,13 +221,13 @@
 								href={commit.html_url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="flex items-center gap-2 text-zinc-500 transition-all hover:text-dark hover:underline"
+								class="flex items-center gap-2 text-zinc-600 transition-all hover:text-dark hover:underline"
 							>
 								See Changes
 								<Icon icon="solar:arrow-right-up-linear" class="size-4" />
 							</a>
 						</div>
-						<span class="mt-4 block text-sm text-zinc-500 sm:m-0">
+						<span class="mt-4 block text-sm text-zinc-600 sm:mt-1">
 							{formatDistance(commit.commit.author.date, new Date(), {
 								addSuffix: true
 							})}

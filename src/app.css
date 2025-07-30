@@ -34,7 +34,7 @@
 	input,
 	select,
 	textarea {
-		@apply leading-relaxed text-zinc-500;
+		@apply leading-relaxed text-zinc-600;
 	}
 
 	input::placeholder {

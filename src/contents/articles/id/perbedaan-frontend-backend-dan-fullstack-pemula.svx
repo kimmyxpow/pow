@@ -2,7 +2,6 @@
 title: "Perbedaan Frontend, Backend, dan Fullstack: Panduan Lengkap untuk Pemula"
 excerpt: "Masih bingung apa itu frontend, backend, dan fullstack? Artikel ini jelaskan semuanya dengan cara paling mudah dan cocok banget buat pemula."
 en: "frontend-vs-backend-vs-fullstack-for-beginners"
-keywords: "frontend adalah, backend adalah, apa itu fullstack, perbedaan frontend dan backend, belajar coding pemula, belajar fullstack, web developer pemula, cara belajar coding, belajar pemrograman dasar, frontend vs backend, fullstack developer"
 ---
 
 Kamu mungkin pernah kepikiran, *"Belajar ngoding kayaknya susah banget, deh..."* atau *"Mau mulai dari mana, ya?"* Tenang, kamu nggak sendiri kok. Banyak banget orang yang juga ngerasa bingung waktu mau mulai belajar programming.

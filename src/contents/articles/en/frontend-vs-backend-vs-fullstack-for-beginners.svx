@@ -1,13 +1,12 @@
 ---
 title: "Frontend vs Backend vs Fullstack: A Beginner’s Guide to Web Development"
-excerpt: "Confused about frontend, backend, and fullstack? This beginner-friendly guide explains them clearly—with simple language and helpful analogies."
+excerpt: "Confused about frontend, backend, and fullstack? This beginner-friendly guide explains them clearly."
 id: perbedaan-frontend-backend-dan-fullstack-pemula
 tags: [beginner guide, programming]
 category: programming
 created: 2025-07-28
 updated: 2025-07-28
 thumbnail: "/images/articles/emile-perron-xrVDYZRGdw4-unsplash.jpg"
-keywords: "what is frontend, what is backend, what is fullstack, frontend vs backend, frontend backend fullstack explained, learn coding for beginners, web development basics, fullstack developer, beginner programming guide, how to start coding"
 ---
 
 You’ve probably thought, *“Learning to code seems super hard...”* or *“Where do I even start?”* Don’t worry—you’re not alone. A lot of people feel lost when they’re just getting into programming.
