@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://pow.kim/sitemap.xml
