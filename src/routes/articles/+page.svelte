@@ -86,12 +86,14 @@
 		},
 		mainEntity: articles.map((a) => ({
 			'@type': 'BlogPosting',
+			image: origin(a.thumbnail),
 			headline: a.title,
 			url: origin(`/articles/${a.slug}`),
 			datePublished: a.created,
 			author: {
 				'@type': 'Person',
-				name: 'Abi Noval Fauzi (Pow)'
+				name: 'Abi Noval Fauzi (Pow)',
+				url: origin()
 			}
 		}))
 	});
