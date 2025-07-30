@@ -2,15 +2,47 @@
 	import Articles from '$components/features/articles.svelte';
 	import Projects from '$components/features/projects.svelte';
 	import Snippets from '$components/features/snippets.svelte';
+	import Cats from '$components/cats.svelte';
 	import { getArticles } from '$contents/articles/utils';
 	import { getProjects } from '$contents/projects';
 	import { getSnippets } from '$contents/snippets';
 	import Icon from '@iconify/svelte';
+	import Seo from '$components/seo.svelte';
+	import { my } from '$lib/url';
 
 	const snippets = getSnippets().slice(0, 4);
 	const projects = getProjects().slice(0, 4);
 	const articles = getArticles({ lang: 'en' }).slice(0, 3);
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: 'Abi Noval Fauzi (Pow)',
+		url: my(),
+		image: my('/images/icon.png'),
+		sameAs: [
+			'https://github.com/kimmyxpow',
+			'https://twitter.com/kimmyxpow',
+			'https://instagram.com/kimmyxpow',
+			'https://linkedin.com/in/abinovalfauzi'
+		],
+		jobTitle: 'Fullstack Developer',
+		description:
+			'Fullstack developer with a love for design, community building, and writing. Creator of various web projects and contributor to open-source.',
+		worksFor: {
+			'@type': 'Organization',
+			name: 'Peepl'
+		}
+	};
 </script>
+
+<Seo
+	title="Pow — Developer, Writer, and Curious Builder"
+	{schema}
+	description="People call me Pow, a fullstack developer who enjoys building, writing, and helping communities grow. This site is where I share projects, notes, and ideas."
+	url="/"
+	image="/images/banner.png"
+/>
 
 <main
 	class="relative flex flex-col items-center justify-center border-b border-zinc-200 lg:min-h-screen"
@@ -26,8 +58,7 @@
 			</h1>
 			<p class="text-balance sm:text-lg lg:text-xl">
 				This isn’t a portfolio. It’s not a blog. It’s a quiet little corner where I collect
-				thoughts, tinker with ideas, and keep pieces of who I am. There’s no grand theme — just
-				life, as it unfolds.
+				thoughts, tinker with ideas, and keep pieces of who I am.
 			</p>
 			<div class="flex flex-col items-start sm:flex-row sm:items-center sm:gap-8">
 				<a
@@ -62,11 +93,7 @@
 			</div>
 		</div>
 	</div>
-	<img
-		alt=""
-		class="pointer-events-none bottom-0 left-1/2 block lg:absolute lg:-translate-x-1/2"
-		src="/images/decorations/cats.svg"
-	/>
+	<Cats />
 </main>
 
 <div class="border-b border-zinc-300">
@@ -107,9 +134,9 @@
 <section class="border-b border-zinc-300">
 	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-400"
-				>Things I've Made (and Broke)</span
-			>
+			<span class="block text-center font-handwriting text-xl text-zinc-400">
+				Things I've Made (and Broke)
+			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Projects I’ve Been Building</h2>
 		</div>
 		<div class="grid divide-x divide-zinc-300 md:grid-cols-2">

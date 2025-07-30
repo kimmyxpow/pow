@@ -10,7 +10,7 @@ export interface ArticleFrontmatter {
 	updated: string;
 	id?: string;
 	en?: string;
-	thumbnail?: string;
+	thumbnail: string;
 	readingTime: number;
 }
 

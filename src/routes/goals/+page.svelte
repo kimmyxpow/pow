@@ -1,10 +1,38 @@
 <script lang="ts">
+	import Seo from '$components/seo.svelte';
 	import { goals, getProgress } from '$contents/goals';
 	import { cn } from '$lib/cn';
+	import { my } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
 	const progress = getProgress();
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'ItemList',
+		name: 'Life Goals | callmepow.com',
+		description: 'A categorized list of life goals — from personal development to peaceful living.',
+		url: my('/goals'),
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		itemListElement: goals.map((g, i) => ({
+			'@type': 'ListItem',
+			position: ++i,
+			name: g.goal
+		}))
+	};
 </script>
+
+<Seo
+	title="Life Goals"
+	{schema}
+	description="A living list of personal goals I want to achieve, from career dreams and skills I want to master, to small joys and long-term values I hope to live by."
+	url="/goals"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">

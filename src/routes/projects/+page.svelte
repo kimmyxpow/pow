@@ -2,7 +2,9 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import Projects from '$components/features/projects.svelte';
+	import Seo from '$components/seo.svelte';
 	import { getCategories, getProjects, getTags } from '$contents/projects';
+	import { my } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
 	let selectedFilters = $derived({
@@ -67,7 +69,33 @@
 
 		updateQuery();
 	};
+
+	const schema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: 'Projects | callmepow.com',
+		url: my('/projects'),
+		description:
+			'A collection of personal and collaborative projects by Pow — web apps, experiments, tools, and ideas in progress.',
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		hasPart: projects.map((p) => ({
+			'@type': 'CreativeWork',
+			name: p.name
+		}))
+	});
 </script>
+
+<Seo
+	title="Projects"
+	{schema}
+	description="A collection of things I’ve built — from polished apps to half-finished ideas. Mostly web stuff."
+	url="/projects"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">

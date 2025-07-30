@@ -1,6 +1,32 @@
 <script lang="ts">
+	import Seo from '$components/seo.svelte';
+	import { my } from '$lib/url';
+
 	let { data } = $props();
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Dataset',
+		name: 'Page Visits | callmepow.com',
+		description:
+			'A public record of page views on this website. Each row in the dataset corresponds to a page and its total visit count.',
+		creator: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		url: my('/visits'),
+		license: 'https://creativecommons.org/publicdomain/zero/1.0/'
+	};
 </script>
+
+<Seo
+	title="Page Visits"
+	{schema}
+	description="A transparent view of how often each page on this site has been visited."
+	url="/visits"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">

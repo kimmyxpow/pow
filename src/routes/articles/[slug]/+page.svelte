@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Seo from '$components/seo.svelte';
 	import { getArticleBySlug, type ArticleModule } from '$contents/articles/utils';
 	import { my } from '$lib/url';
 	import { error } from '@sveltejs/kit';
@@ -15,23 +16,25 @@
 
 	const schema = {
 		'@context': 'https://schema.org',
-		'@type': 'Article',
+		'@type': 'BlogPosting',
 		headline: article.title,
 		description: article.excerpt,
 		image: my(article.thumbnail),
 		author: {
 			'@type': 'Person',
-			name: 'Abi Noval Fauzi'
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
 		},
 		publisher: {
 			'@type': 'Organization',
-			name: 'bynoval',
+			name: 'callmepow.com',
 			logo: {
 				'@type': 'ImageObject',
-				url: my('logo.png')
+				url: my('/images/icon.png')
 			}
 		},
 		datePublished: article.created,
+		dateModified: article.updated,
 		mainEntityOfPage: {
 			'@type': 'WebPage',
 			'@id': my(`articles/${article.slug}`)
@@ -39,27 +42,13 @@
 	};
 </script>
 
-<svelte:head>
-	<title>{article.title} | bynoval.com</title>
-	<meta name="description" content={article.excerpt} />
-	<meta name="keywords" content={article.keywords} />
-
-	<link rel="canonical" href={my(`/articles/${article.slug}`)} />
-
-	{@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
-	<meta property="og:title" content={article.title} />
-	<meta property="og:description" content={article.excerpt} />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content={my(`/articles/${article.slug}`)} />
-	<meta property="og:image" content={my(article.thumbnail)} />
-	<meta property="og:site_name" content="bynoval" />
-
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={article.title} />
-	<meta name="twitter:description" content={article.excerpt} />
-	<meta name="twitter:image" content={my(article.thumbnail)} />
-	<meta name="twitter:site" content="@kimmyxpow" />
-</svelte:head>
+<Seo
+	title={article.title}
+	description={article.excerpt}
+	url="/articles/{article.slug}"
+	image={article.thumbnail}
+	{schema}
+/>
 
 <div class="relative h-80">
 	<img
@@ -67,6 +56,7 @@
 		src={article.thumbnail}
 		alt="{article.title} thumbnail"
 		loading="lazy"
+		fetchpriority="high"
 	/>
 </div>
 

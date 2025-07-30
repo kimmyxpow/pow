@@ -4,12 +4,14 @@
 	import { getSnippets } from '$contents/snippets';
 	import Snippets from '$components/features/snippets.svelte';
 	import Icon from '@iconify/svelte';
+	import Seo from '$components/seo.svelte';
+	import { my } from '$lib/url';
 
-	let selectedFilters = $derived({
+	let selectedFilters = {
 		search: page.url.searchParams.get('search') || ''
-	});
+	};
 
-	const snippets = $derived(getSnippets(selectedFilters));
+	const snippets = getSnippets(selectedFilters);
 
 	const updateQuery = () => {
 		const searchParams = new URLSearchParams();
@@ -34,7 +36,30 @@
 
 		updateQuery();
 	};
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: 'Code Snippets | callmepow.com',
+		description:
+			'A collection of handy code snippets, utilities, and tiny helpers — ready to reuse.',
+		url: my('/snippets'),
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		hasPart: snippets.map((s) => ({ '@type': 'CreativeWork', name: s.name }))
+	};
 </script>
+
+<Seo
+	title="Code Snippets"
+	{schema}
+	description="Bite-sized code pieces, utilities, or patterns I often use. Quick to grab, easy to reuse."
+	url="/snippets"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">

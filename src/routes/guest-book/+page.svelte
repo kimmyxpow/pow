@@ -5,6 +5,8 @@
 	import toast from 'svelte-french-toast';
 	import { superForm } from 'sveltekit-superforms';
 	import { createAuthClient } from 'better-auth/svelte';
+	import Seo from '$components/seo.svelte';
+	import { my } from '$lib/url';
 
 	let { data } = $props();
 
@@ -19,7 +21,37 @@
 			}
 		}
 	});
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: 'Guest Book | callmepow.com',
+		description: 'A small, welcoming space to leave a message, say hello, or simply pass through.',
+		url: my('/guest-book'),
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		comment: data.messages.slice(0, 2).map((m) => ({
+			'@type': 'Comment',
+			author: {
+				'@type': 'Person',
+				name: m.user.name
+			},
+			datePublished: m.guestbook.createdAt,
+			text: m.guestbook.message
+		}))
+	};
 </script>
+
+<Seo
+	title="Guest Book"
+	{schema}
+	description="Got something to say? Leave a short message, say hi, or just drop by. I'd love to hear from you."
+	url="/guest-book"
+	image="/images/banner.png"
+/>
 
 <main class="mt-38 border-y border-zinc-300">
 	<div class="inner border-x border-zinc-300">
@@ -56,7 +88,8 @@
 									<div class="size-12 shrink-0">
 										<img
 											class="size-full rounded-xl object-cover"
-											src={message.user.image}
+											src={message.user.image ||
+												`https://api.dicebear.com/9.x/fun-emoji/svg?seed=${message.user.name}`}
 											alt="{message.user.name} profile picture"
 											loading="lazy"
 										/>

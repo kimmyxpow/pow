@@ -109,6 +109,7 @@
 				{#snippet child({ props })}
 					<button
 						{...props}
+						aria-label="Toggle Menu"
 						class="flex items-center gap-1 rounded-lg px-2 text-zinc-500 transition-all hover:text-dark [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
 						<span class="mb-0.5 text-xs text-zinc-400">03</span>Personal

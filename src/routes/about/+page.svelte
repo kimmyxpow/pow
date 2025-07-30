@@ -1,9 +1,50 @@
 <script lang="ts">
+	import Seo from '$components/seo.svelte';
+	import { my } from '$lib/url';
 	import Icon from '@iconify/svelte';
 	import { formatDistance } from 'date-fns';
 
 	let { data } = $props();
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: 'Abi Noval Fauzi (Pow)',
+		url: my('/about'),
+		image: my('/images/icon.png'),
+		sameAs: [
+			'https://github.com/kimmyxpow',
+			'https://twitter.com/kimmyxpow',
+			'https://instagram.com/kimmyxpow',
+			'https://linkedin.com/in/abinovalfauzi'
+		],
+		jobTitle: 'Fullstack Developer',
+		description:
+			'A fullstack developer who loves design, writing, and helping developer communities grow. Often working on side projects and open-source.',
+		knowsAbout: [
+			'Web Development',
+			'Frontend Engineering',
+			'JavaScript',
+			'Svelte',
+			'React.js',
+			'Tailwind CSS',
+			'CSS',
+			'Community Building'
+		],
+		alumniOf: {
+			'@type': 'EducationalOrganization',
+			name: 'Wikrama Vocational High School'
+		}
+	};
 </script>
+
+<Seo
+	title="About"
+	{schema}
+	description="I’m Pow, a frontend-leaning fullstack developer and community manager who enjoys writing, building side projects, and learning out loud."
+	url="/about"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">

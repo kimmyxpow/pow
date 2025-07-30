@@ -1,6 +1,37 @@
 <script>
+	import Seo from '$components/seo.svelte';
 	import { attributions } from '$contents/attributions';
+	import { my } from '$lib/url';
+
+	const schema = {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: 'Attributions & Credits | callmepow.com',
+		url: my('/attributions'),
+		description:
+			'A list of tools, frameworks, libraries, services, and inspirations that helped bring this website to life.',
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		about: attributions.flatMap((a) =>
+			a.items.map((i) => ({
+				'@type': 'CreativeWork',
+				name: i.name,
+				url: i.href
+			}))
+		)
+	};
 </script>
+
+<Seo
+	title="Attributions & Credits"
+	{schema}
+	description="A list of tools, frameworks, libraries, services, and inspirations that helped bring this website to life."
+	url="/attributions"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">

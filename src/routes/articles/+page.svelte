@@ -2,7 +2,9 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import Articles from '$components/features/articles.svelte';
+	import Seo from '$components/seo.svelte';
 	import { getArticles, getCategories, getTags } from '$contents/articles/utils';
+	import { my } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
 	let selectedFilters = $derived({
@@ -69,7 +71,39 @@
 
 		updateQuery();
 	};
+
+	const schema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'Blog',
+		name: 'Articles | callmepow.com',
+		url: my('/articles'),
+		description:
+			'Articles, notes, and reflections from Pow — mostly about development, learning, and personal insights.',
+		author: {
+			'@type': 'Person',
+			name: 'Abi Noval Fauzi (Pow)',
+			url: my()
+		},
+		mainEntity: articles.map((a) => ({
+			'@type': 'BlogPosting',
+			headline: a.title,
+			url: my(`/articles/${a.slug}`),
+			datePublished: a.created,
+			author: {
+				'@type': 'Person',
+				name: 'Abi Noval Fauzi (Pow)'
+			}
+		}))
+	});
 </script>
+
+<Seo
+	title="Articles"
+	{schema}
+	description="Long-form thoughts, reflections, and lessons I’ve written down. Mostly about code, learning, and things I find worth sharing."
+	url="/articles"
+	image="/images/banner.png"
+/>
 
 <main class="border-b border-zinc-300">
 	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">
