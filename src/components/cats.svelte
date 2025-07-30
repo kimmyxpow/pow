@@ -1,7 +1,8 @@
 <svg
-	class="pointer-events-none bottom-0 left-1/2 block lg:absolute lg:-translate-x-1/2"
+	class="pointer-events-none bottom-0 left-1/2 block opacity-0 lg:absolute lg:-translate-x-1/2"
 	width="1087"
 	height="291"
+	data-hero-cats
 	viewBox="0 0 1087 291"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"

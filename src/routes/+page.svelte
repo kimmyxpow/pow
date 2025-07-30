@@ -9,6 +9,10 @@
 	import Icon from '@iconify/svelte';
 	import Seo from '$components/seo.svelte';
 	import { origin } from '$lib/url';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { TextPlugin } from 'gsap/TextPlugin';
+	import { onMount } from 'svelte';
 
 	const snippets = getSnippets().slice(0, 4);
 	const projects = getProjects().slice(0, 4);
@@ -34,6 +38,72 @@
 			name: 'Peepl'
 		}
 	};
+
+	onMount(() => {
+		const items = document.querySelectorAll('[data-gsap-hero]');
+
+		items.forEach((el, i) => {
+			gsap.set(el, {
+				scale: 0.8,
+				filter: 'blur(0.2rem)',
+				opacity: 0,
+				y: -100
+			});
+
+			gsap
+				.timeline({
+					delay: i * 0.2
+				})
+				.to(el, {
+					opacity: 1,
+					y: 0,
+					duration: 0.5,
+					ease: 'power2.out'
+				})
+				.to(el, {
+					scale: 1,
+					filter: 'blur(0rem)',
+					duration: 0.4,
+					ease: 'power2.out'
+				});
+		});
+
+		const button = document.querySelector('[data-hero-button]');
+
+		gsap.set(button, {
+			opacity: 0,
+			y: 50,
+			scale: 0.95
+		});
+
+		gsap.to(button, {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			duration: 0.6,
+			delay: 1.4,
+			ease: 'back.out(1.7)'
+		});
+
+		const cats = document.querySelector('[data-hero-cats]');
+
+		gsap.set(cats, {
+			opacity: 0,
+			y: 100,
+			scale: 0.95,
+			filter: 'blur(0.2rem)'
+		});
+
+		gsap.to(cats, {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			duration: 1,
+			delay: 1.8,
+			filter: 'blur(0rem)',
+			ease: 'back.out(1.7)'
+		});
+	});
 </script>
 
 <Seo
@@ -45,22 +115,27 @@
 />
 
 <main
-	class="relative flex flex-col items-center justify-center overflow-x-hidden border-b border-zinc-200 lg:min-h-screen"
+	class="relative flex flex-col items-center justify-center overflow-hidden overflow-x-hidden border-b border-zinc-200 lg:min-h-screen"
 >
 	<div class="inner py-8">
 		<div
 			class="mx-auto flex flex-col justify-center gap-6 lg:max-w-2xl lg:items-center lg:text-center"
 		>
-			<span class="font-handwriting text-2xl text-zinc-500">Hello, you found me.</span>
-			<h1 class="text-4xl sm:text-5xl lg:text-7xl">
+			<span class="font-handwriting text-2xl text-zinc-500 opacity-0" data-gsap-hero>
+				Hello, you found me.
+			</span>
+			<h1 class="text-4xl opacity-0 sm:text-5xl lg:text-7xl" data-gsap-hero>
 				I'm <span class="text-primary">Pow</span>. Welcome to my
 				<span class="text-primary">digital home</span>.
 			</h1>
-			<p class="text-balance sm:text-lg lg:text-xl">
+			<p class="text-balance opacity-0 sm:text-lg lg:text-xl" data-gsap-hero>
 				This isn’t a portfolio. It’s not a blog. It’s a quiet little corner where I collect
 				thoughts, tinker with ideas, and keep pieces of who I am.
 			</p>
-			<div class="flex flex-col items-start sm:flex-row sm:items-center sm:gap-8">
+			<div
+				class="flex flex-col items-start opacity-0 sm:flex-row sm:items-center sm:gap-8"
+				data-hero-button
+			>
 				<a
 					href="/about"
 					class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-800 px-4 text-dark transition-all hover:bg-primary hover:text-white [&_svg]:transition-all hover:[&_svg]:-rotate-35"
@@ -72,24 +147,6 @@
 						<Icon icon="solar:arrow-right-outline" class="size-4" />
 					</div>
 				</a>
-				<!-- <div class="relative">
-						<span
-							class="flex h-14 w-full items-center gap-4 bg-gradient-to-tr from-cyan-500 to-zinc-200 bg-clip-text text-transparent"
-						>
-							<div class="relative grid place-items-center">
-								<span class="absolute size-2 rounded-full bg-cyan-500"></span>
-								<span class="textcyan500 absolute size-3 animate-ping rounded-full bg-cyan-500"
-								></span>
-							</div>
-							Open for Opportunities
-						</span>
-						<a
-							href="/contact"
-							class="absolute right-0 bottom-0 translate-1/2 -rotate-4 animate-bounce font-handwriting text-xl text-zinc-400 hover:underline"
-						>
-							Click here to contact me
-						</a>
-					</div> -->
 			</div>
 		</div>
 	</div>
