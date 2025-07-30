@@ -28,7 +28,7 @@
 		},
 		publisher: {
 			'@type': 'Organization',
-			name: 'callmepow.com',
+			name: 'pow.kim',
 			logo: {
 				'@type': 'ImageObject',
 				url: my('/images/icon.png')

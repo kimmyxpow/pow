@@ -6,7 +6,7 @@
 	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'WebPage',
-		name: 'Attributions & Credits | callmepow.com',
+		name: 'Attributions & Credits | pow.kim',
 		url: my('/attributions'),
 		description:
 			'A list of tools, frameworks, libraries, services, and inspirations that helped bring this website to life.',

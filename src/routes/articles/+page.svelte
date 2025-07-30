@@ -75,7 +75,7 @@
 	const schema = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'Blog',
-		name: 'Articles | callmepow.com',
+		name: 'Articles | pow.kim',
 		url: my('/articles'),
 		description:
 			'Articles, notes, and reflections from Pow — mostly about development, learning, and personal insights.',

@@ -10,7 +10,7 @@
 	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'ItemList',
-		name: 'Life Goals | callmepow.com',
+		name: 'Life Goals | pow.kim',
 		description: 'A categorized list of life goals — from personal development to peaceful living.',
 		url: my('/goals'),
 		author: {

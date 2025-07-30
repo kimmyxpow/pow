@@ -40,7 +40,7 @@
 	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
-		name: 'Code Snippets | callmepow.com',
+		name: 'Code Snippets | pow.kim',
 		description:
 			'A collection of handy code snippets, utilities, and tiny helpers — ready to reuse.',
 		url: my('/snippets'),

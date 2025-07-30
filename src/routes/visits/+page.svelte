@@ -7,7 +7,7 @@
 	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'Dataset',
-		name: 'Page Visits | callmepow.com',
+		name: 'Page Visits | pow.kim',
 		description:
 			'A public record of page views on this website. Each row in the dataset corresponds to a page and its total visit count.',
 		creator: {

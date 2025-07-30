@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<title>{title} | callmepow.com</title>
+	<title>{title} | pow.kim</title>
 	<meta name="description" content={description} />
 
 	<link rel="canonical" href={my(url)} />

@@ -73,7 +73,7 @@
 	const schema = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
-		name: 'Projects | callmepow.com',
+		name: 'Projects | pow.kim',
 		url: my('/projects'),
 		description:
 			'A collection of personal and collaborative projects by Pow — web apps, experiments, tools, and ideas in progress.',

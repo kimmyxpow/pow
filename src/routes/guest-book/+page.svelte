@@ -26,7 +26,7 @@
 	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'WebPage',
-		name: 'Guest Book | callmepow.com',
+		name: 'Guest Book | pow.kim',
 		description: 'A small, welcoming space to leave a message, say hello, or simply pass through.',
 		url: my('/guest-book'),
 		author: {
