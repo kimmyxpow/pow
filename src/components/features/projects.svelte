@@ -43,7 +43,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						class="group/link relative px-8 py-4 text-center text-zinc-500 transition-all duration-300 hover:text-white"
-						aria-label="GitHub"
+						aria-label="GitHub link for {project.name} project"
 					>
 						<div
 							class="absolute inset-0 w-0 bg-primary transition-all group-hover/link:w-full"
@@ -57,7 +57,7 @@
 						rel="noopener noreferrer"
 						target="_blank"
 						class="group/link relative px-8 py-4 text-center text-zinc-500 transition-all duration-300 hover:text-white"
-						aria-label="Website"
+						aria-label="Demo link for {project.name} project"
 					>
 						<div
 							class="absolute inset-0 w-0 bg-primary transition-all group-hover/link:w-full"
