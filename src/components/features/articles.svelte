@@ -7,7 +7,7 @@
 
 {#each articles as article}
 	<div
-		class="-my-[0.5px] flex flex-col-reverse items-center overflow-hidden border-y border-r border-[#F0E4D3] bg-beige lg:flex-row"
+		class="-my-[0.5px] flex flex-col-reverse items-center overflow-hidden border-y border-r border-zinc-300 bg-beige lg:flex-row"
 	>
 		<div class="space-y-4 p-6">
 			<div class="flex flex-wrap items-center justify-between gap-2">
@@ -25,7 +25,7 @@
 					{/each}
 				</span>
 			</div>
-			<h3 class="mt-2 text-xl md:text-3xl">{article.title}</h3>
+			<h3 class="mt-2 text-3xl">{article.title}</h3>
 			<p class="line-clamp-2 text-lg">
 				{article.excerpt}
 			</p>
@@ -45,7 +45,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="aspect-square h-full shrink-0 overflow-hidden grayscale lg:max-w-70">
+		<div class="aspect-square h-full shrink-0 overflow-hidden lg:max-w-70">
 			<img
 				class="size-full object-cover"
 				src={article.thumbnail}

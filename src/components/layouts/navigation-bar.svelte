@@ -8,21 +8,21 @@
 		{
 			href: '/articles',
 			icon: 'solar:notes-linear',
-			bg: 'bg-amber-600',
+			bg: 'bg-[#B7B1F2]',
 			title: 'Article',
 			desc: 'Stuff I’ve written about tech, life, and whatever else I felt like putting into words.'
 		},
 		{
 			href: '/snippets',
 			icon: 'solar:paperclip-rounded-linear',
-			bg: 'bg-fuchsia-600',
+			bg: 'bg-[#FDB7EA]',
 			title: 'Snippets',
 			desc: 'Small pieces of code I’ve reused, reshaped, or just wanted to remember.'
 		},
 		{
 			href: '/guest-book',
 			icon: 'solar:paw-linear',
-			bg: 'bg-emerald-600',
+			bg: 'bg-[#FFDCCC]',
 			title: 'Guest Book',
 			desc: 'Say hi, leave a trace, or just let me know you were here.'
 		}
@@ -44,7 +44,7 @@
 	let isOpen = $state(false);
 </script>
 
-<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-[#F0E4D3] bg-beige lg:block">
+<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-zinc-300 bg-beige lg:block">
 	<nav class="inner flex justify-center py-6">
 		<a
 			class="flex items-center gap-1 rounded-lg pr-4 pl-2 text-zinc-500 transition-all hover:text-dark"
@@ -73,7 +73,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-2 w-full max-w-90 border border-[#F0E4D3] bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-2 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid">
@@ -83,10 +83,10 @@
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-start gap-4 border-b border-[#F0E4D3] p-4 font-medium transition-all select-none last:border-b-0 hover:bg-white/30 focus-visible:outline-none"
+										class="flex items-start gap-4 border-b border-zinc-300 p-4 font-medium transition-all select-none last:border-b-0 hover:bg-white/30 focus-visible:outline-none"
 									>
 										<div
-											class={`mt-1 grid size-10 shrink-0 place-items-center rounded-lg text-zinc-200 ${link.bg}`}
+											class={`mt-1 grid size-10 shrink-0 place-items-center rounded-lg text-zinc-600 ${link.bg}`}
 										>
 											<Icon class="size-6" icon={link.icon} />
 										</div>
@@ -118,7 +118,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-4 w-full max-w-90 border border-[#F0E4D3] bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-4 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid grid-cols-2 divide-x divide-zinc-300">
@@ -155,7 +155,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-4 w-full max-w-90 border border-[#F0E4D3] bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-4 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid divide-y divide-zinc-300">

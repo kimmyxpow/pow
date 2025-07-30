@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-	<div class="inner border-x border-[#F0E4D3]">
+	<div class="inner border-x border-zinc-300">
 		<div class="grid grid-cols-2 gap-8 p-8 sm:grid-cols-3 md:grid-cols-6">
 			<div class="col-span-2 flex flex-col gap-4 sm:col-span-3">
 				<span class="font-serif text-xl text-dark">Pow</span>
@@ -54,7 +54,7 @@
 				</nav>
 			</div>
 		</div>
-		<p class="border-t border-[#F0E4D3] px-8 py-4 text-center text-sm">
+		<p class="border-t border-zinc-300 px-8 py-4 text-center text-sm">
 			© 2025 Abi Noval Fauzi. All rights reserved.
 		</p>
 	</div>

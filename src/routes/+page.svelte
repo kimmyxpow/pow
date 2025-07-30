@@ -69,19 +69,19 @@
 	/>
 </main>
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>
 
-<section class="border-b border-[#F0E4D3]">
-	<div class="inner flex flex-col items-center border-x border-[#F0E4D3]">
+<section class="border-b border-zinc-300">
+	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
 			<span class="block text-center font-handwriting text-xl text-zinc-400">
 				Little Brain Dumps
 			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Things I’ve Written Down</h2>
 		</div>
-		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+		<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
 			<Articles {articles} />
 		</div>
 		<a
@@ -100,12 +100,12 @@
 	</div>
 </section>
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>
 
-<section class="border-b border-[#F0E4D3]">
-	<div class="inner flex flex-col items-center border-x border-[#F0E4D3]">
+<section class="border-b border-zinc-300">
+	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
 			<span class="block text-center font-handwriting text-xl text-zinc-400"
 				>Things I've Made (and Broke)</span
@@ -131,12 +131,12 @@
 	</div>
 </section>
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>
 
-<section class="border-b border-[#F0E4D3]">
-	<div class="inner flex flex-col items-center border-x border-[#F0E4D3]">
+<section class="border-b border-zinc-300">
+	<div class="inner flex flex-col items-center border-x border-zinc-300">
 		<div class="w-full p-8">
 			<span class="block text-center font-handwriting text-xl text-zinc-400">Memory Hacks</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Tiny Code Things</h2>
@@ -160,6 +160,6 @@
 	</div>
 </section>
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>

@@ -5,7 +5,7 @@
 </script>
 
 {#each projects as project}
-	<div class="group -mx-[0.5px] -mb-px flex flex-col space-y-4 border border-[#F0E4D3] bg-beige">
+	<div class="group -mx-[0.5px] -mb-px flex flex-col space-y-4 border border-zinc-300 bg-beige">
 		<div class="aspect-video overflow-hidden">
 			<img
 				class="size-full object-cover transition-all group-hover:scale-115 group-hover:rotate-4"
@@ -36,7 +36,7 @@
 					{project.description}
 				</p>
 			</div>
-			<div class="mt-auto grid grid-cols-2 divide-x divide-zinc-300 border-t border-[#F0E4D3]">
+			<div class="mt-auto grid grid-cols-2 divide-x divide-zinc-300 border-t border-zinc-300">
 				{#if project.github}
 					<a
 						href={project.github}

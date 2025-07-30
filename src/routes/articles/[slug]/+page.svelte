@@ -61,7 +61,7 @@
 	<meta name="twitter:site" content="@kimmyxpow" />
 </svelte:head>
 
-<div class="h-80">
+<div class="relative h-80">
 	<img
 		class="size-full object-cover"
 		src={article.thumbnail}
@@ -70,28 +70,34 @@
 	/>
 </div>
 
-<article class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3]">
-		<div class="flex w-full divide-x divide-zinc-300 border-b border-[#F0E4D3]">
-			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
+<article class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300">
+		<div class="grid w-full sm:grid-cols-2 md:grid-cols-4 md:divide-y-0">
+			<div
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
+			>
 				Published at
 				{formatDate(article.created, 'dd MMM yyyy')}
 			</div>
-			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
+			<div
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
+			>
 				Last updated at
 				{formatDate(article.updated, 'dd MMM yyyy')}
 			</div>
-			<div class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500">
+			<div
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
+			>
 				{article.readingTime} min read
 			</div>
 			<a
 				href="/articles?categories={article.category}"
-				class="flex flex-1 items-center justify-center gap-1 p-4 text-sm text-zinc-500 hover:text-dark"
+				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500 hover:text-dark"
 			>
 				{article.category}
 			</a>
 		</div>
-		<div class="flex w-full flex-wrap justify-center gap-4 border-b border-[#F0E4D3] p-4">
+		<div class="flex w-full flex-wrap justify-center gap-4 border-b border-zinc-300 p-4">
 			{#each article.tags as tag}
 				<a
 					href="/articles?tags={tag}"
@@ -121,7 +127,7 @@
 			</div>
 		</div>
 		<div
-			class="sm:prose-md mx-auto prose prose-sm pb-16 prose-zinc md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+			class="sm:prose-md mx-auto prose prose-sm px-8 pb-16 prose-zinc md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
 		>
 			{#await modPromise}
 				<p>Loading Article</p>
@@ -133,6 +139,6 @@
 	</div>
 </article>
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>

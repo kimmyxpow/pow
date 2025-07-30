@@ -36,8 +36,8 @@
 	};
 </script>
 
-<main class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] px-8 py-8 lg:py-28">
+<main class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -50,9 +50,9 @@
 	</div>
 </main>
 
-<section class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3]">
-		<div class="group -my-px flex h-20 flex-1 items-center border-y border-[#F0E4D3] bg-beige px-8">
+<section class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300">
+		<div class="group -my-px flex h-20 flex-1 items-center border-y border-zinc-300 bg-beige px-8">
 			<Icon
 				class="text-xl text-zinc-400 group-focus-within:text-primary"
 				icon="solar:magnifer-linear"
@@ -72,6 +72,6 @@
 	</div>
 </section>
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>

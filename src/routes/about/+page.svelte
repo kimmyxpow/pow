@@ -5,8 +5,8 @@
 	let { data } = $props();
 </script>
 
-<main class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] px-8 py-8 lg:py-28">
+<main class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -18,8 +18,8 @@
 	</div>
 </main>
 
-<section class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3]">
+<section class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300">
 		<div class="flex flex-col items-center sm:flex-row">
 			<div class="prose prose-lg max-w-none p-8 prose-zinc prose-headings:font-normal">
 				<h2>Short Bio</h2>
@@ -45,12 +45,12 @@
 	</div>
 </section>
 
-<section class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3]">
+<section class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300">
 		<h2 class="p-8 text-center text-3xl">Things I’ve Been Part Of</h2>
 		<div class="-mr-[0.5px] -mb-[0.5px] grid sm:grid-cols-2">
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-[#F0E4D3] bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img class="h-10" src="https://www.peepl.tech/images/logo-peepl.png" alt="Peepl Logo" />
 				<h3 class="mt-4 mb-2 text-xl">Full-Stack Developer</h3>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-[#F0E4D3] bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img
 					class="h-10"
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-[#F0E4D3] bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img
 					class="h-10"
@@ -101,7 +101,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-[#F0E4D3] bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/bellshade.png" alt="Bellshade Logo" />
 				<h3 class="mt-4 mb-2 text-xl">Open-Source Maintainer</h3>
@@ -116,7 +116,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-[#F0E4D3] bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/wpu.png" alt="WPU Logo" />
 				<h3 class="mt-4 mb-2 text-xl">Community Manager</h3>
@@ -131,7 +131,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-center justify-center border border-[#F0E4D3] bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-center justify-center border border-zinc-300 bg-beige p-8"
 			>
 				<span class="text-center text-3xl text-primary"> Another story in progress </span>
 			</div>
@@ -140,10 +140,10 @@
 </section>
 
 {#if data.commits.length > 0}
-	<section class="border-b border-[#F0E4D3]">
-		<div class="inner border-x border-[#F0E4D3]">
+	<section class="border-b border-zinc-300">
+		<div class="inner border-x border-zinc-300">
 			<h2 class="p-8 text-center text-3xl">Recently Touched</h2>
-			<div class="relative grid border-y border-[#F0E4D3] p-8">
+			<div class="relative grid border-y border-zinc-300 p-8">
 				{#each data.commits as commit (commit.sha)}
 					<div class="relative pl-10 not-last:pb-4">
 						<div class="absolute top-6 -bottom-2 left-2.5 w-1 bg-primary"></div>
@@ -200,6 +200,6 @@
 	</section>
 {/if}
 
-<div class="border-b border-[#F0E4D3]">
-	<div class="inner border-x border-[#F0E4D3] py-28"></div>
+<div class="border-b border-zinc-300">
+	<div class="inner border-x border-zinc-300 py-28"></div>
 </div>
