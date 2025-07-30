@@ -1,28 +1,22 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import Seo from '$components/seo.svelte';
-	import { getArticleBySlug, type ArticleModule } from '$contents/articles/utils';
+	import { type ArticleModule } from '$contents/articles/utils';
 	import { origin } from '$lib/url';
-	import { error } from '@sveltejs/kit';
 	import { formatDate } from 'date-fns';
 	import Giscus from '@giscus/svelte';
 
-	const article = $derived(getArticleBySlug(page.params.slug!)!);
-
-	$effect(() => {
-		if (!article) throw error(404, 'Article not found');
-	});
+	const { data } = $props();
 
 	const modules = import.meta.glob<ArticleModule>('/src/contents/articles/*/*.svx');
-	const key = $derived(`/src/contents/articles/${article.lang}/${article.slug}.svx`);
-	const modPromise = $derived(modules[key]?.());
+	const key = `/src/contents/articles/${data.article.lang}/${data.article.slug}.svx`;
+	const modPromise = modules[key]?.();
 
-	const schema = $derived({
+	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
-		headline: article.title,
-		description: article.excerpt,
-		image: origin(article.thumbnail),
+		headline: data.article.title,
+		description: data.article.excerpt,
+		image: origin(data.article.thumbnail),
 		author: {
 			'@type': 'Person',
 			name: 'Abi Noval Fauzi (Pow)',
@@ -36,30 +30,30 @@
 				url: origin('/images/icon.png')
 			}
 		},
-		datePublished: article.created,
-		dateModified: article.updated,
+		datePublished: data.article.created,
+		dateModified: data.article.updated,
 		mainEntityOfPage: {
 			'@type': 'WebPage',
-			'@id': origin(`articles/${article.slug}`)
+			'@id': origin(`articles/${data.article.slug}`)
 		}
-	});
+	};
 
-	const isEnglish = $derived(article.lang === 'en');
+	const isEnglish = $derived(data.article.lang === 'en');
 </script>
 
 <Seo
-	title={article?.title}
-	description={article?.excerpt}
-	url="/articles/{article?.slug}"
-	image={article?.thumbnail}
+	title={data.article.title}
+	description={data.article.excerpt}
+	url="/articles/{data.article.slug}"
+	image={data.article.thumbnail}
 	{schema}
 />
 
 <div class="relative h-60 sm:h-80">
 	<img
 		class="size-full object-cover"
-		src={article.thumbnail}
-		alt="{article.title} thumbnail"
+		src={data.article.thumbnail}
+		alt="{data.article.title} thumbnail"
 		loading="lazy"
 		fetchpriority="high"
 	/>
@@ -72,30 +66,30 @@
 				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
 			>
 				Published at
-				{formatDate(article.created, 'dd MMM yyyy')}
+				{formatDate(data.article.created, 'dd MMM yyyy')}
 			</div>
 			<div
 				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
 			>
 				Updated at
-				{formatDate(article.updated, 'dd MMM yyyy')}
+				{formatDate(data.article.updated, 'dd MMM yyyy')}
 			</div>
 			<div
 				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
 			>
-				{article.readingTime} min read
+				{data.article.readingTime} min read
 			</div>
 			<a
-				href="/articles?categories={article.category}"
+				href="/articles?categories={data.article.category}"
 				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500 hover:text-dark"
 			>
-				{article.category}
+				{data.article.category}
 			</a>
 		</div>
 		<div
 			class="order-4 -mb-px flex w-full flex-wrap justify-center gap-4 border-b border-zinc-300 p-4 md:order-2"
 		>
-			{#each article.tags as tag}
+			{#each data.article.tags as tag}
 				<a
 					href="/articles?tags={tag}"
 					class="flex items-center text-sm text-zinc-500 hover:text-dark"
@@ -105,9 +99,9 @@
 			{/each}
 		</div>
 		<div class="order-1 space-y-8 p-8 md:order-3">
-			<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{article.title}</h1>
+			<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{data.article.title}</h1>
 			<p class="text-center text-balance sm:text-lg md:text-xl">
-				{article.excerpt}
+				{data.article.excerpt}
 			</p>
 			<div class="flex items-center justify-center">
 				<img
@@ -124,11 +118,11 @@
 			</div>
 		</div>
 		<a
-			href="/articles/{isEnglish ? article.id : article.en}"
+			href="/articles/{isEnglish ? data.article.id : data.article.en}"
 			class="group relative order-2 border-y border-zinc-300 text-sm transition-all hover:bg-white/60 sm:text-base md:order-4 lg:hover:bg-transparent"
 		>
 			<div
-				class="absolute inset-0 hidden w-0 items-center justify-center bg-primary whitespace-nowrap text-white transition-all duration-300 group-hover:w-full lg:flex"
+				class="absolute inset-0 hidden w-0 items-center justify-center overflow-hidden bg-primary whitespace-nowrap text-white transition-all duration-300 group-hover:w-full lg:flex"
 			>
 				{#if isEnglish}
 					Klik untuk baca dalam bahasa Indonesia
@@ -169,7 +163,7 @@
 			category="General"
 			categoryId="DIC_kwDOMVl7m84Ctkq-"
 			mapping="specific"
-			term={article.slug}
+			term={data.article.slug}
 			strict="0"
 			reactionsEnabled="1"
 			emitMetadata="0"
