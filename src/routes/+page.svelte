@@ -45,7 +45,7 @@
 />
 
 <main
-	class="relative flex flex-col items-center justify-center border-b border-zinc-200 lg:min-h-screen"
+	class="relative flex flex-col items-center justify-center overflow-x-hidden border-b border-zinc-200 lg:min-h-screen"
 >
 	<div class="inner py-8">
 		<div
