@@ -60,6 +60,12 @@ export const attributions = [
 				href: 'https://giscus.app/?ref=bynoval.com',
 				description:
 					'Letting people leave comments and reactions on my articles, without building a system from scratch.'
+			},
+			{
+				name: 'Fontsource',
+				href: 'https://fontsource.org/?ref=bynoval.com',
+				description:
+					'My favorite way to load fonts—reliable, flexible, and works with whatever setup I’m using.'
 			}
 		]
 	},
