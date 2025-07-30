@@ -4,21 +4,23 @@
 	import Articles from '$components/features/articles.svelte';
 	import Seo from '$components/seo.svelte';
 	import { getArticles, getCategories, getTags } from '$contents/articles/utils';
+	import { cn } from '$lib/cn';
 	import { origin } from '$lib/url';
 	import Icon from '@iconify/svelte';
 
-	let selectedFilters = $derived({
+	let selectedFilters = $derived<{
+		search: string;
+		categories: string[];
+		tags: string[];
+		lang: 'en' | 'id';
+	}>({
 		search: page.url.searchParams.get('search') || '',
 		categories: page.url.searchParams.getAll('categories') || [],
-		tags: page.url.searchParams.getAll('tags') || []
+		tags: page.url.searchParams.getAll('tags') || [],
+		lang: (page.url.searchParams.get('lang') as 'id') || 'en'
 	});
 
-	let articles = $derived(
-		getArticles({
-			lang: 'en',
-			...selectedFilters
-		})
-	);
+	let articles = $derived(getArticles(selectedFilters));
 
 	const categories = getCategories();
 	const tags = getTags();
@@ -43,6 +45,10 @@
 			searchParams.set('search', selectedFilters.search);
 		}
 
+		if (selectedFilters.lang) {
+			searchParams.set('lang', selectedFilters.lang);
+		}
+
 		selectedFilters.categories.forEach((cat) => {
 			searchParams.append('categories', cat);
 		});
@@ -62,7 +68,7 @@
 		if (type === 'search') {
 			// For search input
 			selectedFilters.search = value;
-		} else {
+		} else if (type !== 'lang') {
 			// For categories and tags checkboxes
 			selectedFilters[type] = target.checked
 				? [...selectedFilters[type], value]
@@ -71,6 +77,13 @@
 
 		updateQuery();
 	};
+
+	const onSwitchLanguage = (lang: 'en' | 'id') => {
+		selectedFilters.lang = lang;
+		updateQuery();
+	};
+
+	let isEnglish = $derived(selectedFilters.lang === 'en');
 
 	const schema = $derived({
 		'@context': 'https://schema.org',
@@ -174,6 +187,26 @@
 				name="search"
 				id="search"
 			/>
+		</div>
+		<div class="grid grid-cols-2 divide-x divide-zinc-300">
+			<button
+				onclick={() => onSwitchLanguage('en')}
+				class={cn(
+					'p-4 transition-all hover:bg-primary/10',
+					isEnglish && 'bg-primary text-white hover:bg-primary/90'
+				)}
+			>
+				English Articles
+			</button>
+			<button
+				onclick={() => onSwitchLanguage('id')}
+				class={cn(
+					'p-4 transition-all hover:bg-primary/10',
+					!isEnglish && 'bg-primary text-white hover:bg-primary/90'
+				)}
+			>
+				Artikel Berbahasa Indonesia
+			</button>
 		</div>
 		<div class="grid sm:grid-cols-2 lg:grid-cols-1">
 			<Articles {articles} />

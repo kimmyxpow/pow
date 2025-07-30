@@ -7,15 +7,17 @@
 	import { formatDate } from 'date-fns';
 	import Giscus from '@giscus/svelte';
 
-	const article = getArticleBySlug(page.params.slug!);
+	const article = $derived(getArticleBySlug(page.params.slug!)!);
 
-	if (!article) throw error(404, 'Article not found');
+	$effect(() => {
+		if (!article) throw error(404, 'Article not found');
+	});
 
 	const modules = import.meta.glob<ArticleModule>('/src/contents/articles/*/*.svx');
-	const key = `/src/contents/articles/${article.lang}/${article.slug}.svx`;
-	const modPromise = modules[key]?.();
+	const key = $derived(`/src/contents/articles/${article.lang}/${article.slug}.svx`);
+	const modPromise = $derived(modules[key]?.());
 
-	const schema = {
+	const schema = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
 		headline: article.title,
@@ -40,18 +42,20 @@
 			'@type': 'WebPage',
 			'@id': origin(`articles/${article.slug}`)
 		}
-	};
+	});
+
+	const isEnglish = $derived(article.lang === 'en');
 </script>
 
 <Seo
-	title={article.title}
-	description={article.excerpt}
-	url="/articles/{article.slug}"
-	image={article.thumbnail}
+	title={article?.title}
+	description={article?.excerpt}
+	url="/articles/{article?.slug}"
+	image={article?.thumbnail}
 	{schema}
 />
 
-<div class="relative h-80">
+<div class="relative h-60 sm:h-80">
 	<img
 		class="size-full object-cover"
 		src={article.thumbnail}
@@ -62,8 +66,8 @@
 </div>
 
 <article class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
-		<div class="grid w-full sm:grid-cols-2 md:grid-cols-4 md:divide-y-0">
+	<div class="inner flex flex-col border-x border-zinc-300">
+		<div class="order-4 grid w-full sm:grid-cols-2 md:order-1 md:grid-cols-4 md:divide-y-0">
 			<div
 				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
 			>
@@ -73,7 +77,7 @@
 			<div
 				class="-m-px flex items-center justify-center gap-1 border border-zinc-300 bg-beige p-4 text-sm text-zinc-500"
 			>
-				Last updated at
+				Updated at
 				{formatDate(article.updated, 'dd MMM yyyy')}
 			</div>
 			<div
@@ -88,7 +92,9 @@
 				{article.category}
 			</a>
 		</div>
-		<div class="flex w-full flex-wrap justify-center gap-4 border-b border-zinc-300 p-4">
+		<div
+			class="order-4 -mb-px flex w-full flex-wrap justify-center gap-4 border-b border-zinc-300 p-4 md:order-2"
+		>
 			{#each article.tags as tag}
 				<a
 					href="/articles?tags={tag}"
@@ -98,7 +104,7 @@
 				</a>
 			{/each}
 		</div>
-		<div class="space-y-8 p-8">
+		<div class="order-1 space-y-8 p-8 md:order-3">
 			<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{article.title}</h1>
 			<p class="text-center text-balance sm:text-lg md:text-xl">
 				{article.excerpt}
@@ -106,19 +112,42 @@
 			<div class="flex items-center justify-center">
 				<img
 					class="size-12 rounded-full object-cover"
-					src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-					alt=""
+					src="/images/lynette.jpeg"
+					alt="Pow Avatar"
 				/>
 				<div class="ml-2">
 					<p class="leading-6 font-medium text-primary">
-						<span class="text-zinc-500">By</span> Noval
+						<span class="text-zinc-500">By</span> Pow
 					</p>
 					<p class="text-sm leading-5">Software Engineer</p>
 				</div>
 			</div>
 		</div>
+		<a
+			href="/articles/{isEnglish ? article.id : article.en}"
+			class="group relative order-2 border-y border-zinc-300 text-sm transition-all hover:bg-white/60 sm:text-base md:order-4 lg:hover:bg-transparent"
+		>
+			<div
+				class="absolute inset-0 hidden w-0 items-center justify-center bg-primary whitespace-nowrap text-white transition-all duration-300 group-hover:w-full lg:flex"
+			>
+				{#if isEnglish}
+					Klik untuk baca dalam bahasa Indonesia
+				{:else}
+					Click here to read in English
+				{/if}
+			</div>
+			<p class="p-4 text-center">
+				{#if isEnglish}
+					<span class="hidden lg:block">Artikel ini tersedia dalam bahasa Indonesia</span>
+					<span class="lg:hidden">Klik disini untuk membaca dalam bahasa Indonesia</span>
+				{:else}
+					<span class="hidden lg:block">This article is available in English</span>
+					<span class="lg:hidden">Click here to read in English</span>
+				{/if}
+			</p>
+		</a>
 		<div
-			class="sm:prose-md mx-auto prose prose-sm px-8 pb-16 prose-zinc md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+			class="sm:prose-md order-3 mx-auto prose prose-sm p-8 prose-zinc md:order-5 md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
 		>
 			{#await modPromise}
 				<p>Loading Article</p>
