@@ -3,8 +3,8 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "../node_modules/wrangler/config-schema.json",
-	"name": "bynoval",
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "pow",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2025-07-23",
 	"compatibility_flags": ["nodejs_compat"],
