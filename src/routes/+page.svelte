@@ -10,8 +10,6 @@
 	import Seo from '$components/seo.svelte';
 	import { origin } from '$lib/url';
 	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	import { TextPlugin } from 'gsap/TextPlugin';
 	import { onMount } from 'svelte';
 
 	const snippets = getSnippets().slice(0, 4);
