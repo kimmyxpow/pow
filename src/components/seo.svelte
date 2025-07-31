@@ -24,7 +24,7 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={origin(url)} />
 	<meta property="og:image" content={origin(image)} />
-	<meta property="og:site_name" content="bynoval" />
+	<meta property="og:site_name" content="pow.kim" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={title} />

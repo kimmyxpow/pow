@@ -236,7 +236,7 @@
 				{/each}
 			</div>
 			<a
-				href="https://github.com/kimmyxpow/bynoval/commits/main"
+				href="https://github.com/kimmyxpow/pow/commits/main"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
