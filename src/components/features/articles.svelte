@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { appendParam } from '$lib/url';
-	import Icon from '@iconify/svelte';
 	import { formatDate } from 'date-fns';
 
 	let { articles } = $props();
