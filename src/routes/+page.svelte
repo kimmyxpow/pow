@@ -156,7 +156,7 @@
 			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Things I’ve Written Down</h2>
 		</div>
-		<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
+		<div class="grid md:grid-cols-2 lg:grid-cols-1">
 			<Articles {articles} />
 		</div>
 		<a

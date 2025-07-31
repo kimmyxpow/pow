@@ -26,7 +26,7 @@
 				</span>
 			</div>
 			<a href="/articles/{article.slug}">
-				<h3 class="mt-2 text-3xl hover:text-primary hover:underline">
+				<h3 class="mt-2 text-3xl hover:text-primary">
 					{article.title}
 				</h3>
 			</a>
