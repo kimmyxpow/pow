@@ -8,6 +8,7 @@
 	import Footer from '$components/layouts/footer.svelte';
 	import { Toaster } from 'svelte-french-toast';
 	import { page } from '$app/state';
+	import { tick } from 'svelte';
 
 	let { children } = $props();
 
@@ -28,8 +29,11 @@
 			})
 		});
 
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
+		tick().then(() => {
+			window.addEventListener('scroll', handleScroll);
+		});
+
+		return () => window.addEventListener('scroll', handleScroll);
 	});
 </script>
 
