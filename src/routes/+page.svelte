@@ -119,21 +119,18 @@
 		<div
 			class="mx-auto flex flex-col justify-center gap-6 lg:max-w-2xl lg:items-center lg:text-center"
 		>
-			<span class="font-handwriting text-xl text-zinc-600 opacity-0 sm:text-2xl" data-gsap-hero>
+			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl" data-gsap-hero>
 				Hello, you found me.
 			</span>
-			<h1 class="text-4xl opacity-0 sm:text-5xl lg:text-7xl" data-gsap-hero>
+			<h1 class="text-4xl sm:text-5xl lg:text-7xl" data-gsap-hero>
 				I'm <span class="text-primary">Pow</span>. Welcome to my
 				<span class="text-primary">digital home</span>.
 			</h1>
-			<p class="text-balance opacity-0 sm:text-lg lg:text-xl" data-gsap-hero>
+			<p class="text-balance sm:text-lg lg:text-xl" data-gsap-hero>
 				This isn’t a portfolio. It’s not a blog. It’s a quiet little corner where I collect
 				thoughts, tinker with ideas, and keep pieces of who I am.
 			</p>
-			<div
-				class="flex flex-col items-start opacity-0 sm:flex-row sm:items-center sm:gap-8"
-				data-hero-button
-			>
+			<div class="flex flex-col items-start sm:flex-row sm:items-center sm:gap-8" data-hero-button>
 				<a
 					href="/about"
 					class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-800 px-4 font-semibold text-dark transition-all hover:bg-primary hover:text-white [&_svg]:transition-all hover:[&_svg]:-rotate-35"
