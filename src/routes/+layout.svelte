@@ -22,12 +22,13 @@
 	};
 
 	$effect(() => {
-		fetch('/api/visits', {
-			method: 'POST',
-			body: JSON.stringify({
-				pathname: page.url.pathname
-			})
-		});
+		if (page.status === 200)
+			fetch('/api/visits', {
+				method: 'POST',
+				body: JSON.stringify({
+					pathname: page.url.pathname
+				})
+			});
 
 		tick().then(() => {
 			window.addEventListener('scroll', handleScroll);
