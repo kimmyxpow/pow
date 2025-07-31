@@ -81,8 +81,6 @@ For the full details, you can check out the official documentation [here](https:
 
 In this section, I’ll focus on comparing how custom styles (or "plugins") were created in Tailwind v3 versus how they work in v4.
 
-Berikut terjemahan dan penyesuaian bagian ini ke dalam bahasa Inggris, tetap dengan gaya yang mengalir dan mudah dipahami:
-
 ### Adding Custom Base Styles
 
 In previous versions of Tailwind, if you wanted to add *base styles* (like styles for `h1`, `h2`, etc.), you would typically use the `addBase()` function inside a plugin. In Tailwind CSS v4, the process is much simpler. You can now define base styles directly in your CSS using the `@layer base` directive.
