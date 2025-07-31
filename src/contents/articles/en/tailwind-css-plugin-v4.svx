@@ -1,0 +1,328 @@
+---
+title: "Goodbye tailwind.config.js! Here's the New Way to Build Plugins in Tailwind CSS v4"
+excerpt: "Tailwind CSS v4 removes plugins and the tailwind.config.js file — but don’t worry. You can still create powerful custom styles directly from your CSS with a simpler, more intuitive approach."
+id: plugin-tailwind-css-v4
+tags: [beginner guide, tailwind css]
+category: programming
+created: 2025-07-31
+updated: 2025-07-31
+thumbnail: "/images/articles/plugin-tailwind-css-v4.jpg"
+---
+
+Tailwind CSS version 4 was officially released as a stable version in early January this year. This latest release brings a lot of major changes. One of the most notable is the switch to the **Oxide** engine, which makes the build process up to **10x faster** and significantly more efficient. Along with that, v4 introduces new utilities, support for modern CSS syntax, and perhaps the biggest shift of all: **a fully CSS-first configuration**. That means no more `tailwind.config.js` like in previous versions.
+
+If you're curious about all the changes, you can check out the official release post on the Tailwind CSS blog [here](https://tailwindcss.com/blog/tailwindcss-v4).
+
+Now, one thing that’s missing in Tailwind CSS v4 is clear documentation or migration guidance on how to build "plugins" — something that was well-supported in previous versions. So as a **hardcore Tailwind fan**, I want to share a quick guide on how to recreate plugin-like behavior in Tailwind CSS v4, by comparing it to the plugin approach we used in v3.
+
+## No More Plugins in Tailwind CSS v4
+
+In versions prior to Tailwind CSS 4, we could define plugins by adding them to the `tailwind.config.js` file. Here's an example of how that looked in version 3:
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addUtilities, matchUtilities, e, config }) {
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
+        },
+        '.content-hidden': {
+          'content-visibility': 'hidden',
+        },
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+      })
+    }),
+  ]
+}
+```
+
+This example shows how to create a custom utility class that could then be used like this:
+
+```html
+<div class="content-auto hover:content-hidden">
+  <p>Hello World</p>
+</div>
+```
+
+Tailwind v3 also provided a bunch of helper functions to assist in building plugins, such as:
+
+* `addUtilities()` – for adding static utility styles
+* `matchUtilities()` – for adding dynamic utility styles
+* `addComponents()` – for registering static component styles
+* `matchComponents()` – for dynamic component styles
+* `addBase()` – for defining base styles
+* `addVariant()` – for adding custom static variants
+* `matchVariant()` – for adding dynamic variants
+* `theme()` – for accessing values from the theme configuration
+* `config()` – for accessing general Tailwind config values
+* `corePlugins()` – for checking if a core plugin is enabled
+* `e()` – for escaping class name strings manually
+
+For more details, you can check out the official Tailwind v3 plugin documentation [here](https://v3.tailwindcss.com/docs/plugins).
+
+### So, Why Are Plugins Gone in Tailwind CSS v4?
+
+As of version 4, Tailwind CSS has shifted into being an **all-in-one CSS processing tool**. This means the plugin-based approach from previous versions is no longer used. Instead, everything is now referred to as **custom styles** — and the way you create them is actually *simpler* than before.
+
+This change aligns with Tailwind v4’s *CSS-first* philosophy. There’s no longer a `tailwind.config.js` file, everything is defined directly within your CSS files.
+
+So how do you create custom styles in Tailwind v4 that work like the plugins you built in v3? Let’s walk through that next.
+
+## Creating Custom Styles (or "Plugins") in Tailwind CSS v4
+
+Tailwind CSS v4 introduces a set of new directives that allow you to create what are essentially the v4 equivalents of “plugins”. These directives give you a powerful and more streamlined way to define custom styles directly in your CSS.
+
+For the full details, you can check out the official documentation [here](https://tailwindcss.com/docs/adding-custom-styles).
+
+In this section, I’ll focus on comparing how custom styles (or "plugins") were created in Tailwind v3 versus how they work in v4.
+
+Berikut terjemahan dan penyesuaian bagian ini ke dalam bahasa Inggris, tetap dengan gaya yang mengalir dan mudah dipahami:
+
+### Adding Custom Base Styles
+
+In previous versions of Tailwind, if you wanted to add *base styles* (like styles for `h1`, `h2`, etc.), you would typically use the `addBase()` function inside a plugin. In Tailwind CSS v4, the process is much simpler. You can now define base styles directly in your CSS using the `@layer base` directive.
+
+Here’s a comparison:
+
+**v3 (using `addBase()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl') },
+        'h2': { fontSize: theme('fontSize.xl') },
+        'h3': { fontSize: theme('fontSize.lg') },
+      })
+    })
+  ]
+}
+```
+
+**v4 (using `@layer base`):**
+
+```css
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+  h3 {
+    font-size: var(--text-lg);
+  }
+}
+```
+
+Not only is this approach simpler, but it also feels more natural since you're working directly in your CSS. Tailwind v4 fully embraces the *CSS-first* mindset, making customization more direct, intuitive, and flexible.
+
+### Adding Custom Components
+
+In earlier versions of Tailwind, creating custom components usually involved using `addComponents()` inside a plugin. But in Tailwind CSS v4, it’s much simpler — you can define components directly in your CSS using the `@layer components` directive.
+
+**v3 (using `addComponents()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          padding: '.5rem 1rem',
+          borderRadius: '.25rem',
+          fontWeight: '600',
+        },
+      })
+    })
+  ]
+}
+```
+
+**v4 (using `@layer components`):**
+
+```css
+@layer components {
+  .btn {
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    font-weight: 600;
+  }
+}
+```
+
+With this approach, there's no need to write a plugin just to add components. Simply define them in your CSS, and Tailwind will automatically include them in the final build output.
+
+### Adding Custom Utilities
+
+In previous versions of Tailwind, we could define utility classes using `addUtilities()` for *static utilities* and `matchUtilities()` for *dynamic utilities*. In Tailwind CSS v4, this process becomes much simpler thanks to the new `@utility` directive — which you can use directly in your CSS.
+
+**Static Utilities v3 (using `addUtilities()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
+        },
+        '.content-hidden': {
+          'content-visibility': 'hidden',
+        },
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+      })
+    })
+  ]
+}
+```
+
+**Static Utilities v4 (using `@utility`):**
+
+```css
+@utility content-auto {
+  content-visibility: auto;
+}
+
+@utility content-hidden {
+  content-visibility: hidden;
+}
+
+@utility content-visible {
+  content-visibility: visible;
+}
+```
+
+**Dynamic Utilities v3 (using `matchUtilities()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  theme: {
+    tabSize: {
+      1: '1',
+      2: '2',
+      4: '4',
+      8: '8',
+    }
+  },
+  plugins: [
+    plugin(function({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          tab: (value) => ({
+            tabSize: value
+          }),
+        },
+        { values: theme('tabSize') }
+      )
+    })
+  ]
+}
+```
+
+**Dynamic Utilities v4 (using `@theme` and `@utility`):**
+
+```css
+@theme {
+  --tab-size-1: 1;
+  --tab-size-2: 2;
+  --tab-size-4: 4;
+  --tab-size-8: 8;
+}
+
+@utility tab-* {
+  tab-size: --value(--tab-size-*); 
+}
+```
+
+Tailwind v4 also introduces a new way to support **arbitrary values**, like `tab-[80]`, using the `--value()` function. Here's how it looks:
+
+```css
+@utility tab-* {
+  tab-size: --value([integer]);        /* for arbitrary values */
+  tab-size: --value(--tab-size-*);     /* for theme values */
+}
+```
+
+In addition to arbitrary values, Tailwind v4 now supports **bare values**, which lets you write something like `tab-80` without using square brackets. To support these, you just need to add one more line:
+
+```css
+@utility tab-* {
+  tab-size: --value([integer]);        /* for arbitrary values */
+  tab-size: --value(integer);          /* for bare values */
+  tab-size: --value(--tab-size-*);     /* for theme values */
+}
+```
+
+With this setup, you can use utility classes like:
+
+* `tab-1` (theme value)
+* `tab-[50]` (arbitrary value)
+* `tab-100` (bare value)
+
+This new approach in v4 is not only more flexible, it’s also way more powerful and intuitive when building custom utility classes that fit your exact needs.
+
+### Adding Custom Variants
+
+In previous versions of Tailwind, we could define custom variants using the `addVariant()` function inside a plugin. In Tailwind CSS v4, you can achieve the same result — but with a much simpler approach: just use the `@custom-variant` directive directly in your CSS.
+
+**v3 (using `addVariant()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('optional', '&:optional')
+      addVariant('hocus', ['&:hover', '&:focus'])
+      addVariant('inverted-colors', '@media (inverted-colors: inverted)')
+    })
+  ]
+}
+```
+
+**v4 (using `@custom-variant`):**
+
+```css
+@custom-variant optional (&:optional);
+@custom-variant hocus (&:hover, &:focus);
+@custom-variant inverted-colors (@media (inverted-colors: inverted));
+```
+
+Super straightforward, right? You can define any variant you need with cleaner, more intuitive syntax AND no JavaScript required.
+
+## Wrapping Up
+
+So, what do you think? Tailwind CSS v4 truly brings a breath of fresh air. Everything that used to require JavaScript — from plugins, utilities, components, to variants — can now be done directly in your CSS.
+
+No more fiddling with `tailwind.config.js`, no more manually setting up plugins, and no need to mess with JavaScript helper functions. With this new *CSS-first* approach, everything feels simpler, cleaner, and still incredibly powerful.
+
+Even features like custom utilities, dynamic values, and custom variants are now easier to create with intuitive new syntax that just makes sense. The result? You still get the same power and flexibility as before (maybe even more), all from within your CSS.
+
+If creating Tailwind plugins ever felt like a chore, v4 makes it feel effortless. Just write, build, and use — that’s it.
+
+Thanks so much for reading!
+
+**References**
+
+* [https://tailwindcss.com/blog/tailwindcss-v4-alpha](https://tailwindcss.com/blog/tailwindcss-v4-alpha)
+* [https://tailwindcss.com/blog/tailwindcss-v4](https://tailwindcss.com/blog/tailwindcss-v4)
+* [https://tailwindcss.com/docs/adding-custom-styles](https://tailwindcss.com/docs/adding-custom-styles)
+* [https://v3.tailwindcss.com/docs/plugin](https://v3.tailwindcss.com/docs/plugin)

@@ -7,9 +7,9 @@
 
 	const { data } = $props();
 
-	const modules = import.meta.glob<ArticleModule>('/src/contents/articles/*/*.svx');
-	const key = `/src/contents/articles/${data.article.lang}/${data.article.slug}.svx`;
-	const modPromise = modules[key]?.();
+	const modules = $derived(import.meta.glob<ArticleModule>('/src/contents/articles/*/*.svx'));
+	const key = $derived(`/src/contents/articles/${data.article.lang}/${data.article.slug}.svx`);
+	const modPromise = $derived(modules[key]?.());
 
 	const schema = {
 		'@context': 'https://schema.org',
@@ -141,7 +141,7 @@
 			</p>
 		</a>
 		<div
-			class="sm:prose-md order-3 mx-auto prose prose-sm p-8 prose-zinc md:order-5 md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+			class="sm:prose-md order-3 mx-auto prose prose-sm p-8 prose-zinc sm:px-0 md:order-5 md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
 		>
 			{#await modPromise}
 				<p>Loading Article</p>
@@ -164,7 +164,7 @@
 			categoryId="DIC_kwDOMVl7m84Ctkq-"
 			mapping="specific"
 			term={data.article.slug}
-			strict="0"
+			strict="1"
 			reactionsEnabled="1"
 			emitMetadata="0"
 			inputPosition="top"

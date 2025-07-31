@@ -1,0 +1,316 @@
+---
+title: "Goodbye tailwind.config.js! Ini Cara Baru Bikin Plugin di Tailwind CSS v4"
+excerpt: "Tailwind CSS v4 menghapus plugin dan tailwind.config.js, tapi tenang — kamu tetap bisa bikin custom style yang powerful langsung dari file CSS."
+en: "tailwind-css-plugin-v4"
+---
+
+Tailwind CSS versi 4 resmi dirilis secara stabil pada awal Januari tahun ini. Di versi terbaru ini, ada banyak perubahan besar yang dibawa. Salah satu yang paling mencolok adalah perubahan engine ke **Oxide**, yang membuat proses build bisa sampai **10x lebih cepat** dan jauh lebih efisien. Selain itu, hadir juga banyak utility baru, dukungan syntax CSS modern, dan yang paling besar mengubah cara kerja kita: **konfigurasinya kini CSS-first**. Artinya, tidak ada lagi file `tailwind.config.js` seperti sebelumnya.
+
+Kalau kamu penasaran detail perubahan lainnya, bisa langsung cek blog resmi Tailwind CSS di [sini](https://tailwindcss.com/blog/tailwindcss-v4).
+
+Nah, di Tailwind versi 4 ini, sayangnya belum ada dokumentasi atau panduan upgrade yang jelas soal cara membuat "plugin" seperti yang bisa kita lakukan di versi-versi sebelumnya. Jadi, sebagai **pecinta Tailwind nomor 1**, aku mau berbagi sedikit panduan tentang bagaimana cara membuat "plugin" di Tailwind CSS v4 dengan perbandingan cara membuat plugin di Tailwind CSS v3.
+
+## Tidak Ada Lagi Plugin di Tailwind CSS v4
+
+Di versi sebelum Tailwind CSS 4, kita bisa membuat plugin dengan mendefinisikannya di file `tailwind.config.js`. Contohnya seperti ini pada versi 3:
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addUtilities, matchUtilities, e, config }) {
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
+        },
+        '.content-hidden': {
+          'content-visibility': 'hidden',
+        },
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+      })
+    }),
+  ]
+}
+```
+
+Contoh di atas menunjukkan cara membuat utility class custom yang nantinya bisa digunakan seperti ini:
+
+```html
+<div class="content-auto hover:content-hidden">
+  <p>Hello World</p>
+</div>
+```
+
+Tailwind versi 3 juga menyediakan banyak helper function untuk membantu pembuatan plugin, seperti:
+
+* `addUtilities()` – menambahkan static utility styles
+* `matchUtilities()` – menambahkan dynamic utility styles
+* `addComponents()` – menambahkan static component styles
+* `matchComponents()` – menambahkan dynamic component styles
+* `addBase()` – menambahkan base styles
+* `addVariant()` – membuat custom static variants
+* `matchVariant()` – membuat custom dynamic variants
+* `theme()` – mengambil nilai dari konfigurasi theme pengguna
+* `config()` – mengambil nilai dari konfigurasi Tailwind pengguna
+* `corePlugins()` – mengecek apakah core plugin tertentu aktif
+* `e()` – untuk escape string yang dipakai di class name
+
+Untuk info lebih lengkap, kamu bisa cek dokumentasi resmi Tailwind v3 di [sini](https://v3.tailwindcss.com/docs/plugins).
+
+### Lalu, Kenapa di Tailwind CSS v4 Tidak Ada Plugin Lagi?
+
+Mulai di versi 4, Tailwind CSS berubah menjadi **all-in-one tool** untuk memproses CSS. Artinya, pendekatan plugin seperti di versi sebelumnya sudah tidak digunakan lagi. Sebagai gantinya, semuanya sekarang disebut **custom styles**, dan cara membuatnya justru lebih simpel dibanding sebelumnya.
+
+Perubahan ini sejalan dengan pendekatan *CSS-first* di Tailwind v4, di mana tidak ada lagi `tailwind.config.js`. Semua konfigurasi dilakukan langsung lewat file CSS kamu.
+
+Nah, gimana cara membuat custom styles di Tailwind v4 yang bisa dibilang *ekuivalen* dengan plugin di versi sebelumnya? Mari kita bahas di bagian selanjutnya.
+
+## Menambahkan Custom Styles / Plugin di Versi 4
+
+Di tailwind css versi 4, banyak directive baru, dan itu bisa digunakan untuk membuat "plugin" versi tailwind 4, untuk detailnya silakan baca dokumentasi resmi di [sini](https://tailwindcss.com/docs/adding-custom-styles). Dibawah ini aku akan fokus membahas perbandingan antara cara membuat plugin di tailwind v3 dan v4.
+
+### Menambahkan Custom Base Styles
+
+Di Tailwind versi sebelumnya, kalau kita ingin menambahkan *base styles* (seperti style untuk elemen `h1`, `h2`, dll), kita biasanya menggunakan fungsi `addBase()` di dalam plugin. Tapi di Tailwind v4, prosesnya jauh lebih simpel. Kita cukup menggunakan `@layer base` langsung di file CSS untuk mendefinisikan base styles tersebut.
+
+Berikut perbandingannya:
+
+**Versi v3 (menggunakan `addBase()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl') },
+        'h2': { fontSize: theme('fontSize.xl') },
+        'h3': { fontSize: theme('fontSize.lg') },
+      })
+    })
+  ]
+}
+```
+
+**Versi v4 (menggunakan `@layer base`):**
+
+```css
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+  h3 {
+    font-size: var(--text-lg);
+  }
+}
+```
+
+Selain lebih sederhana, pendekatan ini juga lebih natural karena kita bekerja langsung di dalam file CSS. Tailwind v4 benar-benar mendorong pendekatan *CSS-first*, yang membuat proses kustomisasi terasa lebih langsung dan fleksibel.
+
+### Menambahkan Custom Components
+
+Di Tailwind versi sebelumnya, kita bisa membuat komponen custom menggunakan `addComponents()` di dalam plugin. Tapi di Tailwind CSS v4, semuanya jadi lebih simpel. Kita cukup menggunakan directive `@layer components` langsung di file CSS.
+
+**Versi v3 (menggunakan `addComponents()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          padding: '.5rem 1rem',
+          borderRadius: '.25rem',
+          fontWeight: '600',
+        },
+      })
+    })
+  ]
+}
+```
+
+**Versi v4 (menggunakan `@layer components`):**
+
+```css
+@layer components {
+  .btn {
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    font-weight: 600;
+  }
+}
+```
+
+Dengan pendekatan ini, kita nggak perlu lagi bikin plugin untuk menambahkan komponen. Cukup tulis langsung di CSS, dan Tailwind akan otomatis menggabungkannya ke output akhir saat proses build.
+
+### Menambahkan Custom Utilities
+
+Di Tailwind versi sebelumnya, kita bisa membuat utility class dengan `addUtilities()` untuk *static utilities* dan `matchUtilities()` untuk yang *dynamic*. Nah, di Tailwind CSS v4, proses ini jadi jauh lebih sederhana dengan adanya directive `@utility` yang bisa langsung digunakan di file CSS.
+
+**Static Utilities Versi v3 (menggunakan `addUtilities()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
+        },
+        '.content-hidden': {
+          'content-visibility': 'hidden',
+        },
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+      })
+    })
+  ]
+}
+```
+
+**Static Utilities Versi v4 (menggunakan `@utility`):**
+
+```css
+@utility content-auto {
+  content-visibility: auto;
+}
+
+@utility content-hidden {
+  content-visibility: hidden;
+}
+
+@utility content-visible {
+  content-visibility: visible;
+}
+```
+
+**Dynamic Utilities Versi v3 (menggunakan `matchUtilities()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  theme: {
+    tabSize: {
+      1: '1',
+      2: '2',
+      4: '4',
+      8: '8',
+    }
+  },
+  plugins: [
+    plugin(function({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          tab: (value) => ({
+            tabSize: value
+          }),
+        },
+        { values: theme('tabSize') }
+      )
+    })
+  ]
+}
+```
+
+**Dynamic Utilities Versi v4 (menggunakan `@theme` dan `@utility`):**
+
+```css
+@theme {
+  --tab-size-1: 1;
+  --tab-size-2: 2;
+  --tab-size-4: 4;
+  --tab-size-8: 8;
+}
+
+@utility tab-* {
+  tab-size: --value(--tab-size-*); 
+}
+```
+
+Tailwind v4 juga memperkenalkan cara baru untuk mendukung **arbitrary values**, misalnya `tab-[80]`, dengan menggunakan fungsi `--value()`. Contohnya:
+
+```css
+@utility tab-* {
+  tab-size: --value([integer]);       /* untuk arbitrary values */
+  tab-size: --value(--tab-size-*);    /* untuk theme values */
+}
+```
+
+Selain arbitrary values, sekarang juga ada **bare values**, yang memungkinkan kita menggunakan nilai langsung seperti `tab-80` tanpa tanda kurung kotak. Untuk mendukung ini, kita cukup menambahkan satu baris tambahan:
+
+```css
+@utility tab-* {
+  tab-size: --value([integer]);       /* untuk arbitrary values */
+  tab-size: --value(integer);         /* untuk bare values */
+  tab-size: --value(--tab-size-*);    /* untuk theme values */
+}
+```
+
+Dengan konfigurasi seperti ini, kita bisa menggunakan class seperti:
+
+* `tab-1` (theme value)
+* `tab-[50]` (arbitrary value)
+* `tab-100` (bare value)
+
+Jadi, pendekatan baru di v4 ini nggak cuma lebih fleksibel, tapi juga jauh lebih powerful buat bikin utility class custom sesuai kebutuhan kita.
+
+### Menambahkan Custom Variants
+
+Di Tailwind versi sebelumnya, kita bisa membuat custom variant menggunakan fungsi `addVariant()` di dalam plugin. Nah, di Tailwind CSS v4, hal yang sama bisa dilakukan dengan cara yang jauh lebih simpel: cukup pakai directive `@custom-variant` langsung di CSS.
+
+**Versi v3 (menggunakan `addVariant()`):**
+
+```js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('optional', '&:optional')
+      addVariant('hocus', ['&:hover', '&:focus'])
+      addVariant('inverted-colors', '@media (inverted-colors: inverted)')
+    })
+  ]
+}
+```
+
+**Versi v4 (menggunakan `@custom-variant`):**
+
+```css
+@custom-variant optional (&:optional);
+@custom-variant hocus (&:hover, &:focus);
+@custom-variant inverted-colors (@media (inverted-colors: inverted));
+```
+
+Gampang banget, kan? Kita bisa langsung definisikan variant yang kita butuhkan dengan sintaks yang lebih ringkas dan intuitif.
+
+## Wrapping Up
+
+Gimana? Tailwind CSS versi 4 benar-benar membawa angin segar, kan. Semua hal yang sebelumnya harus kita definisikan lewat JavaScript — entah itu plugin, utilities, components, sampai variants — sekarang bisa langsung kita tulis di dalam file CSS.
+
+Gak perlu lagi bikin atau otak-atik `tailwind.config.js`, gak perlu setup plugin manual, dan gak perlu mikirin helper function JS. Semua bisa dilakukan dengan pendekatan *CSS-first* yang jauh lebih sederhana, clean, dan tetap powerful.
+
+Bahkan fitur-fitur seperti custom utilities, dynamic values, sampai custom variants sekarang bisa dibuat dengan sintaks baru yang intuitif dan lebih mudah dipahami. Hasil akhirnya? Sama seperti sebelumnya, atau bahkan lebih fleksibel karena kita langsung pegang kendali penuh lewat CSS.
+
+Kalau kamu sebelumnya merasa bikin plugin Tailwind itu ribet, di versi 4 ini semuanya jadi lebih menyenangkan. Tinggal tulis, build, dan langsung pakai. 
+
+Terimakasih sudah membaca!!
+
+**Referensi**
+* https://tailwindcss.com/blog/tailwindcss-v4-alpha
+* https://tailwindcss.com/blog/tailwindcss-v4
+* https://tailwindcss.com/docs/adding-custom-styles
+* https://v3.tailwindcss.com/docs/plugin

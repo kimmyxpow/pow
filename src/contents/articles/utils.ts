@@ -74,7 +74,7 @@ export function getArticles(filter?: ArticleFilter): ArticleData[] {
 				!filter?.tags?.length ||
 				filter?.tags.some((tag) => a.tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase()))
 		)
-		.sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime());
+		.sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
 
 	return result;
 }

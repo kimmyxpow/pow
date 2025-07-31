@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { appendParam } from '$lib/url';
 	import Icon from '@iconify/svelte';
+	import { formatDate } from 'date-fns';
 
 	let { articles } = $props();
 </script>
@@ -39,7 +40,9 @@
 						{article.readingTime} min read
 					</span>
 					<span class="size-0.5 rounded-full bg-primary"></span>
-					<span class="text-sm text-zinc-600">28 Sep 2023</span>
+					<time datetime={article.created} class="text-sm text-zinc-600">
+						{formatDate(article.created, 'PP')}
+					</time>
 				</div>
 			</div>
 		</div>
