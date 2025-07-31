@@ -8,4 +8,4 @@
 	});
 </script>
 
-<div class="shj-lang-{lang} overflow-x-auto text-sm">{code}</div>
+<div class="shj-lang-{lang}">{code}</div>
