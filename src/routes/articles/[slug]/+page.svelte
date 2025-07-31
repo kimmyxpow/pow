@@ -98,7 +98,7 @@
 				</a>
 			{/each}
 		</div>
-		<div class="order-1 space-y-8 p-8 md:order-3">
+		<div class="order-1 space-y-8 p-6 md:order-3">
 			<h1 class="text-center text-4xl sm:text-5xl md:text-6xl">{data.article.title}</h1>
 			<p class="text-center text-balance sm:text-lg md:text-xl">
 				{data.article.excerpt}
@@ -140,21 +140,23 @@
 				{/if}
 			</p>
 		</a>
-		<div
-			class="sm:prose-md order-3 mx-auto prose prose-sm max-w-full p-8 prose-zinc sm:px-0 md:order-5 md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
-		>
-			{#await modPromise}
-				<p>Loading Article</p>
-			{:then mod}
-				{@const Content = mod?.default}
-				<Content />
-			{/await}
+		<div class="order-3 max-w-full md:order-5">
+			<div
+				class="sm:prose-md mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+			>
+				{#await modPromise}
+					<p>Loading Article</p>
+				{:then mod}
+					{@const Content = mod?.default}
+					<Content />
+				{/await}
+			</div>
 		</div>
 	</div>
 </article>
 
 <section class="border-b border-zinc-300">
-	<div class="inner space-y-6 border-x border-zinc-300 p-8">
+	<div class="inner space-y-6 border-x border-zinc-300 p-6">
 		<h2 class="text-center text-2xl">Share your thoughts below</h2>
 		<Giscus
 			id="comments"
