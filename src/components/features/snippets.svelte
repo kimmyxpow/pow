@@ -12,6 +12,6 @@
 				{snippet.description}
 			</p>
 		</div>
-		<Highlight lang="ts" code={snippet.code} />
+		<Highlight lang={snippet.language} code={snippet.code} />
 	</div>
 {/each}

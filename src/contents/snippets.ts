@@ -4,12 +4,12 @@ export const snippets = [
 		description:
 			'A utility function to merge Tailwind CSS class names using clsx and tailwind-merge.',
 		code: `import { clsx, type ClassValue } from 'clsx'
-	import { twMerge } from 'tailwind-merge'
+import { twMerge } from 'tailwind-merge'
 
-	export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }`,
-		language: 'typescript'
+		language: 'ts'
 	},
 	{
 		name: 'Prisma Instance',
@@ -28,7 +28,18 @@ export const prisma =
 	});
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;`,
-		language: 'typescript'
+		language: 'ts'
+	},
+	{
+		name: 'Inner Container Utility',
+		description:
+			'A custom Tailwind component for a centered container. I really like this size, it’s my go-to and also used on this website.',
+		code: `@layer components {
+	.inner {
+		@apply mx-auto w-9/10 max-w-272;
+	}
+}`,
+		language: 'css'
 	}
 ];
 
