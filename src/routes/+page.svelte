@@ -87,19 +87,15 @@
 
 		gsap.set(cats, {
 			opacity: 0,
-			y: 100,
-			scale: 0.95,
-			filter: 'blur(0.2rem)'
+			filter: 'blur(1rem)'
 		});
 
 		gsap.to(cats, {
 			opacity: 1,
-			y: 0,
-			scale: 1,
 			duration: 1,
 			delay: 1.8,
 			filter: 'blur(0rem)',
-			ease: 'back.out(1.7)'
+			ease: 'back.out(1.4)'
 		});
 	});
 </script>

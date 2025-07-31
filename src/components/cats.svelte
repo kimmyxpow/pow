@@ -1,5 +1,5 @@
 <svg
-	class="pointer-events-none bottom-0 left-1/2 block lg:absolute lg:-translate-x-1/2"
+	class="pointer-events-none bottom-0 left-1/2 block origin-bottom lg:absolute lg:-translate-x-1/2"
 	width="1087"
 	height="291"
 	data-hero-cats
