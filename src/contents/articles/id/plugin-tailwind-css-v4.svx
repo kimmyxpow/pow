@@ -1,6 +1,6 @@
 ---
-title: "Goodbye tailwind.config.js! Ini Cara Baru Bikin Plugin di Tailwind CSS v4"
-excerpt: "Tailwind CSS v4 menghapus plugin dan tailwind.config.js, tapi tenang — kamu tetap bisa bikin custom style yang powerful langsung dari file CSS."
+title: "Cara Baru Bikin Plugin di Tailwind CSS v4"
+excerpt: "Tailwind CSS v4 menghapus plugin. Tapi tenang, kamu tetap bisa bikin custom style yang powerful langsung dari file CSS."
 en: "tailwind-css-plugin-v4"
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Goodbye tailwind.config.js! Here's the New Way to Build Plugins in Tailwind CSS v4"
-excerpt: "Tailwind CSS v4 removes plugins and the tailwind.config.js file — but don’t worry. You can still create powerful custom styles directly from your CSS with a simpler, more intuitive approach."
+title: "The New Way to Build Plugins in Tailwind CSS v4"
+excerpt: "Tailwind CSS v4 removes plugins, but don’t worry. You can still create powerful custom styles directly from your CSS with a simpler, more intuitive approach."
 id: plugin-tailwind-css-v4
 tags: [beginner guide, tailwind css]
 category: programming
