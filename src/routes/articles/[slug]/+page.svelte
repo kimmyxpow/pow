@@ -141,7 +141,7 @@
 			</p>
 		</a>
 		<div
-			class="sm:prose-md order-3 mx-auto prose prose-sm p-8 prose-zinc sm:px-0 md:order-5 md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+			class="sm:prose-md order-3 mx-auto prose prose-sm max-w-full p-8 prose-zinc sm:px-0 md:order-5 md:prose-lg prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
 		>
 			{#await modPromise}
 				<p>Loading Article</p>
