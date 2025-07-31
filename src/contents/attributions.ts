@@ -77,6 +77,12 @@ export const attributions = [
 				href: 'https://www.freepik.com/free-vector/cat-lover-pattern-background-design_15080931.htm?ref=pow.kim',
 				description:
 					'This adorable cat pattern lives on my homepage. It’s cute, cozy, and totally free.'
+			},
+			{
+				name: 'Unsplash',
+				href: 'https://unsplash.com/?ref=pow.kim',
+				description:
+					'I use this to grab beautiful, free images for my article thumbnails. It never lets me down.'
 			}
 		]
 	}
