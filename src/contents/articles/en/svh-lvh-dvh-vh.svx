@@ -6,7 +6,7 @@ tags: [guide, css]
 category: programming
 created: 2025-08-03
 updated: 2025-08-03
-thumbnail: "/images/articles/plugin-tailwind-css-v4.jpg"
+thumbnail: "/images/articles/svh-lvh-dvh-vh.jpg"
 ---
 
 A little while ago, I noticed some developers still confused about the difference between `vh`, `dvh`, `svh`, and `lvh` in CSS. These units have actually become pretty important lately—especially if you’re working with responsive layouts on mobile.
