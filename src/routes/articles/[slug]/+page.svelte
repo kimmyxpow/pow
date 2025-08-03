@@ -142,7 +142,7 @@
 		</a>
 		<div class="order-3 max-w-full md:order-5">
 			<div
-				class="sm:prose-md mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark"
+				class="sm:prose-md mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-sans prose-headings:font-normal prose-headings:text-dark prose-strong:text-dark prose-img:rounded-xl"
 			>
 				{#await modPromise}
 					<p>Loading Article</p>

@@ -1,0 +1,160 @@
+---
+title: "Stop Using the vh Unit in CSS, Use svh, lvh, and dvh"
+excerpt: "Still using vh in your layout? Here's why svh, lvh, and dvh are better for modern responsive design."
+id: perbedaan-svh-lvh-dvh-vh
+tags: [guide, css]
+category: programming
+created: 2025-08-03
+updated: 2025-08-03
+thumbnail: "/images/articles/plugin-tailwind-css-v4.jpg"
+---
+
+A little while ago, I noticed some developers still confused about the difference between `vh`, `dvh`, `svh`, and `lvh` in CSS. These units have actually become pretty important lately—especially if you’re working with responsive layouts on mobile.
+
+So I thought I’d share a quick breakdown of what each unit does, when to use them, and why using just `100vh` isn’t always enough anymore.
+
+## What Is `vh`, and What’s the Problem?
+
+`vh` stands for **viewport height**. It’s a pretty straightforward unit — `100vh` means 100% of the viewport’s height. So if you set an element to `height: 100vh`, it’s supposed to fill the entire screen height, right?
+
+The problem is, especially on mobile browsers, `100vh` often isn’t accurate. Why? Because the height of the viewport can change depending on whether the browser UI — like the address bar or system navigation — is visible or not. So `100vh` might refer to the height *with* the address bar, *without* it, or something in between — depending on user interaction and context.
+
+This can lead to all kinds of layout issues: content getting cut off, unwanted scrollbars, or weird empty space at the bottom. That’s why, even though `vh` has been around for a long time and is simple to use, it’s no longer reliable enough for handling modern mobile layout edge cases.
+
+## New Units: `svh`, `lvh`, and `dvh`
+
+Now that we’ve seen how `vh` can be unreliable — especially on mobile devices where the system UI (like address bars or navigation bars) can appear or disappear — CSS introduced three new viewport height units to give us more precise control:
+
+* `svh` – **Small Viewport Height**
+* `lvh` – **Large Viewport Height**
+* `dvh` – **Dynamic Viewport Height**
+
+These units were first proposed in the [CSS Values and Units Module Level 4](https://www.w3.org/TR/css-values-4/#viewport-variants) and have been actively discussed since around 2022. The goal is clear: to solve the long-standing issues of `100vh` behaving inconsistently on devices with dynamic viewports — like smartphones, where the browser UI may slide in or out depending on user interaction.
+
+Front-end developers have been running into this problem for years. You set something to `height: 100vh`, and suddenly part of the layout is cut off because the address bar hasn’t fully collapsed — or worse, you end up with awkward empty space when it disappears. That’s because `vh` always measures the “ideal” viewport, not necessarily the “real” one — so your layout may not match what the user actually sees.
+
+To address that, we now have these new units.
+
+### `svh` – Small Viewport Height
+
+`svh` represents the **height of the viewport when the browser UI is visible**, for example, when the address bar is still showing. This is usually the smallest possible viewport height the browser can report.
+
+Use this if you want to make sure your layout fits the **minimum visible space** and won’t get cut off when the page first loads with browser chrome visible.
+
+### `lvh` – Large Viewport Height
+
+The opposite of `svh`, `lvh` reflects the **maximum height** the viewport can have, usually after the address bar disappears when the user scrolls.
+
+This is useful when you want elements to be **truly fullscreen**, with no interruptions from browser UI.
+
+### `dvh` – Dynamic Viewport Height
+
+`dvh` can be thought of as a **dynamic blend of `svh` and `lvh`**. It reflects the **current, real-time height of the viewport**, depending on whether the browser UI is visible or hidden.
+
+It’s incredibly helpful if you want your layout to **respond automatically to UI changes** without relying on JavaScript hacks like `window.innerHeight` or `resize` listeners.
+
+### Visualizing the Difference
+
+To make this clearer, here’s an illustration showing the difference between `svh` and `lvh`:
+
+![Difference between lvh and svh](/images/articles/assets/lvh-svh.webp)
+
+* On the left is `lvh`: the viewport height *after* the address bar collapses.
+* On the right is `svh`: the viewport height *while* the address bar is still visible.
+
+`dvh`, on the other hand, adapts between both states — showing the actual, live viewport height as it changes.
+
+So if you set `height: 100dvh`, your element will adjust as the user scrolls and the browser UI appears or disappears — making your layout feel more responsive and native, especially on mobile.
+
+## When Should You Use `svh`, `lvh`, or `dvh`?
+
+While `dvh` is the most flexible of the three, that doesn’t mean it’s always the best choice. Each unit has its own use case, depending on what you’re building. Here’s a quick guide:
+
+**Use `svh` for Stable Layouts When the Page First Loads**
+
+`svh` is great for elements that need to **fit the viewport precisely when the browser UI is visible** — like the address bar on mobile. It’s especially useful for:
+
+* Hero sections that are visible right away
+* Layouts that require visual stability on first load (onboarding, splash screens)
+* Preventing layout “jumps” when the UI changes
+
+```css
+.hero {
+  height: 100svh;
+}
+```
+
+**Use `lvh` for Truly Fullscreen Experiences**
+
+`lvh` is ideal when you want a layout that takes up the **entire screen**, typically **after** user interaction — like scrolling, which hides the address bar.
+
+Great use cases include:
+
+* Fullscreen modals
+* Video or presentation views
+* App-like layouts that use every available pixel
+
+```css
+.modal {
+  height: 100lvh;
+}
+```
+
+**Use `dvh` for Dynamic, Adaptive Layouts**
+
+If you want your layout to **adjust automatically** to viewport changes — like when the browser UI appears or disappears — `dvh` is your go-to. It’s the closest behavior to what we usually *wish* `100vh` would do.
+
+```css
+.page {
+  height: 100dvh;
+}
+```
+
+### What About Fallbacks?
+
+Since `dvh`, `svh`, and `lvh` are relatively new, it's a good idea to provide fallbacks for browsers that don’t support them yet. A simple and safe approach is to define `vh` first, then override it with a modern unit when available:
+
+```css
+.page {
+  height: 100vh;   /* fallback for older browsers */
+  height: 100dvh;  /* overrides if supported */
+}
+```
+
+If you want to be more explicit, you can use native CSS feature queries with `@supports`:
+
+```css
+@supports (height: 100dvh) {
+  .page {
+    height: 100dvh;
+  }
+}
+@supports not (height: 100dvh) {
+  .page {
+    height: 100vh;
+  }
+}
+```
+
+### So Which One Should You Use?
+
+Here’s a quick summary:
+
+| Unit  | When to use it                                                               |
+| ----- | ---------------------------------------------------------------------------- |
+| `svh` | When the browser UI is **visible**, and you want to avoid layout cutoff      |
+| `lvh` | When the browser UI is **hidden**, and you want a **true fullscreen** layout |
+| `dvh` | When you want the layout to **respond dynamically** to viewport changes      |
+| `vh`  | Still usable as a fallback, but not recommended as the default on mobile     |
+
+## Wrapping Up
+
+The `vh` unit has been around for a long time, but in many real-world cases—especially on mobile—it often leads to inconsistent layouts. That’s exactly why new units like `svh`, `lvh`, and `dvh` were introduced: to give us more accurate control over viewport height.
+
+Think of `dvh` as a dynamic blend of `svh` and `lvh`: it automatically adjusts based on whether the browser UI is visible or not. So if you’ve ever been frustrated by layout jumps caused by mobile address bars, switching to these new units might save you a lot of trouble.
+
+Hope this breakdown helps if you've been confused about their differences!
+
+**References:**
+* [https://www.w3.org/TR/css-values-4/#viewport-variants](https://www.w3.org/TR/css-values-4/#viewport-variants)
+* [https://caniuse.com/viewport-unit-variants](https://caniuse.com/viewport-unit-variants)

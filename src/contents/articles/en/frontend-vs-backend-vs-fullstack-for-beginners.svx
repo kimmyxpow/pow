@@ -2,7 +2,7 @@
 title: "Frontend vs Backend vs Fullstack: A Beginner’s Guide to Web Development"
 excerpt: "Confused about frontend, backend, and fullstack? This beginner-friendly guide explains them clearly."
 id: perbedaan-frontend-backend-dan-fullstack-pemula
-tags: [beginner guide]
+tags: [guide]
 category: programming
 created: 2025-07-28
 updated: 2025-07-31
