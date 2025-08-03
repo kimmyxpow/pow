@@ -54,12 +54,12 @@
 	image="/images/banner.png"
 />
 
-<main class="mt-38 border-y border-zinc-300">
-	<div class="inner border-x border-zinc-300">
-		<div class="grid divide-x divide-zinc-300 lg:grid-cols-2">
+<main class="mt-38 border-y border-border">
+	<div class="inner border-x border-border">
+		<div class="grid divide-x divide-border lg:grid-cols-2">
 			<div class="space-y-6">
 				<div class="flex flex-col gap-6 p-8">
-					<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">
+					<span class="font-handwriting text-xl text-foreground-text sm:text-2xl">
 						Just say hi, if you feel like it
 					</span>
 					<h1 class="text-4xl text-balance md:text-5xl">Leave a little note before you go</h1>
@@ -68,11 +68,11 @@
 						message, a thought, or your favorite emoji 🪴
 					</p>
 				</div>
-				<div class="-mx-px hidden border border-zinc-300 p-8 lg:block" aria-hidden="true">
-					<div class="border border-zinc-300 p-8">
-						<div class="border border-zinc-300 p-8">
-							<div class="border border-zinc-300 p-6">
-								<span class="block text-center text-sm text-zinc-300">
+				<div class="-mx-px hidden border border-border p-8 lg:block" aria-hidden="true">
+					<div class="border border-border p-8">
+						<div class="border border-border p-8">
+							<div class="border border-border p-6">
+								<span class="block text-center text-sm text-border">
 									White space, i still don't know what belongs here
 								</span>
 							</div>
@@ -97,15 +97,15 @@
 										/>
 									</div>
 									<div class="mr-auto flex flex-col space-y-2">
-										<p class="rounded-xl bg-white/60 p-4 text-justify">
+										<p class="rounded-xl bg-background-2/60 p-4 text-justify">
 											{message.guestbook.message}
 										</p>
 										<div class={cn('flex items-center gap-2', isMe && 'justify-end')}>
-											<span class="text-sm text-zinc-600">
+											<span class="text-sm text-foreground-text">
 												{formatDate(message.guestbook.createdAt, 'dd MMM yyyy')}
 											</span>
 											<span class="size-0.5 rounded-full bg-primary"></span>
-											<span class="text-sm text-zinc-600">{message.user.name}</span>
+											<span class="text-sm text-foreground-text">{message.user.name}</span>
 										</div>
 									</div>
 								</div>
@@ -114,14 +114,14 @@
 					</ScrollArea.Viewport>
 					<ScrollArea.Scrollbar
 						orientation="vertical"
-						class="flex w-2.5 touch-none rounded-full border-l border-l-transparent bg-white/60 select-none hover:w-3 data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:animate-in data-[state=visible]:fade-in-0"
+						class="flex w-2.5 touch-none rounded-full border-l border-l-transparent bg-background-2/60 select-none hover:w-3 data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:animate-in data-[state=visible]:fade-in-0"
 					>
-						<ScrollArea.Thumb class="flex-1 rounded-full bg-dark" />
+						<ScrollArea.Thumb class="flex-1 rounded-full bg-foreground-primary" />
 					</ScrollArea.Scrollbar>
 					<ScrollArea.Corner />
 				</ScrollArea.Root>
 				{#if session}
-					<form use:enhance method="POST" class="flex items-center border-t border-zinc-300">
+					<form use:enhance method="POST" class="flex items-center border-t border-border">
 						<input
 							class="h-14 w-full px-8 transition-all outline-none disabled:cursor-not-allowed disabled:bg-white"
 							placeholder="Say hi, share a link, or leave a riddle. Type here..."
@@ -139,7 +139,7 @@
 						</button>
 					</form>
 				{:else}
-					<div class="flex items-center border-t border-zinc-300">
+					<div class="flex items-center border-t border-border">
 						<p class="px-8">Please sign in first to leave a message.</p>
 						<button
 							onclick={() =>
@@ -159,6 +159,6 @@
 	</div>
 </main>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>

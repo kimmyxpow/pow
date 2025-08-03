@@ -46,12 +46,12 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">
+<main class="border-b border-border">
+	<div class="inner border-x border-border px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl">
+			<span class="font-handwriting text-xl text-foreground-text sm:text-2xl">
 				A little context, if you’re curious
 			</span>
 			<h1 class="text-4xl text-balance md:text-5xl">Who I am, and why this site exists</h1>
@@ -59,10 +59,12 @@
 	</div>
 </main>
 
-<section class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
+<section class="border-b border-border">
+	<div class="inner border-x border-border">
 		<div class="flex flex-col items-center sm:flex-row">
-			<div class="prose max-w-none p-8 prose-zinc sm:prose-lg prose-headings:font-normal">
+			<div
+				class="prose max-w-none p-8 prose-zinc sm:prose-lg prose-headings:font-normal zinc:prose-invert black:prose-invert"
+			>
 				<h2>Short Bio</h2>
 				<p>
 					Hey, I’m Pow — short for Abi Noval Fauzi. I’m a self-taught software engineer who got into
@@ -89,12 +91,12 @@
 	</div>
 </section>
 
-<section class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
+<section class="border-b border-border">
+	<div class="inner border-x border-border">
 		<h2 class="p-8 text-center text-3xl">Things I’ve Been Part Of</h2>
 		<div class="-mr-[0.5px] -mb-[0.5px] grid sm:grid-cols-2">
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
 			>
 				<img class="h-10" src="https://www.peepl.tech/images/logo-peepl.png" alt="Peepl Logo" />
 				<h3 class="my-4 text-xl">Full-Stack Developer</h3>
@@ -107,11 +109,11 @@
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">Peepl</span>
-					<span class="text-zinc-600">May 2025 - Present</span>
+					<span class="text-foreground-text">May 2025 - Present</span>
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
 			>
 				<img
 					class="h-10"
@@ -127,11 +129,11 @@
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">Zi.Care</span>
-					<span class="text-zinc-600">Aug 2023 - April 2025</span>
+					<span class="text-foreground-text">Aug 2023 - April 2025</span>
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
 			>
 				<img
 					class="h-10"
@@ -148,11 +150,11 @@
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">PT LSKK</span>
-					<span class="text-zinc-600">Jul 2022 - Dec 2022</span>
+					<span class="text-foreground-text">Jul 2022 - Dec 2022</span>
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/bellshade.png" alt="Bellshade Logo" />
 				<h3 class="my-4 text-xl">Open-Source Maintainer</h3>
@@ -165,11 +167,11 @@
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">Bellshade</span>
-					<span class="text-zinc-600">Oct 2021 - Present</span>
+					<span class="text-foreground-text">Oct 2021 - Present</span>
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-zinc-300 bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/wpu.png" alt="WPU Logo" />
 				<h3 class="my-4 text-xl">Community Manager</h3>
@@ -181,11 +183,11 @@
 				</p>
 				<div class="mt-auto flex w-full items-center justify-between pt-4">
 					<span class="text-dark">WPU Community</span>
-					<span class="text-zinc-600">Oct 2021 - Present</span>
+					<span class="text-foreground-text">Oct 2021 - Present</span>
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-center justify-center border border-zinc-300 bg-beige p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-center justify-center border border-border bg-background p-8"
 			>
 				<span class="text-center text-3xl text-primary"> Another story in progress </span>
 			</div>
@@ -194,10 +196,10 @@
 </section>
 
 {#if data.commits.length > 0}
-	<section class="border-b border-zinc-300">
-		<div class="inner border-x border-zinc-300">
+	<section class="border-b border-border">
+		<div class="inner border-x border-border">
 			<h2 class="p-6 text-center text-3xl">Recently Touched</h2>
-			<div class="relative grid border-y border-zinc-300 p-6">
+			<div class="relative grid border-y border-border p-6">
 				{#each data.commits as commit (commit.sha)}
 					<div class="relative pl-10 not-last:pb-4">
 						<div class="absolute top-6 -bottom-2 left-2.5 w-1 bg-primary"></div>
@@ -205,8 +207,10 @@
 						<div
 							class="mt-1.5 mb-4 flex flex-col-reverse justify-between sm:mb-1 sm:flex-row sm:items-center"
 						>
-							<span class="text-xs break-all text-zinc-600 sm:text-sm">sha: {commit.sha}</span>
-							<span class="text-xs text-zinc-600 sm:text-sm">
+							<span class="text-xs break-all text-foreground-text sm:text-sm"
+								>sha: {commit.sha}</span
+							>
+							<span class="text-xs text-foreground-text sm:text-sm">
 								Changed by: <span class="text-primary">{commit.commit.committer.name}</span>
 							</span>
 						</div>
@@ -221,13 +225,13 @@
 								href={commit.html_url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="flex items-center gap-2 text-zinc-600 transition-all hover:text-dark hover:underline"
+								class="hover:text-dark flex items-center gap-2 text-foreground-text transition-all hover:underline"
 							>
 								See Changes
 								<Icon icon="solar:arrow-right-up-linear" class="size-4" />
 							</a>
 						</div>
-						<span class="mt-4 block text-sm text-zinc-600 sm:mt-1">
+						<span class="mt-4 block text-sm text-foreground-text sm:mt-1">
 							{formatDistance(commit.commit.author.date, new Date(), {
 								addSuffix: true
 							})}
@@ -239,7 +243,7 @@
 				href="https://github.com/kimmyxpow/pow/commits/main"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
+				class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-foreground-text transition-all duration-300 hover:text-white"
 			>
 				<div
 					class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"
@@ -254,6 +258,6 @@
 	</section>
 {/if}
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>

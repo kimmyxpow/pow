@@ -9,6 +9,7 @@
 	import { Toaster } from 'svelte-french-toast';
 	import { page } from '$app/state';
 	import { tick } from 'svelte';
+	import { dev } from '$app/environment';
 
 	let { children } = $props();
 
@@ -22,7 +23,7 @@
 	};
 
 	$effect(() => {
-		if (page.status === 200)
+		if (page.status === 200 && !dev)
 			fetch('/api/visits', {
 				method: 'POST',
 				body: JSON.stringify({
@@ -38,7 +39,7 @@
 	});
 </script>
 
-<div class="fixed top-0 left-0 z-100 h-1 w-full border-b border-zinc-300 bg-transparent">
+<div class="fixed top-0 left-0 z-100 h-1 w-full border-b border-border bg-transparent">
 	<div
 		class="h-full w-0 bg-primary transition-all duration-100 ease-out"
 		style="width: {scroll}%"

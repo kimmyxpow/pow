@@ -120,14 +120,14 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 px-8 py-8 lg:py-28">
+<main class="border-b border-border">
+	<div class="inner border-x border-border px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
-			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl"
-				>Things I needed to write down</span
-			>
+			<span class="font-handwriting text-xl text-foreground-text sm:text-2xl">
+				Things I needed to write down
+			</span>
 			<h1 class="text-4xl text-balance md:text-5xl">
 				Notes, rambles, and things I didn’t want to forget
 			</h1>
@@ -138,11 +138,11 @@
 	</div>
 </main>
 
-<section class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300">
+<section class="border-b border-border">
+	<div class="inner border-x border-border">
 		<div class="flex flex-col gap-4 p-8">
 			{#each filtersList as filter}
-				<span class="text-zinc-600">{filter.title}</span>
+				<span class="text-foreground-text">{filter.title}</span>
 				<div class="flex flex-wrap gap-4">
 					{#each filter.options as option}
 						{@const isChecked = selectedFilters[filter.type].includes(option)}
@@ -157,7 +157,7 @@
 							/>
 							<label
 								for="{filter.type}-{option}"
-								class="inline-flex size-6 items-center justify-center rounded-md border border-zinc-400 transition-all duration-150 ease-in-out peer-checked:border-zinc-800 peer-checked:bg-primary active:scale-[0.98]"
+								class="inline-flex size-6 items-center justify-center rounded-md border border-zinc-400 transition-all duration-150 ease-in-out peer-checked:border-zinc-800 peer-checked:bg-primary active:scale-[0.98] zinc:border-zinc-600 black:border-zinc-600"
 							>
 								{#if isChecked}
 									<Icon icon="lineicons:minus" class="size-4 text-white" />
@@ -165,7 +165,7 @@
 							</label>
 							<label
 								for="{filter.type}-{option}"
-								class="text-zinc-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+								class="text-foreground-text peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 							>
 								{option}
 							</label>
@@ -174,7 +174,9 @@
 				</div>
 			{/each}
 		</div>
-		<div class="group -mb-px flex h-20 flex-1 items-center border-y border-zinc-300 bg-beige px-8">
+		<div
+			class="group -mb-px flex h-20 flex-1 items-center border-y border-border bg-background px-8"
+		>
 			<Icon
 				class="text-xl text-zinc-400 group-focus-within:text-primary"
 				icon="solar:magnifer-linear"
@@ -190,11 +192,11 @@
 				id="search"
 			/>
 		</div>
-		<div class="grid grid-cols-2 divide-x divide-zinc-300">
+		<div class="grid grid-cols-2 divide-x divide-border">
 			<button
 				onclick={() => onSwitchLanguage('en')}
 				class={cn(
-					'p-4 transition-all hover:bg-primary/10',
+					'p-4 text-foreground-text transition-all hover:bg-primary/10',
 					isEnglish && 'bg-primary text-white hover:bg-primary/90'
 				)}
 			>
@@ -203,7 +205,7 @@
 			<button
 				onclick={() => onSwitchLanguage('id')}
 				class={cn(
-					'p-4 transition-all hover:bg-primary/10',
+					'p-4 text-foreground-text transition-all hover:bg-primary/10',
 					!isEnglish && 'bg-primary text-white hover:bg-primary/90'
 				)}
 			>
@@ -216,6 +218,6 @@
 	</div>
 </section>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>

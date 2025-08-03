@@ -28,8 +28,8 @@
 	}
 </script>
 
-<div class="border-b border-zinc-300">
-	<div class="inner flex min-h-dvh flex-col items-center justify-center border-x border-zinc-300">
+<div class="border-b border-border">
+	<div class="inner flex min-h-dvh flex-col items-center justify-center border-x border-border">
 		<h1 class="font-sans text-8xl font-black text-primary">{status}</h1>
 		<h2 class="mt-2 text-3xl font-bold text-zinc-800">{title}</h2>
 		<span class="my-8 max-w-xl text-center text-lg text-balance text-zinc-600">{message}</span>

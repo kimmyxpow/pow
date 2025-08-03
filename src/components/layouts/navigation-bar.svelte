@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { cn } from '$lib/cn';
+	import { currentTheme } from '$lib/writeables';
 	import Icon from '@iconify/svelte';
 	import { Popover } from 'bits-ui';
+	import { Select } from 'bits-ui';
 
 	const notebookLinks = [
 		{
@@ -49,30 +52,46 @@
 	];
 
 	let isOpen = $state(false);
+
+	const themes = [
+		{ value: 'default', label: 'Default', colour: '#f8f6e3' },
+		{ value: 'white', label: 'White', colour: '#fff' },
+		{ value: 'zinc', label: 'Zinc', colour: '#18181b' },
+		{ value: 'black', label: 'Black', colour: '#000' }
+	];
+
+	$currentTheme = page.data.theme;
+	const selectedTheme = $derived(themes.find((theme) => theme.value === $currentTheme)!);
+
+	const handleThemeChange = (v: string) => {
+		$currentTheme = v;
+		document.documentElement.className = v;
+		document.cookie = `theme=${v}; path=/; max-age=31536000; SameSite=Strict; Secure`;
+	};
 </script>
 
-<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-zinc-300 bg-beige lg:block">
+<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-border bg-background lg:block">
 	<nav class="inner flex justify-center py-6">
 		<a
-			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-zinc-600 transition-all hover:text-primary"
+			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-foreground-text transition-all hover:text-primary"
 			href="/"
 		>
-			<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">00</span>Home
+			<span class="mb-0.5 text-xs text-foreground-text" aria-hidden="true">00</span>Home
 		</a>
 		<a
-			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-zinc-600 transition-all hover:text-primary"
+			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-foreground-text transition-all hover:text-primary"
 			href="/projects"
 		>
-			<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">01</span>Projects
+			<span class="mb-0.5 text-xs text-foreground-text" aria-hidden="true">01</span>Projects
 		</a>
 		<Popover.Root>
 			<Popover.Trigger>
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 font-medium text-zinc-600 transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 font-medium text-foreground-text transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
-						<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">02</span>
+						<span class="mb-0.5 text-xs text-foreground-text" aria-hidden="true">02</span>
 						Notebook
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
 					</button>
@@ -80,7 +99,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-2 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-2 w-full max-w-90 border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid">
@@ -90,7 +109,7 @@
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-start gap-4 border-b border-zinc-300 p-4 font-medium transition-all select-none last:border-b-0 hover:bg-white/30 focus-visible:outline-none"
+										class="flex items-start gap-4 border-b border-border p-4 font-medium transition-all select-none last:border-b-0 hover:bg-background-2/30 focus-visible:outline-none"
 									>
 										<div
 											class={`mt-1 grid size-10 shrink-0 place-items-center rounded-lg text-zinc-600 ${link.bg}`}
@@ -98,7 +117,7 @@
 											<Icon class="size-6" icon={link.icon} />
 										</div>
 										<div>
-											<span class="text-dark">{link.title}</span>
+											<span class="text-foreground-primary">{link.title}</span>
 											<p class="text-sm">
 												{link.desc}
 											</p>
@@ -117,26 +136,26 @@
 					<button
 						{...props}
 						aria-label="Toggle Menu"
-						class="flex items-center gap-1 rounded-lg px-2 font-medium text-zinc-600 transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 font-medium text-foreground-text transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
-						<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">03</span>Personal
+						<span class="mb-0.5 text-xs text-foreground-text" aria-hidden="true">03</span>Personal
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
 					</button>
 				{/snippet}
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-4 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-4 w-full max-w-90 border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
-					<div class="grid grid-cols-2 divide-x divide-zinc-300">
+					<div class="grid grid-cols-2 divide-x divide-border">
 						{#each personalLinks as link}
 							<Popover.Close>
 								{#snippet child({ props })}
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-center gap-2 px-6 py-3 font-medium text-zinc-600 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
+										class="flex items-center gap-2 px-6 py-3 font-medium text-foreground-text transition-all select-none hover:bg-background-2/30 focus-visible:outline-none"
 									>
 										{link.emoji}
 										{link.label}
@@ -153,9 +172,9 @@
 				{#snippet child({ props })}
 					<button
 						{...props}
-						class="flex items-center gap-1 rounded-lg px-2 font-medium text-zinc-600 transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
+						class="flex items-center gap-1 rounded-lg px-2 font-medium text-foreground-text transition-all hover:text-primary [&>svg]:transition-all data-[state='open']:[&>svg]:-scale-y-100"
 					>
-						<span class="mb-0.5 text-xs text-zinc-600" aria-hidden="true">04</span>
+						<span class="mb-0.5 text-xs text-foreground-text" aria-hidden="true">04</span>
 						Extras
 						<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
 					</button>
@@ -163,10 +182,10 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-4 w-full max-w-90 border border-zinc-300 bg-beige shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-4 w-full max-w-90 border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
-					<div class="grid divide-y divide-zinc-300">
+					<div class="grid divide-y divide-border">
 						{#each extraLinks as link}
 							<Popover.Close>
 								{#snippet child({ props })}
@@ -174,7 +193,7 @@
 										{...props}
 										href={link.href}
 										{...link.attr}
-										class="flex h-12 items-center gap-2 px-3 font-medium text-zinc-600 transition-all select-none hover:bg-white/30 focus-visible:outline-none"
+										class="flex h-12 items-center gap-2 px-3 font-medium text-foreground-text transition-all select-none hover:bg-background-2/30 focus-visible:outline-none"
 									>
 										<Icon icon={link.icon} class="size-6" />
 										{link.label}
@@ -186,6 +205,51 @@
 				</Popover.Content>
 			</Popover.Portal>
 		</Popover.Root>
+		<Select.Root
+			type="single"
+			value={$currentTheme}
+			onValueChange={handleThemeChange}
+			items={themes}
+		>
+			<Select.Trigger
+				class="flex items-center gap-1 rounded-lg border border-border p-2 text-sm font-medium text-foreground-text"
+				aria-label="Select a theme"
+			>
+				<div
+					class="size-4 rounded-full border border-border"
+					style="background-color: {selectedTheme.colour};"
+				></div>
+				{selectedTheme.label}
+				<Icon icon="solar:alt-arrow-down-linear" class="text-xl" />
+			</Select.Trigger>
+			<Select.Portal>
+				<Select.Content
+					class="z-60 rounded-xl border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					sideOffset={10}
+				>
+					<Select.Viewport class="grid divide-y divide-border">
+						{#each themes as theme, i (i + theme.value)}
+							<Select.Item
+								class="flex items-center gap-2 px-6 py-3 font-medium text-foreground-text transition-all select-none hover:bg-background-2/30 focus-visible:outline-none"
+								value={theme.value}
+								label={theme.label}
+							>
+								{#snippet children({ selected })}
+									<div
+										class="size-4 rounded-full border border-border"
+										style="background-color: {theme.colour};"
+									></div>
+									{theme.label}
+									{#if selected}
+										<Icon icon="tabler:check" class="text-primary" />
+									{/if}
+								{/snippet}
+							</Select.Item>
+						{/each}
+					</Select.Viewport>
+				</Select.Content>
+			</Select.Portal>
+		</Select.Root>
 	</nav>
 </header>
 
@@ -231,7 +295,7 @@
 				</a>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-4 text-4xl text-zinc-600 sm:text-5xl lg:p-8">Notebook</span>
+				<span class="p-4 text-4xl text-foreground-text sm:text-5xl lg:p-8">Notebook</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each notebookLinks as link}
 						<a
@@ -246,7 +310,7 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-4 text-4xl text-zinc-600 sm:text-5xl lg:p-8">Personal</span>
+				<span class="p-4 text-4xl text-foreground-text sm:text-5xl lg:p-8">Personal</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each personalLinks as link}
 						<a
@@ -261,7 +325,7 @@
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 border-b border-zinc-700">
-				<span class="p-4 text-4xl text-zinc-600 sm:text-5xl lg:p-8">Extras</span>
+				<span class="p-4 text-4xl text-foreground-text sm:text-5xl lg:p-8">Extras</span>
 				<div class="flex flex-col border-l border-zinc-700">
 					{#each extraLinks as link}
 						<a

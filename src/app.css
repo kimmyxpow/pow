@@ -3,6 +3,10 @@
 
 @plugin '@tailwindcss/typography';
 
+@custom-variant zinc (&:where(.zinc, .zinc *));
+@custom-variant white (&:where(.white, .white *));
+@custom-variant black (&:where(.black, .black *));
+
 @theme {
 	--font-serif:
 		'Baskervville Variable', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -11,9 +15,44 @@
 		'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-handwriting: 'Handlee', var(--font-serif);
 
-	--color-dark: #4b352a;
-	--color-beige: #f8f6e3;
+	--color-background: var(--background);
+	--color-background-2: var(--background-2);
+	--color-foreground-primary: var(--foreground-primary);
+	--color-foreground-text: var(--foreground-text);
+	--color-border: var(--border);
 	--color-primary: #229799;
+}
+
+:root {
+	--background: #f8f6e3;
+	--background-2: #fff;
+	--foreground-primary: #4b352a;
+	--foreground-text: var(--color-zinc-600);
+	--border: var(--color-zinc-300);
+}
+
+.white {
+	--background: var(--color-white);
+	--background-2: var(--color-zinc-200);
+	--foreground-primary: #4b352a;
+	--foreground-text: var(--color-zinc-600);
+	--border: var(--color-zinc-200);
+}
+
+.zinc {
+	--background: var(--color-zinc-900);
+	--background-2: var(--color-zinc-800);
+	--foreground-primary: var(--color-zinc-300);
+	--foreground-text: var(--color-zinc-400);
+	--border: var(--color-zinc-800);
+}
+
+.black {
+	--background: var(--color-black);
+	--background-2: var(--color-zinc-700);
+	--foreground-primary: var(--color-zinc-300);
+	--foreground-text: var(--color-zinc-400);
+	--border: var(--color-zinc-800);
 }
 
 @layer base {
@@ -27,14 +66,14 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-serif -tracking-wider text-dark;
+		@apply font-serif -tracking-wider text-foreground-primary;
 	}
 
 	p,
 	input,
 	select,
 	textarea {
-		@apply leading-relaxed text-zinc-600;
+		@apply leading-relaxed text-foreground-text;
 	}
 
 	input::placeholder {

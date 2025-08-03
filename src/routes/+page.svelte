@@ -109,13 +109,13 @@
 />
 
 <main
-	class="relative flex flex-col items-center justify-center overflow-hidden overflow-x-hidden border-b border-zinc-200 lg:min-h-screen"
+	class="relative flex flex-col items-center justify-center overflow-hidden overflow-x-hidden border-b border-border lg:min-h-screen"
 >
 	<div class="inner py-8">
 		<div
 			class="mx-auto flex flex-col justify-center gap-6 lg:max-w-2xl lg:items-center lg:text-center"
 		>
-			<span class="font-handwriting text-xl text-zinc-600 sm:text-2xl" data-gsap-hero>
+			<span class="font-handwriting text-xl text-foreground-text sm:text-2xl" data-gsap-hero>
 				Hello, you found me.
 			</span>
 			<h1 class="text-4xl sm:text-5xl lg:text-7xl" data-gsap-hero>
@@ -129,11 +129,11 @@
 			<div class="flex flex-col items-start sm:flex-row sm:items-center sm:gap-8" data-hero-button>
 				<a
 					href="/about"
-					class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-800 px-4 font-semibold text-dark transition-all hover:bg-primary hover:text-white [&_svg]:transition-all hover:[&_svg]:-rotate-35"
+					class="group/button inline-flex h-14 items-center gap-2 rounded-xl border border-zinc-800 px-4 font-semibold text-foreground-primary transition-all hover:bg-primary hover:text-white zinc:border-zinc-700 black:border-zinc-700 [&_svg]:transition-all hover:[&_svg]:-rotate-35"
 				>
 					Get to know me
 					<div
-						class="grid size-8 place-items-center rounded-lg border border-zinc-700 group-hover/button:bg-white group-hover/button:text-dark"
+						class="grid size-8 place-items-center rounded-lg border border-zinc-700 group-hover/button:bg-background group-hover/button:text-foreground-primary"
 					>
 						<Icon icon="solar:arrow-right-outline" class="size-4" />
 					</div>
@@ -144,14 +144,14 @@
 	<Cats />
 </main>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>
 
-<section class="border-b border-zinc-300">
-	<div class="inner flex flex-col items-center border-x border-zinc-300">
+<section class="border-b border-border">
+	<div class="inner flex flex-col items-center border-x border-border">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-600">
+			<span class="block text-center font-handwriting text-xl text-foreground-text">
 				Little Brain Dumps
 			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Things I’ve Written Down</h2>
@@ -161,7 +161,7 @@
 		</div>
 		<a
 			href="/articles"
-			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
+			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-foreground-text transition-all duration-300 hover:text-white"
 		>
 			<div
 				class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"
@@ -175,24 +175,24 @@
 	</div>
 </section>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>
 
-<section class="border-b border-zinc-300">
-	<div class="inner flex flex-col items-center border-x border-zinc-300">
+<section class="border-b border-border">
+	<div class="inner flex flex-col items-center border-x border-border">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-600">
+			<span class="block text-center font-handwriting text-xl text-foreground-text">
 				Things I've Made (and Broke)
 			</span>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Projects I’ve Been Building</h2>
 		</div>
-		<div class="grid divide-x divide-zinc-300 md:grid-cols-2">
+		<div class="grid divide-x divide-border md:grid-cols-2">
 			<Projects {projects} />
 		</div>
 		<a
 			href="/projects"
-			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
+			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-foreground-text transition-all duration-300 hover:text-white"
 		>
 			<div
 				class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"
@@ -206,14 +206,16 @@
 	</div>
 </section>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>
 
-<section class="border-b border-zinc-300">
-	<div class="inner flex flex-col items-center border-x border-zinc-300">
+<section class="border-b border-border">
+	<div class="inner flex flex-col items-center border-x border-border">
 		<div class="w-full p-8">
-			<span class="block text-center font-handwriting text-xl text-zinc-600">Memory Hacks</span>
+			<span class="block text-center font-handwriting text-xl text-foreground-text"
+				>Memory Hacks</span
+			>
 			<h2 class="my-4 text-center text-3xl sm:text-6xl">Tiny Code Things</h2>
 		</div>
 		<div class="w-full">
@@ -221,7 +223,7 @@
 		</div>
 		<a
 			href="/snippets"
-			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-zinc-600 transition-all duration-300 hover:text-white"
+			class="group relative flex w-full items-center justify-between px-6 py-4 text-lg font-semibold text-foreground-text transition-all duration-300 hover:text-white"
 		>
 			<div
 				class="absolute inset-0 -z-10 w-0 bg-primary transition-all duration-300 group-hover:w-full"
@@ -235,6 +237,6 @@
 	</div>
 </section>
 
-<div class="border-b border-zinc-300">
-	<div class="inner border-x border-zinc-300 py-28"></div>
+<div class="border-b border-border">
+	<div class="inner border-x border-border py-28"></div>
 </div>
