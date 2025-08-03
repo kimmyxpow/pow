@@ -144,7 +144,7 @@
 		</a>
 		<div class="order-3 max-w-full md:order-5">
 			<div
-				class="sm:prose-md prose-strong:text-dark mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-sans prose-headings:font-normal prose-headings:text-foreground-primary prose-a:text-foreground-primary prose-a:hover:text-primary prose-strong:text-foreground-primary prose-code:text-foreground-primary prose-li:text-foreground-text prose-thead:border-border prose-tr:border-border prose-td:text-foreground-text prose-img:rounded-xl black:prose-invert"
+				class="sm:prose-md prose-strong:text-dark mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-sans prose-headings:font-normal prose-headings:text-foreground-primary prose-a:text-foreground-primary prose-a:hover:text-primary prose-strong:text-foreground-primary prose-code:text-foreground-primary prose-li:text-foreground-text prose-thead:border-border prose-tr:border-border prose-td:text-foreground-text prose-img:rounded-xl prose-hr:border-border black:prose-invert"
 			>
 				{#await modPromise}
 					<p>Loading Article</p>

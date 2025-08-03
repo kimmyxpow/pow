@@ -4,12 +4,6 @@ excerpt: "Masih pakai vh untuk layout? Ini alasan kenapa svh, lvh, dan dvh lebih
 en: "svh-lvh-dvh-vh"
 ---
 
-Beberapa waktu lalu aku sempat lihat beberapa developer masih kebingungan soal perbedaan antara `vh`, `dvh`, `svh`, dan `lvh` di CSS. Padahal unit-unit ini sekarang cukup penting, terutama kalau kamu sering ngoding layout yang responsif di mobile.
-
-Karena itu, aku mau coba share perbedaan masing-masing, biar lebih jelas kapan sebaiknya pakai yang mana — dan kenapa `100vh` aja sekarang nggak selalu cukup.
-
-## Apa Itu `vh`, dan Apa Masalahnya?
-
 `vh` adalah singkatan dari **viewport height**. Satuannya cukup sederhana — `100vh` berarti 100% dari tinggi viewport. Jadi kalau kamu bikin elemen dengan `height: 100vh`, seharusnya dia setinggi layar, kan?
 
 Masalahnya, terutama di browser mobile, `100vh` ini seringkali nggak akurat. Kenapa? Karena tinggi viewport bisa berubah tergantung apakah address bar atau UI sistem (seperti navigation bar) sedang tampil atau sembunyi. Jadi `100vh` bisa berarti tinggi layar *dengan* address bar, *tanpa* address bar, atau sesuatu di antaranya — tergantung konteks dan interaksi pengguna.
@@ -24,29 +18,7 @@ Setelah tau bahwa `vh` bisa jadi masalah terutama di perangkat mobile karena pen
 * `lvh` – **Large Viewport Height**
 * `dvh` – **Dynamic Viewport Height**
 
-Unit-unit ini pertama kali diusulkan pada [CSS Values and Units Module Level 4](https://www.w3.org/TR/css-values-4/#viewport-variants) dan secara aktif didiskusikan sejak taun 2022. Tujuannya cukup jelas: mengatasi inkonsistensi `100vh` di perangkat dengan viewport dinamis — seperti ponsel, di mana UI browser bisa muncul dan hilang tergantung interaksi pengguna.
-
-Masalah seperti ini sudah sering dikeluhkan developer frontend sejak lama. Misalnya, ketika kita set elemen ke `height: 100vh`, lalu ternyata terpotong karena address bar mobile belum sepenuhnya hilang — atau malah malah jadi terlalu panjang saat address bar tersembunyi. `vh` selalu mengukur dari tinggi viewport *ideal*, bukan *real*, jadi hasil akhirnya sering tidak sesuai harapan.
-
-Nah, dari situ lahirlah solusi berupa unit viewport baru ini.
-
-### `svh` – Small Viewport Height
-
-`svh` mewakili **tinggi viewport saat UI sistem sedang tampil**. Misalnya, saat address bar di browser mobile belum sembunyi. Ini biasanya adalah ukuran viewport paling kecil yang bisa dideteksi oleh browser.
-
-Gunakan ini kalau kamu ingin memastikan layout kamu **tidak melebihi viewport minimum** dan tidak terpotong oleh elemen UI sistem saat halaman pertama kali dibuka.
-
-### `lvh` – Large Viewport Height
-
-Kebalikan dari `svh`, `lvh` merepresentasikan **tinggi maksimal viewport**, biasanya setelah UI sistem seperti address bar otomatis menghilang saat user scroll.
-
-Unit ini berguna kalau kamu mau membuat elemen yang **benar-benar fullscreen** ketika UI sistem tidak lagi mengganggu, misalnya untuk modal fullscreen atau halaman splash.
-
-### `dvh` – Dynamic Viewport Height
-
-Nah, `dvh` ini bisa dibilang **gabungan dinamis dari `svh` dan `lvh`**. Artinya, tinggi yang digunakan akan **menyesuaikan dengan kondisi real-time viewport**: kadang kecil, kadang besar, tergantung apakah UI sistem sedang tampil atau tidak.
-
-`dvh` sangat berguna kalau kamu ingin layout kamu responsif terhadap perubahan UI sistem tanpa harus update ukuran manual pakai JavaScript. Dan iya, unit ini memang dibuat untuk menghindari hack-hack semacam `window.innerHeight` atau `resize` listener hanya demi layout fullscreen yang adaptif.
+Unit-unit ini pertama kali diusulkan pada [CSS Values and Units Module Level 4](https://www.w3.org/TR/css-values-4/#viewport-variants) dan secara aktif didiskusikan sejak taun 2022. Tujuannya cukup jelas: mengatasi inkonsistensi `100vh` di perangkat dengan viewport dinamis seperti ponsel, di mana UI browser bisa muncul dan hilang tergantung interaksi pengguna.
 
 ### Ilustrasi Perbedaannya
 
@@ -61,80 +33,6 @@ Supaya lebih mudah dipahami, ini contoh visual dari perbedaan antara `svh` dan `
 
 Kalau kamu set `height: 100dvh`, maka tinggi elemen akan ikut berubah ketika user scroll dan UI sistem muncul atau menghilang. Ini bikin layout terasa lebih adaptif, terutama di mobile.
 
-## Kapan Sebaiknya Menggunakan `svh`, `lvh`, atau `dvh`?
-
-Walaupun `dvh` paling fleksibel, bukan berarti itu selalu pilihan terbaik. Masing-masing unit punya konteks penggunaannya sendiri. Berikut panduannya:
-
-**Gunakan `svh` untuk Layout yang Stabil Saat Halaman Pertama Dibuka**
-
-`svh` cocok dipakai untuk elemen-elemen yang harus **fit secara sempurna ke viewport saat UI sistem (seperti address bar) masih tampil**. Ini penting untuk:
-
-* Hero section yang langsung tampil begitu halaman dibuka
-* Layout yang butuh kestabilan tinggi di awal (misalnya onboarding atau intro)
-* Supaya konten nggak “loncat” ketika UI sistem berubah
-
-```css
-.hero {
-  height: 100svh;
-}
-```
-
-**Gunakan `lvh` Saat Kamu Mau Layout Benar-Benar Fullscreen**
-
-`lvh` ideal untuk pengalaman fullscreen yang muncul **setelah interaksi pengguna**, biasanya setelah scroll ke bawah dan address bar menghilang.
-
-Contohnya:
-
-* Modal fullscreen
-* Halaman video atau presentasi
-* App-style layout yang ingin menggunakan seluruh layar
-
-```css
-.modal {
-  height: 100lvh;
-}
-```
-
-**Gunakan `dvh` untuk Layout yang Adaptif**
-
-Kalau kamu ingin layout yang otomatis menyesuaikan **tinggi viewport secara real-time**, `dvh` bisa jadi pilihan default-mu. Ini solusi “auto mode” yang paling masuk akal, dan paling dekat dengan yang sering kita inginkan saat pakai `100vh`.
-
-```css
-.page {
-  height: 100dvh;
-}
-```
-
-### Bagaimana dengan Fallback?
-
-Karena unit seperti `dvh`, `svh`, dan `lvh` masih relatif baru, penting juga buat tetap jaga kompatibilitas untuk browser lama yang belum mendukung. Salah satu cara paling aman adalah **menulis fallback `vh` terlebih dahulu**, lalu menimpa nilainya dengan unit baru jika tersedia.
-
-Contoh paling simpel:
-
-```css
-.page {
-  height: 100vh;   /* fallback untuk browser lama */
-  height: 100dvh;  /* akan override jika browser mendukung */
-}
-```
-
-Kalau kamu ingin lebih eksplisit dan memastikan hanya browser yang mendukung `dvh` yang menggunakan nilai itu, kamu bisa manfaatkan fitur native CSS `@supports`, alias **CSS Feature Queries**:
-
-```css
-@supports (height: 100dvh) {
-  .page {
-    height: 100dvh;
-  }
-}
-@supports not (height: 100dvh) {
-  .page {
-    height: 100vh;
-  }
-}
-```
-
-### Jadi Sebaiknya Gunakan yang Mana?
-
 Singkatnya:
 
 | Unit  | Kapan digunakan                                                                     |
@@ -144,13 +42,11 @@ Singkatnya:
 | `dvh` | Saat ingin layout yang **menyesuaikan kondisi viewport secara dinamis**             |
 | `vh`  | Masih bisa digunakan sebagai fallback, tapi sebaiknya tidak jadi default di mobile  |
 
-## Wrapping Up
+---
 
-Unit `vh` memang sudah lama kita pakai, tapi di banyak kasus—terutama di mobile—dia sering bikin layout jadi nggak konsisten. Makanya, unit baru seperti `svh`, `lvh`, dan `dvh` hadir sebagai solusi yang lebih akurat.
+That’s all, coba langsung praktik kalau masih bingung :D
 
-Dvh bisa dibilang gabungan dari svh dan lvh: dia otomatis menyesuaikan tinggi viewport, baik saat UI tampil penuh atau tidak. Jadi, kalau kamu masih sering frustrasi dengan layout yang “loncat” karena address bar mobile, coba pakai unit baru ini.
-
-Semoga penjelasan ini membantu buat yang masih bingung bedanya!
+Terimakasih sudah membaca! ^_^
 
 **References:**
 * [https://www.w3.org/TR/css-values-4/#viewport-variants](https://www.w3.org/TR/css-values-4/#viewport-variants)
