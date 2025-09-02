@@ -54,9 +54,9 @@
 	image="/images/banner.png"
 />
 
-<main class="mt-38 border-y border-border">
-	<div class="inner border-x border-border">
-		<div class="grid divide-x divide-border lg:grid-cols-2">
+<main class="mt-38 border-y border-separator">
+	<div class="inner border-x border-separator">
+		<div class="grid divide-x divide-separator lg:grid-cols-2">
 			<div class="space-y-6">
 				<div class="flex flex-col gap-6 p-8">
 					<span class="font-handwriting text-xl text-foreground-text sm:text-2xl">
@@ -68,11 +68,11 @@
 						message, a thought, or your favorite emoji 🪴
 					</p>
 				</div>
-				<div class="-mx-px hidden border border-border p-8 lg:block" aria-hidden="true">
-					<div class="border border-border p-8">
-						<div class="border border-border p-8">
-							<div class="border border-border p-6">
-								<span class="block text-center text-sm text-border">
+				<div class="-mx-px hidden border border-separator p-8 lg:block" aria-hidden="true">
+					<div class="border border-separator p-8">
+						<div class="border border-separator p-8">
+							<div class="border border-separator p-6">
+								<span class="block text-center text-sm text-separator">
 									White space, i still don't know what belongs here
 								</span>
 							</div>
@@ -121,7 +121,7 @@
 					<ScrollArea.Corner />
 				</ScrollArea.Root>
 				{#if session}
-					<form use:enhance method="POST" class="flex items-center border-t border-border">
+					<form use:enhance method="POST" class="flex items-center border-t border-separator">
 						<input
 							class="h-14 w-full px-8 transition-all outline-none disabled:cursor-not-allowed disabled:bg-white"
 							placeholder="Say hi, share a link, or leave a riddle. Type here..."
@@ -139,7 +139,7 @@
 						</button>
 					</form>
 				{:else}
-					<div class="flex items-center border-t border-border">
+					<div class="flex items-center border-t border-separator">
 						<p class="px-8">Please sign in first to leave a message.</p>
 						<button
 							onclick={() =>
@@ -159,6 +159,6 @@
 	</div>
 </main>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

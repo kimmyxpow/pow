@@ -61,8 +61,8 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-border">
-	<div class="inner border-x border-border px-8 py-8 lg:py-28">
+<main class="border-b border-separator">
+	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -77,10 +77,10 @@
 	</div>
 </main>
 
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<div
-			class="group -my-px flex h-20 flex-1 items-center border-y border-border bg-background px-8"
+			class="group -my-px flex h-20 flex-1 items-center border-y border-separator bg-background px-8"
 		>
 			<Icon
 				class="text-xl text-zinc-400 group-focus-within:text-primary"
@@ -101,6 +101,6 @@
 	</div>
 </section>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

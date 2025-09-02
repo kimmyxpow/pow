@@ -7,7 +7,7 @@
 
 {#each articles as article}
 	<div
-		class="-my-[0.5px] flex flex-col-reverse items-center overflow-hidden border-y border-r border-border bg-background lg:flex-row"
+		class="-my-[0.5px] flex flex-col-reverse items-center overflow-hidden border-y border-r border-separator bg-background lg:flex-row"
 	>
 		<div class="space-y-4 p-6">
 			<div class="flex flex-wrap items-center justify-between gap-2">

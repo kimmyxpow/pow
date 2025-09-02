@@ -39,7 +39,7 @@
 	});
 </script>
 
-<div class="fixed top-0 left-0 z-100 h-1 w-full border-b border-border bg-transparent">
+<div class="fixed top-0 left-0 z-100 h-1 w-full border-b border-separator bg-transparent">
 	<div
 		class="h-full w-0 bg-primary transition-all duration-100 ease-out"
 		style="width: {scroll}%"

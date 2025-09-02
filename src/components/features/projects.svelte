@@ -5,7 +5,9 @@
 </script>
 
 {#each projects as project}
-	<div class="group -mx-[0.5px] -mb-px flex flex-col space-y-4 border border-border bg-background">
+	<div
+		class="group -mx-[0.5px] -mb-px flex flex-col space-y-4 border border-separator bg-background"
+	>
 		<div class="aspect-video overflow-hidden">
 			<img
 				class="size-full object-cover transition-all group-hover:scale-115 group-hover:rotate-4"
@@ -39,13 +41,13 @@
 					{project.description}
 				</p>
 			</div>
-			<div class="mt-auto grid grid-cols-2 divide-x divide-border border-t border-border">
+			<div class="mt-auto grid grid-cols-2 divide-x divide-separator border-t border-separator">
 				{#if project.github}
 					<a
 						href={project.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="group/link relative px-8 py-4 text-center text-foreground-text transition-all duration-300 hover:text-white"
+						class="group/link relative px-8 py-4 text-center text-foreground-text transition-all duration-300 hover:text-foreground-button"
 						aria-label="GitHub link for {project.name} project"
 					>
 						<div
@@ -59,7 +61,7 @@
 						href={project.url}
 						rel="noopener noreferrer"
 						target="_blank"
-						class="group/link relative px-8 py-4 text-center text-foreground-text transition-all duration-300 hover:text-white"
+						class="group/link relative px-8 py-4 text-center text-foreground-text transition-all duration-300 hover:text-foreground-button"
 						aria-label="Demo link for {project.name} project"
 					>
 						<div

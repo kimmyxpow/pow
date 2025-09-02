@@ -97,8 +97,8 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-border">
-	<div class="inner border-x border-border px-8 py-8 lg:py-28">
+<main class="border-b border-separator">
+	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -113,8 +113,8 @@
 		</div>
 	</div>
 </main>
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<div class="flex flex-col gap-4 p-8">
 			{#each filtersList as filter}
 				<span class="text-foreground-text">{filter.title}</span>
@@ -132,10 +132,13 @@
 							/>
 							<label
 								for="{filter.type}-{option}"
-								class="inline-flex size-6 items-center justify-center rounded-md border border-zinc-400 transition-all duration-150 ease-in-out peer-checked:border-zinc-800 peer-checked:bg-primary active:scale-[0.98] zinc:border-zinc-600 black:border-zinc-600"
+								class="inline-flex size-6 items-center justify-center rounded-md border border-border transition-all duration-150 ease-in-out peer-checked:border-zinc-800 peer-checked:bg-primary active:scale-[0.98]"
 							>
 								{#if isChecked}
-									<Icon icon="lineicons:minus" class="size-4 text-white" />
+									<Icon
+										icon="lineicons:minus"
+										class="size-4 {isChecked && 'text-foreground-button'}"
+									/>
 								{/if}
 							</label>
 							<label
@@ -150,7 +153,7 @@
 			{/each}
 		</div>
 		<div
-			class="group -mb-px flex h-20 flex-1 items-center border-y border-border bg-background px-8"
+			class="group -mb-px flex h-20 flex-1 items-center border-y border-separator bg-background px-8"
 		>
 			<Icon
 				class="text-xl text-zinc-400 group-focus-within:text-primary"
@@ -173,6 +176,6 @@
 	</div>
 </section>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

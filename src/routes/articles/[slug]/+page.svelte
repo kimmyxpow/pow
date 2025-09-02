@@ -61,35 +61,35 @@
 	/>
 </div>
 
-<article class="border-b border-border">
-	<div class="inner flex flex-col border-x border-border">
+<article class="border-b border-separator">
+	<div class="inner flex flex-col border-x border-separator">
 		<div class="order-4 grid w-full sm:grid-cols-2 md:order-1 md:grid-cols-4 md:divide-y-0">
 			<div
-				class="-m-px flex items-center justify-center gap-1 border border-border bg-background p-4 text-sm text-foreground-text"
+				class="-m-px flex items-center justify-center gap-1 border border-separator bg-background p-4 text-sm text-foreground-text"
 			>
 				Published at
 				{formatDate(data.article.created, 'dd MMM yyyy')}
 			</div>
 			<div
-				class="-m-px flex items-center justify-center gap-1 border border-border bg-background p-4 text-sm text-foreground-text"
+				class="-m-px flex items-center justify-center gap-1 border border-separator bg-background p-4 text-sm text-foreground-text"
 			>
 				Updated at
 				{formatDate(data.article.updated, 'dd MMM yyyy')}
 			</div>
 			<div
-				class="-m-px flex items-center justify-center gap-1 border border-border bg-background p-4 text-sm text-foreground-text"
+				class="-m-px flex items-center justify-center gap-1 border border-separator bg-background p-4 text-sm text-foreground-text"
 			>
 				{data.article.readingTime} min read
 			</div>
 			<a
 				href="/articles?categories={data.article.category}"
-				class="-m-px flex items-center justify-center gap-1 border border-border bg-background p-4 text-sm text-foreground-text hover:text-primary"
+				class="-m-px flex items-center justify-center gap-1 border border-separator bg-background p-4 text-sm text-foreground-text hover:text-primary"
 			>
 				{data.article.category}
 			</a>
 		</div>
 		<div
-			class="order-4 -mb-px flex w-full flex-wrap justify-center gap-4 border-b border-border p-4 md:order-2"
+			class="order-4 -mb-px flex w-full flex-wrap justify-center gap-4 border-b border-separator p-4 md:order-2"
 		>
 			{#each data.article.tags as tag}
 				<a
@@ -121,7 +121,7 @@
 		</div>
 		<a
 			href="/articles/{isEnglish ? data.article.id : data.article.en}"
-			class="group relative order-2 border-y border-border text-sm font-semibold transition-all hover:bg-white/60 sm:text-base md:order-4 lg:hover:bg-transparent"
+			class="group relative order-2 border-y border-separator text-sm font-semibold transition-all hover:bg-white/60 sm:text-base md:order-4 lg:hover:bg-transparent"
 		>
 			<div
 				class="absolute inset-0 hidden w-0 items-center justify-center overflow-hidden bg-primary whitespace-nowrap text-white transition-all duration-300 group-hover:w-full lg:flex"
@@ -144,7 +144,7 @@
 		</a>
 		<div class="order-3 max-w-full md:order-5">
 			<div
-				class="sm:prose-md prose-strong:text-dark mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-sans prose-headings:font-normal prose-headings:text-foreground-primary prose-a:text-foreground-primary prose-a:hover:text-primary prose-strong:text-foreground-primary prose-code:text-foreground-primary prose-li:text-foreground-text prose-thead:border-border prose-tr:border-border prose-td:text-foreground-text prose-img:rounded-xl prose-hr:border-border black:prose-invert"
+				class="sm:prose-md prose-strong:text-dark mx-auto prose prose-sm p-6 prose-zinc md:prose-lg lg:px-0 prose-headings:font-sans prose-headings:font-normal prose-headings:text-foreground-primary prose-a:text-foreground-primary prose-a:hover:text-primary prose-strong:text-foreground-primary prose-code:text-foreground-primary prose-li:text-foreground-text prose-thead:border-separator prose-tr:border-separator prose-td:text-foreground-text prose-img:rounded-xl prose-hr:border-separator black:prose-invert"
 			>
 				{#await modPromise}
 					<p>Loading Article</p>
@@ -157,8 +157,8 @@
 	</div>
 </article>
 
-<section class="border-b border-border">
-	<div class="inner space-y-6 border-x border-border p-6">
+<section class="border-b border-separator">
+	<div class="inner space-y-6 border-x border-separator p-6">
 		<h2 class="text-center text-2xl">Share your thoughts below</h2>
 		{#key isBlackTheme}
 			<Giscus
@@ -181,6 +181,6 @@
 	</div>
 </section>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

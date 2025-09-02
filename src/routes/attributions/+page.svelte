@@ -33,8 +33,8 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-border">
-	<div class="inner border-x border-border px-8 py-8 lg:py-28">
+<main class="border-b border-separator">
+	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -47,8 +47,8 @@
 	</div>
 </main>
 
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<div class="p-8">
 			{#each attributions as attribution}
 				<h2 class="text-2xl">{attribution.title}</h2>
@@ -72,6 +72,6 @@
 	</div>
 </section>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

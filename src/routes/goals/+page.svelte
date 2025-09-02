@@ -34,8 +34,8 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-border">
-	<div class="inner border-x border-border px-8 py-8 lg:py-28">
+<main class="border-b border-separator">
+	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -49,28 +49,28 @@
 	</div>
 </main>
 
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<div class="flex w-full items-center justify-between px-8 py-4">
 			<span class="text-foreground-text">Overall Progress</span>
 			<span class="text-sm font-semibold text-foreground-text">
 				{progress.done}/{progress.total} ({progress.percentage}%)
 			</span>
 		</div>
-		<div class="h-4 w-full overflow-hidden border-t border-border bg-background-2/30">
+		<div class="h-4 w-full overflow-hidden border-t border-separator bg-background-2/30">
 			<div class="h-full bg-primary" style="width: {progress.percentage}%;"></div>
 		</div>
 	</div>
 </section>
 
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<div class="grid md:grid-cols-2">
 			{#each goals as goal}
-				<div class="-m-px flex h-12 items-center gap-2 border border-border bg-background">
+				<div class="-m-px flex h-12 items-center gap-2 border border-separator bg-background">
 					<div
 						class={cn(
-							'grid aspect-square h-full shrink-0 place-items-center border-r border-border text-foreground-text',
+							'grid aspect-square h-full shrink-0 place-items-center border-r border-separator text-foreground-text',
 							goal.achieved && 'bg-emerald-600 text-white'
 						)}
 					>
@@ -83,6 +83,6 @@
 	</div>
 </section>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

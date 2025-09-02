@@ -46,8 +46,8 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-border">
-	<div class="inner border-x border-border px-8 py-8 lg:py-28">
+<main class="border-b border-separator">
+	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -59,8 +59,8 @@
 	</div>
 </main>
 
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<div class="flex flex-col items-center sm:flex-row">
 			<div
 				class="prose max-w-none p-8 prose-zinc sm:prose-lg prose-headings:font-normal zinc:prose-invert black:prose-invert"
@@ -91,12 +91,12 @@
 	</div>
 </section>
 
-<section class="border-b border-border">
-	<div class="inner border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner border-x border-separator">
 		<h2 class="p-8 text-center text-3xl">Things I’ve Been Part Of</h2>
 		<div class="-mr-[0.5px] -mb-[0.5px] grid sm:grid-cols-2">
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
 				<img class="h-10" src="https://www.peepl.tech/images/logo-peepl.png" alt="Peepl Logo" />
 				<h3 class="my-4 text-xl">Full-Stack Developer</h3>
@@ -113,7 +113,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
 				<img
 					class="h-10"
@@ -133,7 +133,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
 				<img
 					class="h-10"
@@ -154,7 +154,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/bellshade.png" alt="Bellshade Logo" />
 				<h3 class="my-4 text-xl">Open-Source Maintainer</h3>
@@ -171,7 +171,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-border bg-background p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
 				<img class="h-10" src="https://pow.kim/brand/wpu.png" alt="WPU Logo" />
 				<h3 class="my-4 text-xl">Community Manager</h3>
@@ -187,7 +187,7 @@
 				</div>
 			</div>
 			<div
-				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-center justify-center border border-border bg-background p-8"
+				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-center justify-center border border-separator bg-background p-8"
 			>
 				<span class="text-center text-3xl text-primary"> Another story in progress </span>
 			</div>
@@ -196,10 +196,10 @@
 </section>
 
 {#if data.commits.length > 0}
-	<section class="border-b border-border">
-		<div class="inner border-x border-border">
+	<section class="border-b border-separator">
+		<div class="inner border-x border-separator">
 			<h2 class="p-6 text-center text-3xl">Recently Touched</h2>
-			<div class="relative grid border-y border-border p-6">
+			<div class="relative grid border-y border-separator p-6">
 				{#each data.commits as commit (commit.sha)}
 					<div class="relative pl-10 not-last:pb-4">
 						<div class="absolute top-6 -bottom-2 left-2.5 w-1 bg-primary"></div>
@@ -258,6 +258,6 @@
 	</section>
 {/if}
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

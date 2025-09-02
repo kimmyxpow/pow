@@ -5,7 +5,7 @@
 </script>
 
 {#each snippets as snippet}
-	<div class="flex flex-col border-y border-border last:border-b-0">
+	<div class="flex flex-col border-b border-separator first:border-t">
 		<div class="space-y-2 p-8">
 			<h3 class="text-4xl">{snippet.name}</h3>
 			<p class="text-lg">

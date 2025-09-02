@@ -3,7 +3,7 @@
 	import { cn } from '$lib/cn';
 	import { currentTheme } from '$lib/writeables';
 	import Icon from '@iconify/svelte';
-	import { Popover } from 'bits-ui';
+	import { Dialog, Popover } from 'bits-ui';
 	import { Select } from 'bits-ui';
 
 	const notebookLinks = [
@@ -57,7 +57,8 @@
 		{ value: 'default', label: 'Default', colour: '#f8f6e3' },
 		{ value: 'white', label: 'White', colour: '#fff' },
 		{ value: 'zinc', label: 'Zinc', colour: '#18181b' },
-		{ value: 'black', label: 'Black', colour: '#000' }
+		{ value: 'black', label: 'Black', colour: '#000' },
+		{ value: 'pray-for-indonesia', label: '#ResetIndonesia', colour: '#FF2DD1' }
 	];
 
 	$currentTheme = page.data.theme;
@@ -70,7 +71,33 @@
 	};
 </script>
 
-<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-border bg-background lg:block">
+<header class="fixed inset-x-0 top-0 z-50 hidden border-b border-separator bg-background lg:block">
+	<Dialog.Root>
+		<Dialog.Trigger
+			class="mt-1 block w-full bg-teal-600 py-2 text-center text-sm text-white transition-all hover:bg-teal-700"
+		>
+			What’s happening in Indonesia? <span class="font-bold">#ResetIndonesia</span>
+		</Dialog.Trigger>
+		<Dialog.Portal>
+			<Dialog.Overlay
+				class="fixed inset-0 z-50 bg-black/50 backdrop-blur-md data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
+			/>
+			<Dialog.Content
+				class="fixed top-1/2 left-1/2 z-50 w-full max-w-md -translate-1/2 overflow-hidden rounded-xl shadow-2xl shadow-black/10 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+			>
+				<Dialog.Title class="bg-teal-600 px-8 py-6 text-2xl font-bold text-white">
+					What’s happening in Indonesia?
+				</Dialog.Title>
+				<Dialog.Description class="bg-pink-500 p-8 text-pink-100">
+					There are things going on in Indonesia that I can’t openly talk about here. If I did, I
+					could be silenced or threatened, my personal information might be exposed, I could be
+					branded a criminal, and even worse things could follow. Please look for trustworthy
+					information from neutral media sources to understand what’s happening in Indonesia.
+					#ResetIndonesia.
+				</Dialog.Description>
+			</Dialog.Content>
+		</Dialog.Portal>
+	</Dialog.Root>
 	<nav class="inner flex justify-center py-6">
 		<a
 			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-foreground-text transition-all hover:text-primary"
@@ -99,7 +126,7 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-2 w-full max-w-90 border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-2 w-full max-w-90 border border-separator bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
 					<div class="grid">
@@ -109,7 +136,7 @@
 									<a
 										{...props}
 										href={link.href}
-										class="flex items-start gap-4 border-b border-border p-4 font-medium transition-all select-none last:border-b-0 hover:bg-background-2/30 focus-visible:outline-none"
+										class="flex items-start gap-4 border-b border-separator p-4 font-medium transition-all select-none last:border-b-0 hover:bg-background-2/30 focus-visible:outline-none"
 									>
 										<div
 											class={`mt-1 grid size-10 shrink-0 place-items-center rounded-lg text-zinc-600 ${link.bg}`}
@@ -145,10 +172,10 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-4 w-full max-w-90 border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-4 w-full max-w-90 border border-separator bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
-					<div class="grid grid-cols-2 divide-x divide-border">
+					<div class="grid grid-cols-2 divide-x divide-separator">
 						{#each personalLinks as link}
 							<Popover.Close>
 								{#snippet child({ props })}
@@ -182,10 +209,10 @@
 			</Popover.Trigger>
 			<Popover.Portal>
 				<Popover.Content
-					class="z-30 mt-4 w-full max-w-90 border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-30 mt-4 w-full max-w-90 border border-separator bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={8}
 				>
-					<div class="grid divide-y divide-border">
+					<div class="grid divide-y divide-separator">
 						{#each extraLinks as link}
 							<Popover.Close>
 								{#snippet child({ props })}
@@ -212,11 +239,11 @@
 			items={themes}
 		>
 			<Select.Trigger
-				class="flex items-center gap-1 rounded-lg border border-border p-2 text-sm font-medium text-foreground-text"
+				class="flex items-center gap-1 rounded-lg border border-separator p-2 text-sm font-medium text-foreground-text"
 				aria-label="Select a theme"
 			>
 				<div
-					class="size-4 rounded-full border border-border"
+					class="size-4 rounded-full border border-separator"
 					style="background-color: {selectedTheme.colour};"
 				></div>
 				{selectedTheme.label}
@@ -224,10 +251,10 @@
 			</Select.Trigger>
 			<Select.Portal>
 				<Select.Content
-					class="z-60 rounded-xl border border-border bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+					class="z-60 rounded-xl border border-separator bg-background shadow-2xl shadow-black/10 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
 					sideOffset={10}
 				>
-					<Select.Viewport class="grid divide-y divide-border">
+					<Select.Viewport class="grid divide-y divide-separator">
 						{#each themes as theme, i (i + theme.value)}
 							<Select.Item
 								class="flex items-center gap-2 px-6 py-3 font-medium text-foreground-text transition-all select-none hover:bg-background-2/30 focus-visible:outline-none"
@@ -236,7 +263,7 @@
 							>
 								{#snippet children({ selected })}
 									<div
-										class="size-4 rounded-full border border-border"
+										class="size-4 rounded-full border border-separator"
 										style="background-color: {theme.colour};"
 									></div>
 									{theme.label}

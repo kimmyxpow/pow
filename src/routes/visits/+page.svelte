@@ -28,8 +28,8 @@
 	image="/images/banner.png"
 />
 
-<main class="border-b border-border">
-	<div class="inner border-x border-border px-8 py-8 lg:py-28">
+<main class="border-b border-separator">
+	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>
@@ -41,24 +41,24 @@
 	</div>
 </main>
 
-<section class="border-b border-border">
-	<div class="inner -mb-px border-x border-border">
+<section class="border-b border-separator">
+	<div class="inner -mb-px border-x border-separator">
 		<table class="w-full table-auto">
 			<thead>
 				<tr>
-					<th class="border-r border-b border-border px-8 py-4 font-semibold text-zinc-600">
+					<th class="border-r border-b border-separator px-8 py-4 font-semibold text-zinc-600">
 						Route
 					</th>
-					<th class="border-b border-border px-8 py-4 font-semibold text-zinc-600">Visits</th>
+					<th class="border-b border-separator px-8 py-4 font-semibold text-zinc-600">Visits</th>
 				</tr>
 			</thead>
 			<tbody>
 				{#each data.visits as visit}
 					<tr>
-						<td class="border-r border-b border-border px-8 py-4 text-zinc-600">
+						<td class="border-r border-b border-separator px-8 py-4 text-zinc-600">
 							<a class="break-all hover:underline" href={visit.route}>{visit.route}</a>
 						</td>
-						<td class="border-b border-border px-8 py-4 text-center text-zinc-600">
+						<td class="border-b border-separator px-8 py-4 text-center text-zinc-600">
 							{visit.count}
 						</td>
 					</tr>
@@ -68,6 +68,6 @@
 	</div>
 </section>
 
-<div class="border-b border-border">
-	<div class="inner border-x border-border py-28"></div>
+<div class="border-b border-separator">
+	<div class="inner border-x border-separator py-28"></div>
 </div>

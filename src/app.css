@@ -6,6 +6,7 @@
 @custom-variant zinc (&:where(.zinc, .zinc *));
 @custom-variant white (&:where(.white, .white *));
 @custom-variant black (&:where(.black, .black *));
+@custom-variant pray-for-indonesia (&:where(.pray-for-indonesia, .pray-for-indonesia *));
 
 @theme {
 	--font-serif:
@@ -20,7 +21,9 @@
 	--color-foreground-primary: var(--foreground-primary);
 	--color-foreground-text: var(--foreground-text);
 	--color-border: var(--border);
-	--color-primary: #229799;
+	--color-separator: var(--separator);
+	--color-primary: var(--primary);
+	--color-foreground-button: var(--foreground-button);
 }
 
 :root {
@@ -28,7 +31,10 @@
 	--background-2: #fff;
 	--foreground-primary: #4b352a;
 	--foreground-text: var(--color-zinc-600);
-	--border: var(--color-zinc-300);
+	--border: var(--color-zinc-800);
+	--separator: var(--color-zinc-300);
+	--primary: #229799;
+	--foreground-button: var(--color-white);
 }
 
 .white {
@@ -36,7 +42,10 @@
 	--background-2: var(--color-zinc-200);
 	--foreground-primary: #4b352a;
 	--foreground-text: var(--color-zinc-600);
-	--border: var(--color-zinc-200);
+	--border: var(--color-zinc-800);
+	--separator: var(--color-zinc-200);
+	--primary: #229799;
+	--foreground-button: var(--color-white);
 }
 
 .zinc {
@@ -44,7 +53,10 @@
 	--background-2: var(--color-zinc-800);
 	--foreground-primary: var(--color-zinc-300);
 	--foreground-text: var(--color-zinc-400);
-	--border: var(--color-zinc-800);
+	--border: var(--color-zinc-700);
+	--separator: var(--color-zinc-800);
+	--primary: #229799;
+	--foreground-button: var(--color-white);
 }
 
 .black {
@@ -52,7 +64,21 @@
 	--background-2: var(--color-zinc-700);
 	--foreground-primary: var(--color-zinc-300);
 	--foreground-text: var(--color-zinc-400);
-	--border: var(--color-zinc-800);
+	--border: var(--color-zinc-700);
+	--separator: var(--color-zinc-800);
+	--primary: #229799;
+	--foreground-button: var(--color-white);
+}
+
+.pray-for-indonesia {
+	--background: var(--color-teal-100);
+	--background-2: var(--color-teal-200);
+	--foreground-primary: #4b352a;
+	--foreground-text: var(--color-zinc-600);
+	--border: var(--color-teal-800);
+	--separator: var(--color-teal-500);
+	--foreground-button: var(--color-white);
+	--primary: #ff2dd1;
 }
 
 @layer base {
