@@ -9,12 +9,10 @@
 @custom-variant pray-for-indonesia (&:where(.pray-for-indonesia, .pray-for-indonesia *));
 
 @theme {
-	--font-serif:
-		'Baskervville Variable', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 	--font-sans:
-		'Manrope Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Syne Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol', 'Noto Color Emoji';
-	--font-handwriting: 'Handlee', var(--font-serif);
+	--font-handwriting: 'Mynerve', var(--font-serif);
 
 	--color-background: var(--background);
 	--color-background-2: var(--background-2);
@@ -92,7 +90,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-serif -tracking-wider text-foreground-primary;
+		@apply -tracking-wider text-foreground-primary;
 	}
 
 	p,

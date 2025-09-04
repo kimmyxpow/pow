@@ -1,7 +1,6 @@
 <script lang="ts">
-	import '@fontsource-variable/baskervville';
-	import '@fontsource-variable/manrope';
-	import '@fontsource/handlee';
+	import '@fontsource-variable/syne';
+	import '@fontsource/mynerve';
 	import '../app.css';
 
 	import NavigationBar from '$components/layouts/navigation-bar.svelte';
