@@ -72,32 +72,6 @@
 </script>
 
 <header class="fixed inset-x-0 top-0 z-50 hidden border-b border-separator bg-background lg:block">
-	<Dialog.Root>
-		<Dialog.Trigger
-			class="mt-1 block w-full bg-teal-600 py-2 text-center text-sm text-white transition-all hover:bg-teal-700"
-		>
-			What’s happening in Indonesia? <span class="font-bold">#ResetIndonesia</span>
-		</Dialog.Trigger>
-		<Dialog.Portal>
-			<Dialog.Overlay
-				class="fixed inset-0 z-50 bg-black/50 backdrop-blur-md data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
-			/>
-			<Dialog.Content
-				class="fixed top-1/2 left-1/2 z-50 w-full max-w-md -translate-1/2 overflow-hidden rounded-xl shadow-2xl shadow-black/10 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
-			>
-				<Dialog.Title class="bg-teal-600 px-8 py-6 text-2xl font-bold text-white">
-					What’s happening in Indonesia?
-				</Dialog.Title>
-				<Dialog.Description class="bg-pink-500 p-8 text-pink-100">
-					There are things going on in Indonesia that I can’t openly talk about here. If I did, I
-					could be silenced or threatened, my personal information might be exposed, I could be
-					branded a criminal, and even worse things could follow. Please look for trustworthy
-					information from neutral media sources to understand what’s happening in Indonesia.
-					#ResetIndonesia.
-				</Dialog.Description>
-			</Dialog.Content>
-		</Dialog.Portal>
-	</Dialog.Root>
 	<nav class="inner flex justify-center py-6">
 		<a
 			class="flex items-center gap-1 rounded-lg pr-4 pl-2 font-medium text-foreground-text transition-all hover:text-primary"
