@@ -156,7 +156,7 @@
 			<div
 				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
-				<img class="h-10" src="https://pow.kim/brand/bellshade.png" alt="Bellshade Logo" />
+				<img class="h-10 rounded-full" src="/brand/bellshade.jpg" alt="Bellshade Logo" />
 				<h3 class="my-4 text-xl">Open-Source Maintainer</h3>
 				<p>
 					At Bellshade, I created learning resources and website templates to help beginners get
@@ -173,7 +173,7 @@
 			<div
 				class="-mx-[0.5px] -my-[0.5px] flex flex-col items-start border border-separator bg-background p-8"
 			>
-				<img class="h-10" src="https://pow.kim/brand/wpu.png" alt="WPU Logo" />
+				<img class="h-10 rounded-full" src="/brand/wpu.jpg" alt="WPU Logo" />
 				<h3 class="my-4 text-xl">Community Manager</h3>
 				<p>
 					As part of the WPU community, I helped moderate and support over 50,000 developers by
