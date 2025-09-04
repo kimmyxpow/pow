@@ -6,7 +6,7 @@
 	<div class="inner border-x border-separator">
 		<div class="grid grid-cols-2 gap-8 p-8 sm:grid-cols-3 md:grid-cols-6">
 			<div class="col-span-2 flex flex-col gap-2 sm:col-span-3">
-				<span class="font-serif text-2xl text-foreground-primary">Pow</span>
+				<span class="text-2xl text-foreground-primary">Pow</span>
 				<p>Thanks for scrolling this far. You’re rare.</p>
 				<div class="flex gap-2">
 					<a

@@ -34,7 +34,7 @@
 />
 
 <main class="border-b border-separator">
-	<div class="inner border-x border-separator px-8 py-8 lg:py-28">
+	<div class="inner border-x border-separator px-8 py-8 lg:pt-42 lg:pb-28">
 		<div
 			class="mx-auto flex flex-col justify-center gap-2 lg:max-w-2xl lg:items-center lg:gap-6 lg:text-center"
 		>

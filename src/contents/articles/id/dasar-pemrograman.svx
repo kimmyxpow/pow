@@ -1,0 +1,239 @@
+---
+title: "Dasar Dasar Programming"
+excerpt: "Pada dasarnya, pemrograman adalah cara kita berkomunikasi dengan komputer. Kita memberi instruksi ke komputer, dan komputer akan mengeksekusi instruksi tersebut."
+en: "dasar-pemrograman"
+---
+
+Kalau kamu baru mulai tertarik belajar programming dan bingung harus mulai dari mana, kamu bisa baca tulisanku ini. Ini adalah panduan awal untuk kamu yang baru mulai. Kita akan bahas apa itu programming, dasar-dasarnya, beberapa bahasa yang populer, dan hal-hal penting lain sebelum kamu lanjut lebih jauh.
+
+## Konsep Dasar Programming
+
+Sebelum kamu mulai menulis kode, sangat penting untuk memahami konsep dasar dalam pemrograman. Konsep-konsep ini adalah pondasi dari semua bahasa pemrograman. Meski setiap bahasa punya gaya penulisan atau *syntax* yang berbeda, hal-hal dasarnya hampir selalu sama.
+
+Berikut beberapa konsep yang wajib kamu tau sebagai langkah pertama:
+
+### 1. Variabel
+
+Variabel adalah tempat untuk menyimpan data. Anggap saja seperti kotak yang bisa menyimpan sesuatu: angka, tulisan, atau informasi lain.
+
+Contoh dalam JavaScript:
+
+```javascript
+let nama = "Budi";
+let umur = 25;
+```
+
+Artinya: kamu menyimpan tulisan “Budi” ke dalam variabel `nama`, dan angka 25 ke dalam variabel `umur`.
+
+### 2. Tipe Data
+
+Setiap data yang kamu simpan punya jenisnya masing-masing. Ini beberapa tipe data yang paling dasar:
+
+* **String**: teks atau tulisan. Ditulis dalam tanda kutip.
+  Contoh: `"Halo"`
+* **Number**: angka. Bisa bulat atau desimal.
+  Contoh: `10`, `3.14`
+* **Boolean**: cuma ada dua nilai: `true` (benar) atau `false` (salah).
+  Contoh: `let aktif = true;`
+
+### 3. Operasi dan Expression
+
+Kamu bisa melakukan operasi dasar seperti matematika:
+
+```javascript
+let hasil = 10 + 5;
+```
+
+Kamu juga bisa gabungkan string:
+
+```javascript
+let nama = "Budi";
+let sapaan = "Halo, " + nama;
+```
+
+### 4. Fungsi
+
+Fungsi adalah kumpulan kode yang bisa kamu jalankan berulang kali. Bayangkan seperti resep masakan: bisa dipakai berkali-kali dengan bahan yang berbeda.
+
+```javascript
+function sapa(nama) {
+  console.log("Halo, " + nama);
+}
+
+sapa("Pow"); // output: Halo, Pow
+sapa("Noval"); // output: Halo, Noval
+```
+
+### 5. Kondisi (If-Else)
+
+Kamu bisa membuat keputusan dalam kode, contohnya:
+
+```javascript
+let umur = 18;
+
+if (umur >= 17) { // jika umur lebih besar atau sama dengan 17
+  console.log("Kamu sudah cukup umur.");
+} else { // jika umur kurang dari 17
+  console.log("Masih di bawah umur.");
+}
+```
+
+Hasilnya program akan menampilkan "Kamu sudah cukup umur." karena umur 18 lebih besar dari 17.
+
+### 6. Perulangan (Loop)
+
+Loop digunakan kalau kamu ingin mengulang sesuatu beberapa kali.
+
+```javascript
+for (let i = 1; i <= 3; i++) {
+  console.log("Perulangan ke-" + i);
+}
+```
+
+Hasilnya program akan menampilkan:
+```
+Perulangan ke-1
+Perulangan ke-2
+Perulangan ke-3
+```
+
+### Coba Sendiri di Browser
+
+Kamu bisa coba kode-kode di atas langsung di browser.
+Caranya:
+
+1. Klik kanan halaman ini
+2. Pilih **Inspect** atau **Periksa**
+3. Buka tab **Console**
+4. Ketik kode kamu di situ dan tekan **Enter**
+5. Untuk kode lebih dari satu baris, tekan **Shift + Enter** agar tidak langsung dieksekusi
+
+Contoh coba sendiri:
+
+```javascript
+let nama = "Pow";
+console.log("Halo, " + nama);
+```
+
+### Lebih Lanjut
+
+Konsep-konsep di atas adalah fondasi utama dari programming. Memang masih sangat dasar, tapi penting untuk kamu kuasai dulu sebelum masuk ke topik yang lebih kompleks, seperti:
+
+* Struktur data (array, object, dll)
+* Object-Oriented Programming (OOP)
+* Function lebih dalam
+* Event, DOM, dan sebagainya
+
+Yang perlu kamu tau: semua bahasa pemrograman punya dasar yang sama. Yang beda hanya cara menulisnya.
+
+Kalau kamu sudah paham dasar ini, kamu akan lebih mudah belajar bahasa manapun ke depannya.
+
+Oke, kita lanjut ke bagian berikutnya: **Mengenal Bahasa Pemrograman Populer dan Kegunaannya**.
+
+## Bahasa Pemrograman Populer dan Kegunaannya
+
+Setelah kamu tau dasar-dasar programming, langkah selanjutnya adalah mengenal berbagai bahasa pemrograman. Ini penting karena setiap bahasa punya kekuatan dan tujuan yang berbeda. Tidak ada satu bahasa yang paling bagus untuk semua hal, semuanya tergantung kamu ingin membangun apa.
+
+Berikut ini beberapa bahasa pemrograman yang paling populer dan banyak digunakan saat ini:
+
+### 1. JavaScript
+
+* **Untuk apa?** Digunakan untuk membuat tampilan web yang interaktif.
+* **Cocok untuk siapa?** Kamu yang tertarik bikin website atau aplikasi web.
+* **Kelebihannya:** Bisa langsung dicoba di browser, banyak tutorial, dan dipakai di mana-mana.
+
+### 2. Python
+
+* **Untuk apa?** Cocok untuk data analysis, machine learning, automasi, dan backend.
+* **Cocok untuk siapa?** Kamu yang suka logika, data, atau ingin belajar AI.
+* **Kelebihannya:** Sintaksnya simpel, enak dibaca, bagus untuk pemula.
+
+### 3. Java
+
+* **Untuk apa?** Dipakai di aplikasi Android, sistem besar, dan perbankan.
+* **Cocok untuk siapa?** Kamu yang tertarik bikin aplikasi skala besar.
+* **Kelebihannya:** Stabil, dipakai banyak perusahaan besar.
+
+### 4. C / C++
+
+* **Untuk apa?** Biasanya untuk sistem operasi, software yang butuh performa tinggi, atau game engine.
+* **Cocok untuk siapa?** Kamu yang suka teknikal dan ingin mengerti cara kerja komputer dari dalam.
+* **Kelebihannya:** Cepat dan powerful, tapi sintaksnya lebih sulit dari Python/JavaScript.
+
+### 5. PHP
+
+* **Untuk apa?** Umumnya dipakai untuk backend website (WordPress, Laravel).
+* **Cocok untuk siapa?** Kamu yang tertarik bikin website dari sisi server.
+* **Kelebihannya:** Banyak digunakan di industri, mudah mulai dengan CMS seperti WordPress.
+
+Kamu gak harus langsung memilih satu dari sekarang. Tapi, dengan mengenal bahasa-bahasa ini, kamu bisa mulai mempertimbangkan mana yang kira-kira cocok dengan minat dan tujuan belajarmu. Selanjutnya, kita akan bahas **mindset** yang penting buat pemula saat belajar programming supaya kamu gak cepat menyerah dan bisa belajar dengan lebih efektif.
+
+## Mindset Pemula Saat Belajar Programming
+
+Belajar programming itu bukan soal jadi jago dalam semalam. Ini soal membangun kebiasaan berpikir logis dan sabar menghadapi error. Banyak pemula berhenti di tengah jalan karena merasa “aku gak cocok di sini”, padahal mereka cuma belum tau kalau stuck itu bagian dari proses belajar.
+
+Berikut beberapa hal yang penting banget kamu tanamkan sejak awal:
+
+### 1. Jangan Takut Error
+
+Error itu teman, bukan musuh. Setiap programmer — dari pemula sampai yang senior — pasti pernah (dan masih) ketemu error. Yang penting adalah kamu belajar membaca pesan error-nya dan cari tau maksudnya. Biasakan untuk googling atau nanya kalau kamu gak ngerti.
+
+### 2. Belajar Sedikit Demi Sedikit
+
+Jangan buru-buru pengen bikin aplikasi besar kalau dasarnya belum kuat. Fokus dulu sama dasar seperti variabel, fungsi, kondisi, dan perulangan. Semakin kamu paham dasar, makin gampang kamu pelajari hal yang lebih sulit nanti.
+
+### 3. Jangan Bandingkan Diri
+
+Kalau kamu lihat orang lain belajar lebih cepat, itu gak berarti kamu tertinggal. Semua orang punya ritme belajarnya masing-masing. Fokus aja sama prosesmu sendiri.
+
+### 4. Praktek Lebih Penting dari Hafalan
+
+Daripada menghafal syntax, lebih baik kamu langsung coba. Salah gak apa-apa. Bahkan kadang dengan salah, kamu jadi lebih ngerti.
+
+### 5. Belajar Itu Bertahap
+
+Programming itu luas banget, gak bisa kamu kuasai semua sekaligus. Tapi kalau kamu konsisten belajar sedikit demi sedikit, lama-lama kamu bakal nyadar kalau yang dulu kamu anggap susah, sekarang malah terasa gampang.
+
+## Menentukan Minat: Mau Belajar Ke Arah Mana?
+
+Setelah kamu mulai paham dasar-dasar programming, pertanyaan selanjutnya adalah: *mau ngapain selanjutnya?* Karena dunia pemrograman itu luas banget, dan kamu gak harus bisa semuanya.
+
+Berikut ini beberapa jalur yang paling umum dipilih setelah belajar dasar-dasar programming:
+
+### 1. **Frontend Development**
+
+Kalau kamu suka hal yang visual dan interaktif, frontend bisa jadi pilihan. Frontend developer bertanggung jawab atas tampilan dan interaksi yang kamu lihat di website atau aplikasi. Biasanya menggunakan HTML, CSS, dan JavaScript.
+
+Contohnya: bikin website portfolio, halaman login, atau aplikasi to-do list yang bisa diklik dan diisi langsung oleh pengguna.
+
+### 2. **Backend Development**
+
+Kalau kamu lebih tertarik sama logika, database, dan proses di balik layar, kamu mungkin akan cocok di backend. Backend developer mengatur data, otentikasi, dan semua proses yang tidak langsung kelihatan oleh pengguna.
+
+Contohnya: bikin sistem login yang menyimpan data ke database, atau bikin API yang digunakan aplikasi frontend.
+
+### 3. **Fullstack Development**
+
+Gabungan dari frontend dan backend. Cocok kalau kamu pengen bisa bikin aplikasi secara menyeluruh, dari tampilan sampai fungsinya.
+
+### 4. **Mobile App Development**
+
+Kalau kamu pengen bikin aplikasi Android atau iOS, kamu bisa belajar framework seperti React Native, Flutter, atau langsung pakai bahasa asli seperti Kotlin (Android) atau Swift (iOS).
+
+### 5. **Data Science & Machine Learning**
+
+Kalau kamu tertarik dengan data, angka, atau AI, kamu bisa eksplor ke arah ini. Biasanya menggunakan Python dan alat-alat seperti Jupyter Notebook, Pandas, dan TensorFlow.
+
+### 6. **Game Development**
+
+Buat kamu yang suka game dan pengen bikin game sendiri, ada jalur ini. Kamu bisa belajar pakai Unity (dengan C#) atau Godot (dengan GDScript atau C# juga).
+
+---
+
+Jadi, setelah memahami dasar-dasarnya, kamu bisa mulai eksplorasi:
+
+* Apa yang bikin kamu penasaran?
+* Kamu lebih suka desain atau logika?
+* Kamu pengen bikin apa?
+
+Gak perlu buru-buru. Coba-coba aja dulu beberapa hal sampai kamu nemu yang paling bikin kamu semangat buat belajar terus. Yang penting, kamu udah punya bekal dasar yang bisa kamu bawa ke mana-mana.
