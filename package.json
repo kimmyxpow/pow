@@ -28,6 +28,7 @@
 		"globals": "^16.3.0",
 		"gsap": "^3.13.0",
 		"mdsvex": "^0.12.6",
+		"phosphor-svelte": "^3.0.1",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.6.14",
